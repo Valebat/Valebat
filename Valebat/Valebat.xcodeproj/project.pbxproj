@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64FB63125F90DB90040197A /* ViewConstants.swift */; };
+		C64FB63B25F90F410040197A /* SCNVector3+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64FB63A25F90F410040197A /* SCNVector3+.swift */; };
 		DDF9DE1F25F7A53500C97905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */; };
 		DDF9DE2125F7A53500C97905 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF9DE2025F7A53500C97905 /* art.scnassets */; };
 		DDF9DE2325F7A53500C97905 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE2225F7A53500C97905 /* GameViewController.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C64FB63125F90DB90040197A /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		C64FB63A25F90F410040197A /* SCNVector3+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+.swift"; sourceTree = "<group>"; };
 		DDF9DE1B25F7A53500C97905 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF9DE2025F7A53500C97905 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -74,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C64FB63925F90F260040197A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C64FB63A25F90F410040197A /* SCNVector3+.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		DDF9DE1225F7A53500C97905 = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */,
-				DDF9DE2025F7A53500C97905 /* art.scnassets */,
-				DDF9DE2225F7A53500C97905 /* GameViewController.swift */,
 				DDF9DE2425F7A53500C97905 /* Main.storyboard */,
+				DDF9DE2225F7A53500C97905 /* GameViewController.swift */,
+				C64FB63125F90DB90040197A /* ViewConstants.swift */,
+				C64FB63925F90F260040197A /* Util */,
 				DDF9DE2725F7A53900C97905 /* Assets.xcassets */,
+				DDF9DE2025F7A53500C97905 /* art.scnassets */,
 				DDF9DE2925F7A53900C97905 /* Info.plist */,
 			);
 			path = Valebat;
@@ -255,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */,
+				C64FB63B25F90F410040197A /* SCNVector3+.swift in Sources */,
 				DDF9DE2325F7A53500C97905 /* GameViewController.swift in Sources */,
 				DDF9DE1F25F7A53500C97905 /* AppDelegate.swift in Sources */,
 			);

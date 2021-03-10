@@ -5,6 +5,7 @@
 //  Created by Zhang Yifan on 9/3/21.
 //
 
+import Foundation
 import UIKit
 import QuartzCore
 import SceneKit
@@ -14,6 +15,7 @@ class GameViewController: UIViewController {
     var scene: SCNScene!
     
     var characterNode: SCNNode!
+    var cameraNode: SCNNode!
     var levelNode: SCNNode!
 
     override func viewDidLoad() {
@@ -26,6 +28,8 @@ class GameViewController: UIViewController {
         assert(sceneView != nil, "SceneView is nil.")
         
         sceneView.delegate = self
+        sceneView.isPlaying = true
+        sceneView.preferredFramesPerSecond = 60
         
         scene = SCNScene(named: "art.scnassets/MainScene.scn")
         assert(scene != nil, "Scene is nil.")
@@ -37,6 +41,7 @@ class GameViewController: UIViewController {
     
     func setupNodes() {
         characterNode = scene.rootNode.childNode(withName: "character", recursively: true)!
+        cameraNode = scene.rootNode.childNode(withName: "camera", recursively: true)!
         levelNode = scene.rootNode.childNode(withName: "level", recursively: true)!
     }
     
@@ -50,7 +55,28 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: SCNSceneRendererDelegate {
-    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        let character = characterNode.presentation
+        var characterPosition = character.position
+        
+        let targetPosition = SCNVector3(x: characterPosition.x, y: ViewConstants.CAMERA_HEIGHT, z: characterPosition.z)
+        var cameraPosition = cameraNode.position
+        
+        let xCam = cameraPosition.x * (1.0 - ViewConstants.CAMERA_DAMPING)
+            + targetPosition.x * ViewConstants.CAMERA_DAMPING
+        let zCam = cameraPosition.z * (1.0 - ViewConstants.CAMERA_DAMPING)
+            + targetPosition.z * ViewConstants.CAMERA_DAMPING
+        
+        cameraPosition = SCNVector3(x: xCam, y: ViewConstants.CAMERA_HEIGHT, z: zCam)
+        cameraNode.position = cameraPosition
+        
+        let xCha = characterPosition.x + ((Float(arc4random()) / Float(UINT32_MAX)) * 0.1)
+        let yCha = characterPosition.y
+        let zCha = characterPosition.z + ((Float(arc4random()) / Float(UINT32_MAX)) * 0.1)
+        
+        characterPosition = SCNVector3(x: xCha, y: yCha, z: zCha)
+        characterNode.position = characterPosition
+    }
 }
 
 extension GameViewController: SCNPhysicsContactDelegate {
