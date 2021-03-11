@@ -50,11 +50,12 @@ class GameViewController: UIViewController {
         
         let map = TestConstants.TEST_MAP
         
-        for mObj in map.objects {
+       /* for mObj in map.objects {
             let node = MapUtil.createNodeFromObject(mObj, nodeMap: mapObjectNodes)
             scene.rootNode.addChildNode(node)
-        }
-        
+        }*/
+        let enemy = Enemy()
+        scene.rootNode.addChildNode(enemy.component(ofType: RenderComponent.self)!.node)
         // These nodes function as nodes to clone from, so we hide the originals.
         for node in mapObjectNodes.values {
             node.isHidden = true
@@ -71,7 +72,7 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: SCNSceneRendererDelegate {
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+   /* func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         let character = characterNode.presentation
         var characterPosition = character.position
         
@@ -92,7 +93,7 @@ extension GameViewController: SCNSceneRendererDelegate {
         
         characterPosition = SCNVector3(x: xCha, y: yCha, z: zCha)
         characterNode.position = characterPosition
-    }
+    }*/
 }
 
 extension GameViewController: SCNPhysicsContactDelegate {
