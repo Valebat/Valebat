@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64FB63125F90DB90040197A /* ViewConstants.swift */; };
 		C64FB63B25F90F410040197A /* SCNVector3+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64FB63A25F90F410040197A /* SCNVector3+.swift */; };
+		C6A9427125F9E37D00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9427025F9E37D00087256 /* MapObject.swift */; };
+		C6A9427925F9E49F00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9427825F9E49F00087256 /* Map.swift */; };
+		C6A9427E25F9E5DF00087256 /* StaticMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9427D25F9E5DF00087256 /* StaticMapObject.swift */; };
+		C6A9428625F9E66700087256 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9428525F9E66700087256 /* Rock.swift */; };
+		C6A9428B25F9E6DD00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9428A25F9E6DD00087256 /* MapObjectConstants.swift */; };
+		C6A9429525F9E85E00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9429425F9E85E00087256 /* TestConstants.swift */; };
+		C6A9429A25F9E90F00087256 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9429925F9E90F00087256 /* MapUtil.swift */; };
+		C6A9429F25F9E9B700087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9429E25F9E9B700087256 /* MapObjectEnum.swift */; };
 		DDF9DE1F25F7A53500C97905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */; };
 		DDF9DE2125F7A53500C97905 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF9DE2025F7A53500C97905 /* art.scnassets */; };
 		DDF9DE2325F7A53500C97905 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE2225F7A53500C97905 /* GameViewController.swift */; };
@@ -38,6 +46,14 @@
 /* Begin PBXFileReference section */
 		C64FB63125F90DB90040197A /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		C64FB63A25F90F410040197A /* SCNVector3+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+.swift"; sourceTree = "<group>"; };
+		C6A9427025F9E37D00087256 /* MapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
+		C6A9427825F9E49F00087256 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C6A9427D25F9E5DF00087256 /* StaticMapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticMapObject.swift; sourceTree = "<group>"; };
+		C6A9428525F9E66700087256 /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		C6A9428A25F9E6DD00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
+		C6A9429425F9E85E00087256 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		C6A9429925F9E90F00087256 /* MapUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		C6A9429E25F9E9B700087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
 		DDF9DE1B25F7A53500C97905 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF9DE2025F7A53500C97905 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -86,6 +102,44 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		C6A9426E25F9E34300087256 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9428F25F9E6E600087256 /* Util */,
+				C6A9426F25F9E36800087256 /* MapObject */,
+				C6A9427825F9E49F00087256 /* Map.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C6A9426F25F9E36800087256 /* MapObject */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9427025F9E37D00087256 /* MapObject.swift */,
+				C6A9427D25F9E5DF00087256 /* StaticMapObject.swift */,
+				C6A9428525F9E66700087256 /* Rock.swift */,
+			);
+			path = MapObject;
+			sourceTree = "<group>";
+		};
+		C6A9428F25F9E6E600087256 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9428A25F9E6DD00087256 /* MapObjectConstants.swift */,
+				C6A9429E25F9E9B700087256 /* MapObjectEnum.swift */,
+				C6A9429925F9E90F00087256 /* MapUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		C6A9429325F9E85200087256 /* TestUtil */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9429425F9E85E00087256 /* TestConstants.swift */,
+			);
+			path = TestUtil;
+			sourceTree = "<group>";
+		};
 		DDF9DE1225F7A53500C97905 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +163,8 @@
 		DDF9DE1D25F7A53500C97905 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				C6A9426E25F9E34300087256 /* Map */,
+				C6A9429325F9E85200087256 /* TestUtil */,
 				DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */,
 				DDF9DE2425F7A53500C97905 /* Main.storyboard */,
 				DDF9DE2225F7A53500C97905 /* GameViewController.swift */,
@@ -270,9 +326,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */,
+				C6A9427125F9E37D00087256 /* MapObject.swift in Sources */,
 				C64FB63B25F90F410040197A /* SCNVector3+.swift in Sources */,
 				DDF9DE2325F7A53500C97905 /* GameViewController.swift in Sources */,
+				C6A9428625F9E66700087256 /* Rock.swift in Sources */,
+				C6A9427925F9E49F00087256 /* Map.swift in Sources */,
 				DDF9DE1F25F7A53500C97905 /* AppDelegate.swift in Sources */,
+				C6A9429525F9E85E00087256 /* TestConstants.swift in Sources */,
+				C6A9429F25F9E9B700087256 /* MapObjectEnum.swift in Sources */,
+				C6A9427E25F9E5DF00087256 /* StaticMapObject.swift in Sources */,
+				C6A9428B25F9E6DD00087256 /* MapObjectConstants.swift in Sources */,
+				C6A9429A25F9E90F00087256 /* MapUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
