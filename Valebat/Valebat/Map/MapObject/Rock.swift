@@ -5,33 +5,33 @@
 //  Created by Jing Lin Shi on 11/3/21.
 //
 
-import SceneKit
+import SpriteKit
 
-class Rock : StaticMapObject {
+class Rock: StaticMapObject {
     let type: MapObjectEnum = MapObjectEnum.ROCK
-    
-    let position: SCNVector3
+
+    let position: CGPoint
     let xDimension: Double
     let yDimension: Double
-    
+
     let collidable: Bool
-    
-    init(position: SCNVector3, scale: Double, collidable: Bool) {
+
+    init(position: CGPoint, scale: Double, collidable: Bool) {
         self.position = position
-        self.xDimension = MapObjectConstants.ROCK_DEFAULT_WIDTH
-        self.yDimension = MapObjectConstants.ROCK_DEFAULT_HEIGHT
+        self.xDimension = MapObjectConstants.ROCKDEFAULTWIDTH
+        self.yDimension = MapObjectConstants.ROCKDEFAULTHEIGHT
         self.collidable = collidable
     }
-    
-    convenience init(position: SCNVector3, collidable: Bool) {
+
+    convenience init(position: CGPoint, collidable: Bool) {
         self.init(position: position, scale: 1.0, collidable: collidable)
     }
-    
-    convenience init(position: SCNVector3, scale: Double) {
-        self.init(position: position, scale: scale, collidable: MapObjectConstants.ROCK_DEFAULT_COLLIDABLE)
+
+    convenience init(position: CGPoint, scale: Double) {
+        self.init(position: position, scale: scale, collidable: MapObjectConstants.ROCKDEFAULTCOLLIDABLE)
     }
-    
-    convenience init(position: SCNVector3) {
+
+    convenience init(position: CGPoint) {
         self.init(position: position, scale: 1.0)
     }
 }

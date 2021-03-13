@@ -6,6 +6,5 @@
 //
 
 class ViewConstants {
-    static let CAMERA_HEIGHT : Float = 25.0
-    static let CAMERA_DAMPING : Float = 0.25
+
 }

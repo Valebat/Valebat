@@ -7,7 +7,7 @@
 
 class MapObjectConstants {
     // Rocks.
-    static let ROCK_DEFAULT_HEIGHT: Double = 1.0
-    static let ROCK_DEFAULT_WIDTH: Double = 1.0
-    static let ROCK_DEFAULT_COLLIDABLE: Bool = true
+    static let ROCKDEFAULTHEIGHT: Double = 1.0
+    static let ROCKDEFAULTWIDTH: Double = 1.0
+    static let ROCKDEFAULTCOLLIDABLE: Bool = true
 }

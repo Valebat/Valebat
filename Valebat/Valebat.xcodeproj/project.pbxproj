@@ -16,12 +16,12 @@
 		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
 		C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CE25FCE7EA00087256 /* Rock.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
-		C6A942E025FCE7EA00087256 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D325FCE7EA00087256 /* Health.swift */; };
+		C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D325FCE7EA00087256 /* HealthComponent.swift */; };
 		C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D425FCE7EA00087256 /* RenderComponent.swift */; };
 		C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D525FCE7EA00087256 /* ViewConstants.swift */; };
+		C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F325FCFC4A00087256 /* EntityManager.swift */; };
+		C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
 		CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F925FCE1C000581E20 /* AppDelegate.swift */; };
-		CBC777FC25FCE1C000581E20 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBC777FB25FCE1C000581E20 /* GameScene.sks */; };
-		CBC777FE25FCE1C000581E20 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBC777FD25FCE1C000581E20 /* Actions.sks */; };
 		CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777FF25FCE1C000581E20 /* GameScene.swift */; };
 		CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7780125FCE1C000581E20 /* GameViewController.swift */; };
 		CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC7780325FCE1C000581E20 /* Main.storyboard */; };
@@ -57,13 +57,13 @@
 		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		C6A942CE25FCE7EA00087256 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		C6A942D325FCE7EA00087256 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		C6A942D325FCE7EA00087256 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		C6A942D425FCE7EA00087256 /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
 		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		C6A942F325FCFC4A00087256 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		C6A942F825FCFD5B00087256 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		CBC777F625FCE1C000581E20 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC777F925FCE1C000581E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBC777FB25FCE1C000581E20 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		CBC777FD25FCE1C000581E20 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		CBC777FF25FCE1C000581E20 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CBC7780125FCE1C000581E20 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CBC7780425FCE1C000581E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,7 +105,9 @@
 		C6A942C225FCE7EA00087256 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942C325FCE7EA00087256 /* Enemy.swift */,
+				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
+				C6A9430D25FD04FC00087256 /* MapEntities */,
+				C6A9430E25FD050600087256 /* EnemyEntities */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -159,10 +161,26 @@
 		C6A942D225FCE7EA00087256 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942D325FCE7EA00087256 /* Health.swift */,
+				C6A942D325FCE7EA00087256 /* HealthComponent.swift */,
 				C6A942D425FCE7EA00087256 /* RenderComponent.swift */,
+				C6A942F825FCFD5B00087256 /* SpriteComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		C6A9430D25FD04FC00087256 /* MapEntities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapEntities;
+			sourceTree = "<group>";
+		};
+		C6A9430E25FD050600087256 /* EnemyEntities */ = {
+			isa = PBXGroup;
+			children = (
+				C6A942C325FCE7EA00087256 /* Enemy.swift */,
+			);
+			path = EnemyEntities;
 			sourceTree = "<group>";
 		};
 		CBC777ED25FCE1C000581E20 = {
@@ -194,8 +212,6 @@
 				C6A942C425FCE7EA00087256 /* TestUtil */,
 				C6A942D025FCE7EA00087256 /* Util */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
-				CBC777FB25FCE1C000581E20 /* GameScene.sks */,
-				CBC777FD25FCE1C000581E20 /* Actions.sks */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
 				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
@@ -230,6 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBC7782125FCE1C200581E20 /* Build configuration list for PBXNativeTarget "Valebat" */;
 			buildPhases = (
+				C6A9430325FD007000087256 /* ShellScript */,
 				CBC777F225FCE1C000581E20 /* Sources */,
 				CBC777F325FCE1C000581E20 /* Frameworks */,
 				CBC777F425FCE1C000581E20 /* Resources */,
@@ -327,9 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
-				CBC777FC25FCE1C000581E20 /* GameScene.sks in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
-				CBC777FE25FCE1C000581E20 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +364,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C6A9430325FD007000087256 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CBC777F225FCE1C000581E20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -360,13 +395,15 @@
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
+				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
+				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
 				C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */,
-				C6A942E025FCE7EA00087256 /* Health.swift in Sources */,
+				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
 			);
