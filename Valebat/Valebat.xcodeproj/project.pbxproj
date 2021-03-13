@@ -16,7 +16,6 @@
 		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
 		C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CE25FCE7EA00087256 /* Rock.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
-		C6A942DF25FCE7EA00087256 /* SCNVector3+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D125FCE7EA00087256 /* SCNVector3+.swift */; };
 		C6A942E025FCE7EA00087256 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D325FCE7EA00087256 /* Health.swift */; };
 		C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D425FCE7EA00087256 /* RenderComponent.swift */; };
 		C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D525FCE7EA00087256 /* ViewConstants.swift */; };
@@ -58,10 +57,9 @@
 		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		C6A942CE25FCE7EA00087256 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		C6A942D125FCE7EA00087256 /* SCNVector3+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+.swift"; sourceTree = "<group>"; };
 		C6A942D325FCE7EA00087256 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 		C6A942D425FCE7EA00087256 /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
-		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewConstants.swift; path = Valebat/ViewConstants.swift; sourceTree = "<group>"; };
+		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		CBC777F625FCE1C000581E20 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC777F925FCE1C000581E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC777FB25FCE1C000581E20 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -109,8 +107,7 @@
 			children = (
 				C6A942C325FCE7EA00087256 /* Enemy.swift */,
 			);
-			name = Entities;
-			path = Valebat/Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C6A942C425FCE7EA00087256 /* TestUtil */ = {
@@ -118,8 +115,7 @@
 			children = (
 				C6A942C525FCE7EA00087256 /* TestConstants.swift */,
 			);
-			name = TestUtil;
-			path = Valebat/TestUtil;
+			path = TestUtil;
 			sourceTree = "<group>";
 		};
 		C6A942C625FCE7EA00087256 /* Map */ = {
@@ -129,8 +125,7 @@
 				C6A942CB25FCE7EA00087256 /* MapObject */,
 				C6A942CF25FCE7EA00087256 /* Map.swift */,
 			);
-			name = Map;
-			path = Valebat/Map;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		C6A942C725FCE7EA00087256 /* Util */ = {
@@ -156,10 +151,9 @@
 		C6A942D025FCE7EA00087256 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942D125FCE7EA00087256 /* SCNVector3+.swift */,
+				C6A942D525FCE7EA00087256 /* ViewConstants.swift */,
 			);
-			name = Util;
-			path = Valebat/Util;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		C6A942D225FCE7EA00087256 /* Components */ = {
@@ -168,19 +162,12 @@
 				C6A942D325FCE7EA00087256 /* Health.swift */,
 				C6A942D425FCE7EA00087256 /* RenderComponent.swift */,
 			);
-			name = Components;
-			path = Valebat/Components;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CBC777ED25FCE1C000581E20 = {
 			isa = PBXGroup;
 			children = (
-				C6A942D225FCE7EA00087256 /* Components */,
-				C6A942C225FCE7EA00087256 /* Entities */,
-				C6A942C625FCE7EA00087256 /* Map */,
-				C6A942C425FCE7EA00087256 /* TestUtil */,
-				C6A942D025FCE7EA00087256 /* Util */,
-				C6A942D525FCE7EA00087256 /* ViewConstants.swift */,
 				CBC777F825FCE1C000581E20 /* Valebat */,
 				CBC7781025FCE1C200581E20 /* ValebatTests */,
 				CBC7781B25FCE1C200581E20 /* ValebatUITests */,
@@ -201,6 +188,11 @@
 		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				C6A942C625FCE7EA00087256 /* Map */,
+				C6A942D225FCE7EA00087256 /* Components */,
+				C6A942C225FCE7EA00087256 /* Entities */,
+				C6A942C425FCE7EA00087256 /* TestUtil */,
+				C6A942D025FCE7EA00087256 /* Util */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
 				CBC777FB25FCE1C000581E20 /* GameScene.sks */,
 				CBC777FD25FCE1C000581E20 /* Actions.sks */,
@@ -370,7 +362,6 @@
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
-				C6A942DF25FCE7EA00087256 /* SCNVector3+.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
