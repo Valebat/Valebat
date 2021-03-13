@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Valebat
 //
-//  Created by Aloysius Lim on 13/3/21.
+//  Created by Zhang Yifan on 9/3/21.
 //
 
 import UIKit
