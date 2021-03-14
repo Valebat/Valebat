@@ -28,6 +28,11 @@
 		CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC7780625FCE1C100581E20 /* Assets.xcassets */; };
 		CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781125FCE1C200581E20 /* ValebatTests.swift */; };
 		CBC7781D25FCE1C200581E20 /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */; };
+		DD4E010025FDBC4A002C5556 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* Player.swift */; };
+		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
+		DD4E011125FDCA90002C5556 /* HUDInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* HUDInputDelegate.swift */; };
+		DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */; };
+		DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValebatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatUITests.swift; sourceTree = "<group>"; };
 		CBC7781E25FCE1C200581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD4E00FF25FDBC4A002C5556 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
+		DD4E011025FDCA90002C5556 /* HUDInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDInputDelegate.swift; sourceTree = "<group>"; };
+		DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
+		DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
+				DD4E00FE25FDBC2E002C5556 /* PlayerEntities */,
 				C6A9430D25FD04FC00087256 /* MapEntities */,
 				C6A9430E25FD050600087256 /* EnemyEntities */,
 			);
@@ -206,6 +217,7 @@
 		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				DD4E010A25FDC99B002C5556 /* Joystick */,
 				C6A942C625FCE7EA00087256 /* Map */,
 				C6A942D225FCE7EA00087256 /* Components */,
 				C6A942C225FCE7EA00087256 /* Entities */,
@@ -237,6 +249,25 @@
 				CBC7781E25FCE1C200581E20 /* Info.plist */,
 			);
 			path = ValebatUITests;
+			sourceTree = "<group>";
+		};
+		DD4E00FE25FDBC2E002C5556 /* PlayerEntities */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E00FF25FDBC4A002C5556 /* Player.swift */,
+			);
+			path = PlayerEntities;
+			sourceTree = "<group>";
+		};
+		DD4E010A25FDC99B002C5556 /* Joystick */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */,
+				DD4E011025FDCA90002C5556 /* HUDInputDelegate.swift */,
+				DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */,
+				DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */,
+			);
+			path = Joystick;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +422,7 @@
 			files = (
 				C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
+				DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
@@ -398,13 +430,17 @@
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
+				DD4E010025FDBC4A002C5556 /* Player.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
+				DD4E011125FDCA90002C5556 /* HUDInputDelegate.swift in Sources */,
 				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
+				DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */,
 				C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
+				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

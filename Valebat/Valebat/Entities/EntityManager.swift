@@ -15,6 +15,8 @@ import GameplayKit
 class EntityManager {
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
+
+    var player: Player?
     let scene: SKScene
 
     lazy var componentSystems: [GKComponentSystem] = {
@@ -61,6 +63,17 @@ class EntityManager {
         add(enemy)
     }
 
+    func addPlayer() {
+        let character = Player(entityManager: self)
+        if let spriteComponent = character.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position =
+                CGPoint(x: scene.size.width * 0.5, y: scene.size.height * 0.5)
+            spriteComponent.node.zPosition = 2
+        }
+        add(character)
+        self.player = character
+    }
+
     func update(_ deltaTime: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: deltaTime)
@@ -73,4 +86,24 @@ class EntityManager {
         }
         toRemove.removeAll()
     }
+}
+
+extension EntityManager: HUDInputDelegate {
+    func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
+        guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
+            return
+        }
+
+        let newPosition = CGPoint(x: playerSprite.node.position.x
+                                    + velocity.x * ViewConstants.joystickVelocityMultiplier,
+                                  y: playerSprite.node.position.y
+                                    + velocity.y * ViewConstants.joystickVelocityMultiplier)
+
+        playerSprite.node.position = newPosition
+        playerSprite.node.zRotation = angular
+    }
+
+    func inputBegan(at location: CGPoint) {
+    }
+
 }

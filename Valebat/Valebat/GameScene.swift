@@ -13,12 +13,16 @@ class GameScene: SKScene {
     var entityManager: EntityManager!
     var graphs = [String: GKGraph]()
 
+    var headsUpDisplay: HeadsUpDisplayNode!
+
     private var lastUpdateTime: TimeInterval = 0
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
         entityManager = EntityManager(scene: self)
+
+        setUpScene()
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -31,6 +35,17 @@ class GameScene: SKScene {
 
     func touchUp(atPoint pos: CGPoint) {
 
+    }
+
+    private func setUpScene() {
+        setUpHUD()
+        entityManager.addPlayer()
+    }
+
+    private func setUpHUD() {
+        let hudNode = HeadsUpDisplayNode(screenSize: self.size)
+        addChild(hudNode)
+        hudNode.hudInputDelegate = entityManager
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
