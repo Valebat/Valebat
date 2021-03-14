@@ -5,10 +5,9 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-class Spell: DamageComponent {
-    private let level: Double
+protocol Spell {
     
-    init(at level: Double) {
-        self.level = level
-    }
+    let element: Element
+    
+    init(with element: Element)
 }

@@ -5,13 +5,17 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-class Element {
+class Element: Hashable {
     
-    private let type: ElementType
-    private let level: Double
+    let type: ElementType
+    let level: Double
     
     init(with type: ElementType, at level: Double) {
         self.type = type
         self.level = level
+    }
+    
+    static func == (lhs: Element, rhs: Element) -> Bool {
+        return lhs.type == rhs.type && lhs.level == rhs.level
     }
 }

@@ -1,11 +1,12 @@
 //
-//  MagmaSpell.swift
+//  GenericSpell.swift
 //  Valebat
 //
-//  Created by Sreyans Sipani on 11/3/21.
+//  Created by Sreyans Sipani on 13/3/21.
 //
 
-class MagmaSpell: Spell {
+class GenericSpell: Spell {
+    
     let element: Element
     
     required init(with element: Element) {
@@ -16,6 +17,6 @@ class MagmaSpell: Spell {
     }
     
     init(at level: Double) {
-        self.element = Element(with: .magma, at: level)
+        self.element = Element(with: .generic, at: level)
     }
 }
