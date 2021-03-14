@@ -162,7 +162,8 @@ open class TLAnalogJoystickComponent: SKSpriteNode {
         removeObserver(self, forKeyPath: "color")
     }
 
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+                                    change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
 
         if keyPath == "color" {
             redrawTexture()
@@ -367,7 +368,8 @@ open class TLAnalogJoystick: SKNode {
     }
 
     @discardableResult
-    public func on(_ event: TLAnalogJoystickEventType, _ handler: @escaping TLAnalogJoystickEventHandler) -> TLAnalogJoystickHandlerID {
+    public func on(_ event: TLAnalogJoystickEventType,
+                   _ handler: @escaping TLAnalogJoystickEventHandler) -> TLAnalogJoystickHandlerID {
         let handlerID = getHandlerID()
         var currHandlers = getEventHandlers(forType: event)
         currHandlers[handlerID] = handler

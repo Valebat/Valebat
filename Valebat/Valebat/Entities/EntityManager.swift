@@ -88,7 +88,7 @@ class EntityManager {
     }
 }
 
-extension EntityManager: HUDInputDelegate {
+extension EntityManager: UserInputDelegate {
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
             return

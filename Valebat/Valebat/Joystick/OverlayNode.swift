@@ -7,5 +7,5 @@
 
 protocol OverlayNode: AnyObject {
 
-    var hudInputDelegate: HUDInputDelegate? { get set }
+    var userInputDelegate: UserInputDelegate? { get set }
 }
