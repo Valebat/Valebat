@@ -8,10 +8,11 @@
 import SpriteKit
 
 class TestConstants {
-    static let TESTMAP: Map = Map(withObjects: [
-        Rock(position: CGPoint(x: 10.0, y: 0.0)),
-        Rock(position: CGPoint(x: -10.0, y: 0.0)),
-        Rock(position: CGPoint(x: 10.0, y: 0.0)),
-        Rock(position: CGPoint(x: -10.0, y: 0.0))
+    static let testMap: Map = Map(withObjects: [
+        Rock(position: CGPoint(x: 150.0, y: 150.0), scale: 2.0),
+        Rock(position: CGPoint(x: 360.0, y: 375.0)),
+        Rock(position: CGPoint(x: 435.0, y: 425.0)),
+        Wall(position: CGPoint(x: 305.0, y: 525.0), scale: 0.5),
+        Wall(position: CGPoint(x: 105.0, y: 425.0))
     ])
 }

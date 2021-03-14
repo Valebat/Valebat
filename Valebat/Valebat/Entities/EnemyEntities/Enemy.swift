@@ -5,7 +5,6 @@
 //  Created by Aloysius Lim on 12/3/21.
 //
 
-import Foundation
 import GameplayKit
 
 class Enemy: GKEntity {

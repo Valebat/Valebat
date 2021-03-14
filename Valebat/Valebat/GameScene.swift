@@ -40,6 +40,7 @@ class GameScene: SKScene {
     private func setUpScene() {
         setUpHUD()
         entityManager.addPlayer()
+        entityManager.initialiseMap()
     }
 
     private func setUpHUD() {

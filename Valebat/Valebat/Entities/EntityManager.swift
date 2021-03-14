@@ -27,6 +27,14 @@ class EntityManager {
         self.scene = scene
     }
 
+    func initialiseMap() {
+        let mapEntities: [GKEntity] = MapUtil.getMapEntities(entityManager: self)
+
+        for entity in mapEntities {
+            add(entity)
+        }
+    }
+
     func add(_ entity: GKEntity) {
         entities.insert(entity)
 
