@@ -7,7 +7,7 @@
 
 protocol Spell {
     
-    let element: Element
+    var element: Element { get }
     
     init(with element: Element)
 }

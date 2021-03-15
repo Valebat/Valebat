@@ -9,7 +9,7 @@ class MagmaSpell: Spell {
     let element: Element
     
     required init(with element: Element) {
-        if element.type != .steam {
+        if element.type != .magma {
             WrongElementTypeException().raise()
         }
         self.element = element

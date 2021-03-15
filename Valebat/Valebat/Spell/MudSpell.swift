@@ -9,7 +9,7 @@ class MudSpell: Spell {
     let element: Element
     
     required init(with element: Element) {
-        if element.type != .steam {
+        if element.type != .mud {
             WrongElementTypeException().raise()
         }
         self.element = element

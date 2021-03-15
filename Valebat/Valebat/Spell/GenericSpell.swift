@@ -10,7 +10,7 @@ class GenericSpell: Spell {
     let element: Element
     
     required init(with element: Element) {
-        if element.type != .steam {
+        if element.type != .generic {
             WrongElementTypeException().raise()
         }
         self.element = element
