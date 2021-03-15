@@ -11,14 +11,14 @@ enum ElementType: Int, CaseIterable {
     case water
     case earth
     case generic
-    
+
     // Two Element Spell
     case steam
     case magma
     case mud
-    
+
     // Multiple Element spells
-    
+
     var isSingle: Bool {
         switch self {
         case .fire, .water, .earth, .generic:

@@ -6,8 +6,8 @@
 //
 
 protocol Spell {
-    
+
     var element: Element { get }
-    
+
     init(with element: Element)
 }
