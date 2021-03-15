@@ -17,11 +17,15 @@ class EntityManager {
     var toRemove = Set<GKEntity>()
 
     var player: Player?
+    var obstacles: [GKPolygonObstacle] = []
+
     let scene: SKScene
     let gkScene: GKScene
 
     lazy var componentSystems: [GKComponentSystem] = {
-        return []
+        let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
+        let playerAgentSystem = GKComponentSystem(componentClass: PlayerAgentComponent.self)
+        return [moveSystem, playerAgentSystem]
     }()
 
     init(scene: SKScene) {
@@ -39,7 +43,7 @@ class EntityManager {
             add(entity)
         }
 
-        var obstacles: [GKPolygonObstacle] = []
+        self.obstacles = []
 
         for entity in mapEntities {
             var nodes: [SKNode] = []
@@ -47,8 +51,6 @@ class EntityManager {
 
             obstacles.append(contentsOf: SKNode.obstacles(fromNodeBounds: nodes))
         }
-
-        print(obstacles.count)
 
         // TODO replace magic num with 0.5 * player width
         let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 50.0)
