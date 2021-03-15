@@ -12,6 +12,8 @@ import SpriteKit
 import GameplayKit
 
 class HealthComponent: GKComponent {
+
+    var armor: DamageMultipliers
     let fullHealth: CGFloat
     var health: CGFloat
     let healthBarFullWidth: CGFloat
@@ -20,7 +22,7 @@ class HealthComponent: GKComponent {
 
     init(parentNode: SKNode, barWidth: CGFloat,
          barOffset: CGFloat, health: CGFloat, entityManager: EntityManager) {
-
+        armor = DamageMultipliers()
         self.fullHealth = health
         self.health = health
         self.entityManager = entityManager
@@ -35,6 +37,10 @@ class HealthComponent: GKComponent {
 
         healthBar.isHidden = true
         super.init()
+    }
+
+    func takeDamage(damageComponent: DamageComponent) {
+        takeDamage(armor.getFinalDamage(damages: damageComponent.damageValues))
     }
 
     required init?(coder aDecoder: NSCoder) {
