@@ -123,15 +123,19 @@ class EntityManager {
 }
 
 extension EntityManager: UserInputDelegate {
+    func spellJoystickEnded(angular: CGFloat) {
+        print(angular)
+    }
+
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
             return
         }
 
         let newPosition = CGPoint(x: playerSprite.node.position.x
-                                    + velocity.x * ViewConstants.joystickVelocityMultiplier,
+                                    + velocity.x * HUDConstants.joystickVelocityMultiplier,
                                   y: playerSprite.node.position.y
-                                    + velocity.y * ViewConstants.joystickVelocityMultiplier)
+                                    + velocity.y * HUDConstants.joystickVelocityMultiplier)
 
         let graph: GKObstacleGraph = gkScene.graphs["obstacles"] as? GKObstacleGraph<GKGraphNode2D> ?? GKObstacleGraph()
         let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),

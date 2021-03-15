@@ -13,7 +13,7 @@ class Player: GKEntity {
         super.init()
 
         let texture = SKTexture(imageNamed: "character")
-        let size = CGSize(width: texture.size().width / 2, height: texture.size().height / 2)
+        let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
 

@@ -8,6 +8,6 @@
 import CoreGraphics
 
 struct ViewConstants {
-    static let joystickVelocityMultiplier: CGFloat = 0.1
-    static let joystickZPosition: CGFloat = 100
+    static let playerWidth: CGFloat = 100
+    static let playerHeight: CGFloat = 100
 }
