@@ -35,26 +35,53 @@
 		EFE93FA525FA7BAA001D79A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FA425FA7BAA001D79A9 /* Queue.swift */; };
 		EFE93FAD25FCAC71001D79A9 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */; };
 		EFE93FB225FCB468001D79A9 /* WrongElementTypeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */; };
+		C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C325FCE7EA00087256 /* Enemy.swift */; };
+		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
+		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
+		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
+		C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapUtil.swift */; };
+		C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */; };
+		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
+		C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CE25FCE7EA00087256 /* Rock.swift */; };
+		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
+		C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D325FCE7EA00087256 /* HealthComponent.swift */; };
+		C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D425FCE7EA00087256 /* RenderComponent.swift */; };
+		C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D525FCE7EA00087256 /* ViewConstants.swift */; };
+		C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F325FCFC4A00087256 /* EntityManager.swift */; };
+		C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
+		CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F925FCE1C000581E20 /* AppDelegate.swift */; };
+		CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777FF25FCE1C000581E20 /* GameScene.swift */; };
+		CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7780125FCE1C000581E20 /* GameViewController.swift */; };
+		CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC7780325FCE1C000581E20 /* Main.storyboard */; };
+		CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC7780625FCE1C100581E20 /* Assets.xcassets */; };
+		CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781125FCE1C200581E20 /* ValebatTests.swift */; };
+		CBC7781D25FCE1C200581E20 /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */; };
+		DD4E010025FDBC4A002C5556 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* Player.swift */; };
+		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
+		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
+		DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */; };
+		DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DDF9DE2F25F7A53900C97905 /* PBXContainerItemProxy */ = {
+		CBC7780E25FCE1C200581E20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDF9DE1325F7A53500C97905 /* Project object */;
+			containerPortal = CBC777EE25FCE1C000581E20 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDF9DE1A25F7A53500C97905;
+			remoteGlobalIDString = CBC777F525FCE1C000581E20;
 			remoteInfo = Valebat;
 		};
-		DDF9DE3A25F7A53900C97905 /* PBXContainerItemProxy */ = {
+		CBC7781925FCE1C200581E20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDF9DE1325F7A53500C97905 /* Project object */;
+			containerPortal = CBC777EE25FCE1C000581E20 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDF9DE1A25F7A53500C97905;
+			remoteGlobalIDString = CBC777F525FCE1C000581E20;
 			remoteInfo = Valebat;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		C64FB63125F90DB90040197A /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		C64FB63A25F90F410040197A /* SCNVector3+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+.swift"; sourceTree = "<group>"; };
 		C6A9427025F9E37D00087256 /* MapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
@@ -89,24 +116,58 @@
 		EFE93FA425FA7BAA001D79A9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongElementTypeException.swift; sourceTree = "<group>"; };
+=======
+		C6A942C325FCE7EA00087256 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
+		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
+		C6A942CA25FCE7EA00087256 /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticMapObject.swift; sourceTree = "<group>"; };
+		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
+		C6A942CE25FCE7EA00087256 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C6A942D325FCE7EA00087256 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
+		C6A942D425FCE7EA00087256 /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
+		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		C6A942F325FCFC4A00087256 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		C6A942F825FCFD5B00087256 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		CBC777F625FCE1C000581E20 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC777F925FCE1C000581E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CBC777FF25FCE1C000581E20 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		CBC7780125FCE1C000581E20 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		CBC7780425FCE1C000581E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBC7780625FCE1C100581E20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBC7780825FCE1C100581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBC7780D25FCE1C200581E20 /* ValebatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValebatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC7781125FCE1C200581E20 /* ValebatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatTests.swift; sourceTree = "<group>"; };
+		CBC7781325FCE1C200581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValebatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatUITests.swift; sourceTree = "<group>"; };
+		CBC7781E25FCE1C200581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD4E00FF25FDBC4A002C5556 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
+		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
+		DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
+		DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNode.swift; sourceTree = "<group>"; };
+>>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DDF9DE1825F7A53500C97905 /* Frameworks */ = {
+		CBC777F325FCE1C000581E20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE2B25F7A53900C97905 /* Frameworks */ = {
+		CBC7780A25FCE1C200581E20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE3625F7A53900C97905 /* Frameworks */ = {
+		CBC7781525FCE1C200581E20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -116,77 +177,120 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C64FB63925F90F260040197A /* Util */ = {
+		C6A942C225FCE7EA00087256 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C64FB63A25F90F410040197A /* SCNVector3+.swift */,
+				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
+				DD4E00FE25FDBC2E002C5556 /* PlayerEntities */,
+				C6A9430D25FD04FC00087256 /* MapEntities */,
+				C6A9430E25FD050600087256 /* EnemyEntities */,
 			);
-			path = Util;
+			path = Entities;
 			sourceTree = "<group>";
 		};
-		C6A9426E25F9E34300087256 /* Map */ = {
+		C6A942C425FCE7EA00087256 /* TestUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A9428F25F9E6E600087256 /* Util */,
-				C6A9426F25F9E36800087256 /* MapObject */,
-				C6A9427825F9E49F00087256 /* Map.swift */,
+				C6A942C525FCE7EA00087256 /* TestConstants.swift */,
+			);
+			path = TestUtil;
+			sourceTree = "<group>";
+		};
+		C6A942C625FCE7EA00087256 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C6A942C725FCE7EA00087256 /* Util */,
+				C6A942CB25FCE7EA00087256 /* MapObject */,
+				C6A942CF25FCE7EA00087256 /* Map.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		C6A9426F25F9E36800087256 /* MapObject */ = {
+		C6A942C725FCE7EA00087256 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C6A9427025F9E37D00087256 /* MapObject.swift */,
-				C6A9427D25F9E5DF00087256 /* StaticMapObject.swift */,
-				C6A9428525F9E66700087256 /* Rock.swift */,
+				C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */,
+				C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */,
+				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		C6A942CB25FCE7EA00087256 /* MapObject */ = {
+			isa = PBXGroup;
+			children = (
+				C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */,
+				C6A942CD25FCE7EA00087256 /* MapObject.swift */,
+				C6A942CE25FCE7EA00087256 /* Rock.swift */,
 			);
 			path = MapObject;
 			sourceTree = "<group>";
 		};
-		C6A9428F25F9E6E600087256 /* Util */ = {
+		C6A942D025FCE7EA00087256 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C6A9428A25F9E6DD00087256 /* MapObjectConstants.swift */,
 				C6A9429E25F9E9B700087256 /* MapObjectEnum.swift */,
 				C6A9429925F9E90F00087256 /* MapUtil.swift */,
 				EFE93FA425FA7BAA001D79A9 /* Queue.swift */,
 				EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */,
+=======
+				C6A942D525FCE7EA00087256 /* ViewConstants.swift */,
+>>>>>>> master
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		C6A9429325F9E85200087256 /* TestUtil */ = {
+		C6A942D225FCE7EA00087256 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C6A9429425F9E85E00087256 /* TestConstants.swift */,
+				C6A942D325FCE7EA00087256 /* HealthComponent.swift */,
+				C6A942D425FCE7EA00087256 /* RenderComponent.swift */,
+				C6A942F825FCFD5B00087256 /* SpriteComponent.swift */,
 			);
-			path = TestUtil;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		DDF9DE1225F7A53500C97905 = {
+		C6A9430D25FD04FC00087256 /* MapEntities */ = {
 			isa = PBXGroup;
 			children = (
-				DDF9DE1D25F7A53500C97905 /* Valebat */,
-				DDF9DE3125F7A53900C97905 /* ValebatTests */,
-				DDF9DE3C25F7A53900C97905 /* ValebatUITests */,
-				DDF9DE1C25F7A53500C97905 /* Products */,
+			);
+			path = MapEntities;
+			sourceTree = "<group>";
+		};
+		C6A9430E25FD050600087256 /* EnemyEntities */ = {
+			isa = PBXGroup;
+			children = (
+				C6A942C325FCE7EA00087256 /* Enemy.swift */,
+			);
+			path = EnemyEntities;
+			sourceTree = "<group>";
+		};
+		CBC777ED25FCE1C000581E20 = {
+			isa = PBXGroup;
+			children = (
+				CBC777F825FCE1C000581E20 /* Valebat */,
+				CBC7781025FCE1C200581E20 /* ValebatTests */,
+				CBC7781B25FCE1C200581E20 /* ValebatUITests */,
+				CBC777F725FCE1C000581E20 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DDF9DE1C25F7A53500C97905 /* Products */ = {
+		CBC777F725FCE1C000581E20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DDF9DE1B25F7A53500C97905 /* Valebat.app */,
-				DDF9DE2E25F7A53900C97905 /* ValebatTests.xctest */,
-				DDF9DE3925F7A53900C97905 /* ValebatUITests.xctest */,
+				CBC777F625FCE1C000581E20 /* Valebat.app */,
+				CBC7780D25FCE1C200581E20 /* ValebatTests.xctest */,
+				CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDF9DE1D25F7A53500C97905 /* Valebat */ = {
+		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				EFE93F7825FA28DC001D79A9 /* Spell */,
 				C6A9426E25F9E34300087256 /* Map */,
 				C6A9429325F9E85200087256 /* TestUtil */,
@@ -198,28 +302,43 @@
 				DDF9DE2725F7A53900C97905 /* Assets.xcassets */,
 				DDF9DE2025F7A53500C97905 /* art.scnassets */,
 				DDF9DE2925F7A53900C97905 /* Info.plist */,
+=======
+				DD4E010A25FDC99B002C5556 /* Joystick */,
+				C6A942C625FCE7EA00087256 /* Map */,
+				C6A942D225FCE7EA00087256 /* Components */,
+				C6A942C225FCE7EA00087256 /* Entities */,
+				C6A942C425FCE7EA00087256 /* TestUtil */,
+				C6A942D025FCE7EA00087256 /* Util */,
+				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
+				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
+				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
+				CBC7780325FCE1C000581E20 /* Main.storyboard */,
+				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
+				CBC7780825FCE1C100581E20 /* Info.plist */,
+>>>>>>> master
 			);
 			path = Valebat;
 			sourceTree = "<group>";
 		};
-		DDF9DE3125F7A53900C97905 /* ValebatTests */ = {
+		CBC7781025FCE1C200581E20 /* ValebatTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDF9DE3225F7A53900C97905 /* ValebatTests.swift */,
-				DDF9DE3425F7A53900C97905 /* Info.plist */,
+				CBC7781125FCE1C200581E20 /* ValebatTests.swift */,
+				CBC7781325FCE1C200581E20 /* Info.plist */,
 			);
 			path = ValebatTests;
 			sourceTree = "<group>";
 		};
-		DDF9DE3C25F7A53900C97905 /* ValebatUITests */ = {
+		CBC7781B25FCE1C200581E20 /* ValebatUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DDF9DE3D25F7A53900C97905 /* ValebatUITests.swift */,
-				DDF9DE3F25F7A53A00C97905 /* Info.plist */,
+				CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */,
+				CBC7781E25FCE1C200581E20 /* Info.plist */,
 			);
 			path = ValebatUITests;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		EFE93F7825FA28DC001D79A9 /* Spell */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,18 +353,38 @@
 				EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */,
 			);
 			path = Spell;
+=======
+		DD4E00FE25FDBC2E002C5556 /* PlayerEntities */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E00FF25FDBC4A002C5556 /* Player.swift */,
+			);
+			path = PlayerEntities;
+			sourceTree = "<group>";
+		};
+		DD4E010A25FDC99B002C5556 /* Joystick */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */,
+				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
+				DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */,
+				DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */,
+			);
+			path = Joystick;
+>>>>>>> master
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DDF9DE1A25F7A53500C97905 /* Valebat */ = {
+		CBC777F525FCE1C000581E20 /* Valebat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDF9DE4225F7A53A00C97905 /* Build configuration list for PBXNativeTarget "Valebat" */;
+			buildConfigurationList = CBC7782125FCE1C200581E20 /* Build configuration list for PBXNativeTarget "Valebat" */;
 			buildPhases = (
-				DDF9DE1725F7A53500C97905 /* Sources */,
-				DDF9DE1825F7A53500C97905 /* Frameworks */,
-				DDF9DE1925F7A53500C97905 /* Resources */,
+				C6A9430325FD007000087256 /* ShellScript */,
+				CBC777F225FCE1C000581E20 /* Sources */,
+				CBC777F325FCE1C000581E20 /* Frameworks */,
+				CBC777F425FCE1C000581E20 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -253,68 +392,68 @@
 			);
 			name = Valebat;
 			productName = Valebat;
-			productReference = DDF9DE1B25F7A53500C97905 /* Valebat.app */;
+			productReference = CBC777F625FCE1C000581E20 /* Valebat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DDF9DE2D25F7A53900C97905 /* ValebatTests */ = {
+		CBC7780C25FCE1C200581E20 /* ValebatTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDF9DE4525F7A53A00C97905 /* Build configuration list for PBXNativeTarget "ValebatTests" */;
+			buildConfigurationList = CBC7782425FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatTests" */;
 			buildPhases = (
-				DDF9DE2A25F7A53900C97905 /* Sources */,
-				DDF9DE2B25F7A53900C97905 /* Frameworks */,
-				DDF9DE2C25F7A53900C97905 /* Resources */,
+				CBC7780925FCE1C200581E20 /* Sources */,
+				CBC7780A25FCE1C200581E20 /* Frameworks */,
+				CBC7780B25FCE1C200581E20 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDF9DE3025F7A53900C97905 /* PBXTargetDependency */,
+				CBC7780F25FCE1C200581E20 /* PBXTargetDependency */,
 			);
 			name = ValebatTests;
 			productName = ValebatTests;
-			productReference = DDF9DE2E25F7A53900C97905 /* ValebatTests.xctest */;
+			productReference = CBC7780D25FCE1C200581E20 /* ValebatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DDF9DE3825F7A53900C97905 /* ValebatUITests */ = {
+		CBC7781725FCE1C200581E20 /* ValebatUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDF9DE4825F7A53A00C97905 /* Build configuration list for PBXNativeTarget "ValebatUITests" */;
+			buildConfigurationList = CBC7782725FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatUITests" */;
 			buildPhases = (
-				DDF9DE3525F7A53900C97905 /* Sources */,
-				DDF9DE3625F7A53900C97905 /* Frameworks */,
-				DDF9DE3725F7A53900C97905 /* Resources */,
+				CBC7781425FCE1C200581E20 /* Sources */,
+				CBC7781525FCE1C200581E20 /* Frameworks */,
+				CBC7781625FCE1C200581E20 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDF9DE3B25F7A53900C97905 /* PBXTargetDependency */,
+				CBC7781A25FCE1C200581E20 /* PBXTargetDependency */,
 			);
 			name = ValebatUITests;
 			productName = ValebatUITests;
-			productReference = DDF9DE3925F7A53900C97905 /* ValebatUITests.xctest */;
+			productReference = CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DDF9DE1325F7A53500C97905 /* Project object */ = {
+		CBC777EE25FCE1C000581E20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					DDF9DE1A25F7A53500C97905 = {
+					CBC777F525FCE1C000581E20 = {
 						CreatedOnToolsVersion = 12.3;
 					};
-					DDF9DE2D25F7A53900C97905 = {
+					CBC7780C25FCE1C200581E20 = {
 						CreatedOnToolsVersion = 12.3;
-						TestTargetID = DDF9DE1A25F7A53500C97905;
+						TestTargetID = CBC777F525FCE1C000581E20;
 					};
-					DDF9DE3825F7A53900C97905 = {
+					CBC7781725FCE1C200581E20 = {
 						CreatedOnToolsVersion = 12.3;
-						TestTargetID = DDF9DE1A25F7A53500C97905;
+						TestTargetID = CBC777F525FCE1C000581E20;
 					};
 				};
 			};
-			buildConfigurationList = DDF9DE1625F7A53500C97905 /* Build configuration list for PBXProject "Valebat" */;
+			buildConfigurationList = CBC777F125FCE1C000581E20 /* Build configuration list for PBXProject "Valebat" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -322,37 +461,36 @@
 				en,
 				Base,
 			);
-			mainGroup = DDF9DE1225F7A53500C97905;
-			productRefGroup = DDF9DE1C25F7A53500C97905 /* Products */;
+			mainGroup = CBC777ED25FCE1C000581E20;
+			productRefGroup = CBC777F725FCE1C000581E20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DDF9DE1A25F7A53500C97905 /* Valebat */,
-				DDF9DE2D25F7A53900C97905 /* ValebatTests */,
-				DDF9DE3825F7A53900C97905 /* ValebatUITests */,
+				CBC777F525FCE1C000581E20 /* Valebat */,
+				CBC7780C25FCE1C200581E20 /* ValebatTests */,
+				CBC7781725FCE1C200581E20 /* ValebatUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DDF9DE1925F7A53500C97905 /* Resources */ = {
+		CBC777F425FCE1C000581E20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF9DE2125F7A53500C97905 /* art.scnassets in Resources */,
-				DDF9DE2825F7A53900C97905 /* Assets.xcassets in Resources */,
-				DDF9DE2625F7A53500C97905 /* Main.storyboard in Resources */,
+				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
+				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE2C25F7A53900C97905 /* Resources */ = {
+		CBC7780B25FCE1C200581E20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE3725F7A53900C97905 /* Resources */ = {
+		CBC7781625FCE1C200581E20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,11 +499,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C6A9430325FD007000087256 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		DDF9DE1725F7A53500C97905 /* Sources */ = {
+		CBC777F225FCE1C000581E20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */,
 				EFE93FA525FA7BAA001D79A9 /* Queue.swift in Sources */,
 				EFE93F9125FA6BD6001D79A9 /* SteamSpell.swift in Sources */,
@@ -389,45 +548,69 @@
 				EFE93F8225FA29CB001D79A9 /* Element.swift in Sources */,
 				C6A9429A25F9E90F00087256 /* MapUtil.swift in Sources */,
 				EFE93F8C25FA6A56001D79A9 /* SingleElementSpell.swift in Sources */,
+=======
+				C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */,
+				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
+				DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */,
+				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
+				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
+				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
+				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
+				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
+				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
+				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
+				DD4E010025FDBC4A002C5556 /* Player.swift in Sources */,
+				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
+				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
+				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
+				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
+				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
+				DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */,
+				C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */,
+				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
+				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
+				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
+				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE2A25F7A53900C97905 /* Sources */ = {
+		CBC7780925FCE1C200581E20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF9DE3325F7A53900C97905 /* ValebatTests.swift in Sources */,
+				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF9DE3525F7A53900C97905 /* Sources */ = {
+		CBC7781425FCE1C200581E20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF9DE3E25F7A53900C97905 /* ValebatUITests.swift in Sources */,
+				CBC7781D25FCE1C200581E20 /* ValebatUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DDF9DE3025F7A53900C97905 /* PBXTargetDependency */ = {
+		CBC7780F25FCE1C200581E20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDF9DE1A25F7A53500C97905 /* Valebat */;
-			targetProxy = DDF9DE2F25F7A53900C97905 /* PBXContainerItemProxy */;
+			target = CBC777F525FCE1C000581E20 /* Valebat */;
+			targetProxy = CBC7780E25FCE1C200581E20 /* PBXContainerItemProxy */;
 		};
-		DDF9DE3B25F7A53900C97905 /* PBXTargetDependency */ = {
+		CBC7781A25FCE1C200581E20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDF9DE1A25F7A53500C97905 /* Valebat */;
-			targetProxy = DDF9DE3A25F7A53900C97905 /* PBXContainerItemProxy */;
+			target = CBC777F525FCE1C000581E20 /* Valebat */;
+			targetProxy = CBC7781925FCE1C200581E20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DDF9DE2425F7A53500C97905 /* Main.storyboard */ = {
+		CBC7780325FCE1C000581E20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDF9DE2525F7A53500C97905 /* Base */,
+				CBC7780425FCE1C000581E20 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -435,7 +618,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DDF9DE4025F7A53A00C97905 /* Debug */ = {
+		CBC7781F25FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -496,7 +679,7 @@
 			};
 			name = Debug;
 		};
-		DDF9DE4125F7A53A00C97905 /* Release */ = {
+		CBC7782025FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -551,13 +734,13 @@
 			};
 			name = Release;
 		};
-		DDF9DE4325F7A53A00C97905 /* Debug */ = {
+		CBC7782225FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,13 +753,13 @@
 			};
 			name = Debug;
 		};
-		DDF9DE4425F7A53A00C97905 /* Release */ = {
+		CBC7782325FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -589,13 +772,13 @@
 			};
 			name = Release;
 		};
-		DDF9DE4625F7A53A00C97905 /* Debug */ = {
+		CBC7782525FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,13 +794,13 @@
 			};
 			name = Debug;
 		};
-		DDF9DE4725F7A53A00C97905 /* Release */ = {
+		CBC7782625FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,12 +816,12 @@
 			};
 			name = Release;
 		};
-		DDF9DE4925F7A53A00C97905 /* Debug */ = {
+		CBC7782825FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -653,12 +836,12 @@
 			};
 			name = Debug;
 		};
-		DDF9DE4A25F7A53A00C97905 /* Release */ = {
+		CBC7782925FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,43 +859,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DDF9DE1625F7A53500C97905 /* Build configuration list for PBXProject "Valebat" */ = {
+		CBC777F125FCE1C000581E20 /* Build configuration list for PBXProject "Valebat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDF9DE4025F7A53A00C97905 /* Debug */,
-				DDF9DE4125F7A53A00C97905 /* Release */,
+				CBC7781F25FCE1C200581E20 /* Debug */,
+				CBC7782025FCE1C200581E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDF9DE4225F7A53A00C97905 /* Build configuration list for PBXNativeTarget "Valebat" */ = {
+		CBC7782125FCE1C200581E20 /* Build configuration list for PBXNativeTarget "Valebat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDF9DE4325F7A53A00C97905 /* Debug */,
-				DDF9DE4425F7A53A00C97905 /* Release */,
+				CBC7782225FCE1C200581E20 /* Debug */,
+				CBC7782325FCE1C200581E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDF9DE4525F7A53A00C97905 /* Build configuration list for PBXNativeTarget "ValebatTests" */ = {
+		CBC7782425FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDF9DE4625F7A53A00C97905 /* Debug */,
-				DDF9DE4725F7A53A00C97905 /* Release */,
+				CBC7782525FCE1C200581E20 /* Debug */,
+				CBC7782625FCE1C200581E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDF9DE4825F7A53A00C97905 /* Build configuration list for PBXNativeTarget "ValebatUITests" */ = {
+		CBC7782725FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDF9DE4925F7A53A00C97905 /* Debug */,
-				DDF9DE4A25F7A53A00C97905 /* Release */,
+				CBC7782825FCE1C200581E20 /* Debug */,
+				CBC7782925FCE1C200581E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DDF9DE1325F7A53500C97905 /* Project object */;
+	rootObject = CBC777EE25FCE1C000581E20 /* Project object */;
 }

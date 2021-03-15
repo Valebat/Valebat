@@ -7,11 +7,11 @@
 
 class Map {
     private(set) var objects: [MapObject]
-    
+
     init(withObjects objects: [MapObject]) {
         self.objects = objects
     }
-    
+
     convenience init() {
         self.init(withObjects: [])
     }
