@@ -9,12 +9,13 @@ import SpriteKit
 import GameplayKit
 
 class MapUtil {
-    static func generateMap() -> Map {
-        return TestConstants.testMap
+    static var map: Map = TestConstants.testMap
+
+    static func generateMap() {
+        map = TestConstants.testMap
     }
 
     static func getMapEntities(entityManager: EntityManager) -> [GKEntity] {
-        let map: Map = generateMap()
         var entities: [GKEntity] = []
 
         for object in map.objects {
@@ -40,5 +41,19 @@ class MapUtil {
         }
 
         return entities
+    }
+
+    static func getGraph() -> GKGraph {
+        var obstacles: [GKPolygonObstacle] = []
+
+        for object in map.objects {
+            let obstacle = GKPolygonObstacle(points: object.getPoints())
+            print(object.getPoints())
+            obstacles.append(obstacle)
+        }
+
+        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 5.0)
+
+        return graph
     }
 }
