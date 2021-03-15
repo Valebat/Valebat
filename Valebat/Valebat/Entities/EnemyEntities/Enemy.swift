@@ -5,7 +5,6 @@
 //  Created by Aloysius Lim on 12/3/21.
 //
 
-import Foundation
 import GameplayKit
 
 class Enemy: GKEntity {
@@ -19,6 +18,8 @@ class Enemy: GKEntity {
 
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
                                      barOffset: texture.size().height/2, health: 15, entityManager: entityManager))
+        addComponent(MoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(texture.size().width * 0.3),
+                                   entityManager: entityManager))
     }
 
     required init?(coder: NSCoder) {

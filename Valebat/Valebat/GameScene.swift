@@ -11,7 +11,6 @@ import GameplayKit
 class GameScene: SKScene {
     // Entity-component system
     var entityManager: EntityManager!
-    var graphs = [String: GKGraph]()
 
     var headsUpDisplay: HeadsUpDisplayNode!
 
@@ -40,6 +39,8 @@ class GameScene: SKScene {
     private func setUpScene() {
         setUpHUD()
         entityManager.addPlayer()
+        entityManager.initialiseMap()
+        entityManager.initialiseGraph()
     }
 
     private func setUpHUD() {

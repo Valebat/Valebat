@@ -1,14 +1,14 @@
 //
-//  Rock.swift
+//  Wall.swift
 //  Valebat
 //
-//  Created by Jing Lin Shi on 11/3/21.
+//  Created by Jing Lin Shi on 14/3/21.
 //
 
 import SpriteKit
 
-class Rock: StaticMapObject {
-    let type: MapObjectEnum = MapObjectEnum.rock
+class Wall: StaticMapObject {
+    let type: MapObjectEnum = MapObjectEnum.wall
 
     let position: CGPoint
     let xDimension: Double
@@ -18,8 +18,8 @@ class Rock: StaticMapObject {
 
     init(position: CGPoint, scale: Double, collidable: Bool) {
         self.position = position
-        self.xDimension = MapObjectConstants.rockDefaultWidth * scale
-        self.yDimension = MapObjectConstants.rockDefaultHeight * scale
+        self.xDimension = MapObjectConstants.wallDefaultWidth * scale
+        self.yDimension = MapObjectConstants.wallDefaultHeight * scale
         self.collidable = collidable
     }
 
@@ -28,7 +28,7 @@ class Rock: StaticMapObject {
     }
 
     convenience init(position: CGPoint, scale: Double) {
-        self.init(position: position, scale: scale, collidable: MapObjectConstants.rockDefaultCollideable)
+        self.init(position: position, scale: scale, collidable: MapObjectConstants.wallDefaultCollideable)
     }
 
     convenience init(position: CGPoint) {

@@ -17,14 +17,48 @@ class EntityManager {
     var toRemove = Set<GKEntity>()
 
     var player: Player?
+    var obstacles: [GKPolygonObstacle] = []
+
     let scene: SKScene
+    let gkScene: GKScene
 
     lazy var componentSystems: [GKComponentSystem] = {
-        return []
+        let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
+        let playerAgentSystem = GKComponentSystem(componentClass: PlayerAgentComponent.self)
+        return [moveSystem, playerAgentSystem]
     }()
 
     init(scene: SKScene) {
         self.scene = scene
+
+        let gkScene = GKScene()
+        gkScene.rootNode = scene
+        self.gkScene = gkScene
+    }
+
+    func initialiseMap() {
+        let mapEntities: [GKEntity] = MapUtil.getMapEntities(entityManager: self)
+
+        for entity in mapEntities {
+            add(entity)
+        }
+
+        self.obstacles = []
+
+        for entity in mapEntities {
+            var nodes: [SKNode] = []
+            nodes.append(entity.component(ofType: SpriteComponent.self)!.node)
+
+            obstacles.append(contentsOf: SKNode.obstacles(fromNodeBounds: nodes))
+        }
+
+        // TODO replace magic num with 0.5 * player width
+        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 50.0)
+
+        gkScene.addGraph(graph, name: "obstacles")
+    }
+
+    func initialiseGraph() {
     }
 
     func add(_ entity: GKEntity) {
@@ -99,11 +133,29 @@ extension EntityManager: UserInputDelegate {
                                   y: playerSprite.node.position.y
                                     + velocity.y * ViewConstants.joystickVelocityMultiplier)
 
-        playerSprite.node.position = newPosition
+        let graph: GKObstacleGraph = gkScene.graphs["obstacles"] as? GKObstacleGraph<GKGraphNode2D> ?? GKObstacleGraph()
+        let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
+                                                                          Float(playerSprite.node.position.y)))
+        let endNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(newPosition.x),
+                                                                        Float(newPosition.y)))
+
+        graph.add([startNode, endNode])
+        graph.connectUsingObstacles(node: startNode)
+        graph.connectUsingObstacles(node: endNode)
+        var path: [GKGraphNode2D] = graph.findPath(from: startNode, to: endNode) as? [GKGraphNode2D] ?? []
+        graph.remove([startNode, endNode])
+        if !path.isEmpty { path.remove(at: 0) }
+
+        let nextPositionInPath: GKGraphNode2D? = path.first
+        let nextX: CGFloat = CGFloat(nextPositionInPath?.position.x ?? Float(playerSprite.node.position.x))
+        let nextY: CGFloat = CGFloat(nextPositionInPath?.position.y ?? Float(playerSprite.node.position.y))
+        let nextPosition: CGPoint = CGPoint(x: nextX, y: nextY)
+
+        playerSprite.node.position = nextPosition
         playerSprite.node.zRotation = angular
     }
 
     func inputBegan(at location: CGPoint) {
-    }
 
+    }
 }
