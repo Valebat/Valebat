@@ -24,6 +24,17 @@
 		DDF9DE2825F7A53900C97905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF9DE2725F7A53900C97905 /* Assets.xcassets */; };
 		DDF9DE3325F7A53900C97905 /* ValebatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE3225F7A53900C97905 /* ValebatTests.swift */; };
 		DDF9DE3E25F7A53900C97905 /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9DE3D25F7A53900C97905 /* ValebatUITests.swift */; };
+		EFE93F7D25FA2986001D79A9 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F7C25FA2986001D79A9 /* ElementType.swift */; };
+		EFE93F8225FA29CB001D79A9 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F8125FA29CB001D79A9 /* Element.swift */; };
+		EFE93F8725FA6296001D79A9 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F8625FA6296001D79A9 /* Spell.swift */; };
+		EFE93F8C25FA6A56001D79A9 /* SingleElementSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F8B25FA6A56001D79A9 /* SingleElementSpell.swift */; };
+		EFE93F9125FA6BD6001D79A9 /* SteamSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F9025FA6BD6001D79A9 /* SteamSpell.swift */; };
+		EFE93F9625FA6E38001D79A9 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F9525FA6E38001D79A9 /* MagmaSpell.swift */; };
+		EFE93F9B25FA6EB3001D79A9 /* MudSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F9A25FA6EB3001D79A9 /* MudSpell.swift */; };
+		EFE93FA025FA7A39001D79A9 /* SpellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93F9F25FA7A39001D79A9 /* SpellController.swift */; };
+		EFE93FA525FA7BAA001D79A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FA425FA7BAA001D79A9 /* Queue.swift */; };
+		EFE93FAD25FCAC71001D79A9 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */; };
+		EFE93FB225FCB468001D79A9 /* WrongElementTypeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +78,17 @@
 		DDF9DE3925F7A53900C97905 /* ValebatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValebatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF9DE3D25F7A53900C97905 /* ValebatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatUITests.swift; sourceTree = "<group>"; };
 		DDF9DE3F25F7A53A00C97905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFE93F7C25FA2986001D79A9 /* ElementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
+		EFE93F8125FA29CB001D79A9 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		EFE93F8625FA6296001D79A9 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		EFE93F8B25FA6A56001D79A9 /* SingleElementSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleElementSpell.swift; sourceTree = "<group>"; };
+		EFE93F9025FA6BD6001D79A9 /* SteamSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpell.swift; sourceTree = "<group>"; };
+		EFE93F9525FA6E38001D79A9 /* MagmaSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
+		EFE93F9A25FA6EB3001D79A9 /* MudSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudSpell.swift; sourceTree = "<group>"; };
+		EFE93F9F25FA7A39001D79A9 /* SpellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellController.swift; sourceTree = "<group>"; };
+		EFE93FA425FA7BAA001D79A9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
+		EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongElementTypeException.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +150,8 @@
 				C6A9428A25F9E6DD00087256 /* MapObjectConstants.swift */,
 				C6A9429E25F9E9B700087256 /* MapObjectEnum.swift */,
 				C6A9429925F9E90F00087256 /* MapUtil.swift */,
+				EFE93FA425FA7BAA001D79A9 /* Queue.swift */,
+				EFE93FB125FCB468001D79A9 /* WrongElementTypeException.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -163,6 +187,7 @@
 		DDF9DE1D25F7A53500C97905 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				EFE93F7825FA28DC001D79A9 /* Spell */,
 				C6A9426E25F9E34300087256 /* Map */,
 				C6A9429325F9E85200087256 /* TestUtil */,
 				DDF9DE1E25F7A53500C97905 /* AppDelegate.swift */,
@@ -193,6 +218,22 @@
 				DDF9DE3F25F7A53A00C97905 /* Info.plist */,
 			);
 			path = ValebatUITests;
+			sourceTree = "<group>";
+		};
+		EFE93F7825FA28DC001D79A9 /* Spell */ = {
+			isa = PBXGroup;
+			children = (
+				EFE93F7C25FA2986001D79A9 /* ElementType.swift */,
+				EFE93F8125FA29CB001D79A9 /* Element.swift */,
+				EFE93F8625FA6296001D79A9 /* Spell.swift */,
+				EFE93F8B25FA6A56001D79A9 /* SingleElementSpell.swift */,
+				EFE93F9025FA6BD6001D79A9 /* SteamSpell.swift */,
+				EFE93F9525FA6E38001D79A9 /* MagmaSpell.swift */,
+				EFE93F9A25FA6EB3001D79A9 /* MudSpell.swift */,
+				EFE93F9F25FA7A39001D79A9 /* SpellController.swift */,
+				EFE93FAC25FCAC71001D79A9 /* GenericSpell.swift */,
+			);
+			path = Spell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,17 +367,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				C64FB63225F90DB90040197A /* ViewConstants.swift in Sources */,
+				EFE93FA525FA7BAA001D79A9 /* Queue.swift in Sources */,
+				EFE93F9125FA6BD6001D79A9 /* SteamSpell.swift in Sources */,
+				EFE93F9625FA6E38001D79A9 /* MagmaSpell.swift in Sources */,
 				C6A9427125F9E37D00087256 /* MapObject.swift in Sources */,
 				C64FB63B25F90F410040197A /* SCNVector3+.swift in Sources */,
 				DDF9DE2325F7A53500C97905 /* GameViewController.swift in Sources */,
 				C6A9428625F9E66700087256 /* Rock.swift in Sources */,
+				EFE93F8725FA6296001D79A9 /* Spell.swift in Sources */,
+				EFE93FA025FA7A39001D79A9 /* SpellController.swift in Sources */,
 				C6A9427925F9E49F00087256 /* Map.swift in Sources */,
+				EFE93F9B25FA6EB3001D79A9 /* MudSpell.swift in Sources */,
+				EFE93FAD25FCAC71001D79A9 /* GenericSpell.swift in Sources */,
+				EFE93F7D25FA2986001D79A9 /* ElementType.swift in Sources */,
+				EFE93FB225FCB468001D79A9 /* WrongElementTypeException.swift in Sources */,
 				DDF9DE1F25F7A53500C97905 /* AppDelegate.swift in Sources */,
 				C6A9429525F9E85E00087256 /* TestConstants.swift in Sources */,
 				C6A9429F25F9E9B700087256 /* MapObjectEnum.swift in Sources */,
 				C6A9427E25F9E5DF00087256 /* StaticMapObject.swift in Sources */,
 				C6A9428B25F9E6DD00087256 /* MapObjectConstants.swift in Sources */,
+				EFE93F8225FA29CB001D79A9 /* Element.swift in Sources */,
 				C6A9429A25F9E90F00087256 /* MapUtil.swift in Sources */,
+				EFE93F8C25FA6A56001D79A9 /* SingleElementSpell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
