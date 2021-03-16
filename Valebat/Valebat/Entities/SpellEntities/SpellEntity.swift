@@ -12,7 +12,8 @@ class SpellEntity: GKEntity {
     init(entityManager: EntityManager) {
         super.init()
         addComponent(buildSpell())
-        addComponent(MoveCompenent())
+        addComponent(MoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: 10,
+                                   entityManager: entityManager))
 
     }
 
