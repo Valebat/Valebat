@@ -16,3 +16,17 @@ protocol MapObject {
 
     var collidable: Bool { get }
 }
+
+extension MapObject {
+    func getPoints() -> [SIMD2<Float>] {
+        let points = [SIMD2<Float>(x: Float(self.position.x),
+                                   y: Float(self.position.y)),
+                      SIMD2<Float>(x: Float(self.position.x) + Float(self.xDimension),
+                                   y: Float(self.position.y)),
+                      SIMD2<Float>(x: Float(self.position.x) + Float(self.xDimension),
+                                   y: Float(self.position.y) + Float(self.yDimension)),
+                      SIMD2<Float>(x: Float(self.position.x),
+                                   y: Float(self.position.y) + Float(self.yDimension))]
+        return points
+    }
+}
