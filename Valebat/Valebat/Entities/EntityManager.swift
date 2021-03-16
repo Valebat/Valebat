@@ -25,7 +25,8 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
         let playerAgentSystem = GKComponentSystem(componentClass: PlayerAgentComponent.self)
-        return [moveSystem, playerAgentSystem]
+        let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
+        return [moveSystem, playerAgentSystem, damageSystem]
     }()
 
     init(scene: SKScene) {
@@ -109,6 +110,7 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
+
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: deltaTime)
         }
