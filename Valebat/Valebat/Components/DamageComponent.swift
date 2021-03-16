@@ -9,6 +9,7 @@ import Foundation
 import GameplayKit
 
 class DamageComponent: GKComponent {
+
     var damageValues = [DamageType: CGFloat]()
 
     init(water: CGFloat, earth: CGFloat, fire: CGFloat, pure: CGFloat) {
@@ -26,5 +27,13 @@ class DamageComponent: GKComponent {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func damageValueFraction(fraction: CGFloat) -> [DamageType: CGFloat] {
+        var damageValuesFraction = [DamageType: CGFloat]()
+        for (type, value) in damageValues {
+            damageValuesFraction[type] = value * fraction
+        }
+        return damageValuesFraction
     }
 }

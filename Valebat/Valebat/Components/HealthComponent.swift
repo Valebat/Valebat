@@ -39,8 +39,8 @@ class HealthComponent: GKComponent {
         super.init()
     }
 
-    func takeDamage(damageComponent: DamageComponent) {
-        takeDamage(armor.getFinalDamage(damages: damageComponent.damageValues))
+    func takeDamage(damages: [DamageType: CGFloat]) {
+        takeDamage(armor.getFinalDamage(damages: damages))
     }
 
     required init?(coder aDecoder: NSCoder) {
