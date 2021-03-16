@@ -74,6 +74,15 @@ class EntityManager {
         self.player = character
     }
 
+    func shootSpell(from touchPoint: CGPoint) {
+        let spell = SpellEntity(entityManager: self)
+        if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = touchPoint
+            spriteComponent.node.zPosition = 2
+        }
+        add(spell)
+    }
+
     func update(_ deltaTime: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: deltaTime)
