@@ -84,3 +84,40 @@ class GameScene: SKScene {
         self.lastUpdateTime = currentTime
     }
 }
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let entityA = contact.bodyA.node?.entity,
+              let entityB = contact.bodyB.node?.entity else {
+            return
+        }
+        for component in entityA.components {
+            if let contactableComponent = component as? ContactBeginNotifiable {
+                contactableComponent.contactDidBegin(with: entityA)
+            }
+        }
+        for component in entityB.components {
+            if let contactableComponent = component as? ContactBeginNotifiable {
+                contactableComponent.contactDidBegin(with: entityB)
+            }
+        }
+    }
+
+    func didEnd(_ contact: SKPhysicsContact) {
+        guard let entityA = contact.bodyA.node?.entity,
+              let entityB = contact.bodyB.node?.entity else {
+            return
+        }
+        for component in entityA.components {
+            if let contactableComponent = component as? ContactEndNotifiable {
+                contactableComponent.contactDidEnd(with: entityA)
+            }
+        }
+        for component in entityB.components {
+            if let contactableComponent = component as? ContactEndNotifiable {
+                contactableComponent.contactDidEnd(with: entityB)
+            }
+        }
+    }
+
+}

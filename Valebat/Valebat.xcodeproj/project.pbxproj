@@ -34,6 +34,13 @@
 		CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC7780625FCE1C100581E20 /* Assets.xcassets */; };
 		CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781125FCE1C200581E20 /* ValebatTests.swift */; };
 		CBC7781D25FCE1C200581E20 /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */; };
+		CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */; };
+		CBFC49E625FFF2AF00C5DDD2 /* DamageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */; };
+		CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */; };
+		CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
+		CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */; };
+		CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */; };
+		CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
 		DD4E010025FDBC4A002C5556 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* Player.swift */; };
 		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
 		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
@@ -102,6 +109,13 @@
 		CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValebatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatUITests.swift; sourceTree = "<group>"; };
 		CBC7781E25FCE1C200581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageComponent.swift; sourceTree = "<group>"; };
+		CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageType.swift; sourceTree = "<group>"; };
+		CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageMultipliers.swift; sourceTree = "<group>"; };
+		CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
+		CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotifiableProtocol.swift; sourceTree = "<group>"; };
+		CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDamageComponent.swift; sourceTree = "<group>"; };
+		CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPSDamageComponent.swift; sourceTree = "<group>"; };
 		DD4E00FF25FDBC4A002C5556 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +226,13 @@
 				C6A9433025FF566600087256 /* MoveComponent.swift */,
 				C6A9433A25FF589600087256 /* MoveBehaviour.swift */,
 				C6A9433525FF57A800087256 /* PlayerAgentComponent.swift */,
+				CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */,
+				CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */,
+				CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */,
+				CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */,
+				CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */,
+				CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */,
+				CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -477,17 +498,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */,
+				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* WrongElementTypeException.swift in Sources */,
+				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
 				EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */,
 				DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
+				CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C6A9433B25FF589600087256 /* MoveBehaviour.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
+				CBFC49E625FFF2AF00C5DDD2 /* DamageType.swift in Sources */,
 				EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
@@ -502,7 +527,10 @@
 				C6A9433625FF57A800087256 /* PlayerAgentComponent.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
+				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
+				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
+				CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
 				DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */,

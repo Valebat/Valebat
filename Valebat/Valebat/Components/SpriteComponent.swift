@@ -11,13 +11,11 @@
 import SpriteKit
 import GameplayKit
 
-class SpriteComponent: GKComponent {
-    let node: SKSpriteNode
+class SpriteComponent: GKSKNodeComponent {
 
     init(entity: GKEntity, texture: SKTexture, size: CGSize) {
-        node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
-
         super.init()
+        node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
     }
 
     required init?(coder aDecoder: NSCoder) {
