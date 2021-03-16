@@ -18,6 +18,13 @@ class HeadsUpDisplayNode: SKNode, OverlayNode {
     override init() {
         super.init()
         self.zPosition = HUDConstants.joystickZPosition
+
+        setUpJoysticks()
+        setUpElementPane()
+
+    }
+
+    private func setUpJoysticks() {
         movementJoystick = TLAnalogJoystick(withDiameter: 100)
         let mvmtJoystickMoved: TLAnalogJoystickEventHandler = { joystick in
             if joystick.velocity.length() < 0.2 {
@@ -41,10 +48,18 @@ class HeadsUpDisplayNode: SKNode, OverlayNode {
         }
     }
 
+    private func setUpElementPane() {
+        elementPane = ElementPane()
+
+        if let elementPane = elementPane {
+            self.addChild(elementPane)
+        }
+    }
+
     convenience init(screenSize: CGSize) {
         self.init()
-        movementJoystick?.position = CGPoint(x: screenSize.width * 0.2, y: screenSize.height * 0.2)
-        spellJoystick?.position = CGPoint(x: screenSize.width * 0.8, y: screenSize.height * 0.2)
+        movementJoystick?.position = HUDConstants.movementJoystickPos
+        spellJoystick?.position = HUDConstants.spellJoystickPos
     }
 
     required init?(coder aDecoder: NSCoder) {

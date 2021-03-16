@@ -11,6 +11,9 @@ class ElementQueue: SKNode {
 
     override init() {
         super.init()
+//        let fireNode = SKSpriteNode(imageNamed: "fire")
+//        fireNode.position = HUDConstants.elementQueueStartPos
+//        self.addChild(fireNode)
     }
 
     required init?(coder aDecoder: NSCoder) {

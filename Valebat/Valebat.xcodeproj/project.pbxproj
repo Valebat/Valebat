@@ -269,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				EF19415125FFC71900341BF5 /* Spell */,
-				DD4E010A25FDC99B002C5556 /* Joystick */,
+				DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */,
 				C6A942C625FCE7EA00087256 /* Map */,
 				C6A942D225FCE7EA00087256 /* Components */,
 				C6A942C225FCE7EA00087256 /* Entities */,
@@ -311,7 +311,7 @@
 			path = PlayerEntities;
 			sourceTree = "<group>";
 		};
-		DD4E010A25FDC99B002C5556 /* Joystick */ = {
+		DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */ = {
 			isa = PBXGroup;
 			children = (
 				DD4E015425FF52A7002C5556 /* ElementPane */,
@@ -321,7 +321,7 @@
 				DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */,
 				DD4E014125FF412A002C5556 /* HUDConstants.swift */,
 			);
-			path = Joystick;
+			path = HeadsUpDisplay;
 			sourceTree = "<group>";
 		};
 		DD4E015425FF52A7002C5556 /* ElementPane */ = {

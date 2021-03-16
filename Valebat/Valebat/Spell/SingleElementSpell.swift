@@ -21,10 +21,8 @@ class SingleElementSpell: Spell {
     }
 
     func populateMultiplier() {
-        for type in ElementType.allCases {
-            if type.isSingle {
-                SingleElementSpell.multiplier[type] = [ElementType: Double]()
-            }
+        for type in ElementType.allCases where type.isSingle {
+            SingleElementSpell.multiplier[type] = [ElementType: Double]()
         }
     }
 

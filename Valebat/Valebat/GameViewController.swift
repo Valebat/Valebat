@@ -13,6 +13,8 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
 
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
         let scene = GameScene(size: CGSize(width: 640 * aspectRatio, height: 640))
@@ -28,10 +30,15 @@ class GameViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
 
     override var prefersStatusBarHidden: Bool {
         return true
     }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return .landscape
+    }
+
 }
