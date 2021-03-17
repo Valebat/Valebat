@@ -21,6 +21,7 @@ class EntityManager {
 
     let scene: SKScene
     let gkScene: GKScene
+    let spellManager: SpellManager
 
     lazy var componentSystems: [GKComponentSystem] = {
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
@@ -36,6 +37,8 @@ class EntityManager {
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
+
+        self.spellManager = SpellManager()
     }
 
     func initialiseMap() {
@@ -110,8 +113,10 @@ class EntityManager {
         self.player = character
     }
 
-    func shootSpell(from shootPoint: CGPoint, with velocity: CGVector) {
-        let spell = SpellEntity(entityManager: self, velocity: velocity)
+    func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
+                    using elementsSelected: Set<Element>) {
+        let underlyingSpell = self.spellManager.combine(elements: elementsSelected)
+        let spell = SpellEntity(entityManager: self, velocity: velocity, spell: underlyingSpell)
         if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = shootPoint
             spriteComponent.node.zPosition = 2

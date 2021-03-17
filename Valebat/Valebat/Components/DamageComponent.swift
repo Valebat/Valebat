@@ -22,9 +22,9 @@ class DamageComponent: GKComponent {
 
     init(damage: CGFloat, type: DamageType) {
         damageValues[type] = damage
-
         super.init()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

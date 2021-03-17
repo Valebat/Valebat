@@ -232,8 +232,6 @@
 				C6A9433A25FF589600087256 /* MoveBehaviour.swift */,
 				C6A9433525FF57A800087256 /* PlayerAgentComponent.swift */,
 				CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */,
-				CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */,
-				CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */,
 				CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */,
 				CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */,
 				CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */,
@@ -340,6 +338,8 @@
 		EF19415125FFC71900341BF5 /* Spell */ = {
 			isa = PBXGroup;
 			children = (
+				CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */,
+				CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */,
 				EF19415225FFC71900341BF5 /* ElementType.swift */,
 				EF19415325FFC71900341BF5 /* GenericSpell.swift */,
 				EF19415425FFC71900341BF5 /* MagmaSpell.swift */,

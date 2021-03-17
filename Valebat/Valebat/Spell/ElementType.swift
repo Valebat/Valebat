@@ -27,4 +27,19 @@ enum ElementType: Int, CaseIterable {
             return false
         }
     }
+
+    var associatedDamageType: DamageType? {
+        switch self {
+        case .fire:
+            return .fire
+        case .water:
+            return .water
+        case .earth:
+            return .earth
+        case .generic:
+            return .pure
+        default:
+            return nil
+        }
+    }
 }

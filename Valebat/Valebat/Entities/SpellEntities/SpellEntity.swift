@@ -9,13 +9,22 @@ import GameplayKit
 
 class SpellEntity: GKEntity {
 
-    init(entityManager: EntityManager, velocity: CGVector) {
+    init(entityManager: EntityManager, velocity: CGVector, spell: Spell) {
         super.init()
         let spriteComponent = buildSpell()
         addComponent(spriteComponent)
         addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity,
                                         entityManager: entityManager))
-
+        let element = spell.element
+        if element.type.isSingle {
+            addComponent(InstantDamageComponent(damage: CGFloat(element.level),
+                                                type: element.type.associatedDamageType ?? .pure))
+        } else {
+            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? CGFloat(element.level) : 0.0,
+                                                earth: spell.damageTypes.contains(.earth) ? CGFloat(element.level) : 0.0,
+                                                fire: spell.damageTypes.contains(.fire) ? CGFloat(element.level) : 0.0,
+                                                pure: spell.damageTypes.contains(.pure) ? CGFloat(element.level) : 0.0))
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -41,6 +50,6 @@ class SpellEntity: GKEntity {
 
 extension ContactAllNotifiable {
     func contactDidEnd(with entity: GKEntity) {
-        
+
     }
 }
