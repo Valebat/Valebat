@@ -22,6 +22,7 @@ class ElementSelection: SKNode {
     }
 
     func setNewElement(elementType: ElementType) {
+        elementPane?.setNewElement(elementType: elementType)
     }
 
     private func initButton(elementType: ElementType, position: CGPoint) {

@@ -18,7 +18,7 @@ class ElementQueue: SKNode {
             self.addChild(elements)
         }
         elements?.zPosition = HUDConstants.elementQueueZPosition
-        initialisedGrids(count: 3)
+        initialisedGrids(count: HUDConstants.elementQueueLength)
     }
 
     func renderElementsInQueue(selectedElements: [ElementType]) {

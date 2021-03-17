@@ -24,7 +24,16 @@ class ElementPane: SKNode {
     }
 
     func setNewElement(elementType: ElementType) {
+        if elementQueueArray.count == HUDConstants.elementQueueLength {
+            elementQueueArray.removeFirst()
+        }
+        elementQueueArray.append(elementType)
+        elementQueue.renderElementsInQueue(selectedElements: elementQueueArray)
+    }
 
+    func clearElementQueue() {
+        elementQueueArray.removeAll()
+        elementQueue.renderElementsInQueue(selectedElements: elementQueueArray)
     }
 
     required init?(coder aDecoder: NSCoder) {
