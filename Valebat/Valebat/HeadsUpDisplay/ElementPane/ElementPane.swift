@@ -16,6 +16,7 @@ class ElementPane: SKNode {
         super.init()
 
         self.addChild(elementQueue)
+        self.zPosition = HUDConstants.elementPaneZPosition
     }
 
     required init?(coder aDecoder: NSCoder) {
