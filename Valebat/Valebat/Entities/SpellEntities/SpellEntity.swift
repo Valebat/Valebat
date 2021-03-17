@@ -9,11 +9,12 @@ import GameplayKit
 
 class SpellEntity: GKEntity {
 
-    init(entityManager: EntityManager) {
+    init(entityManager: EntityManager, velocity: CGVector) {
         super.init()
-        addComponent(buildSpell())
-        addComponent(MoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: 10,
-                                   entityManager: entityManager))
+        let spriteComponent = buildSpell()
+        addComponent(spriteComponent)
+        addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity,
+                                        entityManager: entityManager))
 
     }
 
@@ -36,4 +37,10 @@ class SpellEntity: GKEntity {
         return spellComponent
     }
 
+}
+
+extension ContactAllNotifiable {
+    func contactDidEnd(with entity: GKEntity) {
+        
+    }
 }

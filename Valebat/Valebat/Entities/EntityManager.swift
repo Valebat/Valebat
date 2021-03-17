@@ -26,7 +26,8 @@ class EntityManager {
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
         let playerAgentSystem = GKComponentSystem(componentClass: PlayerAgentComponent.self)
         let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
-        return [moveSystem, playerAgentSystem, damageSystem]
+        let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
+        return [moveSystem, playerAgentSystem, damageSystem, spellCastSystem]
     }()
 
     init(scene: SKScene) {
@@ -109,10 +110,10 @@ class EntityManager {
         self.player = character
     }
 
-    func shootSpell(from touchPoint: CGPoint) {
-        let spell = SpellEntity(entityManager: self)
+    func shootSpell(from shootPoint: CGPoint, with velocity: CGVector) {
+        let spell = SpellEntity(entityManager: self, velocity: velocity)
         if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position = touchPoint
+            spriteComponent.node.position = shootPoint
             spriteComponent.node.zPosition = 2
         }
         add(spell)

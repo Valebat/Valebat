@@ -33,7 +33,7 @@ class GameScene: SKScene {
     }
 
     func touchUp(atPoint pos: CGPoint) {
-        entityManager.shootSpell(from: pos)
+        entityManager.shootSpell(from: pos, with: CGVector(dx: 1.0, dy: 0.0))
     }
 
     private func setUpScene() {
