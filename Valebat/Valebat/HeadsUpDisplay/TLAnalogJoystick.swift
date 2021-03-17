@@ -347,6 +347,7 @@ open class TLAnalogJoystick: SKNode {
     convenience init(withDiameter diameter: CGFloat, handleRatio: CGFloat = 0.6) {
         let base = TLAnalogJoystickComponent(diameter: diameter, color: .gray)
         let handleDiameter = getDiameter(fromDiameter: diameter, withRatio: handleRatio)
+        print(handleDiameter)
         let handle = TLAnalogJoystickComponent(diameter: handleDiameter, color: .black)
         self.init(withBase: base, handle: handle)
     }

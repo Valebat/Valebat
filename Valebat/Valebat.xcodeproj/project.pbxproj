@@ -51,6 +51,8 @@
 		DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E014125FF412A002C5556 /* HUDConstants.swift */; };
 		DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E014B25FF482C002C5556 /* ElementPane.swift */; };
 		DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E015525FF52CB002C5556 /* ElementQueue.swift */; };
+		DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01A92601B93F002C5556 /* ElementSelection.swift */; };
+		DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
 		EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -131,6 +133,8 @@
 		DD4E014125FF412A002C5556 /* HUDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDConstants.swift; sourceTree = "<group>"; };
 		DD4E014B25FF482C002C5556 /* ElementPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPane.swift; sourceTree = "<group>"; };
 		DD4E015525FF52CB002C5556 /* ElementQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQueue.swift; sourceTree = "<group>"; };
+		DD4E01A92601B93F002C5556 /* ElementSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSelection.swift; sourceTree = "<group>"; };
+		DD4E01AE2601B94F002C5556 /* ElementButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementButton.swift; sourceTree = "<group>"; };
 		EF19415225FFC71900341BF5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 			children = (
 				DD4E014B25FF482C002C5556 /* ElementPane.swift */,
 				DD4E015525FF52CB002C5556 /* ElementQueue.swift */,
+				DD4E01A92601B93F002C5556 /* ElementSelection.swift */,
+				DD4E01AE2601B94F002C5556 /* ElementButton.swift */,
 			);
 			path = ElementPane;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
+				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
@@ -564,6 +571,7 @@
 				C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
+				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,

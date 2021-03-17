@@ -25,7 +25,7 @@ class HeadsUpDisplayNode: SKNode, OverlayNode {
     }
 
     private func setUpJoysticks() {
-        movementJoystick = TLAnalogJoystick(withDiameter: 100)
+        movementJoystick = TLAnalogJoystick(withDiameter: HUDConstants.joystickDiameter)
         let mvmtJoystickMoved: TLAnalogJoystickEventHandler = { joystick in
             if joystick.velocity.length() < 0.2 {
                 return
@@ -37,7 +37,7 @@ class HeadsUpDisplayNode: SKNode, OverlayNode {
             self.addChild(movementJoystick)
         }
 
-        spellJoystick = TLAnalogJoystick(withDiameter: 100)
+        spellJoystick = TLAnalogJoystick(withDiameter: HUDConstants.joystickDiameter)
         let spellJoystickEnded: TLAnalogJoystickEventHandler = { joystick in
             // do nothing if distance is small?
             self.userInputDelegate?.spellJoystickEnded(angular: joystick.angular)

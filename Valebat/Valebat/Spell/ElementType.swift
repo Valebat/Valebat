@@ -27,4 +27,17 @@ enum ElementType: Int, CaseIterable {
             return false
         }
     }
+
+    var imageName: String {
+        switch self {
+        case .water:
+            return "water"
+        case .fire:
+            return "fire"
+        case .earth:
+            return "earth"
+        default:
+            return ""
+        }
+    }
 }
