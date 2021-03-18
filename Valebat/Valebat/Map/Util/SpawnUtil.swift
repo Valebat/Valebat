@@ -34,12 +34,7 @@ class SpawnUtil {
     }
 
     static func spawnTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
-        switch type {
-        case .wall:
-            return Wall(position: position)
-        case .rock:
-            return Rock(position: position)
-        }
+        return StaticMapObject(type: type, position: position)
     }
 
     private static func calculateTotalSpawnChance() {

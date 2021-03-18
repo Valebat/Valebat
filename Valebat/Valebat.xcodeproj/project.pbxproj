@@ -26,6 +26,8 @@
 		C6A9432025FE50E000087256 /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C6A9433125FF566600087256 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9433025FF566600087256 /* MoveComponent.swift */; };
 		C6A943642603437A00087256 /* SpawnUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnUtil.swift */; };
+		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
+		C6A9437426034EAA00087256 /* Crate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9437326034EAA00087256 /* Crate.swift */; };
 		CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F925FCE1C000581E20 /* AppDelegate.swift */; };
 		CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777FF25FCE1C000581E20 /* GameScene.swift */; };
 		CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7780125FCE1C000581E20 /* GameViewController.swift */; };
@@ -104,6 +106,8 @@
 		C6A9431F25FE50E000087256 /* WallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallEntity.swift; sourceTree = "<group>"; };
 		C6A9433025FF566600087256 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		C6A943632603437A00087256 /* SpawnUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnUtil.swift; sourceTree = "<group>"; };
+		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
+		C6A9437326034EAA00087256 /* Crate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crate.swift; sourceTree = "<group>"; };
 		CBC777F625FCE1C000581E20 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC777F925FCE1C000581E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC777FF25FCE1C000581E20 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */,
 				C6A942CD25FCE7EA00087256 /* MapObject.swift */,
 				C6A942CE25FCE7EA00087256 /* Rock.swift */,
+				C6A9437326034EAA00087256 /* Crate.swift */,
 				C6A9431A25FE508400087256 /* Wall.swift */,
 			);
 			path = MapObject;
@@ -261,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A9431525FE494100087256 /* RockEntity.swift */,
+				C6A9436B26034E8900087256 /* CrateEntity.swift */,
 				C6A9431F25FE50E000087256 /* WallEntity.swift */,
 			);
 			path = MapEntities;
@@ -552,6 +558,7 @@
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
+				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
 				CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
@@ -568,6 +575,7 @@
 				EF19416025FFC71900341BF5 /* SpellController.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
 				EF1941882600B15F00341BF5 /* SpellEntity.swift in Sources */,
+				C6A9437426034EAA00087256 /* Crate.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
 				DD4E010025FDBC4A002C5556 /* Player.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
