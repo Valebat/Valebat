@@ -39,8 +39,11 @@ class HeadsUpDisplayNode: SKNode, OverlayNode {
 
         spellJoystick = TLAnalogJoystick(withDiameter: HUDConstants.joystickDiameter)
         let spellJoystickEnded: TLAnalogJoystickEventHandler = { joystick in
-            // do nothing if distance is small?
-            self.userInputDelegate?.spellJoystickEnded(angular: joystick.angular)
+            if joystick.velocity.length() < 0.2 {
+                return
+            }
+            self.userInputDelegate?.spellJoystickEnded(angular: joystick.angular,
+                                                       elementQueue: self.elementPane?.elementQueueArray)
         }
         spellJoystick?.on(TLAnalogJoystickEventType.end, spellJoystickEnded)
         if let spellJoystick = spellJoystick {

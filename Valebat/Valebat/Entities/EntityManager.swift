@@ -18,6 +18,7 @@ class EntityManager {
 
     var player: Player?
     var obstacles: [GKPolygonObstacle] = []
+    var elements: [ElementType: Element] = [:]
 
     let scene: SKScene
     let gkScene: GKScene
@@ -76,6 +77,12 @@ class EntityManager {
         }
 
         gkScene.addGraph(graph, name: "obstacles")
+    }
+
+    func initialseElements() {
+        elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
+        elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
+        elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
     func add(_ entity: GKEntity) {
@@ -204,8 +211,15 @@ class EntityManager {
 }
 
 extension EntityManager: UserInputDelegate {
-    func spellJoystickEnded(angular: CGFloat) {
-        print(angular)
+    func spellJoystickEnded(angular: CGFloat, elementQueue: [ElementType]?) {
+        guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
+            return
+        }
+
+        let direction = CGVector(dx: -sin(angular), dy: cos(angular))
+        let elementTypeQueue = elementQueue ?? []
+        let elementQueue = mapElementType(elementQueue: elementTypeQueue)
+        shootSpell(from: playerPos, with: direction, using: Set(elementQueue))
     }
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
@@ -242,5 +256,9 @@ extension EntityManager: UserInputDelegate {
 
     func inputBegan(at location: CGPoint) {
 
+    }
+
+    private func mapElementType(elementQueue: [ElementType]) -> [Element] {
+        return elementQueue.compactMap({ elements[$0] ?? nil })
     }
 }
