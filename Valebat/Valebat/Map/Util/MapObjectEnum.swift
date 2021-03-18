@@ -6,6 +6,7 @@
 //
 
 enum MapObjectEnum: String {
-    case rock
     case wall
+    case rock
+    case crate
 }

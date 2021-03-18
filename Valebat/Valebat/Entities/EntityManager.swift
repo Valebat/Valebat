@@ -145,7 +145,8 @@ class EntityManager {
         let character = Player()
         if let spriteComponent = character.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position =
-                CGPoint(x: scene.size.width * 0.5, y: scene.size.height * 0.5)
+                CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
+                        y: scene.size.height * ViewConstants.playerSpawnOffset)
             spriteComponent.node.zPosition = 2
         }
         add(character)

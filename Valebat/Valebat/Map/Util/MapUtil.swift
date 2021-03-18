@@ -13,26 +13,40 @@ class MapUtil {
 
     static func generateMap() {
         var mapObjects: [MapObject] = []
+        guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
+              let wallHeight = MapObjectConstants.globalDefaultHeights[.wall] else {
+            return
+        }
 
-        let numWidth = Int(Double(ViewConstants.sceneWidth) / MapObjectConstants.wallDefaultWidth)
-        let numHeight = Int(Double(ViewConstants.sceneHeight) / MapObjectConstants.wallDefaultHeight)
+        let numWidth = Int(Double(ViewConstants.sceneWidth) / wallWidth)
+        let numHeight = Int(Double(ViewConstants.sceneHeight) / wallHeight)
         for widths in 0...numWidth {
             for heights in 0...numHeight {
                 if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
-                    let rand = Int(arc4random() % 255)
-                    if rand < MapObjectConstants.rockSpawnChance {
-                        let xPosition = Double(widths) * MapObjectConstants.rockDefaultWidth
-                        let yPosition = Double(heights) * MapObjectConstants.rockDefaultHeight
+                    let xPosition = Double(widths) * MapObjectConstants.objectDefaultWidth
+                    let yPosition = Double(heights) * MapObjectConstants.objectDefaultHeight
+                    let playerXSpawnPosition = ViewConstants.sceneWidth * ViewConstants.playerSpawnOffset
+                    let playerYSpawnPosition = ViewConstants.sceneHeight * ViewConstants.playerSpawnOffset
 
-                        mapObjects.append(Rock(position: CGPoint(x: xPosition, y: yPosition)))
+                    if abs(xPosition - Double(playerXSpawnPosition)) <
+                        (MapObjectConstants.objectDefaultWidth + Double(ViewConstants.playerWidth)) / 2 &&
+                        abs(yPosition - Double(playerYSpawnPosition)) <
+                            (MapObjectConstants.objectDefaultHeight + Double(ViewConstants.playerHeight)) / 2 {
+                        continue
                     }
+
+                    guard let objectToAdd = SpawnUtil.spawnObject(position: CGPoint(x: xPosition, y: yPosition)) else {
+                        continue
+                    }
+
+                    mapObjects.append(objectToAdd)
 
                     continue
                 }
-                let xPosition = Double(widths) * MapObjectConstants.wallDefaultWidth
-                let yPosition = Double(heights) * MapObjectConstants.wallDefaultHeight
+                let xPosition = Double(widths) * wallWidth
+                let yPosition = Double(heights) * wallHeight
 
-                mapObjects.append(Wall(position: CGPoint(x: xPosition, y: yPosition)))
+                mapObjects.append(StaticMapObject(type: .wall, position: CGPoint(x: xPosition, y: yPosition)))
             }
         }
 
@@ -46,10 +60,12 @@ class MapUtil {
             var entity: GKEntity
 
             switch object.type {
-            case .rock:
-                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             case .wall:
                 entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+            case .rock:
+                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+            case .crate:
+                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             }
 
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
