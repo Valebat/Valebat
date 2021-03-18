@@ -45,6 +45,16 @@ class SpellManager {
         } else if elements.count == 1 {
             let element = elements.first ?? Element(with: .generic, at: 0)
             return associatedSpell(for: element.type, at: element.level)
+        } else if elements.count == 2 {
+            var set = elements
+            guard let element1 = elements.first else {
+                return GenericSpell(at: 0)
+            }
+            set.removeFirst()
+            guard let element2 = set.first else {
+                return associatedSpell(for: element1.type, at: element1.level)
+            }
+            return combineElements(lhs: element1, rhs: element2)
         } else {
             var set = elements
             guard let minElement = elements.min(by: {$0.type.rawValue < $1.type.rawValue}) else {

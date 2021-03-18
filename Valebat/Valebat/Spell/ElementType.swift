@@ -28,16 +28,18 @@ enum ElementType: Int, CaseIterable {
         }
     }
 
-    var imageName: String {
+    var associatedDamageType: DamageType? {
         switch self {
-        case .water:
-            return "water"
         case .fire:
-            return "fire"
+            return .fire
+        case .water:
+            return .water
         case .earth:
-            return "earth"
+            return .earth
+        case .generic:
+            return .pure
         default:
-            return ""
+            return nil
         }
     }
 }

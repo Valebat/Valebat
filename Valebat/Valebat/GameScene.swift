@@ -33,7 +33,8 @@ class GameScene: SKScene {
     }
 
     func touchUp(atPoint pos: CGPoint) {
-
+        entityManager.shootSpell(from: pos, with: CGVector(dx: 1.0, dy: 0.0),
+                                 using: [Element(with: .generic, at: 1)])
     }
 
     private func setUpScene() {
@@ -50,8 +51,7 @@ class GameScene: SKScene {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        entityManager.spawnEnemy()
-
+//        entityManager.spawnEnemy()
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
 
