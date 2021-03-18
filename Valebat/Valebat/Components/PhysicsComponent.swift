@@ -12,8 +12,10 @@ import SpriteKit
 class PhysicsComponent: GKComponent {
     let physicsBody: SKPhysicsBody
 
-    init(physicsBody: SKPhysicsBody) {
+    init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
         self.physicsBody = physicsBody
+        physicsBody.categoryBitMask = collisionType.rawValue
+        physicsBody.contactTestBitMask = CollisionType.generateContactMask(type: collisionType)
         super.init()
     }
 

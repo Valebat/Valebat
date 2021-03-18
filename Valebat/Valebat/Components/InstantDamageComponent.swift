@@ -15,7 +15,9 @@ class InstantDamageComponent: DamageComponent, ContactBeginNotifiable {
             health.takeDamage(damages: damageValues)
         }
         if destroyOnHit {
-
+            if let entity = self.entity {
+                EntityManager.getInstance().remove(entity)
+            }
         }
     }
 
