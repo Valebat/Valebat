@@ -19,7 +19,7 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
-        entityManager = EntityManager(scene: self)
+        entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
     }

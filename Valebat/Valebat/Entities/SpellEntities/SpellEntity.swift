@@ -9,12 +9,11 @@ import GameplayKit
 
 class SpellEntity: GKEntity {
 
-    init(entityManager: EntityManager, velocity: CGVector, spell: Spell) {
+    init(velocity: CGVector, spell: Spell) {
         super.init()
         let spriteComponent = buildSpell()
         addComponent(spriteComponent)
-        addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity,
-                                        entityManager: entityManager))
+        addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
         let element = spell.element
         if element.type.isSingle {
             addComponent(InstantDamageComponent(damage: CGFloat(element.level),

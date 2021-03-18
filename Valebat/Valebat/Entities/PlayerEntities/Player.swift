@@ -9,7 +9,7 @@ import GameplayKit
 
 class Player: GKEntity {
 
-    init(entityManager: EntityManager) {
+    override init() {
         super.init()
 
         let texture = SKTexture(imageNamed: "character")
@@ -18,7 +18,7 @@ class Player: GKEntity {
         addComponent(spriteComponent)
 
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
-                                     barOffset: texture.size().height/2, health: 15, entityManager: entityManager))
+                                     barOffset: texture.size().height/2, health: 15))
 
     }
 

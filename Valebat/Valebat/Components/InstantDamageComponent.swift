@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 class InstantDamageComponent: DamageComponent, ContactBeginNotifiable {
 
     func contactDidBegin(with entity: GKEntity) {

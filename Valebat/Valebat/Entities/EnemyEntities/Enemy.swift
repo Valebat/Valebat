@@ -9,7 +9,7 @@ import GameplayKit
 
 class Enemy: GKEntity {
 
-    init(entityManager: EntityManager) {
+    override init() {
         super.init()
 
         let texture = SKTexture(imageNamed: "test")
@@ -17,7 +17,7 @@ class Enemy: GKEntity {
         addComponent(spriteComponent)
 
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
-                                     barOffset: texture.size().height/2, health: 15, entityManager: entityManager))
+                                     barOffset: texture.size().height/2, health: 15))
         addComponent(MoveComponent(speed: 3))
     }
 
