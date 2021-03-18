@@ -13,4 +13,6 @@ protocol UserInputDelegate: AnyObject {
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat)
 
+    func spellJoystickEnded(angular: CGFloat)
+
 }

@@ -13,9 +13,13 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
 
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
-        let scene = GameScene(size: CGSize(width: 640 * aspectRatio, height: 640))
+        ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
+        let scene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
+                                           height: ViewConstants.sceneHeight))
         scene.scaleMode = .aspectFill
 
         guard let skView = self.view as? SKView else {
@@ -34,4 +38,9 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return .landscape
+    }
+
 }
