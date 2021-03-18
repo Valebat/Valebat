@@ -13,13 +13,12 @@ import SpriteKit
 import GameplayKit
 
 class SpellCastComponent: GKComponent {
-    let entityManager: EntityManager
+    let entityManager = EntityManager.getInstance()
     let velocity: CGVector
     let spellNode: SKNode
 
-    init(spellNode: SKNode, velocity: CGVector, entityManager: EntityManager) {
+    init(spellNode: SKNode, velocity: CGVector) {
         self.spellNode = spellNode
-        self.entityManager = entityManager
         self.velocity = velocity
         super.init()
     }

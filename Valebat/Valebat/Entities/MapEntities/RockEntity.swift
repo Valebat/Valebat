@@ -9,7 +9,7 @@ import GameplayKit
 
 class RockEntity: GKEntity {
 
-    init(entityManager: EntityManager, size: CGSize) {
+    init(size: CGSize) {
         super.init()
 
         let texture = SKTexture(imageNamed: "rock")

@@ -18,14 +18,13 @@ class HealthComponent: GKComponent {
     var health: CGFloat
     let healthBarFullWidth: CGFloat
     let healthBar: SKShapeNode
-    let entityManager: EntityManager
+    let entityManager = EntityManager.getInstance()
 
     init(parentNode: SKNode, barWidth: CGFloat,
-         barOffset: CGFloat, health: CGFloat, entityManager: EntityManager) {
+         barOffset: CGFloat, health: CGFloat) {
         armor = DamageMultipliers()
         self.fullHealth = health
         self.health = health
-        self.entityManager = entityManager
 
         healthBarFullWidth = barWidth
         healthBar = SKShapeNode(rectOf:

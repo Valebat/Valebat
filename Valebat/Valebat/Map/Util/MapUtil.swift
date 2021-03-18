@@ -49,7 +49,7 @@ class MapUtil {
         map = Map(withObjects: mapObjects)
     }
 
-    static func getMapEntities(entityManager: EntityManager) -> [GKEntity] {
+    static func getMapEntities() -> [GKEntity] {
         var entities: [GKEntity] = []
 
         for object in map.objects {
@@ -57,11 +57,9 @@ class MapUtil {
 
             switch object.type {
             case .rock:
-                entity = RockEntity(entityManager: entityManager,
-                                    size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             case .wall:
-                entity = WallEntity(entityManager: entityManager,
-                                    size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             }
 
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
