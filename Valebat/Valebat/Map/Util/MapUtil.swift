@@ -19,13 +19,23 @@ class MapUtil {
         for widths in 0...numWidth {
             for heights in 0...numHeight {
                 if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
-                    let rand = Int(arc4random() % 255)
-                    if rand < MapObjectConstants.rockSpawnChance {
-                        let xPosition = Double(widths) * MapObjectConstants.rockDefaultWidth
-                        let yPosition = Double(heights) * MapObjectConstants.rockDefaultHeight
-                        
-                        mapObjects.append(Rock(position: CGPoint(x: xPosition, y: yPosition)))
+                    let xPosition = Double(widths) * MapObjectConstants.objectDefaultWidth
+                    let yPosition = Double(heights) * MapObjectConstants.objectDefaultHeight
+                    let playerXSpawnPosition = ViewConstants.sceneWidth * ViewConstants.playerSpawnOffset
+                    let playerYSpawnPosition = ViewConstants.sceneHeight * ViewConstants.playerSpawnOffset
+
+                    if abs(xPosition - Double(playerXSpawnPosition)) <
+                        (MapObjectConstants.objectDefaultWidth + Double(ViewConstants.playerWidth)) / 2 &&
+                        abs(yPosition - Double(playerYSpawnPosition)) <
+                            (MapObjectConstants.objectDefaultHeight + Double(ViewConstants.playerHeight)) / 2 {
+                        continue
                     }
+
+                    guard let objectToAdd = SpawnUtil.spawnObject(position: CGPoint(x: xPosition, y: yPosition)) else {
+                        continue
+                    }
+
+                    mapObjects.append(objectToAdd)
 
                     continue
                 }

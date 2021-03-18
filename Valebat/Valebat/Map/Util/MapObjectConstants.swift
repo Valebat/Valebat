@@ -8,12 +8,14 @@
 class MapObjectConstants {
     static let objectDefaultHeight: Double = Double(ViewConstants.gridSize)
     static let objectDefaultWidth: Double = Double(ViewConstants.gridSize)
+    static let globalObjectSpawnChance: Int = 5
+    static let globalSpawnChances: [MapObjectEnum: Int] = [.wall: 0,
+                                                           .rock: 5]
 
     // Rock constants.
     static let rockDefaultHeight: Double = objectDefaultHeight
     static let rockDefaultWidth: Double = objectDefaultWidth
     static let rockDefaultCollideable: Bool = true
-    static let rockSpawnChance: Int = 5
 
     // Wall constants.
     static let wallDefaultHeight: Double = objectDefaultHeight

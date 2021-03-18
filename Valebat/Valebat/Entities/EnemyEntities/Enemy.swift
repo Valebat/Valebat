@@ -12,7 +12,7 @@ class Enemy: GKEntity {
     init(entityManager: EntityManager) {
         super.init()
 
-        let texture = SKTexture(imageNamed: "test")
+        let texture = SKTexture(imageNamed: "enemy")
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: texture.size())
         addComponent(spriteComponent)
 
