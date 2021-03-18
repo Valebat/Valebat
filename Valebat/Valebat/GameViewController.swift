@@ -17,7 +17,9 @@ class GameViewController: UIViewController {
         UIDevice.current.setValue(value, forKey: "orientation")
 
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
-        let scene = GameScene(size: CGSize(width: 640 * aspectRatio, height: 640))
+        ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
+        let scene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
+                                           height: ViewConstants.sceneHeight))
         scene.scaleMode = .aspectFill
 
         guard let skView = self.view as? SKView else {

@@ -20,7 +20,6 @@ class Player: GKEntity {
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
                                      barOffset: texture.size().height/2, health: 15, entityManager: entityManager))
 
-        addComponent(PlayerAgentComponent(entityManager: entityManager))
     }
 
     required init?(coder: NSCoder) {
