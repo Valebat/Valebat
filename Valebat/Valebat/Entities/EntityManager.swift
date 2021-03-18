@@ -40,6 +40,8 @@ class EntityManager {
     }
 
     func initialiseMap() {
+        MapUtil.generateMap()
+
         let mapEntities: [GKEntity] = MapUtil.getMapEntities(entityManager: self)
 
         for entity in mapEntities {

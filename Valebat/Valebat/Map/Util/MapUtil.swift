@@ -12,7 +12,31 @@ class MapUtil {
     static var map: Map = TestConstants.testMap
 
     static func generateMap() {
-        map = TestConstants.testMap
+        var mapObjects: [MapObject] = []
+
+        let numWidth = Int(Double(ViewConstants.sceneWidth) / MapObjectConstants.wallDefaultWidth)
+        let numHeight = Int(Double(ViewConstants.sceneHeight) / MapObjectConstants.wallDefaultHeight)
+        for widths in 0...numWidth {
+            for heights in 0...numHeight {
+                if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
+                    let rand = Int(arc4random() % 255)
+                    if rand < MapObjectConstants.rockSpawnChance {
+                        let xPosition = Double(widths) * MapObjectConstants.rockDefaultWidth
+                        let yPosition = Double(heights) * MapObjectConstants.rockDefaultHeight
+                        
+                        mapObjects.append(Rock(position: CGPoint(x: xPosition, y: yPosition)))
+                    }
+
+                    continue
+                }
+                let xPosition = Double(widths) * MapObjectConstants.wallDefaultWidth
+                let yPosition = Double(heights) * MapObjectConstants.wallDefaultHeight
+
+                mapObjects.append(Wall(position: CGPoint(x: xPosition, y: yPosition)))
+            }
+        }
+
+        map = Map(withObjects: mapObjects)
     }
 
     static func getMapEntities(entityManager: EntityManager) -> [GKEntity] {
