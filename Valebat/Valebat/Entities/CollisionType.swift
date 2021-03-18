@@ -13,7 +13,7 @@ enum CollisionType: UInt32, CaseIterable {
     case enemy = 0b00000100
     case enemyAttack = 0b00001000
     case wall = 0b00010000
-    
+
     static func generateFullMask() -> UInt32 {
         var value: UInt32 = 0
         for type in CollisionType.allCases {
@@ -22,7 +22,7 @@ enum CollisionType: UInt32, CaseIterable {
         return value
     }
     static func generateContactMask(type: CollisionType) -> UInt32 {
-        switch(type) {
+        switch type {
         case .player:
             return enemyAttack.rawValue + wall.rawValue
         case .enemy:
@@ -36,4 +36,3 @@ enum CollisionType: UInt32, CaseIterable {
         }
     }
 }
-
