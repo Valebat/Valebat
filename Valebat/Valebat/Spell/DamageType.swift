@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum DamageType: CaseIterable {
+enum DamageType: String, CaseIterable {
     case water, earth, fire, pure
 }

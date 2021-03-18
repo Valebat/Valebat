@@ -28,6 +28,10 @@ enum ElementType: Int, CaseIterable {
         }
     }
 
+    var imageName: String {
+        associatedDamageType?.rawValue ?? ""
+    }
+
     var associatedDamageType: DamageType? {
         switch self {
         case .fire:
