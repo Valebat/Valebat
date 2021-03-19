@@ -15,6 +15,9 @@ class WallEntity: GKEntity {
         let texture = SKTexture(imageNamed: "wall")
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
+
+        let physicsBody = SKPhysicsBody(texture: texture, size: size)
+        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
     }
 
     required init?(coder: NSCoder) {

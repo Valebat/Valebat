@@ -22,6 +22,8 @@ class GameScene: SKScene {
         entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
+
+        self.physicsWorld.contactDelegate = self
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -34,8 +36,6 @@ class GameScene: SKScene {
 
     func touchUp(atPoint pos: CGPoint) {
         entityManager.spawnEnemy()
-        entityManager.shootSpell(from: pos, with: CGVector(dx: 1.0, dy: 0.0),
-                                 using: [Element(with: .generic, at: 1)])
     }
 
     private func setUpScene() {
@@ -120,5 +120,4 @@ extension GameScene: SKPhysicsContactDelegate {
             }
         }
     }
-
 }

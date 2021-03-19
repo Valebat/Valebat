@@ -15,6 +15,9 @@ class RockEntity: GKEntity {
         let texture = SKTexture(imageNamed: "rock")
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
+
+        let physicsBody = SKPhysicsBody(texture: texture, size: size)
+        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
     }
 
     required init?(coder: NSCoder) {

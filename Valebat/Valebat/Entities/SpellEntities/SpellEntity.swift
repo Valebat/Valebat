@@ -11,18 +11,27 @@ class SpellEntity: GKEntity {
 
     init(velocity: CGVector, spell: Spell) {
         super.init()
-        let spriteComponent = buildSpell()
+
+        let spriteTexture = buildSpellTexture()
+        let spriteSize = spriteTexture.size()
+        let spriteComponent = SpriteComponent(entity: self, texture: spriteTexture, size: spriteSize)
         addComponent(spriteComponent)
+
         addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
+
+        let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
+        addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
+
         let element = spell.element
         if element.type.isSingle {
             addComponent(InstantDamageComponent(damage: CGFloat(element.level),
                                                 type: element.type.associatedDamageType ?? .pure))
         } else {
-            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? CGFloat(element.level) : 0.0,
-                                                earth: spell.damageTypes.contains(.earth) ? CGFloat(element.level) : 0.0,
-                                                fire: spell.damageTypes.contains(.fire) ? CGFloat(element.level) : 0.0,
-                                                pure: spell.damageTypes.contains(.pure) ? CGFloat(element.level) : 0.0))
+            let level: CGFloat = CGFloat(element.level)
+            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? level : 0.0,
+                                                earth: spell.damageTypes.contains(.earth) ? level : 0.0,
+                                                fire: spell.damageTypes.contains(.fire) ? level : 0.0,
+                                                pure: spell.damageTypes.contains(.pure) ? level : 0.0))
         }
     }
 
@@ -30,7 +39,7 @@ class SpellEntity: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func buildSpell() -> SpriteComponent {
+    func buildSpellTexture() -> SKTexture {
         let spellAnimatedAtlas = SKTextureAtlas(named: "FB00")
         var animatedFrames: [SKTexture] = []
 
@@ -39,16 +48,7 @@ class SpellEntity: GKEntity {
             let spellTextureName = "FB00\(index)"
             animatedFrames.append(spellAnimatedAtlas.textureNamed(spellTextureName))
         }
-        let firstFrame = animatedFrames[0]
-        let spellSize = CGSize(width: firstFrame.size().width, height: firstFrame.size().height)
-        let spellComponent = SpriteComponent(entity: self, texture: firstFrame, size: spellSize)
-        return spellComponent
+        return animatedFrames[0]
     }
 
-}
-
-extension ContactAllNotifiable {
-    func contactDidEnd(with entity: GKEntity) {
-
-    }
 }
