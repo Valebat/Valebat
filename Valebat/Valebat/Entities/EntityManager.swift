@@ -30,7 +30,8 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
-        return [damageSystem, spellCastSystem]
+        let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem]
     }()
 
     static func getInstance() -> EntityManager {

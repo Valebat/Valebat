@@ -19,6 +19,7 @@ class SpellCastComponent: GKComponent {
 
     init(spellNode: SKNode, velocity: CGVector) {
         self.spellNode = spellNode
+        self.spellNode.zRotation = atan2(velocity.dy, velocity.dx)
         self.velocity = velocity
         super.init()
     }

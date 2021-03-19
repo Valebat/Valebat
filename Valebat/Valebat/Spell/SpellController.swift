@@ -41,14 +41,14 @@ class SpellManager {
 
     func combine(elements: Set<Element>) -> Spell {
         if elements.isEmpty {
-            return GenericSpell(at: 0)
+            return GenericSpell(at: 1)
         } else if elements.count == 1 {
-            let element = elements.first ?? Element(with: .generic, at: 0)
+            let element = elements.first ?? Element(with: .generic, at: 1)
             return associatedSpell(for: element.type, at: element.level)
         } else if elements.count == 2 {
             var set = elements
             guard let element1 = elements.first else {
-                return GenericSpell(at: 0)
+                return GenericSpell(at: 1)
             }
             set.removeFirst()
             guard let element2 = set.first else {
@@ -58,7 +58,7 @@ class SpellManager {
         } else {
             var set = elements
             guard let minElement = elements.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
-                return GenericSpell(at: 0)
+                return GenericSpell(at: 1)
             }
             set.remove(minElement)
             guard let secondMinElement = set.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
