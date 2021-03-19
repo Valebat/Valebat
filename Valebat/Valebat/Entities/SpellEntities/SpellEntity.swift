@@ -23,15 +23,15 @@ class SpellEntity: GKEntity {
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
 
         let element = spell.element
+        let damage = CGFloat(element.level) * 5 // Some constant
         if element.type.isSingle {
-            addComponent(InstantDamageComponent(damage: CGFloat(element.level),
+            addComponent(InstantDamageComponent(damage: damage,
                                                 type: element.type.associatedDamageType ?? .pure))
         } else {
-            let level: CGFloat = CGFloat(element.level)
-            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? level : 0.0,
-                                                earth: spell.damageTypes.contains(.earth) ? level : 0.0,
-                                                fire: spell.damageTypes.contains(.fire) ? level : 0.0,
-                                                pure: spell.damageTypes.contains(.pure) ? level : 0.0))
+            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? damage : 0.0,
+                                                earth: spell.damageTypes.contains(.earth) ? damage : 0.0,
+                                                fire: spell.damageTypes.contains(.fire) ? damage : 0.0,
+                                                pure: spell.damageTypes.contains(.pure) ? damage : 0.0))
         }
     }
 

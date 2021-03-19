@@ -9,7 +9,7 @@ import Foundation
 import GameplayKit
 class CollectingComponent: GKComponent, PlayerComponent, ContactBeginNotifiable {
     var player: Player?
-    
+
     func contactDidBegin(with entity: GKEntity) {
         if let collectible = entity as? CollectibleEntity,
            let player = self.player {

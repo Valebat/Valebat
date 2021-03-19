@@ -25,7 +25,7 @@ class Player: GKEntity {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func addPlayerComponent(playerComponent: PlayerComponent) {
         addComponent(playerComponent)
         playerComponent.player = self
