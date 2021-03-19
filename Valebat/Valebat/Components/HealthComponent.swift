@@ -55,11 +55,8 @@ class HealthComponent: GKComponent {
         healthBar.run(SKAction.group([scaleAction]))
 
         if health == 0 {
-          if let entity = entity {
-              entityManager.remove(entity)
-          }
+            entity?.component(ofType: DeathComponent.self)?.onDeath()
         }
-
         return health == 0
     }
 }

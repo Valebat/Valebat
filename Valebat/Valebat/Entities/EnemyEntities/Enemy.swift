@@ -19,6 +19,7 @@ class Enemy: GKEntity {
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
                                      barOffset: texture.size().height/2, health: 15))
         addComponent(MoveComponent(speed: 3))
+        addComponent(DeathComponent())
     }
 
     required init?(coder: NSCoder) {

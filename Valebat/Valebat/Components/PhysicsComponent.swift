@@ -14,8 +14,8 @@ class PhysicsComponent: GKComponent {
 
     init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
         self.physicsBody = physicsBody
-        physicsBody.categoryBitMask = collisionType.rawValue
-        physicsBody.contactTestBitMask = CollisionType.generateContactMask(type: collisionType)
+        self.physicsBody.categoryBitMask = collisionType.rawValue
+        self.physicsBody.contactTestBitMask = CollisionType.generateContactMask(type: collisionType)
         super.init()
     }
 
