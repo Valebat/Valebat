@@ -35,7 +35,7 @@ class GameScene: SKScene {
     }
 
     func touchUp(atPoint pos: CGPoint) {
-
+        entityManager.spawnEnemy()
     }
 
     private func setUpScene() {

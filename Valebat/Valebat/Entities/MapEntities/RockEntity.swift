@@ -17,7 +17,6 @@ class RockEntity: GKEntity {
         addComponent(spriteComponent)
 
         let physicsBody = SKPhysicsBody(texture: texture, size: size)
-        physicsBody.affectedByGravity = false
         addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
     }
 

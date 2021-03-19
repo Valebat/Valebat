@@ -20,7 +20,6 @@ class SpellEntity: GKEntity {
         addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
 
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
-        spellPhysicsBody.affectedByGravity = false
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
 
         let element = spell.element
