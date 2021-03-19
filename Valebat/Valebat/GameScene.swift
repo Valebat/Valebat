@@ -94,12 +94,12 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         for component in entityA.components {
             if let contactableComponent = component as? ContactBeginNotifiable {
-                contactableComponent.contactDidBegin(with: entityA)
+                contactableComponent.contactDidBegin(with: entityB)
             }
         }
         for component in entityB.components {
             if let contactableComponent = component as? ContactBeginNotifiable {
-                contactableComponent.contactDidBegin(with: entityB)
+                contactableComponent.contactDidBegin(with: entityA)
             }
         }
     }
@@ -111,12 +111,12 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         for component in entityA.components {
             if let contactableComponent = component as? ContactEndNotifiable {
-                contactableComponent.contactDidEnd(with: entityA)
+                contactableComponent.contactDidEnd(with: entityB)
             }
         }
         for component in entityB.components {
             if let contactableComponent = component as? ContactEndNotifiable {
-                contactableComponent.contactDidEnd(with: entityB)
+                contactableComponent.contactDidEnd(with: entityA)
             }
         }
     }
