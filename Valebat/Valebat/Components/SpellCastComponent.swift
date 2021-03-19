@@ -12,7 +12,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class SpellCastComponent: GKComponent, ContactAllNotifiable {
+class SpellCastComponent: GKComponent {
     let entityManager = EntityManager.getInstance()
     let velocity: CGVector
     let spellNode: SKNode
@@ -31,17 +31,5 @@ class SpellCastComponent: GKComponent, ContactAllNotifiable {
         super.update(deltaTime: seconds)
         spellNode.position = CGPoint(x: spellNode.position.x + velocity.dx,
                                      y: spellNode.position.y + velocity.dy)
-    }
-
-    func contactDidBegin(with entity: GKEntity) {
-        if let entityToRemove = self.spellNode.entity {
-            EntityManager.getInstance().remove(entityToRemove)
-        }
-    }
-
-    func contactDidEnd(with entity: GKEntity) {
-        if let entityToRemove = self.spellNode.entity {
-            EntityManager.getInstance().remove(entityToRemove)
-        }
     }
 }

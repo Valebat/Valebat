@@ -22,6 +22,8 @@ class GameScene: SKScene {
         entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
+
+        self.physicsWorld.contactDelegate = self
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -33,7 +35,7 @@ class GameScene: SKScene {
     }
 
     func touchUp(atPoint pos: CGPoint) {
-        
+
     }
 
     private func setUpScene() {
