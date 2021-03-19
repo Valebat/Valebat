@@ -33,6 +33,9 @@
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
 		CBA494F126038AB1003A05F7 /* CollectingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494F026038AB1003A05F7 /* CollectingComponent.swift */; };
 		CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494FD26038BDA003A05F7 /* CollectibleEntity.swift */; };
+		CBA4950A2604961B003A05F7 /* PlayerEssenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA495092604961B003A05F7 /* PlayerEssenceComponent.swift */; };
+		CBA4950F26049725003A05F7 /* EssenceCollectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4950E26049725003A05F7 /* EssenceCollectible.swift */; };
+		CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */; };
 		CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F925FCE1C000581E20 /* AppDelegate.swift */; };
 		CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC777FF25FCE1C000581E20 /* GameScene.swift */; };
 		CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7780125FCE1C000581E20 /* GameViewController.swift */; };
@@ -118,6 +121,9 @@
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
 		CBA494F026038AB1003A05F7 /* CollectingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectingComponent.swift; sourceTree = "<group>"; };
 		CBA494FD26038BDA003A05F7 /* CollectibleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleEntity.swift; sourceTree = "<group>"; };
+		CBA495092604961B003A05F7 /* PlayerEssenceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEssenceComponent.swift; sourceTree = "<group>"; };
+		CBA4950E26049725003A05F7 /* EssenceCollectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceCollectible.swift; sourceTree = "<group>"; };
+		CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyDeathComponent.swift; sourceTree = "<group>"; };
 		CBC777F625FCE1C000581E20 /* Valebat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valebat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC777F925FCE1C000581E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC777FF25FCE1C000581E20 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -273,6 +279,8 @@
 				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
 				CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */,
 				CBA494F026038AB1003A05F7 /* CollectingComponent.swift */,
+				CBA495092604961B003A05F7 /* PlayerEssenceComponent.swift */,
+				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA494FD26038BDA003A05F7 /* CollectibleEntity.swift */,
+				CBA4950E26049725003A05F7 /* EssenceCollectible.swift */,
 			);
 			path = CollectibleEntities;
 			sourceTree = "<group>";
@@ -580,6 +589,7 @@
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
+				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
@@ -590,6 +600,7 @@
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
 				CBFC49E625FFF2AF00C5DDD2 /* DamageType.swift in Sources */,
+				CBA4950F26049725003A05F7 /* EssenceCollectible.swift in Sources */,
 				EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
@@ -606,6 +617,7 @@
 				DD4E010025FDBC4A002C5556 /* Player.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				C6A9431B25FE508400087256 /* Wall.swift in Sources */,
+				CBA4950A2604961B003A05F7 /* PlayerEssenceComponent.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
