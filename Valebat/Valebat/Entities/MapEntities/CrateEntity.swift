@@ -15,6 +15,10 @@ class CrateEntity: GKEntity {
         let texture = SKTexture(imageNamed: "crate")
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
+
+        let physicsBody = SKPhysicsBody(texture: texture, size: size)
+        physicsBody.affectedByGravity = false
+        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
     }
 
     required init?(coder: NSCoder) {
