@@ -17,7 +17,7 @@ class PhysicsComponent: GKComponent {
         physicsBody.categoryBitMask = collisionType.rawValue
         physicsBody.collisionBitMask = 0
         physicsBody.affectedByGravity = false
-        physicsBody.contactTestBitMask = CollisionType.generateContactMask(type: collisionType)
+        self.physicsBody.contactTestBitMask = CollisionType.generateContactMask(type: collisionType)
         super.init()
     }
 

@@ -22,6 +22,7 @@ class Enemy: GKEntity {
 
         let physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
         addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .enemy))
+        addComponent(DeathComponent())
     }
 
     required init?(coder: NSCoder) {
