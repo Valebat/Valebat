@@ -9,6 +9,7 @@ import GameplayKit
 
 class Player: GKEntity {
 
+    let essenceManager = PlayerEssenceManager()
     override init() {
         super.init()
 
@@ -25,7 +26,7 @@ class Player: GKEntity {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func addPlayerComponent(playerComponent: PlayerComponent) {
         addComponent(playerComponent)
         playerComponent.player = self
