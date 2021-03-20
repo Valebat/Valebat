@@ -10,10 +10,10 @@ import SpriteKit
 class HeadsUpDisplayNode: SKNode, OverlayNode {
 
     weak var userInputDelegate: UserInputDelegate?
-    var movementJoystick: TLAnalogJoystick?
-    var spellJoystick: TLAnalogJoystick?
+    private(set) var movementJoystick: TLAnalogJoystick?
+    private(set) var spellJoystick: TLAnalogJoystick?
 
-    var elementPane: ElementPane?
+    private(set) var elementPane: ElementPane?
 
     override init() {
         super.init()

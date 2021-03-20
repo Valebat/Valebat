@@ -31,7 +31,8 @@ class EntityManager {
         let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
         let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem]
+        let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem, spawnSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -73,11 +74,12 @@ class EntityManager {
     }
 
     func initialiseGraph() {
-        let mapEntities: [GKEntity] = MapUtil.getMapEntities()
+        let mapEntities: [BaseMapEntity] = MapUtil.getMapEntities()
 
         self.obstacles = []
 
-        for entity in mapEntities {
+        for entity in mapEntities where MapObjectConstants.globalDefaultCollidables[entity.objectType] ??
+            MapObjectConstants.objectDefaultCollidable {
             var nodes: [SKNode] = []
             nodes.append(entity.component(ofType: SpriteComponent.self)!.node)
 
@@ -85,7 +87,7 @@ class EntityManager {
         }
 
         let graph: GKObstacleGraph = GKObstacleGraph(obstacles: obstacles,
-                                                     bufferRadius: Float(ViewConstants.playerWidth) * 0.5)
+                                                     bufferRadius: Float(ViewConstants.gridSize / 4))
 
         for widths in 0...Int(ViewConstants.sceneWidth / ViewConstants.gridSize) {
             for heights in 0...Int(ViewConstants.sceneHeight / ViewConstants.gridSize) {
@@ -101,10 +103,10 @@ class EntityManager {
         gkScene.addGraph(graph, name: "obstacles")
     }
 
-    func initialseElements() {
-        elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
-        elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
-        elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
+    func initialseElements() throws {
+        try elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
+        try elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
+        try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
     func add(_ entity: GKEntity) {
@@ -129,13 +131,11 @@ class EntityManager {
         entities.remove(entity)
     }
 
-    func spawnEnemy() {
+    func spawnEnemy(at location: CGPoint) {
         let enemy = Enemy()
 
         if let spriteComponent = enemy.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position =
-                CGPoint(x: CGFloat.random(in: scene.size.width * 0.25 ... scene.size.width * 0.75),
-                        y: CGFloat.random(in: scene.size.height * 0.25 ... scene.size.height * 0.75))
+            spriteComponent.node.position = location
             spriteComponent.node.zPosition = 2
         }
 
@@ -155,8 +155,8 @@ class EntityManager {
     }
 
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
-                    using elementsSelected: [Element]) {
-        let underlyingSpell = self.spellManager.combine(elements: elementsSelected)
+                    using elementsSelected: [Element]) throws {
+        let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
         let spell = SpellEntity(velocity: velocity, spell: underlyingSpell)
         if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = shootPoint
@@ -203,6 +203,38 @@ class EntityManager {
 
             var path: [GKGraphNode2D] = graph.findPath(from: enemyNode, to: playerNode) as? [GKGraphNode2D] ?? []
             graph.remove([enemyNode])
+
+            if path.isEmpty {
+                var resolved = false
+                let directions: [CGPoint] = [CGPoint(x: 1, y: 1), CGPoint(x: -1, y: -1),
+                                             CGPoint(x: -1, y: 1), CGPoint(x: 1, y: -1)]
+                for idx in 0..<directions.count {
+                    if resolved { continue }
+                    let newPosition = CGPoint(x: CGFloat(enemySprite.node.position.x) +
+                                                directions[idx].x * ViewConstants.baseEnemyEscapeDistance,
+                                              y: CGFloat(enemySprite.node.position.y) +
+                                                directions[idx].y * ViewConstants.baseEnemyEscapeDistance)
+
+                    let endNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(newPosition.x),
+                                                                                    Float(newPosition.y)))
+                    graph.connectUsingObstacles(node: endNode)
+
+                    let path: [GKGraphNode2D] = graph.findPath(from: endNode, to: playerNode) as? [GKGraphNode2D] ?? []
+                    graph.remove([endNode])
+
+                    guard let nextPositionInPath: GKGraphNode2D = path.first else {
+                        continue
+                    }
+
+                    let targetX: CGFloat = CGFloat(nextPositionInPath.position.x)
+                    let targetY: CGFloat = CGFloat(nextPositionInPath.position.y)
+                    let targetPosition: CGPoint = CGPoint(x: targetX, y: targetY)
+
+                    enemySprite.node.position = targetPosition
+                    resolved = true
+                }
+                continue
+            }
             if !path.isEmpty { path.remove(at: 0) }
 
             guard let nextPositionInPath: GKGraphNode2D = path.first else {

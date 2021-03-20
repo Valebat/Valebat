@@ -22,6 +22,7 @@ enum CollisionType: UInt32, CaseIterable {
         }
         return value
     }
+
     static func generateContactMask(type: CollisionType) -> UInt32 {
         switch type {
         case .player:

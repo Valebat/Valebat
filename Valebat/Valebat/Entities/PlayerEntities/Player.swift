@@ -9,6 +9,7 @@ import GameplayKit
 
 class Player: GKEntity {
 
+    let essenceManager = PlayerEssenceManager()
     override init() {
         super.init()
 

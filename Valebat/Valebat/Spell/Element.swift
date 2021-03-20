@@ -10,10 +10,10 @@ class Element: Hashable {
     let type: ElementType
     let level: Double
 
-    init(with type: ElementType, at level: Double) {
+    init(with type: ElementType, at level: Double) throws {
         self.type = type
         if level < 1 {
-            InvalidLevelException().raise()
+            throw SpellErrors.invalidLevelError
         }
         self.level = level
     }

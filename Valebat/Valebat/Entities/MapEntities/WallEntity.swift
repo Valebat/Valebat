@@ -7,7 +7,8 @@
 
 import GameplayKit
 
-class WallEntity: GKEntity {
+class WallEntity: GKEntity, BaseMapEntity {
+    let objectType: MapObjectEnum = .wall
 
     init(size: CGSize) {
         super.init()

@@ -19,22 +19,28 @@ class ElementTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testStartingLevel() throws {
+    func test_startingLevel() throws {
         let element = Element(with: .water, at: 1)
         XCTAssert(element.level == 1)
     }
 
-    func testValidLevel() throws {
+    func test_validLevel() throws {
         let element = Element(with: .water, at: 100.5)
         XCTAssert(element.level == 100.5)
     }
 
-    func testPositiveLevelBelowOne() {
-//        XCTAssertThrows(expression: Element(with: .water, at: 0.5))
+    func test_positiveLevelBelowOne() {
+        XCTAssertThrowsError(try Element(with: .water, at: 0.5),
+                             "Invalid level error should be thrown") { (error) in
+                                XCTAssertEqual(error as? SpellErrors, SpellErrors.invalidLevelError)
+        }
     }
-    
-    func testNegativeLevel() {
-//        XCTAssertThrows(expression: Element(with: .water, at: -1.5))
+
+    func test_negativeLevel() {
+        XCTAssertThrowsError(try Element(with: .water, at: -1.5),
+                             "Invalid level error should be thrown") { (error) in
+                                XCTAssertEqual(error as? SpellErrors, SpellErrors.invalidLevelError)
+        }
     }
 
     func testPerformanceExample() throws {

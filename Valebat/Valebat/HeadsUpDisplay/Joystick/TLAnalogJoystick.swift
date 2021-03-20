@@ -1,6 +1,5 @@
 //
 //  TLAnalogJoystick.swift
-//  tyApplyApp company
 //
 //  Created by Dmitriy Mitrophanskiy on 2/27/19.
 //  Copyright © 2019 Dmitriy Mitrophanskiy. All rights reserved.
@@ -29,74 +28,6 @@ private let getHandlerID: () -> TLAnalogJoystickHandlerID = {
 
 private func getDiameter(fromDiameter diameter: CGFloat, withRatio ratio: CGFloat) -> CGFloat {
     return diameter * abs(ratio)
-}
-
-// MARK: - TLAnalogJoystickHiddenArea
-open class TLAnalogJoystickHiddenArea: SKShapeNode {
-    private var currJoystick: TLAnalogJoystick?
-
-    var joystick: TLAnalogJoystick? {
-        get {
-            return currJoystick
-        }
-
-        set {
-            if let currJoystick = self.currJoystick {
-                removeChildren(in: [currJoystick])
-            }
-
-            currJoystick = newValue
-
-            if let currJoystick = self.currJoystick {
-                isUserInteractionEnabled = true
-                cancelNode(currJoystick)
-                addChild(currJoystick)
-            } else {
-                isUserInteractionEnabled = false
-            }
-        }
-    }
-
-    private func cancelNode(_ node: SKNode) {
-        node.isHidden = true
-    }
-
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let currJoystick = self.currJoystick else {
-            return
-        }
-
-        let firstTouch = touches.first!
-        currJoystick.position = firstTouch.location(in: self)
-        currJoystick.isHidden = false
-        currJoystick.touchesBegan(touches, with: event)
-    }
-
-    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let currJoystick = self.currJoystick else {
-            return
-        }
-
-        currJoystick.touchesMoved(touches, with: event)
-    }
-
-    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let currJoystick = self.currJoystick else {
-            return
-        }
-
-        currJoystick.touchesEnded(touches, with: event)
-        cancelNode(currJoystick)
-    }
-
-    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let currJoystick = self.currJoystick else {
-            return
-        }
-
-        currJoystick.touchesCancelled(touches, with: event)
-        cancelNode(currJoystick)
-    }
 }
 
 // MARK: - TLAnalogJoystickComponent
@@ -150,7 +81,6 @@ open class TLAnalogJoystickComponent: SKSpriteNode {
         self.diameter = diameter
         self.image = image
 
-        addObserver(self, forKeyPath: "color", options: NSKeyValueObservingOptions.old, context: &kvoContext)
         redrawTexture()
     }
 
@@ -158,19 +88,7 @@ open class TLAnalogJoystickComponent: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        removeObserver(self, forKeyPath: "color")
-    }
-
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?,
-                                    change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-
-        if keyPath == "color" {
-            redrawTexture()
-        }
-    }
-
-    private func redrawTexture() {
+    fileprivate func redrawTexture() {
         let scale = UIScreen.main.scale
         let needSize = CGSize(width: diameter, height: diameter)
 
@@ -197,6 +115,8 @@ open class TLAnalogJoystick: SKNode {
     public var isMoveable = false
     public let handle: TLAnalogJoystickComponent
     public let base: TLAnalogJoystickComponent
+
+    private var handleObservation: NSKeyValueObservation?
 
     private var pHandleRatio: CGFloat
     private var displayLink: CADisplayLink!
@@ -338,9 +258,17 @@ open class TLAnalogJoystick: SKNode {
 
         addChild(base)
         addChild(handle)
+
+        handleObservation = self.handle.observe(\.color, options: [.new]) { (handle, _) in
+            handle.redrawTexture()
+        }
     }
 
     deinit {
+        if let observer = handleObservation {
+            observer.invalidate()
+            handleObservation = nil
+        }
         displayLink.invalidate()
     }
 

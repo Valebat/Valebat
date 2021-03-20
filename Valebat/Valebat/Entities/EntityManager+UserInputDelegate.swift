@@ -17,7 +17,15 @@ extension EntityManager: UserInputDelegate {
         let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapElementType(elementQueue: elementTypeQueue)
-        shootSpell(from: playerPos, with: direction, using: elementQueue)
+        do {
+            try shootSpell(from: playerPos, with: direction, using: elementQueue)
+        } catch SpellErrors.invalidLevelError {
+            print("Wrong level was given")
+        } catch SpellErrors.wrongElementTypeError {
+            print("Wrong element type was given")
+        } catch {
+            print("Unexpected error")
+        }
     }
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
@@ -50,10 +58,6 @@ extension EntityManager: UserInputDelegate {
 
         playerSprite.node.position = nextPosition
         playerSprite.node.zRotation = angular
-    }
-
-    func inputBegan(at location: CGPoint) {
-
     }
 
     private func mapElementType(elementQueue: [ElementType]) -> [Element] {

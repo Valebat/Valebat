@@ -5,8 +5,8 @@
 //  Created by Aloysius Lim on 18/3/21.
 //
 
-import Foundation
 import GameplayKit
+
 class DeathComponent: GKComponent {
 
     func onDeath() {
