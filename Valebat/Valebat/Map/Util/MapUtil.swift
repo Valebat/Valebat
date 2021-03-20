@@ -28,15 +28,6 @@ class MapUtil {
                 if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
                     let xPosition = Double(widths) * MapObjectConstants.objectDefaultWidth
                     let yPosition = Double(heights) * MapObjectConstants.objectDefaultHeight
-                    let playerXSpawnPosition = ViewConstants.sceneWidth * ViewConstants.playerSpawnOffset
-                    let playerYSpawnPosition = ViewConstants.sceneHeight * ViewConstants.playerSpawnOffset
-
-                    if abs(xPosition - Double(playerXSpawnPosition)) <
-                        (MapObjectConstants.objectDefaultWidth + Double(ViewConstants.playerWidth)) / 2 &&
-                        abs(yPosition - Double(playerYSpawnPosition)) <
-                            (MapObjectConstants.objectDefaultHeight + Double(ViewConstants.playerHeight)) / 2 {
-                        continue
-                    }
 
                     let position: CGPoint = CGPoint(x: xPosition, y: yPosition)
                     spawnLocations.append(position)
