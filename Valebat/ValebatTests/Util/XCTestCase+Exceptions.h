@@ -1,12 +1,9 @@
-//
-//  XCTestCase+Exceptions.h
-//  ValebatTests
-//
-//  Created by Sreyans Sipani on 20/3/21.
-//
+@import Foundation;
+@import XCTest;
 
-#ifndef XCTestCase_Exceptions_h
-#define XCTestCase_Exceptions_h
+@interface XCTestCase (Exceptions)
 
+- (void)XCTAssertThrows:(void (^)(void))block :(NSString *)message;
+- (void)XCTAssertThrowsSpecific:(void (^)(void))block :(NSString *)name :(NSString *)message;
 
-#endif /* XCTestCase_Exceptions_h */
+@end
