@@ -33,6 +33,7 @@
 		C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapEntity.swift */; };
 		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
 		C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943B52605E33D00087256 /* MapObjectTests.swift */; };
+		C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943BE2605EBCC00087256 /* MapTests.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -126,6 +127,7 @@
 		C6A943A02605D02B00087256 /* BaseMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapEntity.swift; sourceTree = "<group>"; };
 		C6A943A82605D20F00087256 /* SpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnComponent.swift; sourceTree = "<group>"; };
 		C6A943B52605E33D00087256 /* MapObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectTests.swift; sourceTree = "<group>"; };
+		C6A943BE2605EBCC00087256 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A943B52605E33D00087256 /* MapObjectTests.swift */,
+				C6A943BE2605EBCC00087256 /* MapTests.swift */,
 			);
 			path = MapTests;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 			files = (
 				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
 				C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */,
+				C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
