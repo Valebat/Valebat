@@ -28,6 +28,10 @@
 		C6A943642603437A00087256 /* SpawnUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnUtil.swift */; };
 		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
 		C6A9437426034EAA00087256 /* Crate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9437326034EAA00087256 /* Crate.swift */; };
+		C6A943942605CF6800087256 /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943932605CF6800087256 /* Spawner.swift */; };
+		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
+		C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapEntity.swift */; };
+		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -116,6 +120,10 @@
 		C6A943632603437A00087256 /* SpawnUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnUtil.swift; sourceTree = "<group>"; };
 		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
 		C6A9437326034EAA00087256 /* Crate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crate.swift; sourceTree = "<group>"; };
+		C6A943932605CF6800087256 /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
+		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
+		C6A943A02605D02B00087256 /* BaseMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapEntity.swift; sourceTree = "<group>"; };
+		C6A943A82605D20F00087256 /* SpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnComponent.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -248,6 +256,7 @@
 				C6A942CE25FCE7EA00087256 /* Rock.swift */,
 				C6A9437326034EAA00087256 /* Crate.swift */,
 				C6A9431A25FE508400087256 /* Wall.swift */,
+				C6A943932605CF6800087256 /* Spawner.swift */,
 			);
 			path = MapObject;
 			sourceTree = "<group>";
@@ -281,6 +290,7 @@
 				CBA494F026038AB1003A05F7 /* CollectingComponent.swift */,
 				CBA495092604961B003A05F7 /* PlayerEssenceComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
+				C6A943A82605D20F00087256 /* SpawnComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -288,9 +298,11 @@
 		C6A9430D25FD04FC00087256 /* MapEntities */ = {
 			isa = PBXGroup;
 			children = (
+				C6A943A02605D02B00087256 /* BaseMapEntity.swift */,
 				C6A9431525FE494100087256 /* RockEntity.swift */,
 				C6A9436B26034E8900087256 /* CrateEntity.swift */,
 				C6A9431F25FE50E000087256 /* WallEntity.swift */,
+				C6A943982605CF7E00087256 /* SpawnerEntity.swift */,
 			);
 			path = MapEntities;
 			sourceTree = "<group>";
@@ -589,6 +601,7 @@
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
+				C6A943942605CF6800087256 /* Spawner.swift in Sources */,
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
@@ -604,7 +617,9 @@
 				EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
+				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,
 				EF19416225FFC71900341BF5 /* SteamSpell.swift in Sources */,
+				C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */,
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellController.swift in Sources */,
@@ -625,6 +640,7 @@
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */,
+				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
@@ -819,7 +835,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -838,7 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
