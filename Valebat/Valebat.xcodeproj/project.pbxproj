@@ -63,6 +63,7 @@
 		DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01A92601B93F002C5556 /* ElementSelection.swift */; };
 		DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
 		DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
+		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
 		EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -157,6 +158,7 @@
 		DD4E01A92601B93F002C5556 /* ElementSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSelection.swift; sourceTree = "<group>"; };
 		DD4E01AE2601B94F002C5556 /* ElementButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementButton.swift; sourceTree = "<group>"; };
 		DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+UserInputDelegate.swift"; sourceTree = "<group>"; };
+		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
 		EF19415225FFC71900341BF5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -381,8 +383,8 @@
 		DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */ = {
 			isa = PBXGroup;
 			children = (
+				DD5783EF2605D13100E15493 /* Joystick */,
 				DD4E015425FF52A7002C5556 /* ElementPane */,
-				DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */,
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
 				DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */,
 				DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */,
@@ -400,6 +402,15 @@
 				DD4E01AE2601B94F002C5556 /* ElementButton.swift */,
 			);
 			path = ElementPane;
+			sourceTree = "<group>";
+		};
+		DD5783EF2605D13100E15493 /* Joystick */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */,
+				DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */,
+			);
+			path = Joystick;
 			sourceTree = "<group>";
 		};
 		EF19415125FFC71900341BF5 /* Spell */ = {
@@ -639,6 +650,7 @@
 				EF1941902600FD2B00341BF5 /* SpellCastComponent.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,
 				CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */,
+				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
