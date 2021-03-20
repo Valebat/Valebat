@@ -50,7 +50,7 @@ class ElementPaneTests: XCTestCase {
         XCTAssert(elementPane.elementQueueArray.contains(.earth), "earth should be added to array")
         XCTAssertFalse(elementPane.elementQueueArray.contains(.water), "water should be expelled from array")
     }
-    
+
     func testClearElementQueue() {
         let elementPane = ElementPane(count: 3)
         elementPane.setNewElement(elementType: .water)

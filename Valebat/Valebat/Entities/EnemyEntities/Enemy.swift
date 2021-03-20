@@ -18,8 +18,8 @@ class Enemy: GKEntity {
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
 
-        addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
-                                     barOffset: texture.size().height / 2, health: 15))
+        addComponent(HealthComponent(health: 15))
+        addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
         addComponent(MoveComponent(speed: 2))
 
         let physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
