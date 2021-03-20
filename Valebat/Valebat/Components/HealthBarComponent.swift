@@ -29,10 +29,12 @@ class HealthBarComponent: GKComponent, DamageTakenObserver {
     override func didAddToEntity() {
         entity?.component(ofType: SpriteComponent.self)?.node.addChild(healthBar)
         entity?.component(ofType: HealthComponent.self)?.damageTakenObservers[ObjectIdentifier(self)] = self
+        super.didAddToEntity()
     }
     override func willRemoveFromEntity() {
         entity?.component(ofType: HealthComponent.self)?
             .damageTakenObservers.removeValue(forKey: ObjectIdentifier(self))
+        super.willRemoveFromEntity()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

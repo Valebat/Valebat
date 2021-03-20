@@ -6,15 +6,3 @@
 //
 
 import GameplayKit
-
-protocol ContactBeginNotifiable {
-    func contactDidBegin(with entity: GKEntity)
-}
-
-protocol ContactEndNotifiable {
-    func contactDidEnd(with entity: GKEntity)
-}
-
-protocol ContactAllNotifiable: ContactBeginNotifiable, ContactEndNotifiable {
-
-}

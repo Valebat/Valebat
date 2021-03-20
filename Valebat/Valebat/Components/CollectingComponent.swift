@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class CollectingComponent: GKComponent, PlayerComponent, ContactBeginNotifiable {
+class CollectingComponent: GKComponent, PlayerComponent, ContactBeginObserver {
     var player: Player?
 
     func contactDidBegin(with entity: GKEntity) {
