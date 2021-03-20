@@ -32,8 +32,8 @@ class StaticMapObject: MapObject {
 
     convenience init(type: MapObjectEnum, position: CGPoint, scale: Double) {
         self.init(type: type, position: position, scale: scale,
-                  collidable: MapObjectConstants.objectDefaultCollideable)
-        if let collidable =  MapObjectConstants.globalDefaultCollideables[type] {
+                  collidable: MapObjectConstants.objectDefaultCollidable)
+        if let collidable =  MapObjectConstants.globalDefaultCollidables[type] {
             self.collidable = collidable
         }
     }

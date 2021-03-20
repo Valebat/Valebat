@@ -32,6 +32,8 @@
 		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapEntity.swift */; };
 		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
+		C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943B52605E33D00087256 /* MapObjectTests.swift */; };
+		C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943BE2605EBCC00087256 /* MapTests.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -126,6 +128,8 @@
 		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A943A02605D02B00087256 /* BaseMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapEntity.swift; sourceTree = "<group>"; };
 		C6A943A82605D20F00087256 /* SpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnComponent.swift; sourceTree = "<group>"; };
+		C6A943B52605E33D00087256 /* MapObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectTests.swift; sourceTree = "<group>"; };
+		C6A943BE2605EBCC00087256 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -319,6 +323,15 @@
 			path = EnemyEntities;
 			sourceTree = "<group>";
 		};
+		C6A943BA2605E34A00087256 /* MapTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6A943B52605E33D00087256 /* MapObjectTests.swift */,
+				C6A943BE2605EBCC00087256 /* MapTests.swift */,
+			);
+			path = MapTests;
+			sourceTree = "<group>";
+		};
 		CBA495022604855A003A05F7 /* CollectibleEntities */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				DD578421260626D100E15493 /* HeadsUpDisplayTests */,
+				C6A943BA2605E34A00087256 /* MapTests */,
 				CBC7781125FCE1C200581E20 /* ValebatTests.swift */,
 				CBC7781325FCE1C200581E20 /* Info.plist */,
 			);
@@ -690,6 +704,8 @@
 			files = (
 				DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */,
 				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
+				C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */,
+				C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,13 +866,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66TBSN4N8V;
+				DEVELOPMENT_TEAM = KX34RGBV44;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
+				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatAQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -869,13 +885,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66TBSN4N8V;
+				DEVELOPMENT_TEAM = KX34RGBV44;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
+				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatAQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

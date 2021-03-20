@@ -5,7 +5,7 @@
 //  Created by Jing Lin Shi on 11/3/21.
 //
 
-enum MapObjectEnum: String {
+enum MapObjectEnum: String, CaseIterable {
     case wall
     case rock
     case crate
