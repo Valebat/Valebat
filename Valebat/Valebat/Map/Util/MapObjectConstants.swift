@@ -8,7 +8,7 @@
 class MapObjectConstants {
     static let objectDefaultHeight: Double = Double(ViewConstants.gridSize)
     static let objectDefaultWidth: Double = Double(ViewConstants.gridSize)
-    static let objectDefaultCollideable: Bool = true
+    static let objectDefaultCollidable: Bool = true
 
     static let globalObjectSpawnChance: Int = 5
     static let globalSpawnChances: [MapObjectEnum: Int] = [.wall: 0,
@@ -25,7 +25,7 @@ class MapObjectConstants {
                                                                 .rock: objectDefaultWidth,
                                                                 .crate: objectDefaultWidth,
                                                                 .spawner: objectDefaultWidth]
-    static let globalDefaultCollideables: [MapObjectEnum: Bool] = [.wall: true,
+    static let globalDefaultCollidables: [MapObjectEnum: Bool] = [.wall: true,
                                                                    .rock: true,
                                                                    .crate: true,
                                                                    .spawner: false]
