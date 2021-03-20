@@ -5,8 +5,8 @@
 //  Created by Aloysius Lim on 19/3/21.
 //
 
-import Foundation
 import GameplayKit
+
 class EssenceCollectible: GKEntity, CollectibleEntity {
 
     var type: ElementType

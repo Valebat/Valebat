@@ -8,7 +8,6 @@
 //  Copyright © 2015 Razeware LLC. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 import GameplayKit
 
