@@ -52,10 +52,6 @@ extension EntityManager: UserInputDelegate {
         playerSprite.node.zRotation = angular
     }
 
-    func inputBegan(at location: CGPoint) {
-
-    }
-
     private func mapElementType(elementQueue: [ElementType]) -> [Element] {
         return elementQueue.compactMap({ elements[$0] ?? nil })
     }

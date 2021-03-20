@@ -8,11 +8,19 @@
 import SpriteKit
 
 class ElementPane: SKNode {
-    var elementQueueArray: [ElementType] = []
-    var elementQueue: ElementQueue
-    var elementSelection: ElementSelection
+    private(set) var elementQueueArray: [ElementType] = []
+    private(set) var elementQueue: ElementQueue
+    private(set) var elementSelection: ElementSelection
+    private(set) var arrayCount: Int = 1
 
-    override init() {
+    convenience init(count: Int = HUDConstants.elementQueueLength) {
+        self.init()
+        if count > 0 {
+            arrayCount = count
+        }
+    }
+
+    private override init() {
         self.elementQueue = ElementQueue()
         self.elementSelection = ElementSelection()
         super.init()
@@ -24,7 +32,7 @@ class ElementPane: SKNode {
     }
 
     func setNewElement(elementType: ElementType) {
-        if elementQueueArray.count == HUDConstants.elementQueueLength {
+        if elementQueueArray.count == arrayCount {
             elementQueueArray.removeFirst()
         }
         elementQueueArray.append(elementType)

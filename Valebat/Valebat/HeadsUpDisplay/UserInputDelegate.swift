@@ -9,8 +9,6 @@ import CoreGraphics
 
 protocol UserInputDelegate: AnyObject {
 
-    func inputBegan(at location: CGPoint)
-
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat)
 
     func spellJoystickEnded(angular: CGFloat, elementQueue: [ElementType]?)

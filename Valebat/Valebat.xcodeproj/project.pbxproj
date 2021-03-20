@@ -68,6 +68,7 @@
 		DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
 		DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
 		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
+		DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5784172605F35100E15493 /* ElementPaneTests.swift */; };
 		EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -167,6 +168,7 @@
 		DD4E01AE2601B94F002C5556 /* ElementButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementButton.swift; sourceTree = "<group>"; };
 		DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+UserInputDelegate.swift"; sourceTree = "<group>"; };
 		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
+		DD5784172605F35100E15493 /* ElementPaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPaneTests.swift; sourceTree = "<group>"; };
 		EF19415225FFC71900341BF5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		CBC7781025FCE1C200581E20 /* ValebatTests */ = {
 			isa = PBXGroup;
 			children = (
+				DD578421260626D100E15493 /* HeadsUpDisplayTests */,
 				CBC7781125FCE1C200581E20 /* ValebatTests.swift */,
 				CBC7781325FCE1C200581E20 /* Info.plist */,
 			);
@@ -423,6 +426,14 @@
 				DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */,
 			);
 			path = Joystick;
+			sourceTree = "<group>";
+		};
+		DD578421260626D100E15493 /* HeadsUpDisplayTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD5784172605F35100E15493 /* ElementPaneTests.swift */,
+			);
+			path = HeadsUpDisplayTests;
 			sourceTree = "<group>";
 		};
 		EF19415125FFC71900341BF5 /* Spell */ = {
@@ -677,6 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */,
 				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
