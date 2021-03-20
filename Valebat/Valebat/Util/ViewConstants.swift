@@ -11,8 +11,10 @@ struct ViewConstants {
     static let sceneHeight: CGFloat = 640.0
     static var sceneWidth: CGFloat = 0 // to be set on init
     static var gridSize: CGFloat = 40.0
+    static var enemyToGridRatio: CGFloat = 0.75
 
-    static let playerWidth: CGFloat = 80.0
-    static let playerHeight: CGFloat = 80.0
+    static var playerToGridRatio: CGFloat = 1.5
+    static let playerWidth: CGFloat = gridSize * playerToGridRatio
+    static let playerHeight: CGFloat = gridSize * playerToGridRatio
     static let playerSpawnOffset: CGFloat = 0.5
 }

@@ -7,7 +7,8 @@
 
 import GameplayKit
 
-class RockEntity: GKEntity {
+class RockEntity: GKEntity, BaseMapEntity {
+    let objectType: MapObjectEnum = .rock
 
     init(size: CGSize) {
         super.init()

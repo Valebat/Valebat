@@ -39,7 +39,6 @@ class DamageMultipliers {
         for (type, value) in damages {
             finalDamage += (multiplierValues[type] ?? 1.0) * value
         }
-        print(finalDamage)
         return finalDamage
     }
 }

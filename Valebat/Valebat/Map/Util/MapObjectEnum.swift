@@ -9,4 +9,5 @@ enum MapObjectEnum: String {
     case wall
     case rock
     case crate
+    case spawner
 }

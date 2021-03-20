@@ -10,27 +10,44 @@ import GameplayKit
 class SpawnUtil {
     private(set) static var totalSpawnChance: Int?
 
-    static func spawnObject(position: CGPoint) -> MapObject? {
-        var rand = Int(arc4random() % 255)
-
-        if MapObjectConstants.globalObjectSpawnChance < rand {
-            return nil
-        }
+    static func spawnObject(positions: [CGPoint]) -> [MapObject] {
+        var mapObjects: [MapObject] = []
+        var copiedPositions = positions
 
         if totalSpawnChance == nil {
             calculateTotalSpawnChance()
         }
 
-        rand = Int(arc4random() % UInt32(totalSpawnChance!))
+        for (key, value) in MapObjectConstants.globalGuaranteedSpawns {
+            for _ in 1...value {
+                let rand = Int(arc4random()) % copiedPositions.count
 
-        for (object, chance) in MapObjectConstants.globalSpawnChances {
-            rand -= chance
-            if rand < 0 {
-                return spawnTypedObject(object, position: position)
+                mapObjects.append(spawnTypedObject(key, position: positions[rand]))
+                copiedPositions.remove(at: rand)
             }
         }
 
-        return nil
+        for position in copiedPositions {
+            var rand = Int(arc4random() % 255)
+
+            if MapObjectConstants.globalObjectSpawnChance < rand {
+                continue
+            }
+
+            rand = Int(arc4random() % UInt32(totalSpawnChance!))
+
+            for (object, chance) in MapObjectConstants.globalSpawnChances {
+                rand -= chance
+                if rand < 0 {
+                    mapObjects.append(spawnTypedObject(object, position: position))
+                    break
+                }
+            }
+
+            continue
+        }
+
+        return mapObjects
     }
 
     static func spawnTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {

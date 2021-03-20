@@ -10,6 +10,5 @@ import Foundation
 class EnemyDeathComponent: DeathComponent {
     override func onDeath() {
         super.onDeath()
-        print("enemy died")
     }
 }

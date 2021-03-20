@@ -20,6 +20,9 @@ class MapUtil {
 
         let numWidth = Int(Double(ViewConstants.sceneWidth) / wallWidth)
         let numHeight = Int(Double(ViewConstants.sceneHeight) / wallHeight)
+
+        var spawnLocations: [CGPoint] = []
+
         for widths in 0...numWidth {
             for heights in 0...numHeight {
                 if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
@@ -35,11 +38,8 @@ class MapUtil {
                         continue
                     }
 
-                    guard let objectToAdd = SpawnUtil.spawnObject(position: CGPoint(x: xPosition, y: yPosition)) else {
-                        continue
-                    }
-
-                    mapObjects.append(objectToAdd)
+                    let position: CGPoint = CGPoint(x: xPosition, y: yPosition)
+                    spawnLocations.append(position)
 
                     continue
                 }
@@ -50,14 +50,18 @@ class MapUtil {
             }
         }
 
+        let spawnedObjects: [MapObject] = SpawnUtil.spawnObject(positions: spawnLocations)
+
+        mapObjects.append(contentsOf: spawnedObjects)
+
         map = Map(withObjects: mapObjects)
     }
 
-    static func getMapEntities() -> [GKEntity] {
-        var entities: [GKEntity] = []
+    static func getMapEntities() -> [BaseMapEntity] {
+        var entities: [BaseMapEntity] = []
 
         for object in map.objects {
-            var entity: GKEntity
+            var entity: BaseMapEntity
 
             switch object.type {
             case .wall:
@@ -66,6 +70,8 @@ class MapUtil {
                 entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             case .crate:
                 entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+            case .spawner:
+                entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             }
 
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
@@ -86,7 +92,6 @@ class MapUtil {
 
         for object in map.objects {
             let obstacle = GKPolygonObstacle(points: object.getPoints())
-            print(object.getPoints())
             obstacles.append(obstacle)
         }
 
