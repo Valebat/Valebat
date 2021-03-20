@@ -13,12 +13,14 @@ class Enemy: GKEntity {
         super.init()
 
         let texture = SKTexture(imageNamed: "enemy")
-        let spriteComponent = SpriteComponent(entity: self, texture: texture, size: texture.size())
+        let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize
+        let size = CGSize(width: length, height: length)
+        let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
 
         addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
-                                     barOffset: texture.size().height/2, health: 15))
-        addComponent(MoveComponent(speed: 3))
+                                     barOffset: texture.size().height / 2, health: 15))
+        addComponent(MoveComponent(speed: 2))
 
         let physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
         addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .enemy))

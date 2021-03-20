@@ -31,7 +31,8 @@ class EntityManager {
         let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
         let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem]
+        let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem, spawnSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -73,11 +74,12 @@ class EntityManager {
     }
 
     func initialiseGraph() {
-        let mapEntities: [GKEntity] = MapUtil.getMapEntities()
+        let mapEntities: [BaseMapEntity] = MapUtil.getMapEntities()
 
         self.obstacles = []
 
-        for entity in mapEntities {
+        for entity in mapEntities where MapObjectConstants.globalDefaultCollideables[entity.objectType] ??
+            MapObjectConstants.objectDefaultCollideable {
             var nodes: [SKNode] = []
             nodes.append(entity.component(ofType: SpriteComponent.self)!.node)
 
@@ -129,13 +131,11 @@ class EntityManager {
         entities.remove(entity)
     }
 
-    func spawnEnemy() {
+    func spawnEnemy(at location: CGPoint) {
         let enemy = Enemy()
 
         if let spriteComponent = enemy.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position =
-                CGPoint(x: CGFloat.random(in: scene.size.width * 0.25 ... scene.size.width * 0.75),
-                        y: CGFloat.random(in: scene.size.height * 0.25 ... scene.size.height * 0.75))
+            spriteComponent.node.position = location
             spriteComponent.node.zPosition = 2
         }
 
