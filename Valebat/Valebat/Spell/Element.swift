@@ -12,6 +12,9 @@ class Element: Hashable {
 
     init(with type: ElementType, at level: Double) {
         self.type = type
+        if level < 1 {
+            InvalidLevelException().raise()
+        }
         self.level = level
     }
 

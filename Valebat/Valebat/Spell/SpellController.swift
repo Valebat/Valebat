@@ -39,7 +39,7 @@ class SpellManager {
         }
     }
 
-    func combine(elements: Set<Element>) -> Spell {
+    func combine(elements: [Element]) -> Spell {
         if elements.isEmpty {
             return GenericSpell(at: 1)
         } else if elements.count == 1 {
@@ -56,19 +56,20 @@ class SpellManager {
             }
             return combineElements(lhs: element1, rhs: element2)
         } else {
-            var set = elements
-            guard let minElement = elements.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
+            var list = elements
+            guard let minElement = elements.min(by: {$0.type.rawValue < $1.type.rawValue}),
+                  let minIndex = list.firstIndex(of: minElement) else {
                 return GenericSpell(at: 1)
             }
-            set.remove(minElement)
-            guard let secondMinElement = set.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
+            list.remove(at: minIndex)
+            guard let secondMinElement = list.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
                 return associatedSpell(for: minElement.type, at: minElement.level)
             }
             let combinedLevel = combineLevel(lhs: minElement.level, rhs: secondMinElement.level)
             if let combinedType = SpellManager.typeCombinationTable[minElement.type]?[secondMinElement.type] {
                 let combinedElement = Element(with: combinedType, at: combinedLevel)
-                set.insert(combinedElement)
-                return combine(elements: set)
+                list.append(combinedElement)
+                return combine(elements: list)
             } else {
                 return GenericSpell(at: elements.map({$0.level}).reduce(0, +))
             }

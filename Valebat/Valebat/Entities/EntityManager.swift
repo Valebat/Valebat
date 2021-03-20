@@ -155,7 +155,7 @@ class EntityManager {
     }
 
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
-                    using elementsSelected: Set<Element>) {
+                    using elementsSelected: [Element]) {
         let underlyingSpell = self.spellManager.combine(elements: elementsSelected)
         let spell = SpellEntity(velocity: velocity, spell: underlyingSpell)
         if let spriteComponent = spell.component(ofType: SpriteComponent.self) {

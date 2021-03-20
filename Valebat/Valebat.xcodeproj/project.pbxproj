@@ -72,6 +72,13 @@
 		EF19416825FFC76B00341BF5 /* WrongElementTypeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19416725FFC76B00341BF5 /* WrongElementTypeException.swift */; };
 		EF1941882600B15F00341BF5 /* SpellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1941872600B15F00341BF5 /* SpellEntity.swift */; };
 		EF1941902600FD2B00341BF5 /* SpellCastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19418F2600FD2B00341BF5 /* SpellCastComponent.swift */; };
+		EFCC5B212605D369006F2771 /* InvalidLevelException.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC5B202605D369006F2771 /* InvalidLevelException.swift */; };
+		EFCC5B262605D3C6006F2771 /* ElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC5B252605D3C6006F2771 /* ElementTests.swift */; };
+		EFCC5B312605D544006F2771 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
+		EFCC5B352605D546006F2771 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
+		EFCC5B392605D54D006F2771 /* InvalidLevelException.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC5B202605D369006F2771 /* InvalidLevelException.swift */; };
+		EFCC5B3D2605D561006F2771 /* DamageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */; };
+		EFCC5B4A2605DDAE006F2771 /* XCTestCase+Exceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCC5B492605DDAE006F2771 /* XCTestCase+Exceptions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +170,11 @@
 		EF19416725FFC76B00341BF5 /* WrongElementTypeException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongElementTypeException.swift; sourceTree = "<group>"; };
 		EF1941872600B15F00341BF5 /* SpellEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellEntity.swift; sourceTree = "<group>"; };
 		EF19418F2600FD2B00341BF5 /* SpellCastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellCastComponent.swift; sourceTree = "<group>"; };
+		EFCC5B202605D369006F2771 /* InvalidLevelException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidLevelException.swift; sourceTree = "<group>"; };
+		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
+		EFCC5B462605DD62006F2771 /* XCTestCase+Exceptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Exceptions.h"; sourceTree = "<group>"; };
+		EFCC5B472605DD84006F2771 /* Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFCC5B492605DDAE006F2771 /* XCTestCase+Exceptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Exceptions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +264,6 @@
 				DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */,
 				DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */,
 				C6A942D525FCE7EA00087256 /* ViewConstants.swift */,
-				EF19416725FFC76B00341BF5 /* WrongElementTypeException.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -326,6 +337,7 @@
 		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC5B412605D574006F2771 /* Exceptions */,
 				EF19415125FFC71900341BF5 /* Spell */,
 				DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */,
 				C6A942C625FCE7EA00087256 /* Map */,
@@ -346,8 +358,10 @@
 		CBC7781025FCE1C200581E20 /* ValebatTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC5B452605DD47006F2771 /* Util */,
 				CBC7781125FCE1C200581E20 /* ValebatTests.swift */,
 				CBC7781325FCE1C200581E20 /* Info.plist */,
+				EFCC5B252605D3C6006F2771 /* ElementTests.swift */,
 			);
 			path = ValebatTests;
 			sourceTree = "<group>";
@@ -417,6 +431,25 @@
 				EF1941872600B15F00341BF5 /* SpellEntity.swift */,
 			);
 			path = SpellEntities;
+			sourceTree = "<group>";
+		};
+		EFCC5B412605D574006F2771 /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				EF19416725FFC76B00341BF5 /* WrongElementTypeException.swift */,
+				EFCC5B202605D369006F2771 /* InvalidLevelException.swift */,
+			);
+			path = Exceptions;
+			sourceTree = "<group>";
+		};
+		EFCC5B452605DD47006F2771 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				EFCC5B462605DD62006F2771 /* XCTestCase+Exceptions.h */,
+				EFCC5B472605DD84006F2771 /* Tests-Bridging-Header.h */,
+				EFCC5B492605DDAE006F2771 /* XCTestCase+Exceptions.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +523,7 @@
 					};
 					CBC7780C25FCE1C200581E20 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 						TestTargetID = CBC777F525FCE1C000581E20;
 					};
 					CBC7781725FCE1C200581E20 = {
@@ -597,6 +631,7 @@
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellController.swift in Sources */,
+				EFCC5B212605D369006F2771 /* InvalidLevelException.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
 				CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */,
@@ -637,7 +672,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCC5B3D2605D561006F2771 /* DamageType.swift in Sources */,
+				EFCC5B352605D546006F2771 /* ElementType.swift in Sources */,
+				EFCC5B392605D54D006F2771 /* InvalidLevelException.swift in Sources */,
+				EFCC5B262605D3C6006F2771 /* ElementTests.swift in Sources */,
+				EFCC5B4A2605DDAE006F2771 /* XCTestCase+Exceptions.m in Sources */,
 				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
+				EFCC5B312605D544006F2771 /* Element.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +876,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatTests/Info.plist;
@@ -846,6 +888,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ValebatTests/Util/ValebatTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valebat.app/Valebat";
@@ -857,6 +901,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66TBSN4N8V;
 				INFOPLIST_FILE = ValebatTests/Info.plist;
@@ -868,6 +913,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ValebatTests/Util/ValebatTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valebat.app/Valebat";

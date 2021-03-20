@@ -17,7 +17,7 @@ extension EntityManager: UserInputDelegate {
         let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapElementType(elementQueue: elementTypeQueue)
-        shootSpell(from: playerPos, with: direction, using: Set(elementQueue))
+        shootSpell(from: playerPos, with: direction, using: elementQueue)
     }
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
