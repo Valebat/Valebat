@@ -41,9 +41,18 @@ class GameScene: SKScene {
     private func setUpScene() {
         setUpHUD()
         entityManager.addPlayer()
-        entityManager.initialseElements()
         entityManager.initialiseMap()
         entityManager.initialiseGraph()
+
+        do {
+            try entityManager.initialseElements()
+        } catch SpellErrors.invalidLevelError {
+            print("Wrong level was given")
+        } catch SpellErrors.wrongElementTypeError {
+            print("Wrong element type was given")
+        } catch {
+            print("Unexpected error")
+        }
     }
 
     private func setUpHUD() {

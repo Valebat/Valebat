@@ -36,7 +36,6 @@ class SpellManager {
         let maxElementType = lhs.type.rawValue >= rhs.type.rawValue ? lhs.type : rhs.type
         let combinedLevel = combineLevel(lhs: lhs.level, rhs: rhs.level)
         if let combinedType = SpellManager.typeCombinationTable[minElementType]?[maxElementType] {
-            print(combinedType)
             return try associatedSpell(for: combinedType, at: combinedLevel)
         } else {
             return try GenericSpell(at: combinedLevel)
