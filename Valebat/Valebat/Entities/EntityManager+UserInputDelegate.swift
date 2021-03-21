@@ -53,6 +53,6 @@ extension EntityManager: UserInputDelegate {
     }
 
     private func mapElementType(elementQueue: [ElementType]) -> [Element] {
-        return elementQueue.compactMap({ elements[$0] ?? nil })
+        return elementQueue.compactMap({ self.elements[$0] ?? nil })
     }
 }
