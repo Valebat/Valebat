@@ -10,9 +10,9 @@ class SingleElementSpell: Spell {
     let element: Element
     var damageTypes = Set<DamageType>()
 
-    required init(with element: Element) {
+    required init(with element: Element) throws {
         if !element.type.isSingle {
-            WrongElementTypeException().raise()
+            throw SpellErrors.wrongElementTypeError
         }
         self.element = element
         if let damageType = element.type.associatedDamageType {

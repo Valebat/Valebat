@@ -103,10 +103,10 @@ class EntityManager {
         gkScene.addGraph(graph, name: "obstacles")
     }
 
-    func initialseElements() {
-        elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
-        elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
-        elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
+    func initialseElements() throws {
+        try elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
+        try elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
+        try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
     func add(_ entity: GKEntity) {
@@ -155,9 +155,9 @@ class EntityManager {
     }
 
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
-                    using elementsSelected: Set<Element>) {
-        let underlyingSpell = self.spellManager.combine(elements: elementsSelected)
-        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier, spell: underlyingSpell)
+                    using elementsSelected: [Element]) throws {
+        let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
+        let spell = SpellEntity(velocity: velocity, spell: underlyingSpell)
         if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = shootPoint
             spriteComponent.node.zPosition = 2

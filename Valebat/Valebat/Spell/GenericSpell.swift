@@ -10,16 +10,16 @@ class GenericSpell: Spell {
     let element: Element
     var damageTypes = Set<DamageType>()
 
-    required init(with element: Element) {
+    required init(with element: Element) throws {
         if element.type != .generic {
-            WrongElementTypeException().raise()
+            throw SpellErrors.wrongElementTypeError
         }
         self.element = element
         self.damageTypes.insert(.pure)
     }
 
-    init(at level: Double) {
-        self.element = Element(with: .generic, at: level)
+    init(at level: Double) throws {
+        try self.element = Element(with: .generic, at: level)
         self.damageTypes.insert(.pure)
     }
 }

@@ -12,11 +12,12 @@ class SpellEntity: GKEntity {
     init(velocity: CGVector, spell: Spell) {
         super.init()
 
-        let spriteTexture = buildSpellTexture(spell: spell)
+        let spriteTextures = buildSpellTexture(spell: spell)
+        let spriteTexture = spriteTextures[0]
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        let spriteComponent = SpriteComponent(entity: self, texture: spriteTexture, size: spriteSize)
+        let spriteComponent = SpriteComponent(entity: self, animatedTextures: spriteTextures, size: spriteSize)
         addComponent(spriteComponent)
 
         addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
@@ -25,7 +26,7 @@ class SpellEntity: GKEntity {
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
 
         let element = spell.element
-        let damage = CGFloat(element.level) * 5 // Some constant
+        let damage = CGFloat(element.level) * TestConstants.damageValue // Some constant
         if element.type.isSingle {
             addComponent(InstantDamageComponent(damage: damage,
                                                 type: element.type.associatedDamageType ?? .pure))
@@ -41,7 +42,7 @@ class SpellEntity: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func buildSpellTexture(spell: Spell) -> SKTexture {
+    func buildSpellTexture(spell: Spell) -> [SKTexture] {
         let elementType = spell.element.type
         var imgName = ""
         switch elementType {
@@ -63,7 +64,7 @@ class SpellEntity: GKEntity {
             let spellTextureName = imgName + "\(index)"
             animatedFrames.append(spellAnimatedAtlas.textureNamed(spellTextureName))
         }
-        return animatedFrames[0]
+        return animatedFrames
     }
 
 }

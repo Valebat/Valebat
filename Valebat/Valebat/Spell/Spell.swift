@@ -10,5 +10,5 @@ protocol Spell {
     var element: Element { get }
     var damageTypes: Set<DamageType> { get }
 
-    init(with element: Element)
+    init(with element: Element) throws
 }
