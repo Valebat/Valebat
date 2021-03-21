@@ -17,8 +17,7 @@ class EnemyEntity: GKEntity {
         let size = CGSize(width: length, height: length)
         let spriteComponent = SpriteComponent(texture: texture, size: size)
         addComponent(spriteComponent)
-
-        addComponent(HealthComponent(health: 15))
+        addComponent(HealthComponent(health: 10))
         addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
         addComponent(MoveComponent(speed: 2))
 
