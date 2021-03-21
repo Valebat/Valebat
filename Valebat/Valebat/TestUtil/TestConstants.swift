@@ -15,5 +15,6 @@ class TestConstants {
         StaticMapObject(type: .wall, position: CGPoint(x: 305.0, y: 525.0), scale: 0.5),
         StaticMapObject(type: .wall, position: CGPoint(x: 105.0, y: 425.0))
     ])
+
     static let damageValue: CGFloat = 5.0
 }
