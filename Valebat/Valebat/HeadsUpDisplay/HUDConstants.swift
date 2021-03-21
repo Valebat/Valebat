@@ -19,5 +19,5 @@ struct HUDConstants {
     static let elementQueueZPosition: CGFloat = 52
     static let elementQueueGridSize: CGSize = CGSize(width: 34, height: 34)
     static let elementQueueElementSize: CGSize = CGSize(width: 30, height: 30)
-    static let elementQueueLength: Int = 3
+    static let elementQueueLength: Int = 2
 }

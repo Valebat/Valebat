@@ -22,4 +22,6 @@ struct ViewConstants {
     static let playerSpawnOffset: CGFloat = 0.5
 
     static let baseEnemyEscapeDistance: CGFloat = gridSize / 4
+
+    static let spellVelocityMultiplier: CGFloat = 4
 }

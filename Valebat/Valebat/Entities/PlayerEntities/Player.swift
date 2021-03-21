@@ -18,8 +18,9 @@ class Player: GKEntity {
         let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
-        addComponent(HealthComponent(parentNode: spriteComponent.node, barWidth: texture.size().width,
-                                     barOffset: texture.size().height/2, health: 15))
+        addComponent(HealthComponent(health: 15))
+        addComponent(HealthBarComponent(barWidth: texture.size().width,
+                                        barOffset: texture.size().height/2))
 
     }
 
