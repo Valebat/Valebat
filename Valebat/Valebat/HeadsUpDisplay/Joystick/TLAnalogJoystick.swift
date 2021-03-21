@@ -346,7 +346,7 @@ open class TLAnalogJoystick: SKNode {
         let location = touch.location(in: self)
         let baseRadius = base.radius
         let distance = sqrt(pow(location.x, 2) + pow(location.y, 2))
-        let    distanceDiff = distance - baseRadius
+        let distanceDiff = distance - baseRadius
 
         if distanceDiff > 0 {
             let handlePosition = CGPoint(x: location.x / distance * baseRadius, y: location.y / distance * baseRadius)
