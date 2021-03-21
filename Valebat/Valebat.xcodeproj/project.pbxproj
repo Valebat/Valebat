@@ -17,7 +17,6 @@
 		C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CE25FCE7EA00087256 /* Rock.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
 		C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D325FCE7EA00087256 /* HealthComponent.swift */; };
-		C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D425FCE7EA00087256 /* RenderComponent.swift */; };
 		C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D525FCE7EA00087256 /* ViewConstants.swift */; };
 		C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F325FCFC4A00087256 /* EntityManager.swift */; };
 		C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
@@ -54,7 +53,6 @@
 		CBFC49E625FFF2AF00C5DDD2 /* DamageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */; };
 		CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */; };
 		CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
-		CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */; };
 		CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */; };
 		CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
 		DD4E010025FDBC4A002C5556 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* Player.swift */; };
@@ -114,7 +112,6 @@
 		C6A942CE25FCE7EA00087256 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C6A942D325FCE7EA00087256 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
-		C6A942D425FCE7EA00087256 /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
 		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		C6A942F325FCFC4A00087256 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		C6A942F825FCFD5B00087256 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
@@ -157,7 +154,6 @@
 		CBFC49E525FFF2AF00C5DDD2 /* DamageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageType.swift; sourceTree = "<group>"; };
 		CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageMultipliers.swift; sourceTree = "<group>"; };
 		CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
-		CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotifiableProtocol.swift; sourceTree = "<group>"; };
 		CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDamageComponent.swift; sourceTree = "<group>"; };
 		CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPSDamageComponent.swift; sourceTree = "<group>"; };
 		DD4E00FF25FDBC4A002C5556 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -286,12 +282,10 @@
 			isa = PBXGroup;
 			children = (
 				C6A942D325FCE7EA00087256 /* HealthComponent.swift */,
-				C6A942D425FCE7EA00087256 /* RenderComponent.swift */,
 				C6A942F825FCFD5B00087256 /* SpriteComponent.swift */,
 				C6A9433025FF566600087256 /* MoveComponent.swift */,
 				CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */,
 				CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */,
-				CBFC49FF26009D6000C5DDD2 /* ContactNotifiableProtocol.swift */,
 				CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */,
 				CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */,
 				EF19418F2600FD2B00341BF5 /* SpellCastComponent.swift */,
@@ -679,14 +673,12 @@
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
-				CBFC4A0026009D6000C5DDD2 /* ContactNotifiableProtocol.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				C6A942DD25FCE7EA00087256 /* Rock.swift in Sources */,
 				DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */,
-				C6A942E125FCE7EA00087256 /* RenderComponent.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
