@@ -8,7 +8,7 @@
 import GameplayKit
 
 class CollectingComponent: GKComponent, PlayerComponent, ContactBeginObserver {
-    var player: Player?
+    var player: PlayerEntity?
 
     func contactDidBegin(with entity: GKEntity) {
         if let collectible = entity as? CollectibleEntity,

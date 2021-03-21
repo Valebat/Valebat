@@ -8,5 +8,5 @@
 import GameplayKit
 
 protocol CollectibleEntity: GKEntity {
-    func onCollect(player: Player)
+    func onCollect(player: PlayerEntity)
 }

@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class Enemy: GKEntity {
+class EnemyEntity: GKEntity {
 
     override init() {
         super.init()

@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class Player: GKEntity {
+class PlayerEntity: GKEntity {
 
     let essenceManager = PlayerEssenceManager()
     override init() {

@@ -18,28 +18,24 @@ class SingleElementSpellTests: XCTestCase {
     }
 
     func test_initWithElement() throws {
-        for type in ElementType.allCases {
-            if type.isSingle {
-                let element = try Element(with: type, at: 2)
-                let spell = try SingleElementSpell(with: element)
-                XCTAssert(spell.element == element)
-                XCTAssert(spell.damageTypes.count == 1)
-                if let damageType = type.associatedDamageType {
-                    XCTAssert(spell.damageTypes.contains(damageType))
-                }
+        for type in ElementType.allCases where type.isSingle {
+            let element = try Element(with: type, at: 2)
+            let spell = try SingleElementSpell(with: element)
+            XCTAssert(spell.element == element)
+            XCTAssert(spell.damageTypes.count == 1)
+            if let damageType = type.associatedDamageType {
+                XCTAssert(spell.damageTypes.contains(damageType))
             }
         }
 
     }
 
     func test_initWithInvalidElement() throws {
-        for type in ElementType.allCases {
-            if !type.isSingle {
-                let invalidElement = try Element(with: type, at: 2)
-                XCTAssertThrowsError(try SingleElementSpell(with: invalidElement),
-                                     "Wrong element type error should be thrown") { (error) in
-                                        XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
-                }
+        for type in ElementType.allCases where !type.isSingle {
+            let invalidElement = try Element(with: type, at: 2)
+            XCTAssertThrowsError(try SingleElementSpell(with: invalidElement),
+                                 "Wrong element type error should be thrown") { (error) in
+                                    XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
             }
         }
 

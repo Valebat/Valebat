@@ -8,5 +8,5 @@
 import GameplayKit
 
 protocol PlayerComponent: GKComponent {
-    var player: Player? { get set }
+    var player: PlayerEntity? { get set }
 }

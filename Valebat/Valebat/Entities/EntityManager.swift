@@ -19,7 +19,7 @@ class EntityManager {
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
 
-    var player: Player?
+    var player: PlayerEntity?
     var obstacles: [GKPolygonObstacle] = []
     var elements: [ElementType: Element] = [:]
 
@@ -132,7 +132,7 @@ class EntityManager {
     }
 
     func spawnEnemy(at location: CGPoint) {
-        let enemy = Enemy()
+        let enemy = EnemyEntity()
 
         if let spriteComponent = enemy.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = location
@@ -143,7 +143,7 @@ class EntityManager {
     }
 
     func addPlayer() {
-        let character = Player()
+        let character = PlayerEntity()
         if let spriteComponent = character.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position =
                 CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
@@ -188,9 +188,14 @@ class EntityManager {
 
         graph.connectUsingObstacles(node: playerNode)
 
+        updateEnemyPosition(graph: graph, playerNode: playerNode)
+
+        graph.remove([playerNode])
+    }
+
+    private func updateEnemyPosition(graph: GKObstacleGraph<GKGraphNode2D>, playerNode: GKGraphNode2D) {
         for entity in entities {
-            guard let playerSprite = player?.component(ofType: SpriteComponent.self),
-                  let enemySprite = entity.component(ofType: SpriteComponent.self),
+            guard let enemySprite = entity.component(ofType: SpriteComponent.self),
                   let enemyMoveComponent = entity.component(ofType: MoveComponent.self)
                   else {
                 continue
@@ -260,7 +265,5 @@ class EntityManager {
 
             enemySprite.node.position = nextPosition
         }
-
-        graph.remove([playerNode])
     }
 }

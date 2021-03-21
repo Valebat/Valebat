@@ -11,7 +11,7 @@ class EssenceCollectible: GKEntity, CollectibleEntity {
 
     var type: ElementType
     var amount: Int
-    func onCollect(player: Player) {
+    func onCollect(player: PlayerEntity) {
         player.essenceManager.addEssence(type: type, amount: amount)
     }
 

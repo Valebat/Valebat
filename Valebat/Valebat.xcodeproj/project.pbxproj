@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C325FCE7EA00087256 /* Enemy.swift */; };
+		C6A942D625FCE7EA00087256 /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C325FCE7EA00087256 /* EnemyEntity.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -55,7 +55,7 @@
 		CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
 		CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */; };
 		CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
-		DD4E010025FDBC4A002C5556 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* Player.swift */; };
+		DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
 		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
 		DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */; };
@@ -120,7 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C6A942C325FCE7EA00087256 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		C6A942C325FCE7EA00087256 /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDamageComponent.swift; sourceTree = "<group>"; };
 		CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPSDamageComponent.swift; sourceTree = "<group>"; };
-		DD4E00FF25FDBC4A002C5556 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
 		DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 		C6A9430E25FD050600087256 /* EnemyEntities */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942C325FCE7EA00087256 /* Enemy.swift */,
+				C6A942C325FCE7EA00087256 /* EnemyEntity.swift */,
 			);
 			path = EnemyEntities;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 		DD4E00FE25FDBC2E002C5556 /* PlayerEntities */ = {
 			isa = PBXGroup;
 			children = (
-				DD4E00FF25FDBC4A002C5556 /* Player.swift */,
+				DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */,
 			);
 			path = PlayerEntities;
 			sourceTree = "<group>";
@@ -672,7 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6A942D625FCE7EA00087256 /* Enemy.swift in Sources */,
+				C6A942D625FCE7EA00087256 /* EnemyEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
@@ -712,7 +712,7 @@
 				EF1941882600B15F00341BF5 /* SpellEntity.swift in Sources */,
 				C6A9437426034EAA00087256 /* Crate.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
-				DD4E010025FDBC4A002C5556 /* Player.swift in Sources */,
+				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				C6A9431B25FE508400087256 /* Wall.swift in Sources */,
 				CBA4950A2604961B003A05F7 /* PlayerEssenceComponent.swift in Sources */,
