@@ -238,6 +238,7 @@
 		C6A942C225FCE7EA00087256 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				CBA494DE26036789003A05F7 /* CollisionType.swift */,
 				CBA495022604855A003A05F7 /* CollectibleEntities */,
 				EF1941862600B15F00341BF5 /* SpellEntities */,
 				DD4E00FE25FDBC2E002C5556 /* PlayerEntities */,
@@ -245,7 +246,6 @@
 				C6A9430E25FD050600087256 /* EnemyEntities */,
 				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
 				DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */,
-				CBA494DE26036789003A05F7 /* CollisionType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";

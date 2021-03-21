@@ -5,7 +5,7 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-class Element: Hashable {
+class Element: Equatable {
 
     let type: ElementType
     let level: Double
@@ -20,10 +20,5 @@ class Element: Hashable {
 
     static func == (lhs: Element, rhs: Element) -> Bool {
         return lhs.type == rhs.type && lhs.level == rhs.level
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.type)
-        hasher.combine(self.level)
     }
 }

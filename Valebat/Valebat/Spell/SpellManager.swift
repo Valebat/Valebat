@@ -7,7 +7,7 @@
 
 class SpellManager {
 
-    static var typeCombinationTable = [ElementType: [ElementType: ElementType]]()
+    private static var typeCombinationTable = [ElementType: [ElementType: ElementType]]()
 
     init() {
         populateTypeCombinationTable()
@@ -18,14 +18,14 @@ class SpellManager {
         SpellManager.typeCombinationTable = customTable
     }
 
-    func populateTypeCombinationTable() {
+    private func populateTypeCombinationTable() {
         for type in ElementType.allCases {
             SpellManager.typeCombinationTable[type] = [ElementType: ElementType]()
             SpellManager.typeCombinationTable[type]?[type] = type // Default types for same element combinations
         }
     }
 
-    func addCombinations() {
+    private func addCombinations() {
         SpellManager.typeCombinationTable[.fire]?[.water] = .steam
         SpellManager.typeCombinationTable[.fire]?[.earth] = .magma
         SpellManager.typeCombinationTable[.water]?[.earth] = .mud
@@ -79,11 +79,11 @@ class SpellManager {
         }
     }
 
-    func combineLevel(lhs: Double, rhs: Double) -> Double {
+    private func combineLevel(lhs: Double, rhs: Double) -> Double {
         return lhs + rhs
     }
 
-    func associatedSpell(for type: ElementType, at level: Double) throws -> Spell {
+    private func associatedSpell(for type: ElementType, at level: Double) throws -> Spell {
         switch type {
         case .fire, .water, .earth:
             return try SingleElementSpell(with: Element(with: type, at: level))
