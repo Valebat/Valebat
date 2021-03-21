@@ -13,7 +13,9 @@ class SpellEntity: GKEntity {
         super.init()
 
         let spriteTexture = buildSpellTexture(spell: spell)
-        let spriteSize = spriteTexture.size()
+        let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
+        let spriteSize = CGSize(width: ViewConstants.gridSize,
+                                height: ViewConstants.gridSize / widthHeightRatio)
         let spriteComponent = SpriteComponent(entity: self, texture: spriteTexture, size: spriteSize)
         addComponent(spriteComponent)
 
