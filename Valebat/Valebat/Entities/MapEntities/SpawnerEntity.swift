@@ -14,7 +14,7 @@ class SpawnerEntity: GKEntity, BaseMapEntity {
         super.init()
 
         let texture = SKTexture(imageNamed: "spawner")
-        let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size)
         addComponent(spriteComponent)
 
         let spawnComponent = SpawnComponent(spawnTime: MapObjectConstants.defaultSpawnTime,

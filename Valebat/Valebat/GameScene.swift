@@ -22,7 +22,6 @@ class GameScene: SKScene {
         entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
-
         self.physicsWorld.contactDelegate = self
     }
 

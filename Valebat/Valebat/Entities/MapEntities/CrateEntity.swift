@@ -14,7 +14,7 @@ class CrateEntity: GKEntity, BaseMapEntity {
         super.init()
 
         let texture = SKTexture(imageNamed: "crate")
-        let spriteComponent = SpriteComponent(entity: self, texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size)
         addComponent(spriteComponent)
 
         let physicsBody = SKPhysicsBody(texture: texture, size: size)

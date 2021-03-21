@@ -17,4 +17,11 @@ class CollectingComponent: GKComponent, PlayerComponent, ContactBeginObserver {
             EntityManager.getInstance().remove(collectible)
         }
     }
+
+    override func didAddToEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers[ObjectIdentifier(self)] = self
+    }
+    override func willRemoveFromEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers.removeValue(forKey: ObjectIdentifier(self))
+    }
 }
