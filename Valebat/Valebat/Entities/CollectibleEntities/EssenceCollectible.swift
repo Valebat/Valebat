@@ -12,7 +12,7 @@ class EssenceCollectible: GKEntity, CollectibleEntity {
     var type: ElementType
     var amount: Int
     static let typeToStringMapping: [ElementType: String] =
-        [.fire: "fireessence", .water: "wateressence", .earth: "grassessence"]
+        [.fire: "fireessence", .water: "wateressence", .earth: "earthessence"]
     func onCollect(player: PlayerEntity) {
         player.essenceManager.addEssence(type: type, amount: amount)
     }
