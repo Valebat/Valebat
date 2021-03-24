@@ -10,18 +10,17 @@ import GameplayKit
 class SpawnUtil {
     private(set) static var totalSpawnChance: Int?
 
-    static func spawnObject(positions: [CGPoint]) -> [MapObject] {
+    static func spawnObject(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
         var copiedPositions = positions
+        let biomeData: BiomeData = BiomeUtil.getBiomeDataFromType(biomeType)
 
-        if totalSpawnChance == nil {
-            calculateTotalSpawnChance()
-        }
+        calculateTotalSpawnChance(biomeData: biomeData)
 
         var indexesToRemove: [Int] = []
         var guaranteedPositions: [Int] = []
 
-        for (key, value) in MapObjectConstants.globalGuaranteedSpawns {
+        for (key, value) in biomeData.globalGuaranteedSpawns {
             for _ in 1...value {
                 var rand = Int(arc4random()) % copiedPositions.count
 
@@ -59,13 +58,13 @@ class SpawnUtil {
 
             var rand = Int(arc4random() % 255)
 
-            if MapObjectConstants.globalObjectSpawnChance < rand {
+            if biomeData.globalObjectSpawnChance < rand {
                 continue
             }
 
             rand = Int(arc4random() % UInt32(totalSpawnChance!))
 
-            for (object, chance) in MapObjectConstants.globalSpawnChances {
+            for (object, chance) in biomeData.globalSpawnChances {
                 rand -= chance
                 if rand < 0 {
                     mapObjects.append(spawnTypedObject(object, position: position))
@@ -97,9 +96,9 @@ class SpawnUtil {
         return StaticMapObject(type: type, position: position)
     }
 
-    private static func calculateTotalSpawnChance() {
+    private static func calculateTotalSpawnChance(biomeData: BiomeData) {
         var sum: Int = 0
-        MapObjectConstants.globalSpawnChances.forEach { sum = sum + $1 }
+        biomeData.globalSpawnChances.forEach { sum = sum + $1 }
         totalSpawnChance = sum
     }
 }

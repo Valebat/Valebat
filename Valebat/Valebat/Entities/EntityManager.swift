@@ -64,7 +64,7 @@ class EntityManager {
     }
 
     func initialiseMap() {
-        MapUtil.generateMap()
+        MapUtil.generateMap(withBiomeType: .normal)
 
         let mapEntities: [GKEntity] = MapUtil.getMapEntities()
 

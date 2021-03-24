@@ -29,6 +29,13 @@
 		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
 		C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943B52605E33D00087256 /* MapObjectTests.swift */; };
 		C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943BE2605EBCC00087256 /* MapTests.swift */; };
+		C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */; };
+		C6A943DC260AFFFB00087256 /* BiomeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943DB260AFFFB00087256 /* BiomeUtil.swift */; };
+		C6A943E1260B000B00087256 /* NormalBiome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943E0260B000B00087256 /* NormalBiome.swift */; };
+		C6A943E6260B002A00087256 /* Biome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943E5260B002A00087256 /* Biome.swift */; };
+		C6A943EE260B007500087256 /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
+		C6A943FC260B09E500087256 /* DungeonBiome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943FB260B09E500087256 /* DungeonBiome.swift */; };
+		C6A94401260B4D1000087256 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
@@ -139,6 +146,13 @@
 		C6A943A82605D20F00087256 /* SpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnComponent.swift; sourceTree = "<group>"; };
 		C6A943B52605E33D00087256 /* MapObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectTests.swift; sourceTree = "<group>"; };
 		C6A943BE2605EBCC00087256 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
+		C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeTypeEnum.swift; sourceTree = "<group>"; };
+		C6A943DB260AFFFB00087256 /* BiomeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeUtil.swift; sourceTree = "<group>"; };
+		C6A943E0260B000B00087256 /* NormalBiome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBiome.swift; sourceTree = "<group>"; };
+		C6A943E5260B002A00087256 /* Biome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biome.swift; sourceTree = "<group>"; };
+		C6A943ED260B007500087256 /* BiomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeData.swift; sourceTree = "<group>"; };
+		C6A943FB260B09E500087256 /* DungeonBiome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonBiome.swift; sourceTree = "<group>"; };
+		C6A94400260B4D1000087256 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
@@ -256,14 +270,15 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942C725FCE7EA00087256 /* Util */,
+				C6A943D5260AFF6600087256 /* Biomes */,
+				C6A942C725FCE7EA00087256 /* MapUtil */,
 				C6A942CB25FCE7EA00087256 /* MapObject */,
 				C6A942CF25FCE7EA00087256 /* Map.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		C6A942C725FCE7EA00087256 /* Util */ = {
+		C6A942C725FCE7EA00087256 /* MapUtil */ = {
 			isa = PBXGroup;
 			children = (
 				C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */,
@@ -271,7 +286,7 @@
 				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
 				C6A943632603437A00087256 /* SpawnUtil.swift */,
 			);
-			path = Util;
+			path = MapUtil;
 			sourceTree = "<group>";
 		};
 		C6A942CB25FCE7EA00087256 /* MapObject */ = {
@@ -342,6 +357,20 @@
 				C6A943BE2605EBCC00087256 /* MapTests.swift */,
 			);
 			path = MapTests;
+			sourceTree = "<group>";
+		};
+		C6A943D5260AFF6600087256 /* Biomes */ = {
+			isa = PBXGroup;
+			children = (
+				C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */,
+				C6A943DB260AFFFB00087256 /* BiomeUtil.swift */,
+				C6A943ED260B007500087256 /* BiomeData.swift */,
+				C6A943E5260B002A00087256 /* Biome.swift */,
+				C6A943E0260B000B00087256 /* NormalBiome.swift */,
+				C6A943FB260B09E500087256 /* DungeonBiome.swift */,
+				C6A94400260B4D1000087256 /* Runtime.swift */,
+			);
+			path = Biomes;
 			sourceTree = "<group>";
 		};
 		CBA495022604855A003A05F7 /* CollectibleEntities */ = {
@@ -664,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A942D625FCE7EA00087256 /* EnemyEntity.swift in Sources */,
+				C6A943FC260B09E500087256 /* DungeonBiome.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
@@ -672,12 +702,14 @@
 				DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */,
 				CBA49522260679FA003A05F7 /* HealthBarComponent.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
+				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
+				C6A943EE260B007500087256 /* BiomeData.swift in Sources */,
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
 				CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */,
 				CBA494F126038AB1003A05F7 /* CollectingComponent.swift in Sources */,
@@ -694,6 +726,7 @@
 				EF19416225FFC71900341BF5 /* SteamSpell.swift in Sources */,
 				C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */,
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
+				C6A943DC260AFFFB00087256 /* BiomeUtil.swift in Sources */,
 				CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
@@ -711,6 +744,7 @@
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
+				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
@@ -722,7 +756,9 @@
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* SpellCastComponent.swift in Sources */,
+				C6A943E1260B000B00087256 /* NormalBiome.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,
+				C6A943E6260B002A00087256 /* Biome.swift in Sources */,
 				CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,

@@ -10,8 +10,10 @@ import GameplayKit
 
 class MapUtil {
     static var map: Map = TestConstants.testMap
+    static var currentBiome: BiomeTypeEnum = .normal
 
-    static func generateMap() {
+    static func generateMap(withBiomeType biomeType: BiomeTypeEnum) {
+        currentBiome = biomeType
         var mapObjects: [MapObject] = []
         guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
               let wallHeight = MapObjectConstants.globalDefaultHeights[.wall] else {
@@ -41,7 +43,7 @@ class MapUtil {
             }
         }
 
-        let spawnedObjects: [MapObject] = SpawnUtil.spawnObject(positions: spawnLocations)
+        let spawnedObjects: [MapObject] = SpawnUtil.spawnObject(positions: spawnLocations, withBiomeType: biomeType)
 
         mapObjects.append(contentsOf: spawnedObjects)
 
@@ -62,7 +64,8 @@ class MapUtil {
             case .crate:
                 entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
             case .spawner:
-                entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime)
             }
 
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {

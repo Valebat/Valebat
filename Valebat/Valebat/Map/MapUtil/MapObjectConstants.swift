@@ -10,13 +10,6 @@ class MapObjectConstants {
     static let objectDefaultWidth: Double = Double(ViewConstants.gridSize)
     static let objectDefaultCollidable: Bool = true
 
-    static let globalObjectSpawnChance: Int = 5
-    static let globalSpawnChances: [MapObjectEnum: Int] = [.wall: 0,
-                                                           .rock: 5,
-                                                           .crate: 3 ]
-
-    static let globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2]
-
     /// Nothing can spawn with 1 radius of this object.
     /// Only guaranteed spawns can be protected.
     static let protectedSpawns: [MapObjectEnum] = [.spawner]
@@ -33,6 +26,4 @@ class MapObjectConstants {
                                                                    .rock: true,
                                                                    .crate: true,
                                                                    .spawner: false]
-
-    static let defaultSpawnTime: Double = 7.0
 }
