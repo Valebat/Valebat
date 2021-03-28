@@ -8,25 +8,26 @@
 import Foundation
 import GameplayKit
 
-class EnemyMoveComponent: GKComponent {
-
-    var speed: CGFloat
+class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
+    var cachedEnemyComponents = CachedEnemyComponents()
+    var chaseSpeed: CGFloat
+    var normalSpeed: CGFloat
     var nextPositions = [CGPoint]()
+    var currentRandomPathCoolDown = 3.0
+    let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
-    private weak var cachedSpriteComponent: SpriteComponent?
-    init(speed: CGFloat) {
-        self.speed = speed
+    init(chaseSpeed: CGFloat, normalSpeed: CGFloat) {
+        self.chaseSpeed = chaseSpeed
+        self.normalSpeed = normalSpeed
         super.init()
     }
 
-    private func getSpriteComponent() -> SpriteComponent? {
-        if cachedSpriteComponent == nil {
-            cachedSpriteComponent = entity?.component(ofType: SpriteComponent.self)
-        }
-        return cachedSpriteComponent
+    func reset() {
+        currentPathTimerCooldown = 0.0
+        currentRandomPathCoolDown = 0.0
+        nextPositions = [CGPoint]()
     }
-
     func hasNextPosition() -> Bool {
         !nextPositions.isEmpty
     }
@@ -35,9 +36,6 @@ class EnemyMoveComponent: GKComponent {
         nextPositions.removeFirst()
     }
 
-    override func update(deltaTime seconds: TimeInterval) {
-        moveTowardsPlayer(deltaTime: seconds)
-    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -87,11 +85,13 @@ class EnemyMoveComponent: GKComponent {
         }
 
         nextPositions = path2D.map({ CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y)) })
-        nextPositions.removeFirst()
+        if !nextPositions.isEmpty {
+            nextPositions.removeFirst()
+        }
 
     }
 
-    func computeNewPosition(deltaTime: TimeInterval) {
+    func computeNewPosition(deltaTime: TimeInterval, speed: CGFloat) {
         guard var currentPosition = getSpriteComponent()?.node.position else {
             return
         }
@@ -115,7 +115,29 @@ class EnemyMoveComponent: GKComponent {
         getSpriteComponent()?.node.position = currentPosition
     }
 
-    private func moveTowardsPlayer(deltaTime: TimeInterval) {
+    func getRandomPathinRadius(origin: CGPoint, radius: CGFloat) {
+        for _ in 1 ... 5 {
+            let randomLocation = CGPoint.getCGPoint(magnitude: CGFloat.random(in: 0 ... radius),
+                                                    degrees: CGFloat.random(in: 0 ... 360)) + origin
+            getNewPath(targetLocation: randomLocation)
+            if !nextPositions.isEmpty {
+                break
+            }
+        }
+    }
+
+    func moveToRandomLocationInRadius(deltaTime: TimeInterval) {
+        guard let location = getSpriteComponent()?.node.position else {
+            return
+        }
+        currentRandomPathCoolDown -= deltaTime
+        if currentRandomPathCoolDown < 0 {
+            getRandomPathinRadius(origin: location, radius: 100)
+            currentRandomPathCoolDown = randomPathCoolDown
+        }
+        computeNewPosition(deltaTime: deltaTime, speed: normalSpeed)
+    }
+    func moveTowardsPlayer(deltaTime: TimeInterval) {
         currentPathTimerCooldown -= deltaTime
         if currentPathTimerCooldown < 0 {
             if let targetLocation = EntityManager.getInstance().lastKnownPlayerPosition {
@@ -123,7 +145,7 @@ class EnemyMoveComponent: GKComponent {
             }
             currentPathTimerCooldown = pathTimerCooldown
         }
-        computeNewPosition(deltaTime: deltaTime)
+        computeNewPosition(deltaTime: deltaTime, speed: chaseSpeed)
     }
 
 }

@@ -22,7 +22,7 @@ class EntityManager {
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     var elements: [ElementType: Element] = [:]
-
+    // var able = true
     let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
@@ -33,8 +33,9 @@ class EntityManager {
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
         let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
-        let enemyMoveSystem = GKComponentSystem(componentClass: EnemyMoveComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyMoveSystem]
+        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
+        let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -134,8 +135,12 @@ class EntityManager {
     }
 
     func spawnEnemy(at location: CGPoint) {
+       /* if !able {
+            return
+        }*/
          let enemy = EnemyEntity(position: location)
         add(enemy)
+       // able = false
     }
 
     func addPlayer() {
