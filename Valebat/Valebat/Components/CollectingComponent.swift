@@ -8,7 +8,7 @@
 import GameplayKit
 
 class CollectingComponent: GKComponent, PlayerComponent, ContactBeginObserver {
-    var player: Player?
+    var player: PlayerEntity?
 
     func contactDidBegin(with entity: GKEntity) {
         if let collectible = entity as? CollectibleEntity,
@@ -16,5 +16,12 @@ class CollectingComponent: GKComponent, PlayerComponent, ContactBeginObserver {
             collectible.onCollect(player: player)
             EntityManager.getInstance().remove(collectible)
         }
+    }
+
+    override func didAddToEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers[ObjectIdentifier(self)] = self
+    }
+    override func willRemoveFromEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers.removeValue(forKey: ObjectIdentifier(self))
     }
 }

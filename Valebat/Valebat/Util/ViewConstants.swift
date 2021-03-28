@@ -24,4 +24,7 @@ struct ViewConstants {
     static let baseEnemyEscapeDistance: CGFloat = gridSize / 4
 
     static let spellVelocityMultiplier: CGFloat = 4
+    static let essenceSize: CGFloat = gridSize * 0.9
+
+    static let enemySavedPositions: Int = 40
 }
