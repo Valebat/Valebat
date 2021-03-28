@@ -18,13 +18,14 @@ class EntityManager {
 
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
-
     var player: PlayerEntity?
+    var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     var elements: [ElementType: Element] = [:]
 
     let scene: SKScene
     let gkScene: GKScene
+    var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
 
     lazy var componentSystems: [GKComponentSystem] = {
@@ -32,7 +33,8 @@ class EntityManager {
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
         let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem, spawnSystem]
+        let enemyMoveSystem = GKComponentSystem(componentClass: EnemyMoveComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyMoveSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -99,7 +101,7 @@ class EntityManager {
                 graph.add([node])
             }
         }
-
+        obstacleGraph = graph
         gkScene.addGraph(graph, name: "obstacles")
     }
 
@@ -132,24 +134,14 @@ class EntityManager {
     }
 
     func spawnEnemy(at location: CGPoint) {
-        let enemy = EnemyEntity()
-
-        if let spriteComponent = enemy.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position = location
-            spriteComponent.node.zPosition = 2
-        }
-
+         let enemy = EnemyEntity(position: location)
         add(enemy)
     }
 
     func addPlayer() {
-        let character = PlayerEntity()
-        if let spriteComponent = character.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position =
-                CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
-                        y: scene.size.height * ViewConstants.playerSpawnOffset)
-            spriteComponent.node.zPosition = 2
-        }
+        let spawnLocation = CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
+                                y: scene.size.height * ViewConstants.playerSpawnOffset)
+        let character = PlayerEntity(position: spawnLocation)
         add(character)
         self.player = character
     }
@@ -157,43 +149,44 @@ class EntityManager {
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
                     using elementsSelected: [Element]) throws {
         let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
-        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier, spell: underlyingSpell)
-        if let spriteComponent = spell.component(ofType: SpriteComponent.self) {
-            spriteComponent.node.position = shootPoint
-            spriteComponent.node.zPosition = 2
-        }
+        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier, spell: underlyingSpell, position: shootPoint)
         add(spell)
     }
 
+    func updateLastKnownPlayerPosition() {
+        if let position = player?.component(ofType: SpriteComponent.self)?.node.position {
+            lastKnownPlayerPosition = position
+        }
+    }
     func update(_ deltaTime: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: deltaTime)
         }
-
+        updateLastKnownPlayerPosition()
         for curRemove in toRemove {
             for componentSystem in componentSystems {
                 componentSystem.removeComponent(foundIn: curRemove)
             }
         }
         toRemove.removeAll()
-
-        guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
+/*
+       guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
             return
         }
 
         let playerNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
-                                                                           Float(playerSprite.node.position.y)))
+                        Float(playerSprite.node.position.y)))
 
-        let graph: GKObstacleGraph = gkScene.graphs["obstacles"] as? GKObstacleGraph<GKGraphNode2D> ?? GKObstacleGraph()
+       let graph: GKObstacleGraph = gkScene.graphs["obstacles"] as? GKObstacleGraph<GKGraphNode2D> ?? GKObstacleGraph()
 
         graph.connectUsingObstacles(node: playerNode)
 
         updateEnemyPosition(graph: graph, playerNode: playerNode)
 
-        graph.remove([playerNode])
+        graph.remove([playerNode])*/
     }
 
-    private func updateEnemyPosition(graph: GKObstacleGraph<GKGraphNode2D>, playerNode: GKGraphNode2D) {
+/*    private func updateEnemyPosition(graph: GKObstacleGraph<GKGraphNode2D>, playerNode: GKGraphNode2D) {
         for entity in entities {
             guard let enemySprite = entity.component(ofType: SpriteComponent.self),
                   let enemyMoveComponent = entity.component(ofType: MoveComponent.self)
@@ -288,5 +281,5 @@ class EntityManager {
 
             enemySprite.node.position = nextPosition
         }
-    }
+    }*/
 }

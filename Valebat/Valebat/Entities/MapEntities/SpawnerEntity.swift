@@ -10,11 +10,11 @@ import GameplayKit
 class SpawnerEntity: GKEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .spawner
 
-    init(size: CGSize, defaultSpawnTime: Double) {
+    init(size: CGSize, defaultSpawnTime: Double, position: CGPoint) {
         super.init()
 
         let texture = SKTexture(imageNamed: "spawner")
-        let spriteComponent = SpriteComponent(texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
 
         let spawnComponent = SpawnComponent(spawnTime: defaultSpawnTime,

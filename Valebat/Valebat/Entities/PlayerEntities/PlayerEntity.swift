@@ -10,12 +10,12 @@ import GameplayKit
 class PlayerEntity: GKEntity {
 
     let essenceManager = PlayerEssenceManager()
-    override init() {
+    init(position: CGPoint) {
         super.init()
 
         let texture = SKTexture(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
-        let spriteComponent = SpriteComponent(texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
         addComponent(HealthComponent(health: 15))
