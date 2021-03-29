@@ -9,33 +9,45 @@ import GameplayKit
 
 class SpawnUtil {
     private(set) static var totalSpawnChance: Int?
+    private(set) static var biomeData: BiomeData = BiomeData()
 
     static func spawnObject(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
-        var copiedPositions = positions
         let biomeData: BiomeData = BiomeUtil.getBiomeDataFromType(biomeType)
 
         calculateTotalSpawnChance(biomeData: biomeData)
 
+        let (guaranteedObjects, positionsForNormalObjects) = handleGuaranteedSpawns(positions: positions)
+        mapObjects.append(contentsOf: guaranteedObjects)
+
+        let normalObjects = handleRegularSpawns(positions: positionsForNormalObjects)
+        mapObjects.append(contentsOf: normalObjects)
+
+        return mapObjects
+    }
+
+    static func handleGuaranteedSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+        var copiedPositons = positions
+        var mapObjects: [MapObject] = []
         var indexesToRemove: [Int] = []
         var guaranteedPositions: [Int] = []
 
         for (key, value) in biomeData.globalGuaranteedSpawns {
             for _ in 1...value {
-                var rand = Int(arc4random()) % copiedPositions.count
+                var rand = Int(arc4random()) % copiedPositons.count
 
-                while !isValidPosition(position: copiedPositions[rand]) || guaranteedPositions.contains(rand) {
-                    rand = Int(arc4random()) % copiedPositions.count
+                while !isValidPosition(position: copiedPositons[rand]) || guaranteedPositions.contains(rand) {
+                    rand = Int(arc4random()) % copiedPositons.count
                 }
                 guaranteedPositions.append(rand)
 
-                mapObjects.append(spawnTypedObject(key, position: copiedPositions[rand]))
+                mapObjects.append(spawnTypedObject(key, position: copiedPositons[rand]))
 
                 if MapObjectConstants.protectedSpawns.contains(key) {
                     for xDir in -1...1 {
                         for yDir in -1...1 {
                             let indexToRemove: Int = rand - xDir * (ViewConstants.numGridsAlongY - 1) - yDir
-                            if indexToRemove >= 0 && indexToRemove < copiedPositions.count {
+                            if indexToRemove >= 0 && indexToRemove < copiedPositons.count {
                                 indexesToRemove.append(indexToRemove)
                             }
                         }
@@ -48,10 +60,16 @@ class SpawnUtil {
 
         indexesToRemove.sort()
         for idx in 0..<indexesToRemove.count {
-            copiedPositions.remove(at: indexesToRemove[indexesToRemove.count - 1 - idx])
+            copiedPositons.remove(at: indexesToRemove[indexesToRemove.count - 1 - idx])
         }
 
-        for position in copiedPositions {
+        return (mapObjects, copiedPositons)
+    }
+
+    static func handleRegularSpawns(positions: [CGPoint]) -> [MapObject] {
+        var mapObjects: [MapObject] = []
+
+        for position in positions {
             if !isValidPosition(position: position) {
                 continue
             }
