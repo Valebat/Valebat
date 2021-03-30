@@ -35,7 +35,10 @@ class EntityManager {
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem]
+        let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
+        let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
+        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem,
+                timerSystem, advanceLevelSystem]
     }()
 
     static func getInstance() -> EntityManager {

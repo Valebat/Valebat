@@ -65,7 +65,12 @@ class MapUtil {
                 entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime, position: point)
+                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       position: point)
+            case .stairs:
+                entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                      timer: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                      position: point)
             }
             entities.append(entity)
         }

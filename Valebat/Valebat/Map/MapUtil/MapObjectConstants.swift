@@ -17,13 +17,16 @@ class MapObjectConstants {
     static let globalDefaultHeights: [MapObjectEnum: Double] = [.wall: objectDefaultHeight,
                                                                  .rock: objectDefaultHeight,
                                                                  .crate: objectDefaultHeight,
-                                                                 .spawner: objectDefaultHeight]
+                                                                 .spawner: objectDefaultHeight,
+                                                                 .stairs: objectDefaultHeight]
     static let globalDefaultWidths: [MapObjectEnum: Double] = [.wall: objectDefaultWidth,
                                                                 .rock: objectDefaultWidth,
                                                                 .crate: objectDefaultWidth,
-                                                                .spawner: objectDefaultWidth]
+                                                                .spawner: objectDefaultWidth,
+                                                                .stairs: objectDefaultWidth]
     static let globalDefaultCollidables: [MapObjectEnum: Bool] = [.wall: true,
                                                                    .rock: true,
                                                                    .crate: true,
-                                                                   .spawner: false]
+                                                                   .spawner: false,
+                                                                   .stairs: false]
 }

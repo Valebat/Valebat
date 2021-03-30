@@ -11,9 +11,11 @@ class BiomeData {
                                                     .rock: 5,
                                                     .crate: 3 ]
 
-    var globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2]
+    var globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2,
+                                                        .stairs: 1]
 
     var defaultSpawnTime: Double = 7.0
+    var defaultStairsTimer: Double = 5.0
 
     init() {
 
@@ -36,6 +38,11 @@ class BiomeData {
 
     func withDefaultSpawnTime(_ spawnTime: Double) -> BiomeData {
         self.defaultSpawnTime = spawnTime
+        return self
+    }
+
+    func withDefaultStairsTimer(_ timer: Double) -> BiomeData {
+        self.defaultStairsTimer = timer
         return self
     }
 }
