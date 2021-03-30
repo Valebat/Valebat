@@ -25,16 +25,15 @@ class SpellEntity: GKEntity {
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
 
-        let element = spell.element
-        let damage = CGFloat(element.level) * TestConstants.damageValue // Some constant
-        if element.type.isSingle {
+        let damage = CGFloat(spell.level) * TestConstants.damageValue // Some constant
+        if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
-                                                type: element.type.associatedDamageType ?? .pure))
-        } else {
-            addComponent(InstantDamageComponent(water: spell.damageTypes.contains(.water) ? damage : 0.0,
-                                                earth: spell.damageTypes.contains(.earth) ? damage : 0.0,
-                                                fire: spell.damageTypes.contains(.fire) ? damage : 0.0,
-                                                pure: spell.damageTypes.contains(.pure) ? damage : 0.0))
+                                                type: basicSpell.damageType))
+        } else if let compositeSpell = spell as? CompositeSpell {
+            addComponent(InstantDamageComponent(water: compositeSpell.damageTypes.contains(.water) ? damage : 0.0,
+                                                earth: compositeSpell.damageTypes.contains(.earth) ? damage : 0.0,
+                                                fire: compositeSpell.damageTypes.contains(.fire) ? damage : 0.0,
+                                                pure: compositeSpell.damageTypes.contains(.pure) ? damage : 0.0))
         }
     }
 
@@ -43,7 +42,7 @@ class SpellEntity: GKEntity {
     }
 
     func buildSpellTexture(spell: Spell) -> [SKTexture] {
-        let elementType = spell.element.type
+        let elementType = (spell as? SingleElementSpell)?.damageType
         var imgName = ""
         switch elementType {
         case .water:

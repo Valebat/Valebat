@@ -47,7 +47,7 @@ class GameScene: SKScene {
             try entityManager.initialseElements()
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given")
-        } catch SpellErrors.wrongElementTypeError {
+        } catch SpellErrors.wrongBasicTypeError {
             print("Wrong element type was given")
         } catch {
             print("Unexpected error")

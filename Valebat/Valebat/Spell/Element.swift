@@ -7,10 +7,10 @@
 
 class Element: Equatable {
 
-    let type: ElementType
+    let type: BasicType
     let level: Double
 
-    init(with type: ElementType, at level: Double) throws {
+    init(with type: BasicType, at level: Double) throws {
         self.type = type
         if level < 1 {
             throw SpellErrors.invalidLevelError

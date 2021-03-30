@@ -5,22 +5,21 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-class MagmaSpell: Spell {
-    let element: Element
-    var damageTypes = Set<DamageType>()
+class MagmaSpell: CompositeSpell {
 
-    required init(with element: Element) throws {
-        if element.type != .magma {
-            throw SpellErrors.wrongElementTypeError
+    let level: Double
+    var damageTypes = [BasicType]()
+
+    required init(at level: Double) throws {
+        if level < 1 {
+            throw SpellErrors.invalidLevelError
         }
-        self.element = element
-        self.damageTypes.insert(.earth)
-        self.damageTypes.insert(.fire)
+        self.level = level
+        self.damageTypes.append(.earth)
+        self.damageTypes.append(.fire)
     }
 
-    init(at level: Double) throws {
-        try self.element = Element(with: .magma, at: level)
-        self.damageTypes.insert(.earth)
-        self.damageTypes.insert(.fire)
+    static var description: String {
+        "earth fire"
     }
 }

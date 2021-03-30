@@ -6,6 +6,6 @@
 //
 
 enum SpellErrors: Error {
-    case wrongElementTypeError
+    case wrongBasicTypeError
     case invalidLevelError
 }

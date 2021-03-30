@@ -7,6 +7,10 @@
 
 import Foundation
 
-enum DamageType: String, CaseIterable {
+enum BasicType: String, CaseIterable {
     case water, earth, fire, pure
+
+    var imageName: String {
+        rawValue
+    }
 }

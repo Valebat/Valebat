@@ -22,9 +22,9 @@ class SpellControllerTests: XCTestCase {
     func test_combineFireAndWater() throws {
         let fireElement = try Element(with: .fire, at: 2)
         let waterElement = try Element(with: .water, at: 3)
-        if let combinedSpell = try spellManager?.combineElements(lhs: fireElement, rhs: waterElement) {
-            let steamElement = try Element(with: .steam, at: 5)
-            XCTAssert(combinedSpell.element == steamElement)
+        if let combinedSpell = try spellManager?.combine(elements: [fireElement, waterElement]) {
+            XCTAssert(combinedSpell.level == 5)
+            XCTAssert(combinedSpell is SteamSpell)
         } else {
             XCTFail("Couldn't combine elements")
         }
@@ -33,9 +33,9 @@ class SpellControllerTests: XCTestCase {
     func test_combineFireAndEarthReverseOrder() throws {
         let fireElement = try Element(with: .fire, at: 100)
         let earthElement = try Element(with: .earth, at: 3)
-        if let combinedSpell = try spellManager?.combineElements(lhs: earthElement, rhs: fireElement) {
-            let magmaElement = try Element(with: .magma, at: 103)
-            XCTAssert(combinedSpell.element == magmaElement)
+        if let combinedSpell = try spellManager?.combine(elements: [earthElement, fireElement]) {
+            XCTAssert(combinedSpell.level == 103)
+            XCTAssert(combinedSpell is MagmaSpell)
         } else {
             XCTFail("Couldn't combine elements")
         }
@@ -44,9 +44,9 @@ class SpellControllerTests: XCTestCase {
     func test_combineWaterAndEarthReverseOrder() throws {
         let waterElement = try Element(with: .water, at: 10)
         let earthElement = try Element(with: .earth, at: 30)
-        if let combinedSpell = try spellManager?.combineElements(lhs: earthElement, rhs: waterElement) {
-            let mudElement = try Element(with: .mud, at: 40)
-            XCTAssert(combinedSpell.element == mudElement)
+        if let combinedSpell = try spellManager?.combine(elements: [earthElement, waterElement]) {
+            XCTAssert(combinedSpell.level == 40)
+            XCTAssert(combinedSpell is MudSpell)
         } else {
             XCTFail("Couldn't combine elements")
         }
@@ -55,20 +55,10 @@ class SpellControllerTests: XCTestCase {
     func test_combineSameElementType() throws {
         let fireElement2 = try Element(with: .fire, at: 2)
         let fireElement3 = try Element(with: .fire, at: 3)
-        if let combinedSpell = try spellManager?.combineElements(lhs: fireElement2, rhs: fireElement3) {
-            let fireElement5 = try Element(with: .fire, at: 5)
-            XCTAssert(combinedSpell.element == fireElement5)
-        } else {
-            XCTFail("Couldn't combine elements")
-        }
-    }
-
-    func test_combineWithCompositeElementType() throws {
-        let waterElement = try Element(with: .water, at: 10)
-        let mudElement = try Element(with: .mud, at: 30)
-        if let combinedSpell = try spellManager?.combineElements(lhs: mudElement, rhs: waterElement) {
-            let genericElement = try Element(with: .generic, at: 40)
-            XCTAssert(combinedSpell.element == genericElement)
+        if let combinedSpell = try spellManager?.combine(elements: [fireElement2, fireElement3]) {
+            XCTAssert(combinedSpell.level == 5)
+            XCTAssert(combinedSpell is SingleElementSpell)
+            XCTAssert((combinedSpell as? SingleElementSpell)?.damageType == .fire)
         } else {
             XCTFail("Couldn't combine elements")
         }
@@ -76,10 +66,10 @@ class SpellControllerTests: XCTestCase {
 
     func test_combineWithGeneric() throws {
         let waterElement = try Element(with: .water, at: 10)
-        let genericElement = try Element(with: .generic, at: 30)
-        if let combinedSpell = try spellManager?.combineElements(lhs: genericElement, rhs: waterElement) {
-            let combinedGenericElement = try Element(with: .generic, at: 40)
-            XCTAssert(combinedSpell.element == combinedGenericElement)
+        let genericElement = try Element(with: .pure, at: 30)
+        if let combinedSpell = try spellManager?.combine(elements: [genericElement, waterElement]) {
+            XCTAssert(combinedSpell is GenericSpell)
+            XCTAssert(combinedSpell.level == 40)
         } else {
             XCTFail("Couldn't combine elements")
         }

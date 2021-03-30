@@ -9,19 +9,19 @@ import CoreGraphics
 import GameplayKit
 
 extension EntityManager: UserInputDelegate {
-    func spellJoystickEnded(angular: CGFloat, elementQueue: [ElementType]?) {
+    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?) {
         guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
             return
         }
 
         let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         let elementTypeQueue = elementQueue ?? []
-        let elementQueue = mapElementType(elementQueue: elementTypeQueue)
+        let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
         do {
             try shootSpell(from: playerPos, with: direction, using: elementQueue)
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given")
-        } catch SpellErrors.wrongElementTypeError {
+        } catch SpellErrors.wrongBasicTypeError {
             print("Wrong element type was given")
         } catch {
             print("Unexpected error")
@@ -60,7 +60,7 @@ extension EntityManager: UserInputDelegate {
         playerSprite.node.zRotation = angular
     }
 
-    private func mapElementType(elementQueue: [ElementType]) -> [Element] {
+    private func mapBasicType(elementQueue: [BasicType]) -> [Element] {
         return elementQueue.compactMap({ self.elements[$0] ?? nil })
     }
 }

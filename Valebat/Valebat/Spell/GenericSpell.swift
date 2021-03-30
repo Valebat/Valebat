@@ -5,21 +5,28 @@
 //  Created by Sreyans Sipani on 13/3/21.
 //
 
-class GenericSpell: Spell {
+class GenericSpell: CompositeSpell {
 
-    let element: Element
-    var damageTypes = Set<DamageType>()
+    let level: Double
+    var damageTypes = [BasicType]()
 
-    required init(with element: Element) throws {
-        if element.type != .generic {
-            throw SpellErrors.wrongElementTypeError
+    required init(at level: Double) throws {
+        if level < 1 {
+            throw SpellErrors.invalidLevelError
         }
-        self.element = element
-        self.damageTypes.insert(.pure)
+        self.level = level
+        self.damageTypes.append(.pure)
     }
 
-    init(at level: Double) throws {
-        try self.element = Element(with: .generic, at: level)
-        self.damageTypes.insert(.pure)
+    init(at level: Double, from basicTypes: [BasicType]) throws {
+        if level < 1 {
+            throw SpellErrors.invalidLevelError
+        }
+        self.level = level
+        self.damageTypes.append(contentsOf: basicTypes)
+    }
+
+    static var description: String {
+        "pure"
     }
 }

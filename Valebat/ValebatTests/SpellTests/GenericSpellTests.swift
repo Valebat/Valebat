@@ -17,28 +17,11 @@ class GenericSpellTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_initWithElement() throws {
-        let genericElement = try Element(with: .generic, at: 2)
-        let genericSpell = try GenericSpell(with: genericElement)
-        XCTAssert(genericSpell.element == genericElement)
-        XCTAssert(genericSpell.damageTypes.count == 1)
-        XCTAssert(genericSpell.damageTypes.contains(.pure))
-    }
-
-    func test_initWithInvalidElement() throws {
-        let invalidElement = try Element(with: .water, at: 2)
-        XCTAssertThrowsError(try GenericSpell(with: invalidElement),
-                             "Wrong element type error should be thrown") { (error) in
-                                XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
-        }
-    }
-
     func test_initWithLevel() throws {
-        let genericElement = try Element(with: .generic, at: 2.5)
-        let genericSpell = try GenericSpell(at: 2.5)
-        XCTAssert(genericSpell.element == genericElement)
-        XCTAssert(genericSpell.damageTypes.count == 1)
-        XCTAssert(genericSpell.damageTypes.contains(.pure))
+        let pureSpell = try GenericSpell(at: 2.5)
+        XCTAssert(pureSpell.damageTypes.count == 1)
+        XCTAssert(pureSpell.damageTypes.contains(.pure))
+        XCTAssert(pureSpell.level == 2.5)
     }
 
     func test_initWithInvalidLevel() throws {

@@ -21,11 +21,11 @@ class ElementSelection: SKNode {
         initButton(elementType: .earth, position: CGPoint(x: position.x - distance, y: position.y))
     }
 
-    func setNewElement(elementType: ElementType) {
+    func setNewElement(elementType: BasicType) {
         elementPane?.setNewElement(elementType: elementType)
     }
 
-    private func initButton(elementType: ElementType, position: CGPoint) {
+    private func initButton(elementType: BasicType, position: CGPoint) {
         let button = ElementButton(elementType: elementType)
         button.position = position
         self.addChild(button)

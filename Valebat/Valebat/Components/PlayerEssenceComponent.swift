@@ -8,15 +8,15 @@
 import GameplayKit
 
 class PlayerEssenceManager {
-    var essences: [ElementType: Int]
+    var essences: [BasicType: Int]
     init() {
-        essences = [ElementType: Int]()
-        for element in ElementType.allCases {
+        essences = [BasicType: Int]()
+        for element in BasicType.allCases {
             essences[element] = 0
         }
     }
 
-    func addEssence(type: ElementType, amount: Int) {
+    func addEssence(type: BasicType, amount: Int) {
         essences[type]! += amount
     }
 }

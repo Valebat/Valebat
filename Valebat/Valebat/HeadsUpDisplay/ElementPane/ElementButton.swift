@@ -9,10 +9,10 @@ import SpriteKit
 
 class ElementButton: SKSpriteNode {
 
-    var elementType: ElementType
+    var elementType: BasicType
     weak var elementSelection: ElementSelection?
 
-    init(elementType: ElementType) {
+    init(elementType: BasicType) {
         self.elementType = elementType
         let texture = SKTexture(imageNamed: elementType.imageName)
         super.init(texture: texture, color: UIColor.clear, size: HUDConstants.elementQueueElementSize)

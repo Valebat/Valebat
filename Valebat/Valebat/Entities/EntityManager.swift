@@ -21,7 +21,7 @@ class EntityManager {
 
     var player: PlayerEntity?
     var obstacles: [GKPolygonObstacle] = []
-    var elements: [ElementType: Element] = [:]
+    var elements: [BasicType: Element] = [:]
 
     let scene: SKScene
     let gkScene: GKScene
