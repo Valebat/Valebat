@@ -9,7 +9,7 @@ import GameplayKit
 
 class SpellEntity: GKEntity {
 
-    init(velocity: CGVector, spell: Spell) {
+    init(velocity: CGVector, spell: Spell, position: CGPoint) {
         super.init()
 
         let spriteTextures = buildSpellTexture(spell: spell)
@@ -17,7 +17,7 @@ class SpellEntity: GKEntity {
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        let spriteComponent = SpriteComponent(animatedTextures: spriteTextures, size: spriteSize)
+        let spriteComponent = SpriteComponent(animatedTextures: spriteTextures, size: spriteSize, position: position)
         addComponent(spriteComponent)
 
         addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))

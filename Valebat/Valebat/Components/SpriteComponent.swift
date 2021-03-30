@@ -13,14 +13,17 @@ import GameplayKit
 
 class SpriteComponent: GKSKNodeComponent {
 
-    init(texture: SKTexture, size: CGSize) {
+    init(texture: SKTexture, size: CGSize, position: CGPoint, zPosition: CGFloat = 2) {
         super.init()
         node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
+        node.position = position
+        node.zPosition = zPosition
     }
 
-    init(animatedTextures: [SKTexture], size: CGSize) {
+    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint) {
         super.init()
         node = SKSpriteNode(texture: animatedTextures[0], color: SKColor.white, size: size)
+        node.position = position
         let animation = SKAction.repeatForever(SKAction.animate(with: animatedTextures, timePerFrame: 0.1))
         node.run(animation)
     }

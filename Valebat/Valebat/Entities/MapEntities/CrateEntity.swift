@@ -10,11 +10,11 @@ import GameplayKit
 class CrateEntity: GKEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .crate
 
-    init(size: CGSize) {
+    init(size: CGSize, position: CGPoint) {
         super.init()
 
         let texture = SKTexture(imageNamed: "crate")
-        let spriteComponent = SpriteComponent(texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
 
         let physicsBody = SKPhysicsBody(texture: texture, size: size)

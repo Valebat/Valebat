@@ -10,11 +10,11 @@ import GameplayKit
 class RockEntity: GKEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .rock
 
-    init(size: CGSize) {
+    init(size: CGSize, position: CGPoint) {
         super.init()
 
         let texture = SKTexture(imageNamed: "rock")
-        let spriteComponent = SpriteComponent(texture: texture, size: size)
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
 
         let physicsBody = SKPhysicsBody(texture: texture, size: size)

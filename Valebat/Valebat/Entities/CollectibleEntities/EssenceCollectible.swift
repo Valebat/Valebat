@@ -24,9 +24,7 @@ class EssenceCollectible: GKEntity, CollectibleEntity {
         let imageString = EssenceCollectible.typeToStringMapping[type] ?? ""
         let texture = SKTexture(imageNamed: imageString)
         let size = CGSize(width: ViewConstants.essenceSize, height: ViewConstants.essenceSize)
-        let spriteComponent = SpriteComponent(texture: texture, size: size)
-        spriteComponent.node.position = location
-        spriteComponent.node.zPosition = 2
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: location)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size),
                                       collisionType: .collectible))

@@ -55,26 +55,18 @@ class MapUtil {
 
         for object in map.objects {
             var entity: BaseMapEntity
-
+            let point = CGPoint(x: object.position.x, y: object.position.y)
             switch object.type {
             case .wall:
-                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
             case .rock:
-                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
             case .crate:
-                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension))
+                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime)
+                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime, position: point)
             }
-
-            if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
-                spriteComponent.node.position =
-                    CGPoint(x: object.position.x,
-                            y: object.position.y)
-                spriteComponent.node.zPosition = 2
-            }
-
             entities.append(entity)
         }
 
