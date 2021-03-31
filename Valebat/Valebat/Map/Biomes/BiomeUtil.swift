@@ -3,9 +3,6 @@
 //  Valebat
 //
 //  Created by Jing Lin Shi on 24/3/21.
-//
-
-import Foundation
 
 class BiomeUtil {
     private static var biomeDataMap: [BiomeTypeEnum: BiomeData] = [:]

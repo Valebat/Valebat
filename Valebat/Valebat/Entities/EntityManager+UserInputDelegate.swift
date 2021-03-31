@@ -29,9 +29,13 @@ extension EntityManager: UserInputDelegate {
     }
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
-        guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
+        guard let playerMoveComp = player?.component(ofType: PlayerMoveComponent.self) ,
+              let playerSprite = player?.component(ofType: SpriteComponent.self) else {
             return
         }
+
+        playerMoveComp.movePlayer(velocity: velocity * HUDConstants.joystickVelocityMultiplier,
+                                  angular: angular)
 
         let newPosition = CGPoint(x: playerSprite.node.position.x
                                     + velocity.x * HUDConstants.joystickVelocityMultiplier,

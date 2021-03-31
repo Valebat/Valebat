@@ -5,8 +5,8 @@
 //  Created by Aloysius Lim on 28/3/21.
 //
 
-import Foundation
 import GameplayKit
+
 class EnemyAttackEntity: GKEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: DamageType, damageValue: CGFloat) {

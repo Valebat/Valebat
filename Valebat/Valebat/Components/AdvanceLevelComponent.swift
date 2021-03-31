@@ -20,6 +20,6 @@ class AdvanceLevelComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        
+
     }
 }

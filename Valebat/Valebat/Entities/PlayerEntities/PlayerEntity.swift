@@ -22,6 +22,7 @@ class PlayerEntity: GKEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
+        addPlayerComponent(playerComponent: PlayerMoveComponent())
 
     }
 
