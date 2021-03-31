@@ -20,6 +20,18 @@ class AdvanceLevelComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        
+        print("outside delete")
+        guard let playerPosition = EntityManager.getInstance().lastKnownPlayerPosition else {
+            return
+        }
+        let distance = (playerPosition - self.location).length()
+        print(distance)
+        if distance < ViewConstants.gridSize * ViewConstants.stairsSensitivity {
+            if let entity = self.entity {
+                print("delete")
+                EntityManager.getInstance().remove(entity)
+            }
+            EntityManager.getInstance().resetLevel()
+        }
     }
 }

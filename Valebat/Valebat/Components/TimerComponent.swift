@@ -9,6 +9,7 @@ import GameplayKit
 
 class TimerComponent: GKComponent {
     var clock: Double
+    var active: Bool = true
     let parent: GKEntity
     let spawnedComponent: AdvanceLevelComponent
     let replacementSpriteComponent: SpriteComponent?
@@ -34,18 +35,18 @@ class TimerComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
+        print("uighiuygu")
         super.update(deltaTime: seconds)
         clock -= seconds
 
-        if clock <= 0 {
-            parent.addComponent(spawnedComponent)
-            parent.removeComponent(ofType: TimerComponent.self)
+        if clock <= 0 && active {
+            active = false
+            print("activated")
+            EntityManager.getInstance().removeComponentOfEntity(parent, component: self)
+            EntityManager.getInstance().addComponentToEntity(parent, component: spawnedComponent)
             if self.replacementSpriteComponent != nil {
-                parent.removeComponent(ofType: SpriteComponent.self)
-                parent.addComponent(replacementSpriteComponent!)
+                EntityManager.getInstance().replaceSprite(parent, component: self.replacementSpriteComponent!)
             }
-            EntityManager.getInstance().remove(parent)
-            EntityManager.getInstance().add(parent)
         }
     }
 }

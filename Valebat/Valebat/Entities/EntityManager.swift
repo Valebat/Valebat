@@ -69,6 +69,16 @@ class EntityManager {
         self.spellManager = SpellManager()
     }
 
+    func resetLevel() {
+        for entity in self.entities {
+            print(entity)
+        }
+        cleanupLevel()
+        addPlayer()
+        initialiseMap()
+        initialiseGraph()
+    }
+
     func initialiseMap() {
         MapUtil.generateMap(withBiomeType: .normal)
 
@@ -115,6 +125,15 @@ class EntityManager {
         try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
+    func cleanupLevel() {
+        for entity in self.entities {
+            remove(entity)
+        }
+        self.obstacles = []
+        self.obstacleGraph = nil
+        gkScene.removeGraph("obstacles")
+    }
+
     func add(_ entity: GKEntity) {
         entities.insert(entity)
 
@@ -128,7 +147,6 @@ class EntityManager {
     }
 
     func remove(_ entity: GKEntity) {
-
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
@@ -137,11 +155,34 @@ class EntityManager {
         entities.remove(entity)
     }
 
+    func replaceSprite(_ entity: GKEntity, component: SpriteComponent) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            spriteNode.removeFromParent()
+        }
+
+        entity.addComponent(component)
+        scene.addChild(component.node)
+    }
+
+    func removeComponentOfEntity(_ entity: GKEntity, component: GKComponent) {
+        for componentSystem in componentSystems {
+            componentSystem.removeComponent(component)
+        }
+    }
+
+    func addComponentToEntity(_ entity: GKEntity, component: GKComponent) {
+        entity.addComponent(component)
+
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+    }
+
     func spawnEnemy(at location: CGPoint) {
        /* if !able {
             return
         }*/
-         let enemy = EnemyEntity(position: location)
+        let enemy = EnemyEntity(position: location)
         add(enemy)
        // able = false
     }
@@ -157,7 +198,8 @@ class EntityManager {
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
                     using elementsSelected: [Element]) throws {
         let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
-        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier, spell: underlyingSpell, position: shootPoint)
+        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
+                                spell: underlyingSpell, position: shootPoint)
         add(spell)
     }
 
@@ -177,117 +219,5 @@ class EntityManager {
             }
         }
         toRemove.removeAll()
-/*
-       guard let playerSprite = player?.component(ofType: SpriteComponent.self) else {
-            return
-        }
-
-        let playerNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
-                        Float(playerSprite.node.position.y)))
-
-       let graph: GKObstacleGraph = gkScene.graphs["obstacles"] as? GKObstacleGraph<GKGraphNode2D> ?? GKObstacleGraph()
-
-        graph.connectUsingObstacles(node: playerNode)
-
-        updateEnemyPosition(graph: graph, playerNode: playerNode)
-
-        graph.remove([playerNode])*/
     }
-
-/*    private func updateEnemyPosition(graph: GKObstacleGraph<GKGraphNode2D>, playerNode: GKGraphNode2D) {
-        for entity in entities {
-            guard let enemySprite = entity.component(ofType: SpriteComponent.self),
-                  let enemyMoveComponent = entity.component(ofType: MoveComponent.self)
-                  else {
-                continue
-            }
-
-            if !enemyMoveComponent.hasNextPosition() {
-                let enemyNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(enemySprite.node.position.x),
-                                                                                  Float(enemySprite.node.position.y)))
-
-                graph.connectUsingObstacles(node: enemyNode)
-
-                var path: [GKGraphNode2D] = graph.findPath(from: enemyNode, to: playerNode) as? [GKGraphNode2D] ?? []
-                graph.remove([enemyNode])
-
-                // TODO handle on collision end @pooty
-                if path.isEmpty {
-                    var resolved = false
-                    let directions: [CGPoint] = [CGPoint(x: 1, y: 1), CGPoint(x: -1, y: -1),
-                                                 CGPoint(x: -1, y: 1), CGPoint(x: 1, y: -1)]
-                    for idx in 0..<directions.count {
-                        if resolved { continue }
-                        let newPosition = CGPoint(x: CGFloat(enemySprite.node.position.x) +
-                                                    directions[idx].x * ViewConstants.baseEnemyEscapeDistance,
-                                                  y: CGFloat(enemySprite.node.position.y) +
-                                                    directions[idx].y * ViewConstants.baseEnemyEscapeDistance)
-
-                        let endNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(newPosition.x),
-                                                                                        Float(newPosition.y)))
-                        graph.connectUsingObstacles(node: endNode)
-
-                        let path: [GKGraphNode2D] = graph.findPath(from: endNode,
-                                                                   to: playerNode) as? [GKGraphNode2D] ?? []
-                        graph.remove([endNode])
-
-                        guard let nextPositionInPath: GKGraphNode2D = path.first else {
-                            continue
-                        }
-
-                        let targetX: CGFloat = CGFloat(nextPositionInPath.position.x)
-                        let targetY: CGFloat = CGFloat(nextPositionInPath.position.y)
-                        let targetPosition: CGPoint = CGPoint(x: targetX, y: targetY)
-
-                        enemySprite.node.position = targetPosition
-                        resolved = true
-                    }
-                    continue
-                }
-
-                if !path.isEmpty { path.remove(at: 0) }
-
-                guard let nextPositionInPath: GKGraphNode2D = path.first else {
-                    continue
-                }
-
-                let targetX: CGFloat = CGFloat(nextPositionInPath.position.x)
-                let targetY: CGFloat = CGFloat(nextPositionInPath.position.y)
-                let targetPosition: CGPoint = CGPoint(x: targetX, y: targetY)
-
-                let movementVector: CGPoint = targetPosition - enemySprite.node.position
-                var actualMovementVector = movementVector
-                let moveSpeed: CGFloat = enemyMoveComponent.speed
-
-                var numPrecalculatedPositions = 0
-                if movementVector.length() > moveSpeed {
-                    let unitMovementVector: CGPoint = movementVector / movementVector.length()
-                    actualMovementVector = unitMovementVector * moveSpeed
-                    numPrecalculatedPositions = min(Int(movementVector.length() / moveSpeed),
-                                                    ViewConstants.enemySavedPositions) - 1
-                }
-                var nextX = enemySprite.node.position.x + actualMovementVector.x
-                var nextY = enemySprite.node.position.y + actualMovementVector.y
-
-                var nextPositions: [CGPoint] = [CGPoint(x: nextX, y: nextY)]
-
-                if numPrecalculatedPositions > 0 {
-                    for _ in 1...numPrecalculatedPositions {
-                        nextX += actualMovementVector.x
-                        nextY += actualMovementVector.y
-
-                        nextPositions.append(CGPoint(x: nextX, y: nextY))
-                    }
-                }
-
-                enemyMoveComponent.nextPositions = nextPositions
-            }
-
-            guard let nextPosition = enemyMoveComponent.getNextPosition() else {
-                continue
-            }
-
-            enemySprite.node.position = nextPosition
-        }
-    }*/
 }
