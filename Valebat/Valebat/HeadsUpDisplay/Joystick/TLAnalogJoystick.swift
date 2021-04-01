@@ -7,26 +7,13 @@
 
 import SpriteKit
 
-public typealias TLAnalogJoystickEventHandler = (TLAnalogJoystick) -> Void
-public typealias TLAnalogJoystickHandlerID = String
-public typealias TLAnalogJoystickEventHandlers = [TLAnalogJoystickHandlerID: TLAnalogJoystickEventHandler]
-
 public enum TLAnalogJoystickEventType {
     case begin
     case move
     case end
 }
 
-private let getHandlerID: () -> TLAnalogJoystickHandlerID = {
-    var counter = 0
-
-    return {
-        counter += 1
-        return "sbscrbr_\(counter)"
-    }()
-}
-
-private func getDiameter(fromDiameter diameter: CGFloat, withRatio ratio: CGFloat) -> CGFloat {
+public func getDiameter(fromDiameter diameter: CGFloat, withRatio ratio: CGFloat) -> CGFloat {
     return diameter * abs(ratio)
 }
 
@@ -73,13 +60,14 @@ open class TLAnalogJoystickComponent: SKSpriteNode {
     }
 
     // MARK: - DESIGNATED
-    init(diameter: CGFloat, color: UIColor? = nil, image: UIImage? = nil) {
+    init(diameter: CGFloat, color: UIColor? = nil, image: UIImage? = nil, opacity: CGFloat = 1.0) {
         let pureColor = color ?? UIColor.black
         let size = CGSize(width: diameter, height: diameter)
         super.init(texture: nil, color: pureColor, size: size)
 
         self.diameter = diameter
         self.image = image
+        self.alpha = opacity
 
         redrawTexture()
     }
@@ -120,8 +108,6 @@ open class TLAnalogJoystick: SKNode {
 
     private var pHandleRatio: CGFloat
     private var displayLink: CADisplayLink!
-    private var handlers = [TLAnalogJoystickEventType: TLAnalogJoystickEventHandlers]()
-    private var handlerIDsRelEvent = [TLAnalogJoystickHandlerID: TLAnalogJoystickEventType]()
     private(set) var tracking = false {
         didSet {
             guard oldValue != tracking else {
@@ -283,39 +269,22 @@ open class TLAnalogJoystick: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func getEventHandlers(forType type: TLAnalogJoystickEventType) -> TLAnalogJoystickEventHandlers {
-        return handlers[type] ?? TLAnalogJoystickEventHandlers()
-    }
-
     private func runEvent(_ type: TLAnalogJoystickEventType) {
-        let handlers = getEventHandlers(forType: type)
-
-        handlers.forEach { _, handler in
-            handler(self)
+        switch type {
+        case .begin:
+            didJoystickBegin()
+        case .move:
+            didJoystickMove()
+        case .end:
+            didJoystickEnd()
         }
     }
 
-    @discardableResult
-    public func on(_ event: TLAnalogJoystickEventType,
-                   _ handler: @escaping TLAnalogJoystickEventHandler) -> TLAnalogJoystickHandlerID {
-        let handlerID = getHandlerID()
-        var currHandlers = getEventHandlers(forType: event)
-        currHandlers[handlerID] = handler
-        handlerIDsRelEvent[handlerID] = event
-        handlers[event] = currHandlers
+    public func didJoystickMove() {}
 
-        return handlerID
-    }
+    public func didJoystickBegin() {}
 
-    public func off(handlerID: TLAnalogJoystickHandlerID) {
-        if let event = handlerIDsRelEvent[handlerID] {
-            var currHandlers = getEventHandlers(forType: event)
-            currHandlers.removeValue(forKey: handlerID)
-            handlers[event] = currHandlers
-        }
-
-        handlerIDsRelEvent.removeValue(forKey: handlerID)
-    }
+    public func didJoystickEnd() {}
 
     public func stop() {
         tracking = false

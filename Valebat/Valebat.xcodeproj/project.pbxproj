@@ -80,8 +80,7 @@
 		DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
 		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
-		DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */; };
-		DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */; };
+		DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* UserInputNode.swift */; };
 		DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */; };
 		DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */; };
 		DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E014125FF412A002C5556 /* HUDConstants.swift */; };
@@ -93,6 +92,9 @@
 		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
 		DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5784172605F35100E15493 /* ElementPaneTests.swift */; };
 		DD703487261428CF00D3602B /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703486261428CF00D3602B /* PlayerMoveComponent.swift */; };
+		DD7034BB2615E93500D3602B /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */; };
+		DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BF2615EDF600D3602B /* MovementJoystick.swift */; };
+		DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034C42615F73A00D3602B /* SpellJoystick.swift */; };
 		EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -222,8 +224,7 @@
 		DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
-		DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
-		DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNode.swift; sourceTree = "<group>"; };
+		DD4E011525FDCDCB002C5556 /* UserInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputNode.swift; sourceTree = "<group>"; };
 		DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
 		DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+extension.swift"; sourceTree = "<group>"; };
 		DD4E014125FF412A002C5556 /* HUDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDConstants.swift; sourceTree = "<group>"; };
@@ -235,6 +236,9 @@
 		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
 		DD5784172605F35100E15493 /* ElementPaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPaneTests.swift; sourceTree = "<group>"; };
 		DD703486261428CF00D3602B /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
+		DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
+		DD7034BF2615EDF600D3602B /* MovementJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystick.swift; sourceTree = "<group>"; };
+		DD7034C42615F73A00D3602B /* SpellJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellJoystick.swift; sourceTree = "<group>"; };
 		EF19415225FFC71900341BF5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -539,8 +543,8 @@
 				DD5783EF2605D13100E15493 /* Joystick */,
 				DD4E015425FF52A7002C5556 /* ElementPane */,
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
-				DD4E011525FDCDCB002C5556 /* HeadsUpDisplayNode.swift */,
-				DD4E011A25FDCE5E002C5556 /* OverlayNode.swift */,
+				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
+				DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */,
 				DD4E014125FF412A002C5556 /* HUDConstants.swift */,
 			);
 			path = HeadsUpDisplay;
@@ -562,6 +566,8 @@
 			children = (
 				DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */,
 				DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */,
+				DD7034BF2615EDF600D3602B /* MovementJoystick.swift */,
+				DD7034C42615F73A00D3602B /* SpellJoystick.swift */,
 			);
 			path = Joystick;
 			sourceTree = "<group>";
@@ -785,7 +791,7 @@
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
 				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
 				EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */,
-				DD4E011625FDCDCB002C5556 /* HeadsUpDisplayNode.swift in Sources */,
+				DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */,
 				CBA49522260679FA003A05F7 /* HealthBarComponent.swift in Sources */,
 				CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
@@ -804,6 +810,7 @@
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				CB9E9DE3261096920016B046 /* CachedComponentsProtocol.swift in Sources */,
+				DD7034BB2615E93500D3602B /* HeadsUpDisplayNode.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
@@ -815,6 +822,7 @@
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,
 				EF19416225FFC71900341BF5 /* SteamSpell.swift in Sources */,
+				DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */,
 				C6A943A12605D02B00087256 /* BaseMapEntity.swift in Sources */,
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
 				C6A943DC260AFFFB00087256 /* BiomeUtil.swift in Sources */,
@@ -836,6 +844,7 @@
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
+				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
@@ -846,7 +855,6 @@
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
-				DD4E011B25FDCE5E002C5556 /* OverlayNode.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,

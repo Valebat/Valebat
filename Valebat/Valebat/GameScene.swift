@@ -12,7 +12,7 @@ class GameScene: SKScene {
     // Entity-component system
     var entityManager: EntityManager!
 
-    var headsUpDisplay: HeadsUpDisplayNode!
+    var headsUpDisplay: UserInputNode!
 
     private var lastUpdateTime: TimeInterval = 0
 
@@ -55,9 +55,9 @@ class GameScene: SKScene {
     }
 
     private func setUpHUD() {
-        let hudNode = HeadsUpDisplayNode(screenSize: self.size)
+        let hudNode = UserInputNode(screenSize: self.size)
         addChild(hudNode)
-        hudNode.userInputDelegate = entityManager
+        hudNode.assignInputDelegate(delegate: entityManager)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
