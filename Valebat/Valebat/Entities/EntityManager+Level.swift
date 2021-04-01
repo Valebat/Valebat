@@ -19,4 +19,13 @@ extension EntityManager {
             add(entity)
         }
     }
+
+    func cleanupLevel() {
+        for entity in self.entities {
+            remove(entity)
+        }
+        self.obstacles = []
+        self.obstacleGraph = nil
+        gkScene.removeGraph("obstacles")
+    }
 }

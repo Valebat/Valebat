@@ -116,15 +116,6 @@ class EntityManager {
         try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
-    func cleanupLevel() {
-        for entity in self.entities {
-            remove(entity)
-        }
-        self.obstacles = []
-        self.obstacleGraph = nil
-        gkScene.removeGraph("obstacles")
-    }
-
     func add(_ entity: GKEntity) {
         entities.insert(entity)
 
