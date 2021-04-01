@@ -295,23 +295,22 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
 				C6A943D5260AFF6600087256 /* Biomes */,
-				C6A942C725FCE7EA00087256 /* MapUtil */,
+				C6A944292615B3B200087256 /* SpawnUtil */,
 				C6A942CB25FCE7EA00087256 /* MapObject */,
 				C6A942CF25FCE7EA00087256 /* Map.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		C6A942C725FCE7EA00087256 /* MapUtil */ = {
+		C6A942C725FCE7EA00087256 /* MapObjectUtil */ = {
 			isa = PBXGroup;
 			children = (
 				C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */,
 				C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */,
-				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
-				C6A943632603437A00087256 /* SpawnUtil.swift */,
 			);
-			path = MapUtil;
+			path = MapObjectUtil;
 			sourceTree = "<group>";
 		};
 		C6A942CB25FCE7EA00087256 /* MapObject */ = {
@@ -319,6 +318,7 @@
 			children = (
 				C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */,
 				C6A942CD25FCE7EA00087256 /* MapObject.swift */,
+				C6A942C725FCE7EA00087256 /* MapObjectUtil */,
 			);
 			path = MapObject;
 			sourceTree = "<group>";
@@ -404,6 +404,14 @@
 				C6A94400260B4D1000087256 /* Runtime.swift */,
 			);
 			path = Biomes;
+			sourceTree = "<group>";
+		};
+		C6A944292615B3B200087256 /* SpawnUtil */ = {
+			isa = PBXGroup;
+			children = (
+				C6A943632603437A00087256 /* SpawnUtil.swift */,
+			);
+			path = SpawnUtil;
 			sourceTree = "<group>";
 		};
 		CB9E9DD9261095500016B046 /* EnemyStates */ = {

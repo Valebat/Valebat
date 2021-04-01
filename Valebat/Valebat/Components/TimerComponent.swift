@@ -35,13 +35,11 @@ class TimerComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        print("uighiuygu")
         super.update(deltaTime: seconds)
         clock -= seconds
 
         if clock <= 0 && active {
             active = false
-            print("activated")
             EntityManager.getInstance().removeComponentOfEntity(parent, component: self)
             EntityManager.getInstance().addComponentToEntity(parent, component: spawnedComponent)
             if self.replacementSpriteComponent != nil {
