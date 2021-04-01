@@ -69,18 +69,8 @@ class EntityManager {
         self.spellManager = SpellManager()
     }
 
-    func resetLevel() {
-        for entity in self.entities {
-            print(entity)
-        }
-        cleanupLevel()
-        addPlayer()
-        initialiseMap()
-        initialiseGraph()
-    }
-
-    func initialiseMap() {
-        MapUtil.generateMap(withBiomeType: .normal)
+    func initialiseMaps() {
+        MapUtil.generateMaps(withLevelType: .hard)
 
         let mapEntities: [GKEntity] = MapUtil.getMapEntities()
 

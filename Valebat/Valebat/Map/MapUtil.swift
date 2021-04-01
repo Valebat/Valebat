@@ -9,15 +9,47 @@ import SpriteKit
 import GameplayKit
 
 class MapUtil {
-    static var map: Map = TestConstants.testMap
+    static var level = 0
+    static var maxLevel = 0
+    static var map: Map = Map()
+    static var maps: [Map] = []
     static var currentBiome: BiomeTypeEnum = .normal
 
-    static func generateMap(withBiomeType biomeType: BiomeTypeEnum) {
+    static func generateMaps(withLevelType levelType: LevelTypeEnum) {
+        self.level = 0
+        self.map = Map()
+        self.maps = []
+
+        let biomeTypes: [BiomeTypeEnum] = LevelListUtil.getLevelDataFromType(levelType)
+        self.maxLevel = biomeTypes.count
+
+        let borderedMap = addBordersToMap(Map())
+
+        for biomeType in biomeTypes {
+            let levelMap = addSpawnsToMap(borderedMap, withBiomeType: biomeType)
+            maps.append(levelMap)
+        }
+
+        map = maps[0]
+    }
+
+    static func advanceToNextMap() {
+        self.level += 1
+
+        if level < maxLevel {
+            map = maps[level]
+        } else {
+            // TODO implement player win here
+        }
+    }
+
+    private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {
         currentBiome = biomeType
         var mapObjects: [MapObject] = []
+
         guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
               let wallHeight = MapObjectConstants.globalDefaultHeights[.wall] else {
-            return
+            return Map()
         }
 
         let numWidth = Int(Double(ViewConstants.sceneWidth) / wallWidth)
@@ -36,10 +68,6 @@ class MapUtil {
 
                     continue
                 }
-                let xPosition = Double(widths) * wallWidth
-                let yPosition = Double(heights) * wallHeight
-
-                mapObjects.append(StaticMapObject(type: .wall, position: CGPoint(x: xPosition, y: yPosition)))
             }
         }
 
@@ -47,7 +75,39 @@ class MapUtil {
 
         mapObjects.append(contentsOf: spawnedObjects)
 
-        map = Map(withObjects: mapObjects)
+        let resultMap: Map = Map()
+        resultMap.addObjects(map.objects)
+        resultMap.addObjects(mapObjects)
+        return resultMap
+    }
+
+    private static func addBordersToMap(_ map: Map) -> Map {
+        var mapObjects: [MapObject] = []
+
+        guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
+              let wallHeight = MapObjectConstants.globalDefaultHeights[.wall] else {
+            return Map()
+        }
+
+        let numWidth = Int(Double(ViewConstants.sceneWidth) / wallWidth)
+        let numHeight = Int(Double(ViewConstants.sceneHeight) / wallHeight)
+
+        for widths in 0...numWidth {
+            for heights in 0...numHeight {
+                if widths != 0 && widths != numWidth && heights != 0 && heights != numHeight {
+                    continue
+                }
+                let xPosition = Double(widths) * wallWidth
+                let yPosition = Double(heights) * wallHeight
+
+                mapObjects.append(StaticMapObject(type: .wall, position: CGPoint(x: xPosition, y: yPosition)))
+            }
+        }
+
+        let resultMap: Map = Map()
+        resultMap.addObjects(map.objects)
+        resultMap.addObjects(mapObjects)
+        return resultMap
     }
 
     static func getMapEntities() -> [BaseMapEntity] {
@@ -89,5 +149,9 @@ class MapUtil {
         let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 5.0)
 
         return graph
+    }
+
+    static func resetMap() {
+        self.map = Map()
     }
 }

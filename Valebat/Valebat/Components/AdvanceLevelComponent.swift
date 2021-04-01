@@ -28,7 +28,7 @@ class AdvanceLevelComponent: GKComponent {
             if let entity = self.entity {
                 EntityManager.getInstance().remove(entity)
             }
-            EntityManager.getInstance().resetLevel()
+            EntityManager.getInstance().advanceLevel()
         }
     }
 }

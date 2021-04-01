@@ -13,7 +13,7 @@ class SpawnUtil {
 
     static func spawnObject(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
-        let biomeData: BiomeData = BiomeUtil.getBiomeDataFromType(biomeType)
+        self.biomeData = BiomeUtil.getBiomeDataFromType(biomeType)
 
         calculateTotalSpawnChance(biomeData: biomeData)
 
