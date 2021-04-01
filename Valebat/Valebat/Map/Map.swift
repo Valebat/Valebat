@@ -15,4 +15,8 @@ class Map {
     convenience init() {
         self.init(withObjects: [])
     }
+
+    func addObjects(_ objects: [MapObject]) {
+        self.objects.append(contentsOf: objects)
+    }
 }

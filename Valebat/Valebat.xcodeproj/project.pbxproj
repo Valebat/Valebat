@@ -39,6 +39,12 @@
 		C6A9440C261373F700087256 /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
 		C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* TimerComponent.swift */; };
 		C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */; };
+		C6A9442F2615B40E00087256 /* LevelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9442E2615B40E00087256 /* LevelList.swift */; };
+		C6A9443D2615B46800087256 /* LevelTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelTypeEnum.swift */; };
+		C6A944422615B48800087256 /* EasyLevelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944412615B48800087256 /* EasyLevelList.swift */; };
+		C6A944472615B4CF00087256 /* HardLevelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944462615B4CF00087256 /* HardLevelList.swift */; };
+		C6A9444C2615B4FB00087256 /* LevelListUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9444B2615B4FB00087256 /* LevelListUtil.swift */; };
+		C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -169,6 +175,12 @@
 		C6A9440B261373F700087256 /* StairsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StairsEntity.swift; sourceTree = "<group>"; };
 		C6A9441026138D3E00087256 /* TimerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerComponent.swift; sourceTree = "<group>"; };
 		C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceLevelComponent.swift; sourceTree = "<group>"; };
+		C6A9442E2615B40E00087256 /* LevelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelList.swift; sourceTree = "<group>"; };
+		C6A9443C2615B46800087256 /* LevelTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTypeEnum.swift; sourceTree = "<group>"; };
+		C6A944412615B48800087256 /* EasyLevelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyLevelList.swift; sourceTree = "<group>"; };
+		C6A944462615B4CF00087256 /* HardLevelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardLevelList.swift; sourceTree = "<group>"; };
+		C6A9444B2615B4FB00087256 /* LevelListUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListUtil.swift; sourceTree = "<group>"; };
+		C6A944532615B69200087256 /* EntityManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+Level.swift"; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -279,6 +291,7 @@
 				C6A9430E25FD050600087256 /* EnemyEntities */,
 				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
 				DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */,
+				C6A944532615B69200087256 /* EntityManager+Level.swift */,
 				CBA494DE26036789003A05F7 /* CollisionType.swift */,
 				CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */,
 			);
@@ -296,23 +309,24 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
+				C6A94400260B4D1000087256 /* Runtime.swift */,
+				C6A9442D2615B3F500087256 /* LevelList */,
 				C6A943D5260AFF6600087256 /* Biomes */,
-				C6A942C725FCE7EA00087256 /* MapUtil */,
+				C6A944292615B3B200087256 /* SpawnUtil */,
 				C6A942CB25FCE7EA00087256 /* MapObject */,
 				C6A942CF25FCE7EA00087256 /* Map.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		C6A942C725FCE7EA00087256 /* MapUtil */ = {
+		C6A942C725FCE7EA00087256 /* MapObjectUtil */ = {
 			isa = PBXGroup;
 			children = (
 				C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */,
 				C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */,
-				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
-				C6A943632603437A00087256 /* SpawnUtil.swift */,
 			);
-			path = MapUtil;
+			path = MapObjectUtil;
 			sourceTree = "<group>";
 		};
 		C6A942CB25FCE7EA00087256 /* MapObject */ = {
@@ -320,6 +334,7 @@
 			children = (
 				C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */,
 				C6A942CD25FCE7EA00087256 /* MapObject.swift */,
+				C6A942C725FCE7EA00087256 /* MapObjectUtil */,
 			);
 			path = MapObject;
 			sourceTree = "<group>";
@@ -404,9 +419,28 @@
 				C6A943E5260B002A00087256 /* Biome.swift */,
 				C6A943E0260B000B00087256 /* NormalBiome.swift */,
 				C6A943FB260B09E500087256 /* DungeonBiome.swift */,
-				C6A94400260B4D1000087256 /* Runtime.swift */,
 			);
 			path = Biomes;
+			sourceTree = "<group>";
+		};
+		C6A944292615B3B200087256 /* SpawnUtil */ = {
+			isa = PBXGroup;
+			children = (
+				C6A943632603437A00087256 /* SpawnUtil.swift */,
+			);
+			path = SpawnUtil;
+			sourceTree = "<group>";
+		};
+		C6A9442D2615B3F500087256 /* LevelList */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9443C2615B46800087256 /* LevelTypeEnum.swift */,
+				C6A9444B2615B4FB00087256 /* LevelListUtil.swift */,
+				C6A9442E2615B40E00087256 /* LevelList.swift */,
+				C6A944412615B48800087256 /* EasyLevelList.swift */,
+				C6A944462615B4CF00087256 /* HardLevelList.swift */,
+			);
+			path = LevelList;
 			sourceTree = "<group>";
 		};
 		CB9E9DD9261095500016B046 /* EnemyStates */ = {
@@ -742,9 +776,11 @@
 				C6A9440C261373F700087256 /* StairsEntity.swift in Sources */,
 				C6A942D625FCE7EA00087256 /* EnemyEntity.swift in Sources */,
 				C6A943FC260B09E500087256 /* DungeonBiome.swift in Sources */,
+				C6A9442F2615B40E00087256 /* LevelList.swift in Sources */,
 				CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */,
 				CB9E9DF72610A84A0016B046 /* EnemyAttackEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
+				C6A9443D2615B46800087256 /* LevelTypeEnum.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
 				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
@@ -787,6 +823,8 @@
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
+				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
+				C6A944472615B4CF00087256 /* HardLevelList.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
 				CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */,
@@ -803,6 +841,7 @@
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
+				C6A9444C2615B4FB00087256 /* LevelListUtil.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
@@ -820,6 +859,7 @@
 				CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
+				C6A944422615B48800087256 /* EasyLevelList.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
 				CB9E9DF22610A7DE0016B046 /* EnemyAttackComponent.swift in Sources */,
