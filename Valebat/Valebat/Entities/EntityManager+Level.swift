@@ -12,10 +12,20 @@ extension EntityManager {
         cleanupLevel()
         MapUtil.advanceToNextMap()
         addPlayer()
-        let mapEntities: [GKEntity] = MapUtil.getMapEntities()
+        initialiseGraph()
 
+        let mapEntities: [GKEntity] = MapUtil.mapEntities
         for entity in mapEntities {
             add(entity)
         }
+    }
+
+    func cleanupLevel() {
+        for entity in self.entities {
+            remove(entity)
+        }
+        self.obstacles = []
+        self.obstacleGraph = nil
+        gkScene.removeGraph("obstacles")
     }
 }

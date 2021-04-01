@@ -72,7 +72,7 @@ class EntityManager {
     func initialiseMaps() {
         MapUtil.generateMaps(withLevelType: .hard)
 
-        let mapEntities: [GKEntity] = MapUtil.getMapEntities()
+        let mapEntities: [GKEntity] = MapUtil.mapEntities
 
         for entity in mapEntities {
             add(entity)
@@ -80,7 +80,7 @@ class EntityManager {
     }
 
     func initialiseGraph() {
-        let mapEntities: [BaseMapEntity] = MapUtil.getMapEntities()
+        let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
 
         self.obstacles = []
 
@@ -113,15 +113,6 @@ class EntityManager {
         try elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
         try elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
         try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
-    }
-
-    func cleanupLevel() {
-        for entity in self.entities {
-            remove(entity)
-        }
-        self.obstacles = []
-        self.obstacleGraph = nil
-        gkScene.removeGraph("obstacles")
     }
 
     func add(_ entity: GKEntity) {

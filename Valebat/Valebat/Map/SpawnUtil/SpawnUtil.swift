@@ -59,8 +59,9 @@ class SpawnUtil {
         }
 
         indexesToRemove.sort()
+        let count = indexesToRemove.count
         for idx in 0..<indexesToRemove.count {
-            copiedPositons.remove(at: indexesToRemove[indexesToRemove.count - 1 - idx])
+            copiedPositons.remove(at: indexesToRemove[count - 1 - idx])
         }
 
         return (mapObjects, copiedPositons)
