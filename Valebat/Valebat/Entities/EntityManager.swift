@@ -81,7 +81,6 @@ class EntityManager {
 
     func initialiseGraph() {
         let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
-        print(mapEntities.count)
 
         self.obstacles = []
 
