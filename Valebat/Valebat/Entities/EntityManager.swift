@@ -72,7 +72,7 @@ class EntityManager {
     func initialiseMaps() {
         MapUtil.generateMaps(withLevelType: .hard)
 
-        let mapEntities: [GKEntity] = MapUtil.getMapEntities()
+        let mapEntities: [GKEntity] = MapUtil.mapEntities
 
         for entity in mapEntities {
             add(entity)
@@ -80,7 +80,8 @@ class EntityManager {
     }
 
     func initialiseGraph() {
-        let mapEntities: [BaseMapEntity] = MapUtil.getMapEntities()
+        let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
+        print(mapEntities.count)
 
         self.obstacles = []
 
