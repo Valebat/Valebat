@@ -15,14 +15,14 @@ class PlayerEntity: GKEntity {
 
         let texture = SKTexture(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
+        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
         addComponent(HealthComponent(health: 15))
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
-        addPlayerComponent(playerComponent: PlayerMoveComponent())
+        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
 
     }
 

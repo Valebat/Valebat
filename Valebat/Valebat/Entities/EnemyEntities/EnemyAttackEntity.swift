@@ -18,9 +18,9 @@ class EnemyAttackEntity: GKEntity {
                                 height: ViewConstants.gridSize / widthHeightRatio)
         let spriteComponent = SpriteComponent(texture: spriteTexture,
                                               size: spriteSize,
-                                              position: position, zPosition: 3)
+                                              position: position, zPosition: 3, isStatic: false)
         addComponent(spriteComponent)
-        addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
+        addComponent(RegularMovementComponent(spellNode: spriteComponent.node, velocity: velocity, initialPosition: position))
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .enemyAttack))
 

@@ -7,9 +7,18 @@
 
 import GameplayKit
 
-class PlayerMoveComponent: GKComponent, PlayerComponent {
+class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
+    var currentPosition: CGPoint
     var player: PlayerEntity?
 
+    init(initialPosition: CGPoint) {
+        currentPosition = initialPosition
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     func movePlayer(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self),
               let graph = EntityManager.getInstance().obstacleGraph else {
@@ -36,7 +45,7 @@ class PlayerMoveComponent: GKComponent, PlayerComponent {
         let nextY: CGFloat = CGFloat(nextPositionInPath?.position.y ?? Float(playerSprite.node.position.y))
         let nextPosition: CGPoint = CGPoint(x: nextX, y: nextY)
 
-        playerSprite.node.position = nextPosition
+        currentPosition = nextPosition
         playerSprite.node.zRotation = angular
     }
 

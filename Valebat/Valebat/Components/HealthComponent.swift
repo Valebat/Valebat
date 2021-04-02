@@ -36,8 +36,6 @@ class HealthComponent: GKComponent {
             .forEach({ $0.onDamageTaken(damageAmount: damage, currentHealth: health, maximumHealth: fullHealth )})
         if health == 0 {
             entity?.component(conformingTo: DeathComponent.self)?.onDeath()
-           // entity?.component(ofType: DeathComponent.self)?.onDeath()
-           // entity?.component(ofType: EnemyDeathComponent.self)?.onDeath()
         }
     }
 
