@@ -17,6 +17,7 @@ class PlayerEntity: GKEntity {
         let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
+        addComponent(DamageTakerComponent(multipliers: PlayerStatsManager.getInstance().elementalMultipliers))
         addComponent(HealthComponent(health: PlayerStatsManager.getInstance().maxHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))

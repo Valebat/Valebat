@@ -29,8 +29,7 @@ class HealthComponent: GKComponent {
         super.init()
     }
 
-    func takeDamage(damages: [DamageType: CGFloat]) {
-        let damage = armor.getFinalDamage(damages: damages)
+    func takeDamage(damage: CGFloat) {
         health = max(health - damage, 0)
         damageTakenObservers.values
             .forEach({ $0.onDamageTaken(damageAmount: damage, currentHealth: health, maximumHealth: fullHealth )})

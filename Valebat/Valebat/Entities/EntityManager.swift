@@ -18,6 +18,7 @@ class EntityManager {
 
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
+    var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
@@ -119,15 +120,16 @@ class EntityManager {
     }
 
     func add(_ entity: GKEntity) {
-        entities.insert(entity)
+      /*  entities.insert(entity)
 
         for componentSystem in componentSystems {
             componentSystem.addComponent(foundIn: entity)
         }
-
+*/
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
+        toAdd.insert(entity)
     }
 
     func remove(_ entity: GKEntity) {
@@ -202,6 +204,13 @@ class EntityManager {
                 componentSystem.removeComponent(foundIn: curRemove)
             }
         }
+        for curAdd in toAdd {
+            entities.insert(curAdd)
+              for componentSystem in componentSystems {
+                  componentSystem.addComponent(foundIn: curAdd)
+              }
+        }
+        toAdd.removeAll()
         toRemove.removeAll()
     }
 }

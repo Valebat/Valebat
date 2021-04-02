@@ -13,6 +13,7 @@ class PlayerStatsManager {
     var maxHP: CGFloat
     var elementalEssence: [DamageType: Int]
     var elementalLevels: [DamageType: Int]
+    var elementalMultipliers: [DamageType: CGFloat]
 
     static func getInstance() -> PlayerStatsManager {
         if instance == nil {
@@ -29,9 +30,11 @@ class PlayerStatsManager {
         maxHP = 15
         elementalEssence = [DamageType: Int]()
         elementalLevels = [DamageType: Int]()
+        elementalMultipliers = [DamageType: CGFloat]()
         for type in DamageType.allCases {
             elementalEssence[type] = 0
             elementalLevels[type] = 0
+            elementalMultipliers[type] = 1
         }
     }
 
