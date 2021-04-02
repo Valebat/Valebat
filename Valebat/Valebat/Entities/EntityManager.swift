@@ -161,14 +161,14 @@ class EntityManager {
             componentSystem.addComponent(foundIn: entity)
         }
     }
-    var able = true
+  //  var able = true
     func spawnEnemy(at location: CGPoint) {
-       if !able {
+     /*  if !able {
             return
-        }
+        }*/
         let enemy = EnemyEntity(position: location)
         add(enemy)
-        able = false
+        // able = false
     }
 
     func addPlayer() {
