@@ -8,7 +8,6 @@
 import GameplayKit
 
 class PlayerEntity: GKEntity {
-    let essenceManager = PlayerEssenceManager()
 
     init(position: CGPoint) {
         super.init()
@@ -18,7 +17,7 @@ class PlayerEntity: GKEntity {
         let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
-        addComponent(HealthComponent(health: 15))
+        addComponent(HealthComponent(health: PlayerStatsManager.getInstance().maxHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())

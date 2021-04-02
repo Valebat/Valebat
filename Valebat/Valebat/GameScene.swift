@@ -23,6 +23,7 @@ class GameScene: SKScene {
 
         setUpScene()
         setUpPlayerHUD()
+        PlayerStatsManager.initialise()
     }
     func setUpPlayerHUD() {
         guard let refNode = SKReferenceNode(fileNamed: "PlayerHUD") else {
