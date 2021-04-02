@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import GameplayKit
+class PlayerHUD: SKSpriteNode {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        print("Helloss")
+    }
+    func updateHUD() {
+        guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar") else {
+            return
+        }
+        (hpbar as? HUDHPBar)?.updateBar(maxHP: 15, currentHP: EntityManager.getInstance().player?.component(ofType: HealthComponent.self)?.health ?? 0)
+    }
+}

@@ -13,7 +13,7 @@ class GameScene: SKScene {
     var entityManager: EntityManager!
 
     var headsUpDisplay: UserInputNode!
-    var playerHUDDisplay: SKNode!
+    var playerHUDDisplay: PlayerHUD!
     private var lastUpdateTime: TimeInterval = 0
 
     override func sceneDidLoad() {
@@ -30,8 +30,7 @@ class GameScene: SKScene {
         }
         addChild(refNode)
         refNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        guard let baseNode = refNode.childNode(withName: "//baseHUD") else {
-            print("sdf")
+        guard let baseNode = refNode.childNode(withName: "//baseHUD") as? PlayerHUD else {
             return
         }
         playerHUDDisplay = baseNode
@@ -97,7 +96,7 @@ class GameScene: SKScene {
         if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
-
+        playerHUDDisplay.updateHUD()
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
 
@@ -105,6 +104,6 @@ class GameScene: SKScene {
         entityManager.update(deltaTime)
 
         self.lastUpdateTime = currentTime
-        (playerHUDDisplay.childNode(withName: "//HPLabel") as? SKLabelNode)?.text = "HP: \(EntityManager.getInstance().player?.component(ofType: HealthComponent.self)?.health ?? 0)/15"
+
     }
 }
