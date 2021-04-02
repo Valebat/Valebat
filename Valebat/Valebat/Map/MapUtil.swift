@@ -136,6 +136,8 @@ class MapUtil {
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
                                       timer: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                       position: point)
+            case .powerupSpawner:
+                entity = PowerupSpawnerEntity()
             }
             entities.append(entity)
         }

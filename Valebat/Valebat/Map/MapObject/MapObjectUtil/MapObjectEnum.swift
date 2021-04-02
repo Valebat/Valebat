@@ -11,4 +11,6 @@ enum MapObjectEnum: String, CaseIterable {
     case crate
     case spawner
     case stairs
+
+    case powerupSpawner
 }
