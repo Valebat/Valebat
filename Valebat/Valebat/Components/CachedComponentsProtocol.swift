@@ -5,8 +5,8 @@
 //  Created by Aloysius Lim on 28/3/21.
 //
 
-import Foundation
 import GameplayKit
+
 class CachedEnemyComponents {
     weak var spriteComponent: SpriteComponent?
     weak var moveComponent: EnemyMoveComponent?

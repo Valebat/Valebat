@@ -41,6 +41,12 @@ class HealthComponent: GKComponent {
         }
     }
 
+    func healDamage(_ damage: CGFloat) {
+        health = min(health + damage, fullHealth)
+        damageTakenObservers.values
+            .forEach({ $0.onDamageTaken(damageAmount: damage, currentHealth: health, maximumHealth: fullHealth )})
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -29,4 +29,6 @@ class MapObjectConstants {
                                                                    .crate: true,
                                                                    .spawner: false,
                                                                    .stairs: false]
+
+    static let intangibleObjects: [MapObjectEnum] = [.powerupSpawner]
 }

@@ -5,8 +5,6 @@
 //  Created by Aloysius Lim on 18/3/21.
 //
 
-import Foundation
-
 enum CollisionType: UInt32, CaseIterable {
     case player = 1
     case playerAttack = 2

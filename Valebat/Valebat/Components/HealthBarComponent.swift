@@ -5,7 +5,6 @@
 //  Created by Aloysius Lim on 21/3/21.
 //
 
-import Foundation
 import GameplayKit
 
 class HealthBarComponent: GKComponent, DamageTakenObserver {

@@ -36,7 +36,8 @@ extension CGPoint {
     }
 
     static func getCGPoint(magnitude: CGFloat, degrees: CGFloat) -> CGPoint {
-        CGPoint(x: magnitude * cos(degrees * CGFloat(Double.pi) / 180.0), y: magnitude * sin(degrees * CGFloat(Double.pi) / 180.0))
+        CGPoint(x: magnitude * cos(degrees * CGFloat(Double.pi) / 180.0),
+                y: magnitude * sin(degrees * CGFloat(Double.pi) / 180.0))
     }
 
     func normalized() -> CGPoint {

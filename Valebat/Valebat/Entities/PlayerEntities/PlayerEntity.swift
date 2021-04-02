@@ -8,8 +8,8 @@
 import GameplayKit
 
 class PlayerEntity: GKEntity {
-
     let essenceManager = PlayerEssenceManager()
+
     init(position: CGPoint) {
         super.init()
 
@@ -22,6 +22,7 @@ class PlayerEntity: GKEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
+        addPlayerComponent(playerComponent: PlayerMoveComponent())
 
     }
 

@@ -13,6 +13,8 @@ class MapUtil {
     static var maxLevel = 0
     static var map: Map = Map()
     static var maps: [Map] = []
+    static var mapEntities: [BaseMapEntity] = []
+    static var allMapEntities: [[BaseMapEntity]] = []
     static var currentBiome: BiomeTypeEnum = .normal
 
     static func generateMaps(withLevelType levelType: LevelTypeEnum) {
@@ -28,9 +30,11 @@ class MapUtil {
         for biomeType in biomeTypes {
             let levelMap = addSpawnsToMap(borderedMap, withBiomeType: biomeType)
             maps.append(levelMap)
+            allMapEntities.append(getMapEntities(levelMap))
         }
 
         map = maps[0]
+        mapEntities = allMapEntities[0]
     }
 
     static func advanceToNextMap() {
@@ -38,6 +42,7 @@ class MapUtil {
 
         if level < maxLevel {
             map = maps[level]
+            mapEntities = allMapEntities[level]
         } else {
             // TODO implement player win here
         }
@@ -110,7 +115,7 @@ class MapUtil {
         return resultMap
     }
 
-    static func getMapEntities() -> [BaseMapEntity] {
+    private static func getMapEntities(_ map: Map) -> [BaseMapEntity] {
         var entities: [BaseMapEntity] = []
 
         for object in map.objects {
@@ -131,6 +136,8 @@ class MapUtil {
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
                                       timer: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                       position: point)
+            case .powerupSpawner:
+                entity = PowerupSpawnerEntity()
             }
             entities.append(entity)
         }

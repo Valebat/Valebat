@@ -10,6 +10,7 @@ import GameplayKit
 class SpawnUtil {
     private(set) static var totalSpawnChance: Int?
     private(set) static var biomeData: BiomeData = BiomeData()
+    static var freePositions: [CGPoint] = []
 
     static func spawnObject(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
@@ -17,11 +18,27 @@ class SpawnUtil {
 
         calculateTotalSpawnChance(biomeData: biomeData)
 
+        let intangibleObjects = handleIntangibleSpawns()
+        mapObjects.append(contentsOf: intangibleObjects)
+
         let (guaranteedObjects, positionsForNormalObjects) = handleGuaranteedSpawns(positions: positions)
         mapObjects.append(contentsOf: guaranteedObjects)
 
-        let normalObjects = handleRegularSpawns(positions: positionsForNormalObjects)
+        let (normalObjects, remainingFreePositions) = handleRegularSpawns(positions: positionsForNormalObjects)
         mapObjects.append(contentsOf: normalObjects)
+        freePositions = remainingFreePositions
+
+        return mapObjects
+    }
+
+    static func handleIntangibleSpawns() -> [MapObject] {
+        var mapObjects: [MapObject] = []
+
+        for (key, value) in biomeData.intangibleObjectSpawns {
+            for _ in 1...value {
+                mapObjects.append(spawnIntangibleTypedObject(key))
+            }
+        }
 
         return mapObjects
     }
@@ -41,7 +58,7 @@ class SpawnUtil {
                 }
                 guaranteedPositions.append(rand)
 
-                mapObjects.append(spawnTypedObject(key, position: copiedPositons[rand]))
+                mapObjects.append(spawnStaticTypedObject(key, position: copiedPositons[rand]))
 
                 if MapObjectConstants.protectedSpawns.contains(key) {
                     for xDir in -1...1 {
@@ -58,18 +75,22 @@ class SpawnUtil {
             }
         }
 
+        indexesToRemove = Array(Set(indexesToRemove))
         indexesToRemove.sort()
+        let count = indexesToRemove.count
         for idx in 0..<indexesToRemove.count {
-            copiedPositons.remove(at: indexesToRemove[indexesToRemove.count - 1 - idx])
+            copiedPositons.remove(at: indexesToRemove[count - 1 - idx])
         }
 
         return (mapObjects, copiedPositons)
     }
 
-    static func handleRegularSpawns(positions: [CGPoint]) -> [MapObject] {
+    static func handleRegularSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+        var copiedPositons: [CGPoint] = positions
         var mapObjects: [MapObject] = []
+        var indexesToRemove: [Int] = []
 
-        for position in positions {
+        for (index, position) in positions.enumerated() {
             if !isValidPosition(position: position) {
                 continue
             }
@@ -85,7 +106,8 @@ class SpawnUtil {
             for (object, chance) in biomeData.globalSpawnChances {
                 rand -= chance
                 if rand < 0 {
-                    mapObjects.append(spawnTypedObject(object, position: position))
+                    mapObjects.append(spawnStaticTypedObject(object, position: position))
+                    indexesToRemove.append(index)
                     break
                 }
             }
@@ -93,7 +115,13 @@ class SpawnUtil {
             continue
         }
 
-        return mapObjects
+        indexesToRemove.sort()
+        let count = indexesToRemove.count
+        for idx in 0..<indexesToRemove.count {
+            copiedPositons.remove(at: indexesToRemove[count - 1 - idx])
+        }
+
+        return (mapObjects, copiedPositons)
     }
 
     static func isValidPosition(position: CGPoint) -> Bool {
@@ -110,8 +138,12 @@ class SpawnUtil {
         return true
     }
 
-    static func spawnTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
+    static func spawnStaticTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
         return StaticMapObject(type: type, position: position)
+    }
+
+    static func spawnIntangibleTypedObject(_ type: MapObjectEnum) -> MapObject {
+        return IntangibleMapObject(type: type)
     }
 
     private static func calculateTotalSpawnChance(biomeData: BiomeData) {
