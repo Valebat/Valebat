@@ -68,6 +68,8 @@
 		CB9E9E26261744060016B046 /* PlayerHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E25261744060016B046 /* PlayerHUD.swift */; };
 		CB9E9E3526174A8E0016B046 /* PlayerStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E3426174A8E0016B046 /* PlayerStatsManager.swift */; };
 		CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E3F26174EB90016B046 /* DamageTakerComponent.swift */; };
+		CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E49261759250016B046 /* AudioManager.swift */; };
+		CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9E4E26175AA40016B046 /* Hit.wav */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -218,6 +220,8 @@
 		CB9E9E25261744060016B046 /* PlayerHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHUD.swift; sourceTree = "<group>"; };
 		CB9E9E3426174A8E0016B046 /* PlayerStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsManager.swift; sourceTree = "<group>"; };
 		CB9E9E3F26174EB90016B046 /* DamageTakerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTakerComponent.swift; sourceTree = "<group>"; };
+		CB9E9E49261759250016B046 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		CB9E9E4E26175AA40016B046 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hit.wav; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -527,6 +531,14 @@
 			path = MovementComponents;
 			sourceTree = "<group>";
 		};
+		CB9E9E5326175AB10016B046 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E9E4E26175AA40016B046 /* Hit.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		CBA495022604855A003A05F7 /* CollectibleEntities */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +573,7 @@
 		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				CB9E9E5326175AB10016B046 /* Sounds */,
 				CB9E9E3326174A7E0016B046 /* Player */,
 				EFCC5B412605D574006F2771 /* Exceptions */,
 				EF19415125FFC71900341BF5 /* Spell */,
@@ -576,6 +589,7 @@
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
+				CB9E9E49261759250016B046 /* AudioManager.swift */,
 			);
 			path = Valebat;
 			sourceTree = "<group>";
@@ -809,6 +823,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */,
 				CB9E9E17261727190016B046 /* PlayerHUD.sks in Resources */,
 				CB9E9E21261738A60016B046 /* HPBar.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
@@ -947,6 +962,7 @@
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */,
+				CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */,
 				C6A943E1260B000B00087256 /* NormalBiome.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,
 				C6A943E6260B002A00087256 /* Biome.swift in Sources */,

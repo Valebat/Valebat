@@ -100,7 +100,7 @@ class GameScene: SKScene {
         playerHUDDisplay.updateHUD()
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
-
+        AudioManager.update(seconds: deltaTime)
         // Update entities
         entityManager.update(deltaTime)
 
