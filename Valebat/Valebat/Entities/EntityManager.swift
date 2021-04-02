@@ -37,8 +37,9 @@ class EntityManager {
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
+        let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem,
-                timerSystem, advanceLevelSystem]
+                timerSystem, advanceLevelSystem, powerupSpawnSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -70,7 +71,7 @@ class EntityManager {
     }
 
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .hard)
+        MapUtil.generateMaps(withLevelType: .easy)
 
         let mapEntities: [GKEntity] = MapUtil.mapEntities
 
@@ -87,7 +88,9 @@ class EntityManager {
         for entity in mapEntities where MapObjectConstants.globalDefaultCollidables[entity.objectType] ??
             MapObjectConstants.objectDefaultCollidable {
             var nodes: [SKNode] = []
-            nodes.append(entity.component(ofType: SpriteComponent.self)!.node)
+            if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
+                nodes.append(spriteComponent.node)
+            }
 
             obstacles.append(contentsOf: SKNode.obstacles(fromNodeBounds: nodes))
         }

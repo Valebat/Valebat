@@ -8,8 +8,8 @@
 import GameplayKit
 
 class PlayerEntity: GKEntity {
-
     let essenceManager = PlayerEssenceManager()
+
     init(position: CGPoint) {
         super.init()
 

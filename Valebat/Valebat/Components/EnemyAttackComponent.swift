@@ -35,7 +35,9 @@ class EnemyAttackComponent: GKComponent {
             }
             let velocity = (playerPosition - currentPosition).convertToVector().normalized() * attackVelocity
             EntityManager.getInstance().add(EnemyAttackEntity(velocity: velocity,
-                                                              position: currentPosition, damageType: damageType, damageValue: damageValue))
+                                                              position: currentPosition,
+                                                              damageType: damageType,
+                                                              damageValue: damageValue))
             currentAttackCooldown = attackCooldown
         }
     }
