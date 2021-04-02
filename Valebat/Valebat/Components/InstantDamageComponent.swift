@@ -7,35 +7,26 @@
 
 import GameplayKit
 
-class InstantDamageComponent: DamageComponent, ContactBeginObserver {
-
-    var contacted = false
-
-    func contactDidBegin(with entity: GKEntity) {
-        if contacted {
-            return
-        }
+class InstantDamageComponent: DamageComponent, ContactObserver {
+    func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let health = entity.component(ofType: HealthComponent.self) {
             health.takeDamage(damages: damageValues)
-            contacted = true
         }
-        if destroyOnHit {
-            if let entity = self.entity {
-                EntityManager.getInstance().remove(entity)
-            }
+        if let entity = self.entity {
+            EntityManager.getInstance().remove(entity)
         }
+
     }
 
     override func didAddToEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers[ObjectIdentifier(self)] = self
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
         super.didAddToEntity()
     }
 
     override func willRemoveFromEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
             .removeValue(forKey: ObjectIdentifier(self))
         super.willRemoveFromEntity()
     }
-    var destroyOnHit = true
 
 }

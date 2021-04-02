@@ -17,10 +17,10 @@ class SpellEntity: GKEntity {
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        let spriteComponent = SpriteComponent(animatedTextures: spriteTextures, size: spriteSize, position: position)
+        let spriteComponent = SpriteComponent(animatedTextures: spriteTextures, size: spriteSize, position: position, isStatic: false)
         addComponent(spriteComponent)
 
-        addComponent(SpellCastComponent(spellNode: spriteComponent.node, velocity: velocity))
+        addComponent(RegularMovementComponent(spellNode: spriteComponent.node, velocity: velocity, initialPosition: position))
 
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))

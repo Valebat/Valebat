@@ -11,15 +11,16 @@
 import SpriteKit
 import GameplayKit
 
-class SpellCastComponent: GKComponent {
+class RegularMovementComponent: GKComponent, MoveComponent {
     let entityManager = EntityManager.getInstance()
     let velocity: CGVector
     let spellNode: SKNode
-
-    init(spellNode: SKNode, velocity: CGVector) {
+    var currentPosition: CGPoint
+    init(spellNode: SKNode, velocity: CGVector, initialPosition: CGPoint) {
         self.spellNode = spellNode
         self.spellNode.zRotation = atan2(velocity.dy, velocity.dx)
         self.velocity = velocity
+        self.currentPosition = initialPosition
         super.init()
     }
 
@@ -29,7 +30,7 @@ class SpellCastComponent: GKComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
-        spellNode.position = CGPoint(x: spellNode.position.x + velocity.dx,
+        currentPosition = CGPoint(x: spellNode.position.x + velocity.dx,
                                      y: spellNode.position.y + velocity.dy)
     }
 }

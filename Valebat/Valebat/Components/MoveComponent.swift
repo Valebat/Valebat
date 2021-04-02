@@ -11,25 +11,6 @@
 import SpriteKit
 import GameplayKit
 
-class MoveComponent: GKComponent {
-
-    var speed: CGFloat
-    var nextPositions: [CGPoint] = []
-
-    init(speed: CGFloat) {
-        self.speed = speed
-        super.init()
-    }
-
-    func hasNextPosition() -> Bool {
-        !nextPositions.isEmpty
-    }
-
-    func getNextPosition() -> CGPoint? {
-        nextPositions.removeFirst()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+protocol MoveComponent: GKComponent {
+    var currentPosition: CGPoint { get set }
 }

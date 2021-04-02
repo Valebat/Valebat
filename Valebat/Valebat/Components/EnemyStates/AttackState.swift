@@ -16,7 +16,7 @@ class AttackState: BaseEnemyState {
         return true
     }
     override func didEnter(from previousState: GKState?) {
-        print(String(describing: type(of: previousState)))
+        // print(String(describing: type(of: previousState)))
     }
     override func update(deltaTime: TimeInterval) {
         stateMachineComponent.entity?.component(ofType: EnemyAttackComponent.self)?.attack()
