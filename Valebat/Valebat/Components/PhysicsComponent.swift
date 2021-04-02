@@ -8,22 +8,13 @@
 import GameplayKit
 import SpriteKit
 
-protocol ContactBeginObserver {
-    func contactDidBegin(with entity: GKEntity)
-}
-
-protocol ContactEndObserver {
-    func contactDidEnd(with entity: GKEntity)
-}
-
-protocol ContactAllObserver: ContactBeginObserver, ContactEndObserver {
-
+protocol ContactObserver {
+    func contact(with entity: GKEntity)
 }
 
 class PhysicsComponent: GKComponent {
     let physicsBody: SKPhysicsBody
-    var contactBeginObservers = [ObjectIdentifier: ContactBeginObserver]()
-    var contactEndObservers = [ObjectIdentifier: ContactEndObserver]()
+    var contactObservers = [ObjectIdentifier: ContactObserver]()
     init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
         self.physicsBody = physicsBody
         physicsBody.categoryBitMask = collisionType.rawValue
@@ -52,10 +43,16 @@ class PhysicsComponent: GKComponent {
     }
 
     func triggerContactBegin(with entity: GKEntity) {
-        contactBeginObservers.values.forEach({ $0.contactDidBegin(with: entity) })
+        contactObservers.values.forEach({ $0.contact(with: entity) })
     }
-    func triggerContactEnd(with entity: GKEntity) {
-        contactEndObservers.values.forEach({ $0.contactDidEnd(with: entity) })
+
+    override func update(deltaTime seconds: TimeInterval) {
+        // print(seconds)
+       // print("Sdfsdf")
+        let contactEntities = physicsBody.allContactedBodies()
+            .filter({ self.physicsBody.categoryBitMask & $0.contactTestBitMask != 0 })
+            .compactMap({ $0.node?.entity })
+        contactEntities.forEach({ triggerContactBegin(with: $0) })
     }
 
 }

@@ -22,7 +22,7 @@ class GameScene: SKScene {
         entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
-        self.physicsWorld.contactDelegate = self
+       // self.physicsWorld.contactDelegate = self
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -94,7 +94,7 @@ class GameScene: SKScene {
         self.lastUpdateTime = currentTime
     }
 }
-
+/*
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         guard let entityA = contact.bodyA.node?.entity,
@@ -113,4 +113,4 @@ extension GameScene: SKPhysicsContactDelegate {
         entityA.component(ofType: PhysicsComponent.self)?.triggerContactEnd(with: entityB)
         entityB.component(ofType: PhysicsComponent.self)?.triggerContactEnd(with: entityA)
     }
-}
+}*/

@@ -7,11 +7,11 @@
 
 import GameplayKit
 
-class InstantDamageComponent: DamageComponent, ContactBeginObserver {
+class InstantDamageComponent: DamageComponent, ContactObserver {
 
     var contacted = false
 
-    func contactDidBegin(with entity: GKEntity) {
+    func contact(with entity: GKEntity) {
         if contacted {
             return
         }
@@ -27,12 +27,12 @@ class InstantDamageComponent: DamageComponent, ContactBeginObserver {
     }
 
     override func didAddToEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers[ObjectIdentifier(self)] = self
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
         super.didAddToEntity()
     }
 
     override func willRemoveFromEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
             .removeValue(forKey: ObjectIdentifier(self))
         super.willRemoveFromEntity()
     }

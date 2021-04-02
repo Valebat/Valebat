@@ -29,6 +29,7 @@ class EntityManager {
     let spellManager: SpellManager
 
     lazy var componentSystems: [GKComponentSystem] = {
+        let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
         let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
         let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
         let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
@@ -37,7 +38,7 @@ class EntityManager {
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem,
+        return [physicsSystem, damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem,
                 timerSystem, advanceLevelSystem]
     }()
 

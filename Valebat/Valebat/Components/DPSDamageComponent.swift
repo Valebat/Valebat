@@ -7,13 +7,9 @@
 
 import GameplayKit
 
-class DPSDamageComponent: DamageComponent, ContactAllObserver {
-    func contactDidBegin(with entity: GKEntity) {
+class DPSDamageComponent: DamageComponent, ContactObserver {
+    func contact(with entity: GKEntity) {
         currentlyOverlappingEntities.insert(entity)
-    }
-
-    func contactDidEnd(with entity: GKEntity) {
-        currentlyOverlappingEntities.remove(entity)
     }
 
     var currentlyOverlappingEntities = Set<GKEntity>()
@@ -23,15 +19,12 @@ class DPSDamageComponent: DamageComponent, ContactAllObserver {
             .forEach({ $0.takeDamage(damages: damageValueFraction(fraction: CGFloat(seconds)))})
     }
     override func didAddToEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers[ObjectIdentifier(self)] = self
-        entity?.component(ofType: PhysicsComponent.self)?.contactEndObservers[ObjectIdentifier(self)] = self
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
 
         super.didAddToEntity()
     }
     override func willRemoveFromEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactBeginObservers
-            .removeValue(forKey: ObjectIdentifier(self))
-        entity?.component(ofType: PhysicsComponent.self)?.contactEndObservers
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
             .removeValue(forKey: ObjectIdentifier(self))
         super.willRemoveFromEntity()
     }
