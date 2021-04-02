@@ -30,6 +30,7 @@ class UserInputNode: SKNode {
 
     public func assignInputDelegate(delegate: UserInputDelegate) {
         movementJoystick?.userInputDelegate = delegate
+        spellJoystick?.userInputDelegate = delegate
     }
 
     private func setUpJoysticks() {
