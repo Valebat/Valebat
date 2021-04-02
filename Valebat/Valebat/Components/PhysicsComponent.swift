@@ -9,7 +9,7 @@ import GameplayKit
 import SpriteKit
 
 protocol ContactObserver {
-    func contact(with entity: GKEntity)
+    func contact(with entity: GKEntity, seconds: TimeInterval)
 }
 
 class PhysicsComponent: GKComponent {
@@ -42,17 +42,24 @@ class PhysicsComponent: GKComponent {
         node.physicsBody = nil
     }
 
-    func triggerContactBegin(with entity: GKEntity) {
-        contactObservers.values.forEach({ $0.contact(with: entity) })
-    }
-
     override func update(deltaTime seconds: TimeInterval) {
-        // print(seconds)
-       // print("Sdfsdf")
         let contactEntities = physicsBody.allContactedBodies()
             .filter({ self.physicsBody.categoryBitMask & $0.contactTestBitMask != 0 })
             .compactMap({ $0.node?.entity })
-        contactEntities.forEach({ triggerContactBegin(with: $0) })
+        var filteredEntities = [GKEntity]()
+        var addedIdentifiers = Set<ObjectIdentifier>()
+        contactEntities.forEach({ entity in
+            if !addedIdentifiers.contains(ObjectIdentifier(entity)) {
+                addedIdentifiers.insert(ObjectIdentifier(entity))
+                filteredEntities.append(entity)
+            }
+        })
+        if filteredEntities.count != 0 {
+            contactObservers.values.forEach({ observer in
+                filteredEntities.forEach({ observer.contact(with: $0, seconds: seconds) })
+            })
+        }
+        // contactEntities.forEach({ triggerContact(with: $0) })
     }
 
 }

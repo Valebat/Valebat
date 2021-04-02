@@ -8,22 +8,14 @@
 import GameplayKit
 
 class InstantDamageComponent: DamageComponent, ContactObserver {
-
-    var contacted = false
-
-    func contact(with entity: GKEntity) {
-        if contacted {
-            return
-        }
+    func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let health = entity.component(ofType: HealthComponent.self) {
             health.takeDamage(damages: damageValues)
-            contacted = true
         }
-        if destroyOnHit {
-            if let entity = self.entity {
-                EntityManager.getInstance().remove(entity)
-            }
+        if let entity = self.entity {
+            EntityManager.getInstance().remove(entity)
         }
+
     }
 
     override func didAddToEntity() {
@@ -36,6 +28,5 @@ class InstantDamageComponent: DamageComponent, ContactObserver {
             .removeValue(forKey: ObjectIdentifier(self))
         super.willRemoveFromEntity()
     }
-    var destroyOnHit = true
 
 }

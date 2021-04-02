@@ -8,16 +8,15 @@
 import GameplayKit
 
 class DPSDamageComponent: DamageComponent, ContactObserver {
-    func contact(with entity: GKEntity) {
-        currentlyOverlappingEntities.insert(entity)
+
+    func contact(with entity: GKEntity, seconds: TimeInterval) {
+        entity.component(ofType: HealthComponent.self)?.takeDamage(damages: damageValueFraction(fraction: CGFloat(seconds)))
     }
 
-    var currentlyOverlappingEntities = Set<GKEntity>()
-
-    override func update(deltaTime seconds: TimeInterval) {
+    /*override func update(deltaTime seconds: TimeInterval) {
         currentlyOverlappingEntities.compactMap({ $0.component(ofType: HealthComponent.self) })
             .forEach({ $0.takeDamage(damages: damageValueFraction(fraction: CGFloat(seconds)))})
-    }
+    }*/
     override func didAddToEntity() {
         entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
 
