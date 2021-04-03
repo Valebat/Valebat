@@ -9,7 +9,6 @@ import SpriteKit
 import GameplayKit
 
 class MapUtil {
-    static var level = 0
     static var maxLevel = 0
     static var map: Map = Map()
     static var maps: [Map] = []
@@ -18,7 +17,6 @@ class MapUtil {
     static var currentBiome: BiomeTypeEnum = .normal
 
     static func generateMaps(withLevelType levelType: LevelTypeEnum) {
-        self.level = 0
         self.map = Map()
         self.maps = []
 
@@ -38,7 +36,9 @@ class MapUtil {
     }
 
     static func advanceToNextMap() {
-        self.level += 1
+        let entityManager = EntityManager.getInstance()
+        entityManager.playerStats.level += 1
+        let level = entityManager.playerStats.level
 
         if level < maxLevel {
             map = maps[level]

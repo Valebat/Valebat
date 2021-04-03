@@ -21,7 +21,8 @@ class EntityManager {
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-    var elements: [ElementType: Element] = [:]
+//    var elements: [ElementType: Element] = [:]
+    var playerStats = PlayerStats()
     // var able = true
     let scene: SKScene
     let gkScene: GKScene
@@ -113,9 +114,9 @@ class EntityManager {
     }
 
     func initialseElements() throws {
-        try elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
-        try elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
-        try elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
+        try playerStats.elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
+        try playerStats.elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
+        try playerStats.elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
     func add(_ entity: GKEntity) {
@@ -192,6 +193,7 @@ class EntityManager {
             lastKnownPlayerPosition = position
         }
     }
+
     func update(_ deltaTime: CFTimeInterval) {
         for componentSystem in componentSystems {
             componentSystem.update(deltaTime: deltaTime)

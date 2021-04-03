@@ -14,7 +14,7 @@ class ElementButton: SKSpriteNode {
 
     init(elementType: ElementType) {
         self.elementType = elementType
-        let texture = SKTexture(imageNamed: elementType.imageName)
+        let texture = SKTexture(imageNamed: elementType.stringName)
         super.init(texture: texture, color: UIColor.clear, size: HUDConstants.elementQueueElementSize)
         self.isUserInteractionEnabled = true
     }

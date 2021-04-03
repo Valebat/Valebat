@@ -28,7 +28,7 @@ enum ElementType: Int, CaseIterable {
         }
     }
 
-    var imageName: String {
+    var stringName: String {
         associatedDamageType?.rawValue ?? ""
     }
 

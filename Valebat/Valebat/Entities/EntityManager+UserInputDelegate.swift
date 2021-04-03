@@ -38,6 +38,6 @@ extension EntityManager: UserInputDelegate {
     }
 
     private func mapElementType(elementQueue: [ElementType]) -> [Element] {
-        return elementQueue.compactMap({ self.elements[$0] ?? nil })
+        return elementQueue.compactMap({ self.playerStats.elements[$0] ?? nil })
     }
 }
