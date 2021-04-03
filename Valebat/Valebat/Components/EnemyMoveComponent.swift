@@ -7,8 +7,8 @@
 
 import GameplayKit
 
-class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
-    var cachedEnemyComponents = CachedEnemyComponents()
+class EnemyMoveComponent: GKComponent, MoveComponent {
+    var currentPosition: CGPoint
     var chaseSpeed: CGFloat
     var normalSpeed: CGFloat
     var nextPositions = [CGPoint]()
@@ -16,8 +16,9 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
     let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
-    init(chaseSpeed: CGFloat, normalSpeed: CGFloat) {
+    init(chaseSpeed: CGFloat, normalSpeed: CGFloat, initialPosition: CGPoint) {
         self.chaseSpeed = chaseSpeed
+        self.currentPosition = initialPosition
         self.normalSpeed = normalSpeed
         super.init()
     }
@@ -40,11 +41,10 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
     }
 
     private func getNewPath(targetLocation: CGPoint) {
-        guard let spriteComponent = getSpriteComponent(),
-              let graph = EntityManager.getInstance().obstacleGraph else {
+        guard let graph = EntityManager.getInstance().obstacleGraph else {
             return
         }
-        let position = spriteComponent.node.position
+        let position = currentPosition
         var startNode = GKGraphNode2D(point: vector_float2(Float(position.x),
                                                           Float(position.y)))
         let endNode =  GKGraphNode2D(point: vector_float2(Float(targetLocation.x),
@@ -73,7 +73,7 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
                 if let nextPositionInPath: GKGraphNode2D = path.first as? GKGraphNode2D {
                     let targetX: CGFloat = CGFloat(nextPositionInPath.position.x)
                     let targetY: CGFloat = CGFloat(nextPositionInPath.position.y)
-                    spriteComponent.node.position = CGPoint(x: targetX, y: targetY)
+                    currentPosition = CGPoint(x: targetX, y: targetY)
                     break
                 }
             }
@@ -91,9 +91,6 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
     }
 
     func computeNewPosition(deltaTime: TimeInterval, speed: CGFloat) {
-        guard var currentPosition = getSpriteComponent()?.node.position else {
-            return
-        }
         var currentTime = CGFloat(deltaTime)
         while currentTime > 0 {
             guard let nextPosition = nextPositions.first else {
@@ -111,7 +108,6 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
                 currentTime = -1
             }
         }
-        getSpriteComponent()?.node.position = currentPosition
     }
 
     func getRandomPathinRadius(origin: CGPoint, radius: CGFloat) {
@@ -126,12 +122,9 @@ class EnemyMoveComponent: GKComponent, CachedEnemyComponentsProtocol {
     }
 
     func moveToRandomLocationInRadius(deltaTime: TimeInterval) {
-        guard let location = getSpriteComponent()?.node.position else {
-            return
-        }
         currentRandomPathCoolDown -= deltaTime
         if currentRandomPathCoolDown < 0 {
-            getRandomPathinRadius(origin: location, radius: 100)
+            getRandomPathinRadius(origin: currentPosition, radius: 100)
             currentRandomPathCoolDown = randomPathCoolDown
         }
         computeNewPosition(deltaTime: deltaTime, speed: normalSpeed)

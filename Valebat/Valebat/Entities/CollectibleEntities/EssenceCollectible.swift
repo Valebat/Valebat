@@ -8,17 +8,17 @@
 import GameplayKit
 
 class EssenceCollectible: GKEntity, CollectibleEntity {
-    var type: ElementType
+    var type: DamageType
     var amount: Int
 
-    static let typeToStringMapping: [ElementType: String] =
+    static let typeToStringMapping: [DamageType: String] =
         [.fire: "fireessence", .water: "wateressence", .earth: "earthessence"]
 
     func onCollect(player: PlayerEntity) {
-        player.essenceManager.addEssence(type: type, amount: amount)
+        PlayerStatsManager.addEssence(type: type, amount: amount)
     }
 
-    init(type: ElementType, amount: Int, location: CGPoint) {
+    init(type: DamageType, amount: Int, location: CGPoint) {
         self.type = type
         self.amount = amount
         super.init()

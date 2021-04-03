@@ -8,7 +8,7 @@
 import GameplayKit
 class EnemyDeathComponent: DeathComponent {
     override func onDeath() {
-        EntityManager.getInstance()
+       EntityManager.getInstance()
             .add(EssenceCollectible(type: .fire, amount: 2,
                                     location: entity?.component(ofType: SpriteComponent.self)?.node.position ??
                                         CGPoint(x: 0, y: 0)))

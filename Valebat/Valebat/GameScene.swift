@@ -13,7 +13,7 @@ class GameScene: SKScene {
     var entityManager: EntityManager!
 
     var headsUpDisplay: UserInputNode!
-
+    var playerHUDDisplay: PlayerHUD!
     private var lastUpdateTime: TimeInterval = 0
 
     override func sceneDidLoad() {
@@ -22,9 +22,22 @@ class GameScene: SKScene {
         entityManager = EntityManager.getInstance(scene: self)
 
         setUpScene()
-        self.physicsWorld.contactDelegate = self
+        setUpPlayerHUD()
+        PlayerStatsManager.initialise()
     }
-
+    func setUpPlayerHUD() {
+        guard let refNode = SKReferenceNode(fileNamed: "PlayerHUD") else {
+            return
+        }
+        addChild(refNode)
+        refNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        guard let baseNode = refNode.childNode(withName: "//baseHUD") as? PlayerHUD else {
+            return
+        }
+        playerHUDDisplay = baseNode
+        baseNode.xScale = size.width / baseNode.frame.width
+        baseNode.yScale = size.height / baseNode.frame.height
+    }
     func touchDown(atPoint pos: CGPoint) {
 
     }
@@ -84,33 +97,14 @@ class GameScene: SKScene {
         if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
-
+        playerHUDDisplay.updateHUD()
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
-
+        AudioManager.update(seconds: deltaTime)
         // Update entities
         entityManager.update(deltaTime)
 
         self.lastUpdateTime = currentTime
-    }
-}
 
-extension GameScene: SKPhysicsContactDelegate {
-    func didBegin(_ contact: SKPhysicsContact) {
-        guard let entityA = contact.bodyA.node?.entity,
-              let entityB = contact.bodyB.node?.entity else {
-            return
-        }
-        entityA.component(ofType: PhysicsComponent.self)?.triggerContactBegin(with: entityB)
-        entityB.component(ofType: PhysicsComponent.self)?.triggerContactBegin(with: entityA)
-    }
-
-    func didEnd(_ contact: SKPhysicsContact) {
-        guard let entityA = contact.bodyA.node?.entity,
-              let entityB = contact.bodyB.node?.entity else {
-            return
-        }
-        entityA.component(ofType: PhysicsComponent.self)?.triggerContactEnd(with: entityB)
-        entityB.component(ofType: PhysicsComponent.self)?.triggerContactEnd(with: entityA)
     }
 }

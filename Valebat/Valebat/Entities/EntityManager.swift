@@ -18,6 +18,7 @@ class EntityManager {
 
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
+    var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
@@ -30,16 +31,16 @@ class EntityManager {
     let spellManager: SpellManager
 
     lazy var componentSystems: [GKComponentSystem] = {
-        let damageSystem = GKComponentSystem(componentClass: DamageComponent.self)
-        let spellCastSystem = GKComponentSystem(componentClass: SpellCastComponent.self)
-        let deathSystem = GKComponentSystem(componentClass: DeathComponent.self)
+        let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
+        let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
+        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        return [damageSystem, spellCastSystem, deathSystem, spawnSystem, enemyStateSystem, enemyAttackSystem,
+        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem, enemyAttackSystem, spriteSystem,
                 timerSystem, advanceLevelSystem, powerupSpawnSystem]
     }()
 
@@ -120,15 +121,16 @@ class EntityManager {
     }
 
     func add(_ entity: GKEntity) {
-        entities.insert(entity)
+      /*  entities.insert(entity)
 
         for componentSystem in componentSystems {
             componentSystem.addComponent(foundIn: entity)
         }
-
+*/
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
+        toAdd.insert(entity)
     }
 
     func remove(_ entity: GKEntity) {
@@ -162,14 +164,14 @@ class EntityManager {
             componentSystem.addComponent(foundIn: entity)
         }
     }
-
+  //  var able = true
     func spawnEnemy(at location: CGPoint) {
-       /* if !able {
+     /*  if !able {
             return
         }*/
         let enemy = EnemyEntity(position: location)
         add(enemy)
-       // able = false
+        // able = false
     }
 
     func addPlayer() {
@@ -204,6 +206,13 @@ class EntityManager {
                 componentSystem.removeComponent(foundIn: curRemove)
             }
         }
+        for curAdd in toAdd {
+            entities.insert(curAdd)
+              for componentSystem in componentSystems {
+                  componentSystem.addComponent(foundIn: curAdd)
+              }
+        }
+        toAdd.removeAll()
         toRemove.removeAll()
     }
 }
