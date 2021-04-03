@@ -52,7 +52,7 @@ class SpellControllerTests: XCTestCase {
         }
     }
 
-    func test_combineSameElementType() throws {
+    func test_combineSameBasicType() throws {
         let fireElement2 = try Element(with: .fire, at: 2)
         let fireElement3 = try Element(with: .fire, at: 3)
         if let combinedSpell = try spellManager?.combine(elements: [fireElement2, fireElement3]) {

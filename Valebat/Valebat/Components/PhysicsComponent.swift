@@ -8,22 +8,13 @@
 import GameplayKit
 import SpriteKit
 
-protocol ContactBeginObserver {
-    func contactDidBegin(with entity: GKEntity)
-}
-
-protocol ContactEndObserver {
-    func contactDidEnd(with entity: GKEntity)
-}
-
-protocol ContactAllObserver: ContactBeginObserver, ContactEndObserver {
-
+protocol ContactObserver {
+    func contact(with entity: GKEntity, seconds: TimeInterval)
 }
 
 class PhysicsComponent: GKComponent {
     let physicsBody: SKPhysicsBody
-    var contactBeginObservers = [ObjectIdentifier: ContactBeginObserver]()
-    var contactEndObservers = [ObjectIdentifier: ContactEndObserver]()
+    var contactObservers = [ObjectIdentifier: ContactObserver]()
     init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
         self.physicsBody = physicsBody
         physicsBody.categoryBitMask = collisionType.rawValue
@@ -51,11 +42,24 @@ class PhysicsComponent: GKComponent {
         node.physicsBody = nil
     }
 
-    func triggerContactBegin(with entity: GKEntity) {
-        contactBeginObservers.values.forEach({ $0.contactDidBegin(with: entity) })
-    }
-    func triggerContactEnd(with entity: GKEntity) {
-        contactEndObservers.values.forEach({ $0.contactDidEnd(with: entity) })
+    override func update(deltaTime seconds: TimeInterval) {
+        let contactEntities = physicsBody.allContactedBodies()
+            .filter({ self.physicsBody.categoryBitMask & $0.contactTestBitMask != 0 })
+            .compactMap({ $0.node?.entity })
+        var filteredEntities = [GKEntity]()
+        var addedIdentifiers = Set<ObjectIdentifier>()
+        contactEntities.forEach({ entity in
+            if !addedIdentifiers.contains(ObjectIdentifier(entity)) {
+                addedIdentifiers.insert(ObjectIdentifier(entity))
+                filteredEntities.append(entity)
+            }
+        })
+        if filteredEntities.count != 0 {
+            contactObservers.values.forEach({ observer in
+                filteredEntities.forEach({ observer.contact(with: $0, seconds: seconds) })
+            })
+        }
+        // contactEntities.forEach({ triggerContact(with: $0) })
     }
 
 }

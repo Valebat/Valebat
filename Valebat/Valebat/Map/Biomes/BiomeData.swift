@@ -11,9 +11,13 @@ class BiomeData {
                                                     .rock: 5,
                                                     .crate: 3 ]
 
-    var globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2]
+    var globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2,
+                                                        .stairs: 1]
+
+    var intangibleObjectSpawns: [MapObjectEnum: Int] = [.powerupSpawner: 1]
 
     var defaultSpawnTime: Double = 7.0
+    var defaultStairsTimer: Double = 5.0
 
     init() {
 
@@ -29,6 +33,11 @@ class BiomeData {
         return self
     }
 
+    func withIntangibleObjectSpawnChance(object: MapObjectEnum, spawnChance: Int) -> BiomeData {
+        self.intangibleObjectSpawns[object] = spawnChance
+        return self
+    }
+
     func withGuaranteedSpawns(object: MapObjectEnum, count: Int) -> BiomeData {
         self.globalGuaranteedSpawns[object] = count
         return self
@@ -36,6 +45,11 @@ class BiomeData {
 
     func withDefaultSpawnTime(_ spawnTime: Double) -> BiomeData {
         self.defaultSpawnTime = spawnTime
+        return self
+    }
+
+    func withDefaultStairsTimer(_ timer: Double) -> BiomeData {
+        self.defaultStairsTimer = timer
         return self
     }
 }

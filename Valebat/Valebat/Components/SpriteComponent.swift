@@ -13,14 +13,24 @@ import GameplayKit
 
 class SpriteComponent: GKSKNodeComponent {
 
-    init(texture: SKTexture, size: CGSize, position: CGPoint, zPosition: CGFloat = 2) {
+    var cachedMoveComponent: MoveComponent?
+    var isStatic: Bool
+    init(texture: SKTexture, size: CGSize, position: CGPoint, zPosition: CGFloat = 2, isStatic: Bool = true) {
+        self.isStatic = isStatic
         super.init()
         node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
         node.position = position
         node.zPosition = zPosition
     }
 
-    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint) {
+    func getMoveComponent() -> MoveComponent? {
+        if cachedMoveComponent == nil {
+            cachedMoveComponent = entity?.component(conformingTo: MoveComponent.self)
+        }
+        return cachedMoveComponent
+    }
+    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true) {
+        self.isStatic = isStatic
         super.init()
         node = SKSpriteNode(texture: animatedTextures[0], color: SKColor.white, size: size)
         node.position = position
@@ -30,5 +40,12 @@ class SpriteComponent: GKSKNodeComponent {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func update(deltaTime seconds: TimeInterval) {
+        if !isStatic {
+            if let position = getMoveComponent()?.currentPosition {
+                node.position = position
+            }
+        }
     }
 }

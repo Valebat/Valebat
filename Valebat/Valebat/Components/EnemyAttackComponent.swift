@@ -5,15 +5,15 @@
 //  Created by Aloysius Lim on 28/3/21.
 //
 
-import Foundation
 import GameplayKit
+
 class EnemyAttackComponent: GKComponent {
     let attackCooldown: TimeInterval
-    let damageType: DamageType
+    let damageType: BasicType
     let damageValue: CGFloat
     var currentAttackCooldown: TimeInterval = 0.0
     let attackVelocity: CGFloat = 4
-    init(attackCooldown: TimeInterval, damageType: DamageType, damageValue: CGFloat) {
+    init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat) {
         self.attackCooldown = attackCooldown
         self.damageType = damageType
         self.damageValue = damageValue
@@ -35,7 +35,9 @@ class EnemyAttackComponent: GKComponent {
             }
             let velocity = (playerPosition - currentPosition).convertToVector().normalized() * attackVelocity
             EntityManager.getInstance().add(EnemyAttackEntity(velocity: velocity,
-                                                              position: currentPosition, damageType: damageType, damageValue: damageValue))
+                                                              position: currentPosition,
+                                                              damageType: damageType,
+                                                              damageValue: damageValue))
             currentAttackCooldown = attackCooldown
         }
     }

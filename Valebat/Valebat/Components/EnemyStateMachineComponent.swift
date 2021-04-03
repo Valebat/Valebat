@@ -5,11 +5,11 @@
 //  Created by Aloysius Lim on 28/3/21.
 //
 
-import Foundation
 import GameplayKit
-class EnemyStateMachineComponent: GKComponent, CachedEnemyComponentsProtocol {
 
-    var cachedEnemyComponents = CachedEnemyComponents()
+class EnemyStateMachineComponent: GKComponent {
+
+    var cachedEnemyMoveComponent: EnemyMoveComponent?
     var stateMachine: GKStateMachine!
 
     override init() {
@@ -20,9 +20,14 @@ class EnemyStateMachineComponent: GKComponent, CachedEnemyComponentsProtocol {
         stateMachine = GKStateMachine(states: [defaultState, moveState, attackState])
         stateMachine.enter(DefaultState.self)
     }
-
+    func getMoveComponent() -> EnemyMoveComponent? {
+        if cachedEnemyMoveComponent == nil {
+            cachedEnemyMoveComponent = entity?.component(conformingTo: EnemyMoveComponent.self)
+        }
+        return cachedEnemyMoveComponent
+    }
     override func update(deltaTime seconds: TimeInterval) {
-        guard let origin = getSpriteComponent()?.node.position,
+        guard let origin = getMoveComponent()?.currentPosition,
               let playerOrigin = EntityManager.getInstance().lastKnownPlayerPosition else {
             return
         }

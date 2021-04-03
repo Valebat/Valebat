@@ -11,10 +11,12 @@ class EssenceCollectible: GKEntity, CollectibleEntity {
 
     var type: BasicType
     var amount: Int
+
     static let typeToStringMapping: [BasicType: String] =
         [.fire: "fireessence", .water: "wateressence", .earth: "earthessence"]
+
     func onCollect(player: PlayerEntity) {
-        player.essenceManager.addEssence(type: type, amount: amount)
+        PlayerStatsManager.addEssence(type: type, amount: amount)
     }
 
     init(type: BasicType, amount: Int, location: CGPoint) {
