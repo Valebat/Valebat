@@ -38,6 +38,7 @@ extension EntityManager: UserInputDelegate {
     }
 
     private func mapElementType(elementQueue: [ElementType]) -> [Element] {
-        return elementQueue.compactMap({ self.playerStats.elements[$0] ?? nil })
+        let playerStats = PlayerStatsManager.getInstance()
+        return elementQueue.compactMap({ playerStats.elements[$0.associatedDamageType ?? .pure] ?? nil })
     }
 }

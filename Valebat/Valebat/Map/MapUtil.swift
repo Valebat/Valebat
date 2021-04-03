@@ -36,9 +36,9 @@ class MapUtil {
     }
 
     static func advanceToNextMap() {
-        let entityManager = EntityManager.getInstance()
-        entityManager.playerStats.level += 1
-        let level = entityManager.playerStats.level
+        let playerStats = PlayerStatsManager.getInstance()
+        playerStats.level += 1
+        let level = playerStats.level
 
         if level < maxLevel {
             map = maps[level]

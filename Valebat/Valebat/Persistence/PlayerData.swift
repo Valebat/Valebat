@@ -10,12 +10,13 @@ struct PlayerData: Codable {
     var elementType: [String] = []
     var elementLevel: [Double] = []
 
-    func getElementDictionary() -> [ElementType: Element] {
-        var elements: [ElementType: Element] = [:]
+    func getElementDictionary() -> [DamageType: Element] {
+        var elements: [DamageType: Element] = [:]
         let elementTypes = convertElementStringToEnum()
         do {
             for index in 0..<elementTypes.count {
-                try elements.updateValue(Element(with: elementTypes[index], at: elementLevel[index]),
+                try elements.updateValue(Element(with: elementTypes[index].associatedElementType,
+                                                 at: elementLevel[index]),
                                          forKey: elementTypes[index])
             }
         } catch SpellErrors.wrongElementTypeError {
@@ -26,26 +27,19 @@ struct PlayerData: Codable {
         return elements
     }
 
-    func convertToPlayerStats() -> PlayerStats {
-        var playerStats = PlayerStats()
+    func assignPlayerStats() {
+        let playerStats = PlayerStatsManager.getInstance()
         playerStats.level = level
         playerStats.elements = getElementDictionary()
-        return playerStats
     }
 
-    private func convertElementStringToEnum() -> [ElementType] {
-        var enumArray: [ElementType] = []
+    private func convertElementStringToEnum() -> [DamageType] {
+        var enumArray: [DamageType] = []
         for typeString in elementType {
-            switch typeString {
-            case "fire":
-                enumArray.append(.fire)
-            case "earth":
-                enumArray.append(.earth)
-            case "water":
-                enumArray.append(.water)
-            default:
-                print("invalid element type")
+            guard let damageType = DamageType(rawValue: typeString) else {
+                continue
             }
+            enumArray.append(damageType)
         }
         return enumArray
     }

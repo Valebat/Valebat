@@ -23,7 +23,7 @@ class EntityManager {
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
 //    var elements: [ElementType: Element] = [:]
-    var playerStats = PlayerStats()
+//    var playerStats = PlayerStats()
     // var able = true
     let scene: SKScene
     let gkScene: GKScene
@@ -112,12 +112,6 @@ class EntityManager {
         }
         obstacleGraph = graph
         gkScene.addGraph(graph, name: "obstacles")
-    }
-
-    func initialseElements() throws {
-        try playerStats.elements.updateValue(Element(with: .water, at: 1.0), forKey: .water)
-        try playerStats.elements.updateValue(Element(with: .fire, at: 1.0), forKey: .fire)
-        try playerStats.elements.updateValue(Element(with: .earth, at: 1.0), forKey: .earth)
     }
 
     func add(_ entity: GKEntity) {
