@@ -17,8 +17,6 @@ class PlayerHUD: SKSpriteNode {
         guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar") else {
             return
         }
-        (hpbar as? HUDHPBar)?.updateBar(maxHP: PlayerStatsManager.getInstance().maxHP,
-                                        currentHP: EntityManager.getInstance()
-                                            .player?.component(ofType: HealthComponent.self)?.health ?? 0)
+        (hpbar as? PlayerHUDNode)?.update()
     }
 }

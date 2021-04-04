@@ -114,6 +114,9 @@
 		DD70350D26176D6C00D3602B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70350C26176D6C00D3602B /* GameData.swift */; };
 		DD70352C2618317500D3602B /* MapObjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70352B2618317500D3602B /* MapObjectData.swift */; };
 		DD70353126183FF400D3602B /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70353026183FF400D3602B /* MapData.swift */; };
+		DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7035632619C24200D3602B /* PlayerHUDNode.swift */; };
+		DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
+		DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
 		EF19415E25FFC71900341BF5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
@@ -281,6 +284,9 @@
 		DD70350C26176D6C00D3602B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		DD70352B2618317500D3602B /* MapObjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectData.swift; sourceTree = "<group>"; };
 		DD70353026183FF400D3602B /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
+		DD7035632619C24200D3602B /* PlayerHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHUDNode.swift; sourceTree = "<group>"; };
+		DD7035682619C5D700D3602B /* PlayerLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerLevel.sks; sourceTree = "<group>"; };
+		DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerLevel.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
 		EF19415525FFC71900341BF5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -742,6 +748,9 @@
 				CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */,
 				CB9E9E20261738A60016B046 /* HPBar.sks */,
 				CB9E9E25261744060016B046 /* PlayerHUD.swift */,
+				DD7035632619C24200D3602B /* PlayerHUDNode.swift */,
+				DD7035682619C5D700D3602B /* PlayerLevel.sks */,
+				DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */,
 			);
 			path = PlayerStatsHUD;
 			sourceTree = "<group>";
@@ -901,6 +910,7 @@
 				CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */,
 				CB9E9E17261727190016B046 /* PlayerHUD.sks in Resources */,
 				CB9E9E21261738A60016B046 /* HPBar.sks in Resources */,
+				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
 			);
@@ -976,6 +986,7 @@
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
+				DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */,
 				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
 				EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */,
 				C6A943EE260B007500087256 /* BiomeData.swift in Sources */,
@@ -994,6 +1005,7 @@
 				CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */,
 				C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
+				DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStatsManager.swift in Sources */,
 				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,
 				DD70350D26176D6C00D3602B /* GameData.swift in Sources */,

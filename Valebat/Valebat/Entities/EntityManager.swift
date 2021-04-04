@@ -22,9 +22,6 @@ class EntityManager {
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-//  var elements: [BasicType: Element] = [:]
-//  var playerStats = PlayerStats()
-//  var able = true
     let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
