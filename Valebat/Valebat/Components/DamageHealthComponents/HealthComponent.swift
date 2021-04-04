@@ -16,14 +16,12 @@ protocol DamageTakenObserver {
 }
 class HealthComponent: GKComponent {
 
-    var armor: DamageMultipliers
     var damageTakenObservers = [ObjectIdentifier: DamageTakenObserver]()
     let fullHealth: CGFloat
     var health: CGFloat
     let entityManager = EntityManager.getInstance()
 
     init(health: CGFloat) {
-        armor = DamageMultipliers()
         self.fullHealth = health
         self.health = health
         super.init()
