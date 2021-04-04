@@ -10,15 +10,7 @@ import GameplayKit
 class PlayerStatsManager {
 
     static private var instance: PlayerStatsManager!
-    var level: Int {
-        didSet {
-            print(oldValue)
-        }
-        willSet {
-            print("playerlevelset")
-            print(newValue)
-        }
-    }
+    var level: Int
     var maxHP: CGFloat
     var elementalEssence: [BasicType: Int]
     var elements: [BasicType: Element]

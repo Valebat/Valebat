@@ -17,12 +17,6 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func updateBar(maxHP: CGFloat, currentHP: CGFloat) {
-        (childNode(withName: "//HP Label") as? SKLabelNode)?.text =
-        "\(currentHP) / \(maxHP)"
-        (childNode(withName: "//fillBar") as? SKSpriteNode)?.xScale = originalScale * currentHP / maxHP
-    }
-
     func update() {
         let maxHP = PlayerStatsManager.getInstance().maxHP
         let currentHP = EntityManager.getInstance()

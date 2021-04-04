@@ -78,7 +78,6 @@ class PersistenceManager {
             do {
                 let outfile = Self.fileURL
                 try data.write(to: outfile)
-                print("saved to file")
             } catch {
                 fatalError("Can't write to file")
             }
