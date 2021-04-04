@@ -11,7 +11,6 @@ class PlayerHUD: SKSpriteNode {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("Helloss")
     }
 
     func updateHUD() {

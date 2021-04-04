@@ -640,15 +640,9 @@
 		DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */ = {
 			isa = PBXGroup;
 			children = (
-				DD5783EF2605D13100E15493 /* Joystick */,
-				DD4E015425FF52A7002C5556 /* ElementPane */,
-				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
-				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
+				DD70355026199FE700D3602B /* PlayerStatsHUD */,
+				DD70354F26199FCF00D3602B /* UserInputHUD */,
 				DD4E014125FF412A002C5556 /* HUDConstants.swift */,
-				CB9E9E16261727190016B046 /* PlayerHUD.sks */,
-				CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */,
-				CB9E9E20261738A60016B046 /* HPBar.sks */,
-				CB9E9E25261744060016B046 /* PlayerHUD.swift */,
 			);
 			path = HeadsUpDisplay;
 			sourceTree = "<group>";
@@ -694,6 +688,28 @@
 				DD70353026183FF400D3602B /* MapData.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DD70354F26199FCF00D3602B /* UserInputHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DD5783EF2605D13100E15493 /* Joystick */,
+				DD4E015425FF52A7002C5556 /* ElementPane */,
+				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
+				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
+			);
+			path = UserInputHUD;
+			sourceTree = "<group>";
+		};
+		DD70355026199FE700D3602B /* PlayerStatsHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E9E16261727190016B046 /* PlayerHUD.sks */,
+				CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */,
+				CB9E9E20261738A60016B046 /* HPBar.sks */,
+				CB9E9E25261744060016B046 /* PlayerHUD.swift */,
+			);
+			path = PlayerStatsHUD;
 			sourceTree = "<group>";
 		};
 		EF19415125FFC71900341BF5 /* Spell */ = {
