@@ -12,7 +12,7 @@ class SpawnUtil {
     private(set) static var biomeData: BiomeData = BiomeData()
     static var freePositions: [CGPoint] = []
 
-    static func spawnObject(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
+    static func spawnObjects(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
         self.biomeData = BiomeUtil.getBiomeDataFromType(biomeType)
 
@@ -31,7 +31,7 @@ class SpawnUtil {
         return mapObjects
     }
 
-    static func handleIntangibleSpawns() -> [MapObject] {
+    private static func handleIntangibleSpawns() -> [MapObject] {
         var mapObjects: [MapObject] = []
 
         for (key, value) in biomeData.intangibleObjectSpawns {
@@ -43,7 +43,7 @@ class SpawnUtil {
         return mapObjects
     }
 
-    static func handleGuaranteedSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+    private static func handleGuaranteedSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
         var copiedPositons = positions
         var mapObjects: [MapObject] = []
         var indexesToRemove: [Int] = []
@@ -85,7 +85,7 @@ class SpawnUtil {
         return (mapObjects, copiedPositons)
     }
 
-    static func handleRegularSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+    private static func handleRegularSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
         var copiedPositons: [CGPoint] = positions
         var mapObjects: [MapObject] = []
         var indexesToRemove: [Int] = []
@@ -124,7 +124,7 @@ class SpawnUtil {
         return (mapObjects, copiedPositons)
     }
 
-    static func isValidPosition(position: CGPoint) -> Bool {
+    private static func isValidPosition(position: CGPoint) -> Bool {
         let playerXSpawnPosition = ViewConstants.sceneWidth * ViewConstants.playerSpawnOffset
         let playerYSpawnPosition = ViewConstants.sceneHeight * ViewConstants.playerSpawnOffset
 
@@ -138,11 +138,11 @@ class SpawnUtil {
         return true
     }
 
-    static func spawnStaticTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
+    private static func spawnStaticTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
         return StaticMapObject(type: type, position: position)
     }
 
-    static func spawnIntangibleTypedObject(_ type: MapObjectEnum) -> MapObject {
+    private static func spawnIntangibleTypedObject(_ type: MapObjectEnum) -> MapObject {
         return IntangibleMapObject(type: type)
     }
 
