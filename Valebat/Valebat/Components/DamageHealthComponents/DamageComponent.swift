@@ -7,9 +7,9 @@
 
 import GameplayKit
 
-class DamageComponent: GKComponent {
+class DamageComponent: GKComponent, ContactObserver {
 
-    var damageValues = [DamageType: CGFloat]()
+    var damageValues = [BasicType: CGFloat]()
 
     init(water: CGFloat, earth: CGFloat, fire: CGFloat, pure: CGFloat) {
         damageValues[.water] = water
@@ -19,7 +19,22 @@ class DamageComponent: GKComponent {
         super.init()
     }
 
-    init(damage: CGFloat, type: DamageType) {
+    func contact(with entity: GKEntity, seconds: TimeInterval) {
+        return
+    }
+
+    override func didAddToEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
+        super.didAddToEntity()
+    }
+
+    override func willRemoveFromEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
+            .removeValue(forKey: ObjectIdentifier(self))
+        super.willRemoveFromEntity()
+    }
+
+    init(damage: CGFloat, type: BasicType) {
         damageValues[type] = damage
         super.init()
     }
@@ -28,8 +43,8 @@ class DamageComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func damageValueFraction(fraction: CGFloat) -> [DamageType: CGFloat] {
-        var damageValuesFraction = [DamageType: CGFloat]()
+    func damageValueFraction(fraction: CGFloat) -> [BasicType: CGFloat] {
+        var damageValuesFraction = [BasicType: CGFloat]()
         for (type, value) in damageValues {
             damageValuesFraction[type] = value * fraction
         }

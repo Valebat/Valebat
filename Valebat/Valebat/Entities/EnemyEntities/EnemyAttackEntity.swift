@@ -9,7 +9,7 @@ import GameplayKit
 
 class EnemyAttackEntity: GKEntity {
 
-    init(velocity: CGVector, position: CGPoint, damageType: DamageType, damageValue: CGFloat) {
+    init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
         super.init()
 
         let spriteTexture = SKTexture(imageNamed: "GB001")
@@ -25,7 +25,18 @@ class EnemyAttackEntity: GKEntity {
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .enemyAttack))
 
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
+        addComponent(SpellHitComponent(animatedTextures: buildEndAnimation(), timePerFrame: 0.05, effectParams: []))
+    }
 
+    func buildEndAnimation() -> [SKTexture] {
+        let spellAnimatedAtlas = SKTextureAtlas(named: "explosion")
+        var animatedFrames: [SKTexture] = []
+        let numImages = spellAnimatedAtlas.textureNames.count
+        for index in 1...(numImages - 1) {
+            let spellTextureName = "explosion" + String(index)
+            animatedFrames.append(spellAnimatedAtlas.textureNamed(spellTextureName))
+        }
+        return animatedFrames
     }
 
     required init?(coder: NSCoder) {

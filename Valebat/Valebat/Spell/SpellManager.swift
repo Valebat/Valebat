@@ -4,97 +4,77 @@
 //
 //  Created by Sreyans Sipani on 12/3/21.
 //
+import Foundation
 
 class SpellManager {
 
-    static var typeCombinationTable = [ElementType: [ElementType: ElementType]]()
+    private static var combinationTable = [String: CompositeSpell.Type]()
 
     init() {
-        populateTypeCombinationTable()
-        addCombinations()
+        populatecombinationTable()
     }
 
-    init(customTable: [ElementType: [ElementType: ElementType]]) {
-        SpellManager.typeCombinationTable = customTable
+    private func subscribers<T>(of protocol: T.Type) -> [ClassInfo] {
+        var subscribersList = [ClassInfo]()
+
+        var count = UInt32(0)
+        guard let classListPointer = objc_copyClassList(&count) else {
+            return []
+        }
+
+        let classInfoList = UnsafeBufferPointer(start: classListPointer,
+                                                count: Int(count)).map(ClassInfo.init)
+
+        for classInfo in classInfoList {
+            // skip native Swift and Foundation classes, to do not crash
+            if classInfo?.classNameFull.components(separatedBy: ".").count == 1 {
+                continue
+            }
+            if let info = classInfo, info.classObject is T {
+                subscribersList.append(info)
+            }
+        }
+        return subscribersList
     }
 
-    func populateTypeCombinationTable() {
-        for type in ElementType.allCases {
-            SpellManager.typeCombinationTable[type] = [ElementType: ElementType]()
-            SpellManager.typeCombinationTable[type]?[type] = type // Default types for same element combinations
+    private func populatecombinationTable() {
+        for subscriber in subscribers(of: CompositeSpell.Type.self) {
+            if let spellClass = subscriber.classObject as? CompositeSpell.Type {
+                SpellManager.combinationTable[spellClass.description] = spellClass
+            }
         }
     }
 
-    func addCombinations() {
-        SpellManager.typeCombinationTable[.fire]?[.water] = .steam
-        SpellManager.typeCombinationTable[.fire]?[.earth] = .magma
-        SpellManager.typeCombinationTable[.water]?[.earth] = .mud
+    private func combineLevels(levels: [Double]) -> Double {
+        return levels.reduce(0, +)
     }
 
-    func combineElements(lhs: Element, rhs: Element) throws -> Spell {
-        let minElementType = lhs.type.rawValue < rhs.type.rawValue ? lhs.type : rhs.type
-        let maxElementType = lhs.type.rawValue >= rhs.type.rawValue ? lhs.type : rhs.type
-        let combinedLevel = combineLevel(lhs: lhs.level, rhs: rhs.level)
-        if let combinedType = SpellManager.typeCombinationTable[minElementType]?[maxElementType] {
-            return try associatedSpell(for: combinedType, at: combinedLevel)
-        } else {
-            return try GenericSpell(at: combinedLevel)
+    private func reduceElements(elements: [Element]) throws -> [Element] {
+        let groupedElements = Dictionary(grouping: elements, by: { $0.type })
+        var reducedElements = [Element]()
+        for (elementType, sameElementList) in groupedElements {
+            let combinedLevel = sameElementList.map({ $0.level }).reduce(0, +)
+            reducedElements.append(try Element(with: elementType, at: combinedLevel))
         }
+        return reducedElements
     }
 
     func combine(elements: [Element]) throws -> Spell {
-        if elements.isEmpty {
+        let reducedElements = try reduceElements(elements: elements)
+        if reducedElements.isEmpty {
             return try GenericSpell(at: 1)
-        } else if elements.count == 1 {
-            let element = try elements.first ?? Element(with: .generic, at: 1)
-            return try associatedSpell(for: element.type, at: element.level)
-        } else if elements.count == 2 {
-            var set = elements
-            guard let element1 = elements.first else {
-                return try GenericSpell(at: 1)
-            }
-            set.removeFirst()
-            guard let element2 = set.first else {
-                return try associatedSpell(for: element1.type, at: element1.level)
-            }
-            return try combineElements(lhs: element1, rhs: element2)
+        } else if reducedElements.count == 1 {
+            let element = try reducedElements.first ?? Element(with: .pure, at: 1)
+            return SingleElementSpell(with: element)
         } else {
-            var list = elements
-            guard let minElement = elements.min(by: {$0.type.rawValue < $1.type.rawValue}),
-                  let minIndex = list.firstIndex(of: minElement) else {
-                return try GenericSpell(at: 1)
-            }
-            list.remove(at: minIndex)
-            guard let secondMinElement = list.min(by: {$0.type.rawValue < $1.type.rawValue}) else {
-                return try associatedSpell(for: minElement.type, at: minElement.level)
-            }
-            let combinedLevel = combineLevel(lhs: minElement.level, rhs: secondMinElement.level)
-            if let combinedType = SpellManager.typeCombinationTable[minElement.type]?[secondMinElement.type] {
-                let combinedElement = try Element(with: combinedType, at: combinedLevel)
-                list.append(combinedElement)
-                return try combine(elements: list)
+            let typeStrings = reducedElements.map { $0.type.rawValue }
+            let description = typeStrings.sorted().joined(separator: " ")
+            let combinedLevel = combineLevels(levels: elements.map { $0.level })
+            if let combinedType = SpellManager.combinationTable[description] {
+                return try combinedType.init(at: combinedLevel)
             } else {
-                return try GenericSpell(at: elements.map({$0.level}).reduce(0, +))
+                return try GenericSpell(at: combinedLevel)
             }
-        }
-    }
-
-    func combineLevel(lhs: Double, rhs: Double) -> Double {
-        return lhs + rhs
-    }
-
-    func associatedSpell(for type: ElementType, at level: Double) throws -> Spell {
-        switch type {
-        case .fire, .water, .earth:
-            return try SingleElementSpell(with: Element(with: type, at: level))
-        case .generic:
-            return try GenericSpell(at: level)
-        case .steam:
-            return try SteamSpell(at: level)
-        case .magma:
-            return try MagmaSpell(at: level)
-        case .mud:
-            return try MudSpell(at: level)
         }
     }
 

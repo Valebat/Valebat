@@ -22,9 +22,9 @@ class EntityManager {
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-//    var elements: [ElementType: Element] = [:]
-//    var playerStats = PlayerStats()
-    // var able = true
+//  var elements: [BasicType: Element] = [:]
+//  var playerStats = PlayerStats()
+//  var able = true
     let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
@@ -74,7 +74,10 @@ class EntityManager {
 
     func initialiseMaps() {
         MapUtil.generateMaps(withLevelType: .easy)
+        addMapEntities()
+    }
 
+    func addMapEntities() {
         let mapEntities: [GKEntity] = MapUtil.mapEntities
 
         for entity in mapEntities {

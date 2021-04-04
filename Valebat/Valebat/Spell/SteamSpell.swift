@@ -5,22 +5,26 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-class SteamSpell: Spell {
-    let element: Element
-    var damageTypes = Set<DamageType>()
+class SteamSpell: CompositeSpell {
 
-    required init(with element: Element) throws {
-        if element.type != .steam {
-            throw SpellErrors.wrongElementTypeError
+    let level: Double
+    var damageTypes = [BasicType]()
+    let effects: [SpellHitComponent.Type]
+    let effectParams: [[Any]]
+
+    required init(at level: Double) throws {
+        if level < 1 {
+            throw SpellErrors.invalidLevelError
         }
-        self.element = element
-        self.damageTypes.insert(.fire)
-        self.damageTypes.insert(.water)
+        self.level = level
+        self.damageTypes.append(.water)
+        self.damageTypes.append(.fire)
+        self.effects = [SpellSpawnOnHitComponent.self]
+        let spawnTypeParam: [Any] = [BasicType.water, self.level / 2]
+        self.effectParams = [spawnTypeParam]
     }
 
-    init(at level: Double) throws {
-        try self.element = Element(with: .steam, at: level)
-        self.damageTypes.insert(.fire)
-        self.damageTypes.insert(.water)
+    static var description: String {
+        "fire water"
     }
 }

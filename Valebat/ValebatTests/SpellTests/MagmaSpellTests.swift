@@ -16,29 +16,13 @@ class MagmaSpellTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func test_initWithElement() throws {
-        let magmaElement = try Element(with: .magma, at: 2)
-        let magmaSpell = try GenericSpell(with: magmaElement)
-        XCTAssert(magmaSpell.element == magmaElement)
-        XCTAssert(magmaSpell.damageTypes.count == 1)
-        XCTAssert(magmaSpell.damageTypes.contains(.pure))
-    }
-
-    func test_initWithInvalidElement() throws {
-        let invalidElement = try Element(with: .water, at: 2)
-        XCTAssertThrowsError(try GenericSpell(with: invalidElement),
-                             "Wrong element type error should be thrown") { (error) in
-                                XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
-        }
-    }
-
+//
     func test_initWithLevel() throws {
-        let magmaElement = try Element(with: .magma, at: 2.5)
-        let magmaSpell = try GenericSpell(at: 2.5)
-        XCTAssert(magmaSpell.element == magmaElement)
-        XCTAssert(magmaSpell.damageTypes.count == 1)
-        XCTAssert(magmaSpell.damageTypes.contains(.pure))
+        let magmaSpell = try MagmaSpell(at: 2.5)
+        XCTAssert(magmaSpell.level == 2.5)
+        XCTAssert(magmaSpell.damageTypes.count == 2)
+        XCTAssert(magmaSpell.damageTypes.contains(.fire))
+        XCTAssert(magmaSpell.damageTypes.contains(.earth))
     }
 
     func test_initWithInvalidLevel() throws {

@@ -6,7 +6,7 @@
 //
 
 class LevelListUtil {
-    private static var levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]] = [:]
+    private(set) static var levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]] = [:]
     private static var isSetup = false
 
     static func getLevelDataFromType(_ type: LevelTypeEnum) -> [BiomeTypeEnum] {
@@ -22,6 +22,11 @@ class LevelListUtil {
             isSetup = true
         }
         return levelDataMap[type] ?? EasyLevelList().levelBiomes
+    }
+
+    static func setLevelListFromPersistence(levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]]) {
+        self.levelDataMap = levelDataMap
+        isSetup = true
     }
 
     static func instantiate<T>(class: T.Type) -> T where T: LevelList {

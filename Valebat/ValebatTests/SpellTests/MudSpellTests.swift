@@ -17,28 +17,12 @@ class MudSpellTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_initWithElement() throws {
-        let mudElement = try Element(with: .mud, at: 2)
-        let mudSpell = try GenericSpell(with: mudElement)
-        XCTAssert(mudSpell.element == mudElement)
-        XCTAssert(mudSpell.damageTypes.count == 1)
-        XCTAssert(mudSpell.damageTypes.contains(.pure))
-    }
-
-    func test_initWithInvalidElement() throws {
-        let invalidElement = try Element(with: .water, at: 2)
-        XCTAssertThrowsError(try GenericSpell(with: invalidElement),
-                             "Wrong element type error should be thrown") { (error) in
-                                XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
-        }
-    }
-
     func test_initWithLevel() throws {
-        let mudElement = try Element(with: .mud, at: 2.5)
-        let mudSpell = try GenericSpell(at: 2.5)
-        XCTAssert(mudSpell.element == mudElement)
-        XCTAssert(mudSpell.damageTypes.count == 1)
-        XCTAssert(mudSpell.damageTypes.contains(.pure))
+        let mudSpell = try MudSpell(at: 2.5)
+        XCTAssert(mudSpell.level == 2.5)
+        XCTAssert(mudSpell.damageTypes.count == 2)
+        XCTAssert(mudSpell.damageTypes.contains(.water))
+        XCTAssert(mudSpell.damageTypes.contains(.earth))
     }
 
     func test_initWithInvalidLevel() throws {

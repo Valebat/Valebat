@@ -17,28 +17,12 @@ class SteamSpellTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_initWithElement() throws {
-        let steamElement = try Element(with: .steam, at: 2)
-        let steamSpell = try GenericSpell(with: steamElement)
-        XCTAssert(steamSpell.element == steamElement)
-        XCTAssert(steamSpell.damageTypes.count == 1)
-        XCTAssert(steamSpell.damageTypes.contains(.pure))
-    }
-
-    func test_initWithInvalidElement() throws {
-        let invalidElement = try Element(with: .water, at: 2)
-        XCTAssertThrowsError(try GenericSpell(with: invalidElement),
-                             "Wrong element type error should be thrown") { (error) in
-                                XCTAssertEqual(error as? SpellErrors, SpellErrors.wrongElementTypeError)
-        }
-    }
-
     func test_initWithLevel() throws {
-        let steamElement = try Element(with: .steam, at: 2.5)
-        let steamSpell = try GenericSpell(at: 2.5)
-        XCTAssert(steamSpell.element == steamElement)
-        XCTAssert(steamSpell.damageTypes.count == 1)
-        XCTAssert(steamSpell.damageTypes.contains(.pure))
+        let steamSpell = try SteamSpell(at: 2.5)
+        XCTAssert(steamSpell.level == 2.5)
+        XCTAssert(steamSpell.damageTypes.count == 2)
+        XCTAssert(steamSpell.damageTypes.contains(.water))
+        XCTAssert(steamSpell.damageTypes.contains(.fire))
     }
 
     func test_initWithInvalidLevel() throws {

@@ -8,10 +8,10 @@
 import UIKit
 
 class DamageMultipliers {
-    var multiplierValues = [DamageType: CGFloat]()
+    var multiplierValues = [BasicType: CGFloat]()
 
     init() {
-        for type in DamageType.allCases {
+        for type in BasicType.allCases {
             multiplierValues[type] = 1.0
         }
     }
@@ -33,7 +33,7 @@ class DamageMultipliers {
         DamageMultipliers(water: 0.75, earth: 1.0, fire: 1.5, pure: 1)
     }
 
-    func getFinalDamage(damages: [DamageType: CGFloat]) -> CGFloat {
+    func getFinalDamage(damages: [BasicType: CGFloat]) -> CGFloat {
         var finalDamage: CGFloat = 0.0
         for (type, value) in damages {
             finalDamage += (multiplierValues[type] ?? 1.0) * value

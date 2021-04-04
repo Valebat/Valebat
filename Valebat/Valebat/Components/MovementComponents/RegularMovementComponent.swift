@@ -13,7 +13,7 @@ import GameplayKit
 
 class RegularMovementComponent: GKComponent, MoveComponent {
     let entityManager = EntityManager.getInstance()
-    let velocity: CGVector
+    var velocity: CGVector
     let spellNode: SKNode
     var currentPosition: CGPoint
     init(spellNode: SKNode, velocity: CGVector, initialPosition: CGPoint) {
@@ -32,5 +32,9 @@ class RegularMovementComponent: GKComponent, MoveComponent {
         super.update(deltaTime: seconds)
         currentPosition = CGPoint(x: spellNode.position.x + velocity.dx,
                                      y: spellNode.position.y + velocity.dy)
+    }
+
+    func stop() {
+        self.velocity = CGVector(dx: 0.0, dy: 0.0)
     }
 }

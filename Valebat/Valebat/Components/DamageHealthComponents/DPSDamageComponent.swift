@@ -7,20 +7,9 @@
 
 import GameplayKit
 
-class DPSDamageComponent: DamageComponent, ContactObserver {
+class DPSDamageComponent: DamageComponent {
 
-    func contact(with entity: GKEntity, seconds: TimeInterval) {
+    override func contact(with entity: GKEntity, seconds: TimeInterval) {
         entity.component(ofType: DamageTakerComponent.self)?.takeDamage(damages: damageValueFraction(fraction: CGFloat(seconds)))
-    }
-
-    override func didAddToEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
-
-        super.didAddToEntity()
-    }
-    override func willRemoveFromEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
-            .removeValue(forKey: ObjectIdentifier(self))
-        super.willRemoveFromEntity()
     }
 }
