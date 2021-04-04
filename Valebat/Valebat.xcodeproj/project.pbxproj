@@ -87,6 +87,7 @@
 		CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781125FCE1C200581E20 /* ValebatTests.swift */; };
 		CBC7781D25FCE1C200581E20 /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */; };
 		CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */; };
+		CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */; };
 		CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
 		CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */; };
 		CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
@@ -136,6 +137,7 @@
 		EF61C4E62619A25D0076BB3A /* SpellSpawnOnDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4D72618CA880076BB3A /* SpellSpawnOnDeathComponent.swift */; };
 		EF8087532606785000923494 /* GenericSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087522606785000923494 /* GenericSpellTests.swift */; };
 		EF808787260679A200923494 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415A25FFC71900341BF5 /* Spell.swift */; };
+		EF808788260679A200923494 /* DamageMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */; };
 		EF808789260679A200923494 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
 		EF80878A260679A200923494 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
 		EF80878D260679A200923494 /* SpellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415725FFC71900341BF5 /* SpellManager.swift */; };
@@ -255,6 +257,7 @@
 		CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValebatUITests.swift; sourceTree = "<group>"; };
 		CBC7781E25FCE1C200581E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageComponent.swift; sourceTree = "<group>"; };
+		CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageMultipliers.swift; sourceTree = "<group>"; };
 		CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDamageComponent.swift; sourceTree = "<group>"; };
 		CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPSDamageComponent.swift; sourceTree = "<group>"; };
@@ -726,6 +729,7 @@
 			children = (
 				EF61C4B22618576F0076BB3A /* BasicType.swift */,
 				EF61C4B12618576F0076BB3A /* CompositeSpell.swift */,
+				CBFC49EA25FFF3B100C5DDD2 /* DamageMultipliers.swift */,
 				EF19415325FFC71900341BF5 /* GenericSpell.swift */,
 				EF19415425FFC71900341BF5 /* MagmaSpell.swift */,
 				EF19415525FFC71900341BF5 /* Element.swift */,
@@ -954,6 +958,7 @@
 				EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */,
 				C6A943EE260B007500087256 /* BiomeData.swift in Sources */,
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
+				CBFC49EB25FFF3B100C5DDD2 /* DamageMultipliers.swift in Sources */,
 				CBA494F126038AB1003A05F7 /* CollectingComponent.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
@@ -1058,6 +1063,7 @@
 				C6A943B62605E33D00087256 /* MapObjectTests.swift in Sources */,
 				EF61C4CE26185ADA0076BB3A /* ClassInfo.swift in Sources */,
 				EF80878E260679A200923494 /* SpellErrors.swift in Sources */,
+				EF808788260679A200923494 /* DamageMultipliers.swift in Sources */,
 				EF808789260679A200923494 /* MagmaSpell.swift in Sources */,
 				EF8087A82606843400923494 /* MudSpellTests.swift in Sources */,
 				EF808793260679A200923494 /* SingleElementSpell.swift in Sources */,
