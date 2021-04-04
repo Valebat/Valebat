@@ -20,9 +20,11 @@ class MapObjectTests: XCTestCase {
     func test_createStaticEntity_hasCorrectSize() {
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50))
-            XCTAssertEqual(object.xDimension, MapObjectConstants.globalDefaultWidths[$0],
+            XCTAssertEqual(object.xDimension,
+                           MapObjectConstants.globalDefaultWidths[$0] ?? MapObjectConstants.objectDefaultWidth,
                            "Object initialised to wrong size.")
-            XCTAssertEqual(object.yDimension, MapObjectConstants.globalDefaultHeights[$0],
+            XCTAssertEqual(object.yDimension,
+                           MapObjectConstants.globalDefaultHeights[$0] ?? MapObjectConstants.objectDefaultHeight,
                            "Object initialised to wrong size.")
         }
     }
@@ -30,7 +32,9 @@ class MapObjectTests: XCTestCase {
     func test_createStaticEntity_hasCorrectCollidableBool() {
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50))
-            XCTAssertEqual(object.collidable, MapObjectConstants.globalDefaultCollidables[$0],
+            XCTAssertEqual(object.collidable,
+                           MapObjectConstants.globalDefaultCollidables[$0] ??
+                            MapObjectConstants.objectDefaultCollidable,
                            "Object initialised to wrong collidable state.")
         }
     }
@@ -39,9 +43,11 @@ class MapObjectTests: XCTestCase {
         let factor: Double = 2.0
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50), scale: factor)
-            XCTAssertEqual(object.xDimension, factor * MapObjectConstants.globalDefaultWidths[$0]!,
+            XCTAssertEqual(object.xDimension, factor *
+                            (MapObjectConstants.globalDefaultWidths[$0] ?? MapObjectConstants.objectDefaultWidth),
                            "Object initialised to wrong size.")
-            XCTAssertEqual(object.yDimension, factor * MapObjectConstants.globalDefaultHeights[$0]!,
+            XCTAssertEqual(object.yDimension, factor *
+                            (MapObjectConstants.globalDefaultHeights[$0] ?? MapObjectConstants.objectDefaultHeight),
                            "Object initialised to wrong size.")
         }
     }
@@ -61,9 +67,11 @@ class MapObjectTests: XCTestCase {
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50), scale: factor,
                                          collidable: collidable)
-            XCTAssertEqual(object.xDimension, factor * MapObjectConstants.globalDefaultWidths[$0]!,
+            XCTAssertEqual(object.xDimension, factor *
+                            (MapObjectConstants.globalDefaultWidths[$0] ?? MapObjectConstants.objectDefaultWidth),
                            "Object initialised to wrong size.")
-            XCTAssertEqual(object.yDimension, factor * MapObjectConstants.globalDefaultHeights[$0]!,
+            XCTAssertEqual(object.yDimension, factor *
+                            (MapObjectConstants.globalDefaultHeights[$0] ?? MapObjectConstants.objectDefaultHeight),
                            "Object initialised to wrong size.")
             XCTAssertEqual(object.collidable, collidable,
                            "Object initialised to wrong collidable state.")
@@ -93,6 +101,28 @@ class MapObjectTests: XCTestCase {
                 XCTAssertTrue(xMatchesDimension && yMatchesDimension && !bothDimesionsZero,
                                "getPoints returns incorrect dimensions.")
             }
+        }
+    }
+
+    func test_createIntangibleEntity_isCorrectType() {
+        MapObjectEnum.allCases.forEach {
+            let object = IntangibleMapObject(type: $0)
+            XCTAssertEqual(object.type, $0, "Object does not correspond to its type.")
+        }
+    }
+
+    func test_createIntangibleEntity_hasNoDimensions() {
+        MapObjectEnum.allCases.forEach {
+            let object = IntangibleMapObject(type: $0)
+            XCTAssertEqual(object.xDimension, 0, "Intangible object should not have dimensions.")
+            XCTAssertEqual(object.yDimension, 0, "Intangible object should not have dimensions.")
+        }
+    }
+
+    func test_createIntangibleEntity_isNotCollidable() {
+        MapObjectEnum.allCases.forEach {
+            let object = IntangibleMapObject(type: $0)
+            XCTAssertEqual(object.collidable, false, "Intangible object should not be collidable.")
         }
     }
 

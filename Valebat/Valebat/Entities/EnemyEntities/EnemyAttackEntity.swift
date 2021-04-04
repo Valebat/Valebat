@@ -24,7 +24,7 @@ class EnemyAttackEntity: GKEntity {
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .enemyAttack))
 
-        addComponent(InstantDamageComponent(damage: damageValue, type: damageType)) 
+        addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
         addComponent(SpellHitComponent(animatedTextures: buildEndAnimation(), timePerFrame: 0.05, effectParams: []))
     }
 

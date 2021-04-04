@@ -11,7 +11,6 @@ class PlayerHUD: SKSpriteNode {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("Helloss")
     }
 
     func updateHUD() {
@@ -19,6 +18,7 @@ class PlayerHUD: SKSpriteNode {
             return
         }
         (hpbar as? HUDHPBar)?.updateBar(maxHP: PlayerStatsManager.getInstance().maxHP,
-                                        currentHP: EntityManager.getInstance().player?.component(ofType: HealthComponent.self)?.health ?? 0)
+                                        currentHP: EntityManager.getInstance()
+                                            .player?.component(ofType: HealthComponent.self)?.health ?? 0)
     }
 }

@@ -29,4 +29,24 @@ extension MapObject {
                                    y: Float(self.position.y) + Float(self.yDimension / 2))]
         return points
     }
+
+    func convertToMapObjectData() -> MapObjectData {
+        return MapObjectData(mapObject: self)
+    }
+}
+
+class GenericMapObject: MapObject {
+    var type: MapObjectEnum
+    var position: CGPoint
+    var xDimension: Double
+    var yDimension: Double
+    var collidable: Bool
+
+    init(type: MapObjectEnum, position: CGPoint, xDimension: Double, yDimension: Double, collidable: Bool) {
+        self.type = type
+        self.position = position
+        self.xDimension = xDimension
+        self.yDimension = yDimension
+        self.collidable = collidable
+    }
 }
