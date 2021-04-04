@@ -12,9 +12,9 @@ class PlayerStatsManager {
     static private var instance: PlayerStatsManager!
     var level: Int
     var maxHP: CGFloat
-    var elementalEssence: [DamageType: Int]
-    var elements: [DamageType: Element]
-    var elementalMultipliers: [DamageType: CGFloat]
+    var elementalEssence: [BasicType: Int]
+    var elements: [BasicType: Element]
+    var elementalMultipliers: [BasicType: CGFloat]
 
     static func getInstance() -> PlayerStatsManager {
         if instance == nil {
@@ -30,13 +30,13 @@ class PlayerStatsManager {
     init() {
         level = 0
         maxHP = 15
-        elementalEssence = [DamageType: Int]()
-        elements = [DamageType: Element]()
-        elementalMultipliers = [DamageType: CGFloat]()
+        elementalEssence = [BasicType: Int]()
+        elements = [BasicType: Element]()
+        elementalMultipliers = [BasicType: CGFloat]()
         do {
-            for type in DamageType.allCases {
+            for type in BasicType.allCases {
                 elementalEssence[type] = 0
-                elements[type] = try Element(with: type.associatedElementType, at: 1.0)
+                elements[type] = try Element(with: type, at: 1.0)
                 elementalMultipliers[type] = 1
             }
         } catch {
@@ -58,7 +58,7 @@ class PlayerStatsManager {
         return playerData
     }
 
-    static func addEssence(type: DamageType, amount: Int) {
+    static func addEssence(type: BasicType, amount: Int) {
         getInstance().elementalEssence[type]! += amount
     }
 }

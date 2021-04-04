@@ -10,16 +10,16 @@ struct PlayerData: Codable {
     var elementType: [String] = []
     var elementLevel: [Double] = []
 
-    func getElementDictionary() -> [DamageType: Element] {
-        var elements: [DamageType: Element] = [:]
+    func getElementDictionary() -> [BasicType: Element] {
+        var elements: [BasicType: Element] = [:]
         let elementTypes = convertElementStringToEnum()
         do {
             for index in 0..<elementTypes.count {
-                try elements.updateValue(Element(with: elementTypes[index].associatedElementType,
+                try elements.updateValue(Element(with: elementTypes[index],
                                                  at: elementLevel[index]),
                                          forKey: elementTypes[index])
             }
-        } catch SpellErrors.wrongElementTypeError {
+        } catch SpellErrors.wrongBasicTypeError {
             print("Wrong element type was given")
         } catch {
             print("Unexpected error")
@@ -33,10 +33,10 @@ struct PlayerData: Codable {
         playerStats.elements = getElementDictionary()
     }
 
-    private func convertElementStringToEnum() -> [DamageType] {
-        var enumArray: [DamageType] = []
+    private func convertElementStringToEnum() -> [BasicType] {
+        var enumArray: [BasicType] = []
         for typeString in elementType {
-            guard let damageType = DamageType(rawValue: typeString) else {
+            guard let damageType = BasicType(rawValue: typeString) else {
                 continue
             }
             enumArray.append(damageType)

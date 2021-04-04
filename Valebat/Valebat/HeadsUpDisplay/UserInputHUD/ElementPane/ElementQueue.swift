@@ -21,10 +21,10 @@ class ElementQueue: SKNode {
         initialisedGrids(count: HUDConstants.elementQueueLength)
     }
 
-    func renderElementsInQueue(selectedElements: [ElementType]) {
+    func renderElementsInQueue(selectedElements: [BasicType]) {
         elements?.removeAllChildren()
         for (index, elementType) in selectedElements.enumerated() {
-            let element = SKSpriteNode(imageNamed: elementType.stringName)
+            let element = SKSpriteNode(imageNamed: elementType.imageName)
             let elementSize = HUDConstants.elementQueueElementSize
             let gridSize = HUDConstants.elementQueueGridSize
             element.size = elementSize

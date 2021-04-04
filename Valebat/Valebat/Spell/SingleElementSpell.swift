@@ -7,16 +7,15 @@
 
 class SingleElementSpell: Spell {
 
-    let element: Element
-    var damageTypes = Set<DamageType>()
+    let level: Double
+    let damageType: BasicType
+    let effects: [SpellHitComponent.Type]
+    let effectParams: [[Any]]
 
-    required init(with element: Element) throws {
-        if !element.type.isSingle {
-            throw SpellErrors.wrongElementTypeError
-        }
-        self.element = element
-        if let damageType = element.type.associatedDamageType {
-            self.damageTypes.insert(damageType)
-        }
+    init(with element: Element) {
+        self.level = element.level
+        self.damageType = element.type
+        self.effects = [SpellHitComponent.self]
+        self.effectParams = [[]]
     }
 }

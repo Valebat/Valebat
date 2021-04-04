@@ -8,7 +8,7 @@
 import SpriteKit
 
 class ElementPane: SKNode {
-    private(set) var elementQueueArray: [ElementType] = []
+    private(set) var elementQueueArray: [BasicType] = []
     private(set) var elementQueue: ElementQueue
     private(set) var elementSelection: ElementSelection
     private(set) var arrayCount: Int = 1
@@ -31,7 +31,7 @@ class ElementPane: SKNode {
         self.zPosition = HUDConstants.elementPaneZPosition
     }
 
-    func setNewElement(elementType: ElementType) {
+    func setNewElement(elementType: BasicType) {
         if elementQueueArray.count == arrayCount {
             elementQueueArray.removeFirst()
         }
