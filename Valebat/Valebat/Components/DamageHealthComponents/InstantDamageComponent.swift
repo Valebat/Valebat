@@ -7,9 +7,9 @@
 
 import GameplayKit
 
-class InstantDamageComponent: DamageComponent, ContactObserver {
+class InstantDamageComponent: DamageComponent {
 
-    func contact(with entity: GKEntity, seconds: TimeInterval) {
+    override func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let damageTaker = entity.component(ofType: DamageTakerComponent.self) {
             damageTaker.takeDamage(damages: damageValues)
         }
@@ -18,16 +18,4 @@ class InstantDamageComponent: DamageComponent, ContactObserver {
         }
 
     }
-
-    override func didAddToEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
-        super.didAddToEntity()
-    }
-
-    override func willRemoveFromEntity() {
-        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
-            .removeValue(forKey: ObjectIdentifier(self))
-        super.willRemoveFromEntity()
-    }
-
 }

@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class DamageComponent: GKComponent {
+class DamageComponent: GKComponent, ContactObserver {
 
     var damageValues = [BasicType: CGFloat]()
 
@@ -17,6 +17,21 @@ class DamageComponent: GKComponent {
         damageValues[.fire] = fire
         damageValues[.pure] = pure
         super.init()
+    }
+
+    func contact(with entity: GKEntity, seconds: TimeInterval) {
+        return
+    }
+
+    override func didAddToEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers[ObjectIdentifier(self)] = self
+        super.didAddToEntity()
+    }
+
+    override func willRemoveFromEntity() {
+        entity?.component(ofType: PhysicsComponent.self)?.contactObservers
+            .removeValue(forKey: ObjectIdentifier(self))
+        super.willRemoveFromEntity()
     }
 
     init(damage: CGFloat, type: BasicType) {
