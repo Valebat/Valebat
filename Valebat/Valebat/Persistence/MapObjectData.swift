@@ -41,4 +41,8 @@ struct MapObjectData: Codable {
         self.init(type: mapObject.type, position: mapObject.position,
                   xDimension: mapObject.xDimension, yDimension: mapObject.yDimension, collidable: mapObject.collidable)
     }
+
+    static func convertToMapObjectData(_ mapObject: MapObject) -> MapObjectData {
+        return MapObjectData(mapObject: mapObject)
+    }
 }

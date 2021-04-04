@@ -52,20 +52,6 @@ class PlayerStatsManager {
         }
     }
 
-    func convertToPlayerData() -> PlayerData {
-        var elementType: [String] = []
-        var elementLevel: [Double] = []
-        for (type, element) in elements {
-            elementType.append(type.rawValue)
-            elementLevel.append(element.level)
-        }
-        var playerData = PlayerData()
-        playerData.level = level
-        playerData.elementType = elementType
-        playerData.elementLevel = elementLevel
-        return playerData
-    }
-
     static func addEssence(type: BasicType, amount: Int) {
         getInstance().elementalEssence[type]! += amount
     }

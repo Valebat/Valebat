@@ -86,8 +86,7 @@ class PersistenceManager {
     }
 
     private func assignPlayerDataToStorage() {
-        let playerStats = PlayerStatsManager.getInstance()
-        let playerData = playerStats.convertToPlayerData()
+        let playerData = PlayerData.convertToPlayerData()
         gameData?.playerData = playerData
     }
 

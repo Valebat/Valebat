@@ -33,6 +33,21 @@ struct PlayerData: Codable {
         playerStats.elements = getElementDictionary()
     }
 
+    static func convertToPlayerData() -> PlayerData {
+        let playerStats = PlayerStatsManager.getInstance()
+        var elementType: [String] = []
+        var elementLevel: [Double] = []
+        for (type, element) in playerStats.elements {
+            elementType.append(type.rawValue)
+            elementLevel.append(element.level)
+        }
+        var playerData = PlayerData()
+        playerData.level = playerStats.level
+        playerData.elementType = elementType
+        playerData.elementLevel = elementLevel
+        return playerData
+    }
+
     private func convertElementStringToEnum() -> [BasicType] {
         var enumArray: [BasicType] = []
         for typeString in elementType {

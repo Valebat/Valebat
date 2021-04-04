@@ -11,7 +11,7 @@ struct MapData: Codable {
 
     init(map: Map) {
         for object in map.objects {
-            mapObjects.append(object.convertToMapObjectData())
+            mapObjects.append(MapObjectData.convertToMapObjectData(object))
         }
     }
 
@@ -26,5 +26,9 @@ struct MapData: Codable {
         let map = Map()
         map.addObjects(mapGameObjects)
         return map
+    }
+
+    static func convertToMapData(_ map: Map) -> MapData {
+        return MapData(map: map)
     }
 }

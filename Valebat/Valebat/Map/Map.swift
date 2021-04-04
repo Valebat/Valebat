@@ -19,8 +19,4 @@ class Map {
     func addObjects(_ objects: [MapObject]) {
         self.objects.append(contentsOf: objects)
     }
-
-    func convertToMapData() -> MapData {
-        return MapData(map: self)
-    }
 }

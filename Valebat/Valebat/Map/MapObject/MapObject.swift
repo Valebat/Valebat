@@ -29,10 +29,6 @@ extension MapObject {
                                    y: Float(self.position.y) + Float(self.yDimension / 2))]
         return points
     }
-
-    func convertToMapObjectData() -> MapObjectData {
-        return MapObjectData(mapObject: self)
-    }
 }
 
 class GenericMapObject: MapObject {

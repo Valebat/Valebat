@@ -15,7 +15,7 @@ class LevelData: Codable {
 
     init(maps: [Map], levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]]) {
         for map in maps {
-            self.maps.append(map.convertToMapData())
+            self.maps.append(MapData.convertToMapData(map))
         }
         for (levelType, levelList) in levelDataMap {
             levelTypes.append(levelType.rawValue)

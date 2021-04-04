@@ -65,7 +65,7 @@ class MapUtil {
             // TODO implement player win here
             goToMap(level: 0)
         }
-        
+
         PersistenceManager.getInstance().savePlayerData()
     }
 
