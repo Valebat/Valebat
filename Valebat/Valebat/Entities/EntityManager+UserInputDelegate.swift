@@ -37,6 +37,10 @@ extension EntityManager: UserInputDelegate {
                                   angular: angular)
     }
 
+    func restartClicked() {
+        self.restart()
+    }
+
     private func mapBasicType(elementQueue: [BasicType]) -> [Element] {
         let playerStats = PlayerStatsManager.getInstance()
         return elementQueue.compactMap({ playerStats.elements[$0] ?? nil })

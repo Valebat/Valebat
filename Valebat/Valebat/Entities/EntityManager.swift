@@ -26,6 +26,7 @@ class EntityManager {
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
+    var playing: Bool = true
 
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
@@ -37,8 +38,9 @@ class EntityManager {
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem, enemyAttackSystem, spriteSystem,
-                timerSystem, advanceLevelSystem, powerupSpawnSystem]
+        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
+                enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
+                powerupSpawnSystem]
     }()
 
     static func getInstance() -> EntityManager {
@@ -191,10 +193,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-        for componentSystem in componentSystems {
-            componentSystem.update(deltaTime: deltaTime)
+        if playing {
+            for componentSystem in componentSystems {
+                componentSystem.update(deltaTime: deltaTime)
+            }
+            updateLastKnownPlayerPosition()
         }
-        updateLastKnownPlayerPosition()
         for curRemove in toRemove {
             for componentSystem in componentSystems {
                 componentSystem.removeComponent(foundIn: curRemove)

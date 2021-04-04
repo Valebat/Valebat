@@ -23,7 +23,7 @@ class PlayerEntity: GKEntity {
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
         addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
-
+        addComponent(PlayerDeathComponent())
     }
 
     required init?(coder: NSCoder) {

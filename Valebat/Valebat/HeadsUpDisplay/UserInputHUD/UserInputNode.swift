@@ -19,18 +19,34 @@ class UserInputNode: SKNode {
 
     private(set) var elementPane: ElementPane?
 
+    private(set) var restartButton: RestartButton?
+
     override init() {
         super.init()
         self.zPosition = HUDConstants.joystickZPosition
+        self.name = "input"
 
         setUpJoysticks()
         setUpElementPane()
+        setUpRestartButton()
+    }
 
+    private func setUpRestartButton() {
+        restartButton = RestartButton()
+        if let button = restartButton {
+            self.addChild(button)
+        }
+    }
+
+    public func toggleRestartButton() {
+        restartButton?.isHidden = !(restartButton?.isHidden ?? false)
+        restartButton?.isUserInteractionEnabled = !(restartButton?.isUserInteractionEnabled ?? false)
     }
 
     public func assignInputDelegate(delegate: UserInputDelegate) {
         movementJoystick?.userInputDelegate = delegate
         spellJoystick?.userInputDelegate = delegate
+        restartButton?.userInputDelegate = delegate
     }
 
     private func setUpJoysticks() {
