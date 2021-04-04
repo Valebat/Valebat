@@ -56,6 +56,10 @@ class MapUtil {
             mapEntities = allMapEntities[level]
         } else {
             // TODO implement player win here
+            let level = 0
+            playerStats.level = level
+            map = maps[level]
+            mapEntities = allMapEntities[level]
         }
     }
 
