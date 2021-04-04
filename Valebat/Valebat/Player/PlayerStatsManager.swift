@@ -27,6 +27,10 @@ class PlayerStatsManager {
         self.instance = PlayerStatsManager()
     }
 
+    func setLevel(_ count: Int) {
+        level = count
+    }
+
     init() {
         level = 0
         maxHP = 15

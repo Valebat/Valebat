@@ -14,9 +14,12 @@ class PlayerHUD: SKSpriteNode {
     }
 
     func updateHUD() {
-        guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar") else {
+        guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar"),
+              let levelLabel = childNode(withName: "//PlayerLevel")?
+                .childNode(withName: "//HUDPlayerLevel") else {
             return
         }
         (hpbar as? PlayerHUDNode)?.update()
+        (levelLabel as? PlayerHUDNode)?.update()
     }
 }

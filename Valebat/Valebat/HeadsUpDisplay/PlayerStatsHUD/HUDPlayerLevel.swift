@@ -15,11 +15,8 @@ class HUDPlayerLevel: SKSpriteNode, PlayerHUDNode {
 
     func update() {
         let level = PlayerStatsManager.getInstance().level
-        let currentHP = EntityManager.getInstance()
-            .player?.component(ofType: HealthComponent.self)?.health ?? 0
-
         (childNode(withName: "//Level Label") as? SKLabelNode)?.text =
-        "\(currentHP) / \(level)"
+        "Level \(level + 1)"
     }
 
 }

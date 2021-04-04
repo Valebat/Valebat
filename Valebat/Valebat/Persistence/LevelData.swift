@@ -11,6 +11,7 @@ class LevelData: Codable {
     var maps: [MapData] = []
     var levelTypes: [String] = []
     var levelLists: [[String]] = []
+    var maxLevel: Int = 0
 
     init(maps: [Map], levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]]) {
         for map in maps {
@@ -20,6 +21,7 @@ class LevelData: Codable {
             levelTypes.append(levelType.rawValue)
             levelLists.append(generateStringListFromLevel(levelList))
         }
+        maxLevel = MapUtil.maxLevel
     }
 
     init() {}
@@ -27,6 +29,7 @@ class LevelData: Codable {
     func assignLevelData() {
         setLevelList()
         assignMaps()
+        MapUtil.maxLevel = maxLevel
     }
 
     private func assignMaps() {
