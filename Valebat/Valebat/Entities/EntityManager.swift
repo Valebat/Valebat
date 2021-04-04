@@ -22,9 +22,6 @@ class EntityManager {
     var player: PlayerEntity?
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-//  var elements: [BasicType: Element] = [:]
-//  var playerStats = PlayerStats()
-//  var able = true
     let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
@@ -41,8 +38,9 @@ class EntityManager {
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem, enemyAttackSystem, spriteSystem,
-                timerSystem, advanceLevelSystem, powerupSpawnSystem]
+        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
+                enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
+                powerupSpawnSystem]
     }()
 
     static func getInstance() -> EntityManager {

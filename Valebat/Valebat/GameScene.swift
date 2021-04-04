@@ -67,7 +67,6 @@ class GameScene: SKScene {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        entityManager.spawnEnemy()
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
 
