@@ -10,6 +10,7 @@ import GameplayKit
 protocol OnDeathObservers {
     func onDeath()
 }
+
 class DeathComponent: GKComponent {
     var onDeathObservers = [ObjectIdentifier: OnDeathObservers]()
     func onDeath() {

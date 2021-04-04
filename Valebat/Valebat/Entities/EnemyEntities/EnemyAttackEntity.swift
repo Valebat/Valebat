@@ -24,8 +24,19 @@ class EnemyAttackEntity: GKEntity {
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .enemyAttack))
 
-        addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
+        addComponent(InstantDamageComponent(damage: damageValue, type: damageType)) 
+        addComponent(SpellHitComponent(animatedTextures: buildEndAnimation(), timePerFrame: 0.05, effectParams: []))
+    }
 
+    func buildEndAnimation() -> [SKTexture] {
+        let spellAnimatedAtlas = SKTextureAtlas(named: "explosion")
+        var animatedFrames: [SKTexture] = []
+        let numImages = spellAnimatedAtlas.textureNames.count
+        for index in 1...(numImages - 1) {
+            let spellTextureName = "explosion" + String(index)
+            animatedFrames.append(spellAnimatedAtlas.textureNamed(spellTextureName))
+        }
+        return animatedFrames
     }
 
     required init?(coder: NSCoder) {

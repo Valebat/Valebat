@@ -10,9 +10,10 @@ import GameplayKit
 class SpellEntity: GKEntity {
 
     init(velocity: CGVector, spell: Spell, position: CGPoint) {
+
         super.init()
 
-        let spriteTextures = buildSpellTexture(spell: spell)
+        let spriteTextures = getAnimatedSpell(for: spell)
         let spriteTexture = spriteTextures[0]
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
@@ -35,35 +36,62 @@ class SpellEntity: GKEntity {
                                                 fire: compositeSpell.damageTypes.contains(.fire) ? damage : 0.0,
                                                 pure: compositeSpell.damageTypes.contains(.pure) ? damage : 0.0))
         }
+
+        for (effect, effectParams) in zip(spell.effects, spell.effectParams) {
+            addComponent(effect.init(animatedTextures: buildEndAnimation(for: spell),
+                                     timePerFrame: 0.05, effectParams: effectParams))
+        }
+
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func buildSpellTexture(spell: Spell) -> [SKTexture] {
-        let elementType = (spell as? SingleElementSpell)?.damageType
-        var imgName = ""
-        switch elementType {
-        case .water:
-            imgName = "WB00"
-        case .earth:
-            imgName = "EB00"
-        case .fire:
-            imgName = "FB00"
-        default:
-            imgName = "GB00"
-        }
-
-        let spellAnimatedAtlas = SKTextureAtlas(named: imgName)
+    func getTexturesFromAtlas(atlasName: String) -> [SKTexture] {
+        let atlas = SKTextureAtlas(named: atlasName)
         var animatedFrames: [SKTexture] = []
-
-        let numImages = spellAnimatedAtlas.textureNames.count
+        let numImages = atlas.textureNames.count - 1
         for index in 1...numImages {
-            let spellTextureName = imgName + "\(index)"
-            animatedFrames.append(spellAnimatedAtlas.textureNamed(spellTextureName))
+            let spellTextureName = atlasName + String(index)
+            animatedFrames.append(atlas.textureNamed(spellTextureName))
         }
         return animatedFrames
+    }
+
+    func getSpriteFolder(for spell: Spell) -> String {
+        if let singleElementSpell = spell as? SingleElementSpell {
+            let elementType = singleElementSpell.damageType
+            switch elementType {
+            case .water:
+                return "WB00"
+            case .earth:
+                return "EB00"
+            case .fire:
+                return  "FB00"
+            default:
+                return "GB00"
+            }
+        } else {
+            switch spell.self {
+            case is SteamSpell:
+                return "SB00"
+            case is MagmaSpell:
+                return "AB00"
+            case is MudSpell:
+                return "MB00"
+            default:
+                return "GB00"
+            }
+        }
+    }
+
+    func buildEndAnimation(for spell: Spell) -> [SKTexture] {
+        return getTexturesFromAtlas(atlasName: "explosion") // getSpriteFolder(for: spell) +
+    }
+
+    func getAnimatedSpell(for spell: Spell) -> [SKTexture] {
+        return getTexturesFromAtlas(atlasName: getSpriteFolder(for: spell))
     }
 
 }

@@ -7,4 +7,6 @@
 
 protocol Spell {
     var level: Double { get }
+    var effects: [SpellHitComponent.Type] { get }
+    var effectParams: [[Any]] { get }
 }

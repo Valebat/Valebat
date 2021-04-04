@@ -8,12 +8,13 @@
 import GameplayKit
 
 class InstantDamageComponent: DamageComponent, ContactObserver {
+
     func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let damageTaker = entity.component(ofType: DamageTakerComponent.self) {
             damageTaker.takeDamage(damages: damageValues)
         }
         if let entity = self.entity {
-            EntityManager.getInstance().remove(entity)
+            entity.component(conformingTo: SpellHitComponent.self)?.onHit()
         }
 
     }
