@@ -19,6 +19,7 @@ class GenericSpell: CompositeSpell {
         self.level = level
         self.damageTypes.append(.pure)
         self.effects.append(SpellHitComponent.self)
+        self.effectParams.append([])
     }
 
     init(at level: Double, from basicTypes: [BasicType]) throws {
@@ -28,6 +29,7 @@ class GenericSpell: CompositeSpell {
         self.level = level
         self.damageTypes.append(contentsOf: basicTypes)
         self.effects.append(SpellHitComponent.self)
+        self.effectParams.append([])
     }
 
     static var description: String {

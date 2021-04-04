@@ -32,7 +32,7 @@ struct ClassInfo: CustomStringConvertible, Equatable {
         return self.classNameFull
     }
 
-    static func ==(lhs: ClassInfo, rhs: ClassInfo) -> Bool {
+    static func == (lhs: ClassInfo, rhs: ClassInfo) -> Bool {
         return lhs.classNameFull == rhs.classNameFull
     }
 }
