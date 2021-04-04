@@ -18,6 +18,8 @@ class UserInputNode: SKNode {
     private(set) var spellJoystick: SpellJoystick?
 
     private(set) var elementPane: ElementPane?
+    
+    private(set) var restartButton: RestartButton?
 
     override init() {
         super.init()
@@ -25,7 +27,15 @@ class UserInputNode: SKNode {
 
         setUpJoysticks()
         setUpElementPane()
+        setUpRestartButton()
+    }
+    
+    private func setUpRestartButton() {
+        elementPane = ElementPane()
 
+        if let elementPane = elementPane {
+            self.addChild(elementPane)
+        }
     }
 
     public func assignInputDelegate(delegate: UserInputDelegate) {

@@ -8,6 +8,24 @@
 import GameplayKit
 
 extension EntityManager {
+
+    func playerDied() {
+        playing = false
+    }
+    
+    func restart() {
+        cleanupLevel()
+        MapUtil.goToMap(level: 0)
+        addPlayer()
+        initialiseGraph()
+
+        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        for entity in mapEntities {
+            add(entity)
+        }
+        playing = true
+    }
+
     func advanceLevel() {
         cleanupLevel()
         MapUtil.advanceToNextMap()

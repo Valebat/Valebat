@@ -29,6 +29,7 @@ class EntityManager {
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
+    var playing: Bool = true
 
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
@@ -194,10 +195,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-        for componentSystem in componentSystems {
-            componentSystem.update(deltaTime: deltaTime)
+        if playing {
+            for componentSystem in componentSystems {
+                componentSystem.update(deltaTime: deltaTime)
+            }
+            updateLastKnownPlayerPosition()
         }
-        updateLastKnownPlayerPosition()
         for curRemove in toRemove {
             for componentSystem in componentSystems {
                 componentSystem.removeComponent(foundIn: curRemove)

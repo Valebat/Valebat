@@ -46,6 +46,13 @@ class MapUtil {
         self.mapEntities = allMapEntities[level]
     }
 
+    static func goToMap(level: Int) {
+        let playerStats = PlayerStatsManager.getInstance()
+        playerStats.level = level
+        map = maps[level]
+        mapEntities = allMapEntities[level]
+    }
+
     static func advanceToNextMap() {
         let playerStats = PlayerStatsManager.getInstance()
         playerStats.level += 1
@@ -56,10 +63,7 @@ class MapUtil {
             mapEntities = allMapEntities[level]
         } else {
             // TODO implement player win here
-            let level = 0
-            playerStats.level = level
-            map = maps[level]
-            mapEntities = allMapEntities[level]
+            goToMap(level: 0)
         }
     }
 

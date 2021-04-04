@@ -20,4 +20,6 @@ struct HUDConstants {
     static let elementQueueGridSize: CGSize = CGSize(width: 34, height: 34)
     static let elementQueueElementSize: CGSize = CGSize(width: 30, height: 30)
     static let elementQueueLength: Int = 2
+    
+    static let restartButtonSize: CGSize = CGSize(width: 90, height: 30)
 }
