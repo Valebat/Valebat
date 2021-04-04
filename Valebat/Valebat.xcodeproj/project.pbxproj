@@ -53,6 +53,7 @@
 		C6A944882616D34800087256 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944872616D34800087256 /* GameConstants.swift */; };
 		C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */; };
 		C6A944962616D5FA00087256 /* IntangibleMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944952616D5FA00087256 /* IntangibleMapObject.swift */; };
+		C6A944A126198C1A00087256 /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -209,6 +210,7 @@
 		C6A944872616D34800087256 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupSpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A944952616D5FA00087256 /* IntangibleMapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntangibleMapObject.swift; sourceTree = "<group>"; };
+		C6A944A026198C1A00087256 /* BiomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeTests.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				C6A943B52605E33D00087256 /* MapObjectTests.swift */,
 				C6A943BE2605EBCC00087256 /* MapTests.swift */,
+				C6A944A026198C1A00087256 /* BiomeTests.swift */,
 			);
 			path = MapTests;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				EF80878A260679A200923494 /* Element.swift in Sources */,
 				EF808787260679A200923494 /* Spell.swift in Sources */,
 				EF80879E2606820700923494 /* SingleElementSpellTests.swift in Sources */,
+				C6A944A126198C1A00087256 /* BiomeTests.swift in Sources */,
 				EF80878B260679A200923494 /* ElementType.swift in Sources */,
 				EF8087532606785000923494 /* GenericSpellTests.swift in Sources */,
 				EF80878F260679A200923494 /* GenericSpell.swift in Sources */,

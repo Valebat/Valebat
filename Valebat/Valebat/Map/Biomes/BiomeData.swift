@@ -6,6 +6,8 @@
 //
 
 class BiomeData {
+    static let minimumSpawnTime: Double = 1.0
+
     var globalObjectSpawnChance: Int = 5
     var globalSpawnChances: [MapObjectEnum: Int] = [.wall: 0,
                                                     .rock: 5,
@@ -24,32 +26,32 @@ class BiomeData {
     }
 
     func withGlobalObjectSpawnChance(_ globalSpawnChance: Int) -> BiomeData {
-        self.globalObjectSpawnChance = min(globalSpawnChance, 255)
+        self.globalObjectSpawnChance = max(0, min(globalSpawnChance, 255))
         return self
     }
 
     func withSpecificObjectSpawnChance(object: MapObjectEnum, spawnChance: Int) -> BiomeData {
-        self.globalSpawnChances[object] = spawnChance
+        self.globalSpawnChances[object] = max(spawnChance, 0)
         return self
     }
 
-    func withIntangibleObjectSpawnChance(object: MapObjectEnum, spawnChance: Int) -> BiomeData {
-        self.intangibleObjectSpawns[object] = spawnChance
+    func withIntangibleObjectSpawns(object: MapObjectEnum, count: Int) -> BiomeData {
+        self.intangibleObjectSpawns[object] = max(count, 0)
         return self
     }
 
     func withGuaranteedSpawns(object: MapObjectEnum, count: Int) -> BiomeData {
-        self.globalGuaranteedSpawns[object] = count
+        self.globalGuaranteedSpawns[object] = max(count, 0)
         return self
     }
 
     func withDefaultSpawnTime(_ spawnTime: Double) -> BiomeData {
-        self.defaultSpawnTime = spawnTime
+        self.defaultSpawnTime = max(spawnTime, BiomeData.minimumSpawnTime)
         return self
     }
 
     func withDefaultStairsTimer(_ timer: Double) -> BiomeData {
-        self.defaultStairsTimer = timer
+        self.defaultStairsTimer = max(timer, 0)
         return self
     }
 }
