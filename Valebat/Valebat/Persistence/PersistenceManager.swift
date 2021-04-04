@@ -51,7 +51,7 @@ class PersistenceManager {
         guard let gameData = try? JSONDecoder().decode(GameData.self, from: data) else {
             fatalError("Can't decode saved data.")
         }
-        
+
         self.gameData = gameData
         gameData.playerData.assignPlayerStats()
         gameData.levelData.assignLevelData()
