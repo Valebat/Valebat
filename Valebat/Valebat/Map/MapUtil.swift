@@ -35,6 +35,17 @@ class MapUtil {
         mapEntities = allMapEntities[0]
     }
 
+    static func generateMapsFromPersistence(savedMaps: [Map]) {
+        self.maps = savedMaps
+        for savedMap in savedMaps {
+            allMapEntities.append(getMapEntities(savedMap))
+        }
+
+        let level = PlayerStatsManager.getInstance().level
+        self.map = maps[level]
+        self.mapEntities = allMapEntities[level]
+    }
+
     static func advanceToNextMap() {
         let playerStats = PlayerStatsManager.getInstance()
         playerStats.level += 1

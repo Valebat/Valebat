@@ -11,6 +11,7 @@ import GameplayKit
 class GameScene: SKScene {
     // Entity-component system
     var entityManager: EntityManager!
+    var persistenceManager: PersistenceManager!
 
     var headsUpDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
@@ -20,23 +21,11 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
 
         entityManager = EntityManager.getInstance(scene: self)
+        persistenceManager = PersistenceManager.getInstance()
 
         setUpScene()
-        setUpPlayerHUD()
         PlayerStatsManager.initialise()
-    }
-    func setUpPlayerHUD() {
-        guard let refNode = SKReferenceNode(fileNamed: "PlayerHUD") else {
-            return
-        }
-        addChild(refNode)
-        refNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        guard let baseNode = refNode.childNode(withName: "//baseHUD") as? PlayerHUD else {
-            return
-        }
-        playerHUDDisplay = baseNode
-        baseNode.xScale = size.width / baseNode.frame.width
-        baseNode.yScale = size.height / baseNode.frame.height
+
     }
     func touchDown(atPoint pos: CGPoint) {
 
@@ -51,13 +40,27 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
-        setUpHUD()
+        persistenceManager.load()
+        setUpUserInputHUD()
+        setUpPlayerHUD()
         entityManager.addPlayer()
-        entityManager.initialiseMaps()
-        entityManager.initialiseGraph()
     }
 
-    private func setUpHUD() {
+    private func setUpPlayerHUD() {
+        guard let refNode = SKReferenceNode(fileNamed: "PlayerHUD") else {
+            return
+        }
+        addChild(refNode)
+        refNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        guard let baseNode = refNode.childNode(withName: "//baseHUD") as? PlayerHUD else {
+            return
+        }
+        playerHUDDisplay = baseNode
+        baseNode.xScale = size.width / baseNode.frame.width
+        baseNode.yScale = size.height / baseNode.frame.height
+    }
+
+    private func setUpUserInputHUD() {
         let hudNode = UserInputNode(screenSize: self.size)
         addChild(hudNode)
         hudNode.assignInputDelegate(delegate: entityManager)

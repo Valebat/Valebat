@@ -6,6 +6,11 @@
 //
 
 class GameData: Codable {
-    var levelData = LevelData()
-    var playerData = PlayerData()
+    var levelData: LevelData
+    var playerData: PlayerData
+
+    init(levelData: LevelData, playerData: PlayerData) {
+        self.levelData = levelData
+        self.playerData = playerData
+    }
 }

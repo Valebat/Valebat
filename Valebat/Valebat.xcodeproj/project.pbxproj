@@ -107,13 +107,14 @@
 		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
 		DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5784172605F35100E15493 /* ElementPaneTests.swift */; };
 		DD703487261428CF00D3602B /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703486261428CF00D3602B /* PlayerMoveComponent.swift */; };
-		DD7034BB2615E93500D3602B /* HeadsUpDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */; };
 		DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BF2615EDF600D3602B /* MovementJoystick.swift */; };
 		DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034C42615F73A00D3602B /* SpellJoystick.swift */; };
 		DD7034F22616E37200D3602B /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034F12616E37200D3602B /* PlayerData.swift */; };
 		DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034F92616E9CD00D3602B /* PersistenceManager.swift */; };
 		DD7034FF2616F23A00D3602B /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034FE2616F23A00D3602B /* LevelData.swift */; };
 		DD70350D26176D6C00D3602B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70350C26176D6C00D3602B /* GameData.swift */; };
+		DD70352C2618317500D3602B /* MapObjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70352B2618317500D3602B /* MapObjectData.swift */; };
+		DD70353126183FF400D3602B /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70353026183FF400D3602B /* MapData.swift */; };
 		EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415225FFC71900341BF5 /* ElementType.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -270,13 +271,14 @@
 		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
 		DD5784172605F35100E15493 /* ElementPaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPaneTests.swift; sourceTree = "<group>"; };
 		DD703486261428CF00D3602B /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
-		DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpDisplayNode.swift; sourceTree = "<group>"; };
 		DD7034BF2615EDF600D3602B /* MovementJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystick.swift; sourceTree = "<group>"; };
 		DD7034C42615F73A00D3602B /* SpellJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellJoystick.swift; sourceTree = "<group>"; };
 		DD7034F12616E37200D3602B /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		DD7034F92616E9CD00D3602B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		DD7034FE2616F23A00D3602B /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		DD70350C26176D6C00D3602B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		DD70352B2618317500D3602B /* MapObjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectData.swift; sourceTree = "<group>"; };
+		DD70353026183FF400D3602B /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 		EF19415225FFC71900341BF5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -642,7 +644,6 @@
 				DD4E015425FF52A7002C5556 /* ElementPane */,
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
 				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
-				DD7034BA2615E93500D3602B /* HeadsUpDisplayNode.swift */,
 				DD4E014125FF412A002C5556 /* HUDConstants.swift */,
 				CB9E9E16261727190016B046 /* PlayerHUD.sks */,
 				CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */,
@@ -689,6 +690,8 @@
 				DD7034F12616E37200D3602B /* PlayerData.swift */,
 				DD7034FE2616F23A00D3602B /* LevelData.swift */,
 				DD70350C26176D6C00D3602B /* GameData.swift */,
+				DD70352B2618317500D3602B /* MapObjectData.swift */,
+				DD70353026183FF400D3602B /* MapData.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -929,7 +932,6 @@
 				CBA494F126038AB1003A05F7 /* CollectingComponent.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
-				DD7034BB2615E93500D3602B /* HeadsUpDisplayNode.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
@@ -938,6 +940,7 @@
 				EF19415B25FFC71900341BF5 /* ElementType.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
+				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
 				CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */,
 				C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
@@ -952,6 +955,7 @@
 				C6A943DC260AFFFB00087256 /* BiomeUtil.swift in Sources */,
 				CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
+				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */,
