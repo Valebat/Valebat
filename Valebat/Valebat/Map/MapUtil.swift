@@ -91,7 +91,7 @@ class MapUtil {
             }
         }
 
-        let spawnedObjects: [MapObject] = SpawnUtil.spawnObject(positions: spawnLocations, withBiomeType: biomeType)
+        let spawnedObjects: [MapObject] = SpawnUtil.spawnObjects(positions: spawnLocations, withBiomeType: biomeType)
 
         mapObjects.append(contentsOf: spawnedObjects)
 
