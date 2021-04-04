@@ -10,4 +10,6 @@ The core of the game is its elemental magic system, featuring type advantages, e
 
 For more details on the project (such as User Manual and Developer Guide), refer to the link below:
 
-https://docs.google.com/document/d/1LLQdVi_wBOLhBQ3wf7fYQWbOCiH3bqT03xRqWQhDvFs/edit?usp=sharing
+[Sprint 1 Report](https://docs.google.com/document/d/1LLQdVi_wBOLhBQ3wf7fYQWbOCiH3bqT03xRqWQhDvFs/edit?usp=sharing)
+
+[Sprint 2 Report](https://docs.google.com/document/d/1mvv-wX_vBnfLjolfX2s0Bn4EAO0h3VMZNcOvfyikAZk/edit?usp=sharing)
