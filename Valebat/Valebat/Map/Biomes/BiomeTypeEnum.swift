@@ -8,4 +8,5 @@
 enum BiomeTypeEnum: String, CaseIterable {
     case normal
     case dungeon
+    case crazyhouse
 }
