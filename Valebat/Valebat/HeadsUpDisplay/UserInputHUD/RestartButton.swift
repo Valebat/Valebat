@@ -20,7 +20,7 @@ class RestartButton: SKSpriteNode {
         let restartText = SKLabelNode(text: "Restart")
         restartText.fontColor = UIColor.black
         restartText.fontSize = 20
-        restartText.position = HUDConstants.textPos
+//        restartText.position = HUDConstants.textPos
         self.addChild(restartText)
     }
 
