@@ -61,6 +61,8 @@ class MapUtil {
             map = maps[level]
             mapEntities = allMapEntities[level]
         }
+        
+        PersistenceManager.getInstance().savePlayerData()
     }
 
     private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {

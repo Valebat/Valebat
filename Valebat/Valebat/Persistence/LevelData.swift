@@ -27,9 +27,9 @@ class LevelData: Codable {
     init() {}
 
     func assignLevelData() {
+        MapUtil.maxLevel = maxLevel
         setLevelList()
         assignMaps()
-        MapUtil.maxLevel = maxLevel
     }
 
     private func assignMaps() {

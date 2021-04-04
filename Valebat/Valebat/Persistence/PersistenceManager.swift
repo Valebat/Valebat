@@ -60,13 +60,16 @@ class PersistenceManager {
     }
 
     private func save() {
-        guard let gameData = self.gameData else { fatalError("Self out of scope") }
-        guard let data = try? JSONEncoder().encode(gameData) else { fatalError("Error encoding data") }
-        do {
-            let outfile = Self.fileURL
-            try data.write(to: outfile)
-        } catch {
-            fatalError("Can't write to file")
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let gameData = self?.gameData else { fatalError("Self out of scope") }
+            guard let data = try? JSONEncoder().encode(gameData) else { fatalError("Error encoding data") }
+            do {
+                let outfile = Self.fileURL
+                try data.write(to: outfile)
+                print("saved to file")
+            } catch {
+                fatalError("Can't write to file")
+            }
         }
     }
 

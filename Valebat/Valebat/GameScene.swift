@@ -12,6 +12,7 @@ class GameScene: SKScene {
     // Entity-component system
     var entityManager: EntityManager!
     var persistenceManager: PersistenceManager!
+    var playerStatsManager: PlayerStatsManager!
 
     var headsUpDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
@@ -22,10 +23,8 @@ class GameScene: SKScene {
 
         entityManager = EntityManager.getInstance(scene: self)
         persistenceManager = PersistenceManager.getInstance()
-
+        playerStatsManager = PlayerStatsManager.getInstance()
         setUpScene()
-        PlayerStatsManager.initialise()
-
     }
     func touchDown(atPoint pos: CGPoint) {
 

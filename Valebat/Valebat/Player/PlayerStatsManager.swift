@@ -10,7 +10,15 @@ import GameplayKit
 class PlayerStatsManager {
 
     static private var instance: PlayerStatsManager!
-    var level: Int
+    var level: Int {
+        didSet {
+            print(oldValue)
+        }
+        willSet {
+            print("playerlevelset")
+            print(newValue)
+        }
+    }
     var maxHP: CGFloat
     var elementalEssence: [BasicType: Int]
     var elements: [BasicType: Element]
@@ -23,12 +31,8 @@ class PlayerStatsManager {
         return instance
     }
 
-    static func initialise() {
+    static private func initialise() {
         self.instance = PlayerStatsManager()
-    }
-
-    func setLevel(_ count: Int) {
-        level = count
     }
 
     init() {
