@@ -10,10 +10,6 @@ class MapObjectConstants {
     static let objectDefaultWidth: Double = Double(ViewConstants.gridSize)
     static let objectDefaultCollidable: Bool = true
 
-    /// Nothing can spawn with 1 radius of this object.
-    /// Only guaranteed spawns can be protected.
-    static let protectedSpawns: [MapObjectEnum] = [.spawner]
-
     static let globalDefaultHeights: [MapObjectEnum: Double] = [.wall: objectDefaultHeight,
                                                                  .rock: objectDefaultHeight,
                                                                  .crate: objectDefaultHeight,

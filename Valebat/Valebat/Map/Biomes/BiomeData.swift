@@ -16,6 +16,10 @@ class BiomeData {
     var globalGuaranteedSpawns: [MapObjectEnum: Int] = [.spawner: 2,
                                                         .stairs: 1]
 
+    /// Nothing can spawn with 1 radius of this object.
+    /// Only guaranteed spawns can be protected.
+    var protectedSpawns: [MapObjectEnum] = [.spawner]
+
     var intangibleObjectSpawns: [MapObjectEnum: Int] = [.powerupSpawner: 1]
 
     var defaultSpawnTime: Double = 7.0
@@ -52,6 +56,12 @@ class BiomeData {
 
     func withDefaultStairsTimer(_ timer: Double) -> BiomeData {
         self.defaultStairsTimer = max(timer, 0)
+        return self
+    }
+
+    /// Currently, only guaranteed spawns can be protected.
+    func withProtectedSpawn(_ object: MapObjectEnum) -> BiomeData {
+        self.protectedSpawns.append(object)
         return self
     }
 }

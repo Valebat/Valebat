@@ -106,6 +106,13 @@ class BiomeTests: XCTestCase {
                        "Global stairs timer cannot be below 0.")
     }
 
+    func test_set_withProtectedSpawn() {
+        biomeData = biomeData
+            .withProtectedSpawn(.crate)
+        XCTAssertEqual(biomeData.protectedSpawns.contains(.crate), true,
+                       "Protected spawn could not be set.")
+    }
+
     func test_set_multipleAttributes() {
         biomeData = biomeData
             .withGlobalObjectSpawnChance(15)

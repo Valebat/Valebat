@@ -60,7 +60,7 @@ class SpawnUtil {
 
                 mapObjects.append(spawnStaticTypedObject(key, position: copiedPositons[rand]))
 
-                if MapObjectConstants.protectedSpawns.contains(key) {
+                if biomeData.protectedSpawns.contains(key) {
                     for xDir in -1...1 {
                         for yDir in -1...1 {
                             let indexToRemove: Int = rand - xDir * (ViewConstants.numGridsAlongY - 1) - yDir
