@@ -90,9 +90,8 @@ class PersistenceManager {
     }
 
     private func assignLevelDataToStorage() {
-        // TODO
-        // let levelData = LevelData(maps: MapUtil.maps, levelDataMap: LevelListUtil.levelDataMap)
-        // gameData?.levelData = levelData
+        let levelData = LevelData(maps: MapUtil.maps)
+        gameData?.levelData = levelData
     }
 
     func savePlayerData() {
