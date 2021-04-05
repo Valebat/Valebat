@@ -21,10 +21,10 @@ struct MapObjectData: Codable {
         guard let mapObjectType = MapObjectEnum(rawValue: type) else {
             return nil
         }
-        let object = GenericMapObject(type: mapObjectType,
-                                      position: CGPoint(x: CGFloat(xPosition), y: CGFloat(yPosition)),
-                                      xDimension: xDimension, yDimension: yDimension,
-                                      collidable: collidable)
+        let object = MapObject(type: mapObjectType,
+                               position: CGPoint(x: CGFloat(xPosition), y: CGFloat(yPosition)),
+                               xDimension: xDimension, yDimension: yDimension,
+                               collidable: collidable)
         return object
     }
 

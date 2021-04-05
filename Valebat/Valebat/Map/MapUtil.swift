@@ -173,7 +173,7 @@ class MapUtil {
         var obstacles: [GKPolygonObstacle] = []
 
         for object in map.objects {
-            let obstacle = GKPolygonObstacle(points: object.getPoints())
+            let obstacle = GKPolygonObstacle(points: MapObjectUtil.getBoundingBoxOfMapObject(object))
             obstacles.append(obstacle)
         }
 
