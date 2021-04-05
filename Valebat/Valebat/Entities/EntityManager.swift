@@ -72,7 +72,7 @@ class EntityManager {
     }
 
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .easy)
+        MapUtil.generateMaps(withLevelType: .medium)
         addMapEntities()
     }
 

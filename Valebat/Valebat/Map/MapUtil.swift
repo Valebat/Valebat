@@ -16,11 +16,11 @@ class MapUtil {
     static var allMapEntities: [[BaseMapEntity]] = []
     static var currentBiome: BiomeTypeEnum = .normal
 
-    static func generateMaps(withLevelType levelType: LevelTypeEnum) {
+    static func generateMaps(withLevelType levelType: LevelListTypeEnum) {
         self.map = Map()
         self.maps = []
 
-        let biomeTypes: [BiomeTypeEnum] = LevelListUtil.getLevelDataFromType(levelType)
+        let biomeTypes: [BiomeTypeEnum] = LevelListTypeEnum.getLevelListFromType(levelType)
         self.maxLevel = biomeTypes.count
 
         let borderedMap = addBordersToMap(Map())
@@ -144,18 +144,21 @@ class MapUtil {
             let point = CGPoint(x: object.position.x, y: object.position.y)
             switch object.type {
             case .wall:
-                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                    position: point)
             case .rock:
-                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                    position: point)
             case .crate:
-                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                     position: point)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                        position: point)
             case .stairs:
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                      timer: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                      timer: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                       position: point)
             case .powerupSpawner:
                 entity = PowerupSpawnerEntity()
