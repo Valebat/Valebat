@@ -7,6 +7,6 @@
 
 import GameplayKit
 
-protocol CollectibleEntity: GKEntity {
+protocol CollectibleEntity: BaseEntity {
     func onCollect(player: PlayerEntity)
 }

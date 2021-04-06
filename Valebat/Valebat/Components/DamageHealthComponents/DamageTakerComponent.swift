@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-class DamageTakerComponent: GKComponent {
+class DamageTakerComponent: BaseComponent {
 
     var multiplierValues = [BasicType: CGFloat]()
 

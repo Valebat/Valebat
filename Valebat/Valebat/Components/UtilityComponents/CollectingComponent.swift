@@ -7,14 +7,14 @@
 
 import GameplayKit
 
-class CollectingComponent: GKComponent, PlayerComponent, ContactObserver {
+class CollectingComponent: BaseComponent, PlayerComponent, ContactObserver {
     var player: PlayerEntity?
 
-    func contact(with entity: GKEntity, seconds: TimeInterval) {
+    func contact(with entity: BaseEntity, seconds: TimeInterval) {
         if let collectible = entity as? CollectibleEntity,
            let player = self.player {
             collectible.onCollect(player: player)
-            EntityManager.getInstance().remove(collectible)
+            baseEntity?.entityManager?.remove(entity)
         }
     }
 

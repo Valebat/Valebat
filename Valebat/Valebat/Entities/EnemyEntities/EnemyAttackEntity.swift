@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class EnemyAttackEntity: GKEntity {
+class EnemyAttackEntity: BaseEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
         super.init()

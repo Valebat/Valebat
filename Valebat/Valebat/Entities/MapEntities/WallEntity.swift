@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class WallEntity: GKEntity, BaseMapEntity {
+class WallEntity: BaseEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .wall
 
     init(size: CGSize, position: CGPoint) {

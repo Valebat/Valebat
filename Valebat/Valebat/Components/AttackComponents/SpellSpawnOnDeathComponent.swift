@@ -20,13 +20,16 @@ class SpellSpawnOnHitComponent: SpellHitComponent {
         guard let pos = self.entity?.component(ofType: SpriteComponent.self)?.node.position else {
             return super.onHit()
         }
+        guard let entityManager = baseEntity?.entityManager else {
+            return super.onHit()
+        }
         guard let spawnType = self.params[0] as? BasicType,
               let spawnLevel = self.params[1] as? Double else {
             return super.onHit()
         }
         for angle in stride(from: 0, to: 2 * Double.pi, by: Double.pi / 4) {
             do {
-                try EntityManager.getInstance().shootSpell(from: pos,
+                try entityManager.shootSpell(from: pos,
                                                            with: CGVector(dx: -sin(angle), dy: cos(angle)),
                                                            using: [Element(with: spawnType, at: spawnLevel)])
             } catch SpellErrors.invalidLevelError {

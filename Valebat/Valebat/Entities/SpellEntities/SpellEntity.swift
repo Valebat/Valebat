@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class SpellEntity: GKEntity {
+class SpellEntity: BaseEntity {
 
     init(velocity: CGVector, spell: Spell, position: CGPoint) {
 

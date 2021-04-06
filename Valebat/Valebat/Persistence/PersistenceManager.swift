@@ -39,17 +39,16 @@ class PersistenceManager {
         self.instance = PersistenceManager()
     }
 
-    func load() {
-        let entityManager = EntityManager.getInstance()
+    func load(entityManager: EntityManager) {
         guard let data = try? Data(contentsOf: Self.fileURL) else {
-            loadInitialData()
+            loadInitialData(entityManager: entityManager)
             return
         }
         guard let gameData = try? JSONDecoder().decode(GameData.self, from: data) else {
             do {
                 let outfile = Self.fileURL
                 try FileManager.default.removeItem(at: outfile)
-                loadInitialData()
+                loadInitialData(entityManager: entityManager)
             } catch {
                 fatalError("Can't write to file")
             }
@@ -63,8 +62,7 @@ class PersistenceManager {
         entityManager.initialiseGraph()
     }
 
-    private func loadInitialData() {
-        let entityManager = EntityManager.getInstance()
+    private func loadInitialData(entityManager: EntityManager) {
         entityManager.initialiseMaps()
         entityManager.initialiseGraph()
         self.gameData = GameData(levelData: LevelData(), playerData: PlayerData())

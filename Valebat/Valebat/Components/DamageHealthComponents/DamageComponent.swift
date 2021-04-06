@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class DamageComponent: GKComponent, ContactObserver {
+class DamageComponent: BaseComponent, ContactObserver {
 
     var damageValues = [BasicType: CGFloat]()
 
@@ -19,7 +19,7 @@ class DamageComponent: GKComponent, ContactObserver {
         super.init()
     }
 
-    func contact(with entity: GKEntity, seconds: TimeInterval) {
+    func contact(with entity: BaseEntity, seconds: TimeInterval) {
         return
     }
 
