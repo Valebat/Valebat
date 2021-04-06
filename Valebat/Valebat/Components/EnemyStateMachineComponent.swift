@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class EnemyStateMachineComponent: GKComponent {
+class EnemyStateMachineComponent: BaseComponent {
 
     var cachedEnemyMoveComponent: EnemyMoveComponent?
     var stateMachine: GKStateMachine!
@@ -28,7 +28,7 @@ class EnemyStateMachineComponent: GKComponent {
     }
     override func update(deltaTime seconds: TimeInterval) {
         guard let origin = getMoveComponent()?.currentPosition,
-              let playerOrigin = EntityManager.getInstance().lastKnownPlayerPosition else {
+              let playerOrigin = baseEntity?.entityManager?.lastKnownPlayerPosition else {
             return
         }
         let distance = (origin - playerOrigin).length()

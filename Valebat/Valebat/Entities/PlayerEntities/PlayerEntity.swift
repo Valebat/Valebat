@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class PlayerEntity: GKEntity {
+class PlayerEntity: BaseEntity {
 
     init(position: CGPoint) {
         super.init()
@@ -31,7 +31,7 @@ class PlayerEntity: GKEntity {
     }
 
     func addPlayerComponent(playerComponent: PlayerComponent) {
-        addComponent(playerComponent)
+        addComponent(playerComponent as BaseComponent)
         playerComponent.player = self
     }
 }

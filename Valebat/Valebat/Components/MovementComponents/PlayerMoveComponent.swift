@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
+class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
     var currentPosition: CGPoint
     var player: PlayerEntity?
 
@@ -21,7 +21,7 @@ class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
     }
     func movePlayer(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self),
-              let graph = EntityManager.getInstance().obstacleGraph else {
+              let graph = baseEntity?.entityManager?.obstacleGraph else {
             return
         }
 

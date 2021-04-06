@@ -14,12 +14,11 @@ import GameplayKit
 protocol DamageTakenObserver {
     func onDamageTaken(damageAmount: CGFloat, currentHealth: CGFloat, maximumHealth: CGFloat)
 }
-class HealthComponent: GKComponent {
+class HealthComponent: BaseComponent {
 
     var damageTakenObservers = [ObjectIdentifier: DamageTakenObserver]()
     let fullHealth: CGFloat
     var health: CGFloat
-    let entityManager = EntityManager.getInstance()
 
     init(health: CGFloat) {
         self.fullHealth = health

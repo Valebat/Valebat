@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class EssenceCollectible: GKEntity, CollectibleEntity {
+class EssenceCollectible: BaseEntity, CollectibleEntity {
 
     var type: BasicType
     var amount: Int

@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class RockEntity: GKEntity, BaseMapEntity {
+class RockEntity: BaseEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .rock
 
     init(size: CGSize, position: CGPoint) {

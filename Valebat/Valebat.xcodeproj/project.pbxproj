@@ -62,6 +62,8 @@
 		CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E3F26174EB90016B046 /* DamageTakerComponent.swift */; };
 		CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E49261759250016B046 /* AudioManager.swift */; };
 		CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9E4E26175AA40016B046 /* Hit.wav */; };
+		CB9E9E76261C5C1E0016B046 /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */; };
+		CB9E9E7B261C5C840016B046 /* BaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E7A261C5C840016B046 /* BaseComponent.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -106,6 +108,7 @@
 		DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7035632619C24200D3602B /* PlayerHUDNode.swift */; };
 		DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
 		DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
+		DD703591261AED5200D3602B /* PositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703590261AED5200D3602B /* PositionData.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
 		EF19415E25FFC71900341BF5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
@@ -224,6 +227,8 @@
 		CB9E9E3F26174EB90016B046 /* DamageTakerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTakerComponent.swift; sourceTree = "<group>"; };
 		CB9E9E49261759250016B046 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		CB9E9E4E26175AA40016B046 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hit.wav; sourceTree = "<group>"; };
+		CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
+		CB9E9E7A261C5C840016B046 /* BaseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseComponent.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -274,6 +279,7 @@
 		DD7035632619C24200D3602B /* PlayerHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHUDNode.swift; sourceTree = "<group>"; };
 		DD7035682619C5D700D3602B /* PlayerLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerLevel.sks; sourceTree = "<group>"; };
 		DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerLevel.swift; sourceTree = "<group>"; };
+		DD703590261AED5200D3602B /* PositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionData.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
 		EF19415525FFC71900341BF5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -343,6 +349,7 @@
 				C6A944532615B69200087256 /* EntityManager+Level.swift */,
 				CBA494DE26036789003A05F7 /* CollisionType.swift */,
 				CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */,
+				CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -416,6 +423,7 @@
 				CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */,
 				CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */,
 				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
+				CB9E9E7A261C5C840016B046 /* BaseComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -711,6 +719,7 @@
 				DD70350C26176D6C00D3602B /* GameData.swift */,
 				DD70352B2618317500D3602B /* MapObjectData.swift */,
 				DD70353026183FF400D3602B /* MapData.swift */,
+				DD703590261AED5200D3602B /* PositionData.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -953,6 +962,7 @@
 				EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */,
 				C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
+				CB9E9E7B261C5C840016B046 /* BaseComponent.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
 				C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */,
 				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
@@ -1026,6 +1036,7 @@
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
 				EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
+				CB9E9E76261C5C1E0016B046 /* BaseEntity.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
@@ -1036,6 +1047,7 @@
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
 				EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */,
+				DD703591261AED5200D3602B /* PositionData.swift in Sources */,
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */,
@@ -1245,7 +1257,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2DY9Z592D2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1264,7 +1276,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2DY9Z592D2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

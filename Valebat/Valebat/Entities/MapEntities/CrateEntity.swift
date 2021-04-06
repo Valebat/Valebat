@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class CrateEntity: GKEntity, BaseMapEntity {
+class CrateEntity: BaseEntity, BaseMapEntity {
     let objectType: MapObjectEnum = .crate
 
     init(size: CGSize, position: CGPoint) {

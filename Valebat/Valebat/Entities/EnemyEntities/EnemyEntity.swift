@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class EnemyEntity: GKEntity {
+class EnemyEntity: BaseEntity {
 
     init(position: CGPoint, image: String = "enemy", startingHP: CGFloat = 10) {
         super.init()

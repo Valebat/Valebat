@@ -7,6 +7,6 @@
 
 import GameplayKit
 
-protocol BaseMapEntity: GKEntity {
+protocol BaseMapEntity: BaseEntity {
     var objectType: MapObjectEnum { get }
 }

@@ -7,14 +7,14 @@
 
 import GameplayKit
 
-class PowerupEntity: GKEntity, CollectibleEntity {
+class PowerupEntity: BaseEntity, CollectibleEntity {
     var powerupType: PowerupEnum?
 
     func onCollect(player: PlayerEntity) {
         guard let type = powerupType else {
             return
         }
-        PowerupUtil.collectedPowerup(type)
+        PowerupUtil.collectedPowerup(type, player: player)
     }
 
     init(position: CGPoint) {

@@ -11,8 +11,8 @@
 import SpriteKit
 import GameplayKit
 
-class RegularMovementComponent: GKComponent, MoveComponent {
-    let entityManager = EntityManager.getInstance()
+class RegularMovementComponent: BaseComponent, MoveComponent {
+
     var velocity: CGVector
     let spellNode: SKNode
     var currentPosition: CGPoint

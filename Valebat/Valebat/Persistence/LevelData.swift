@@ -5,24 +5,37 @@
 //  Created by Zhang Yifan on 2/4/21.
 //
 
-// ideally this shld only be saved/generated once, unless player clicks reset. 
+import SpriteKit
 
 class LevelData: Codable {
     var maps: [MapData] = []
     var maxLevel: Int = 0
+    var freePositions: [PositionData] = []
 
     init(maps: [Map]) {
         for map in maps {
             self.maps.append(MapData.convertToMapData(map))
         }
         maxLevel = MapUtil.maxLevel
+        for pos in SpawnUtil.freePositions {
+            let posData = PositionData()
+            posData.xPos = Float(pos.x)
+            posData.yPos = Float(pos.y)
+            freePositions.append(posData)
+        }
     }
 
     init() {}
 
     func assignLevelData() {
+        var positions: [CGPoint] = []
+        for pos in self.freePositions {
+            positions.append(CGPoint(x: CGFloat(pos.xPos), y: CGFloat(pos.yPos)))
+        }
+        SpawnUtil.freePositions = positions
         MapUtil.maxLevel = maxLevel
         assignMaps()
+
     }
 
     private func assignMaps() {
