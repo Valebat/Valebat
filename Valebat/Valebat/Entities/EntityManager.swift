@@ -14,8 +14,6 @@ import GameplayKit
 
 class EntityManager {
 
-    static private var instance: EntityManager!
-
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
     var toAdd = Set<GKEntity>()
@@ -43,25 +41,7 @@ class EntityManager {
                 powerupSpawnSystem]
     }()
 
-    static func getInstance() -> EntityManager {
-        return instance
-    }
-
-    static func getInstance(scene: SKScene) -> EntityManager {
-        if instance == nil {
-            createInstance(scene: scene)
-        }
-        return instance
-    }
-
-    private static func createInstance(scene: SKScene) {
-        if self.instance != nil {
-            fatalError()
-        }
-        self.instance = EntityManager(scene: scene)
-    }
-
-    private init(scene: SKScene) {
+    init(scene: SKScene) {
         self.scene = scene
 
         let gkScene = GKScene()
@@ -77,7 +57,7 @@ class EntityManager {
     }
 
     func addMapEntities() {
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
 
         for entity in mapEntities {
             add(entity)
@@ -117,23 +97,21 @@ class EntityManager {
     }
 
     func add(_ entity: GKEntity) {
-      /*  entities.insert(entity)
-
-        for componentSystem in componentSystems {
-            componentSystem.addComponent(foundIn: entity)
-        }
-*/
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
         toAdd.insert(entity)
     }
 
+    func add(_ entity: BaseEntity) {
+        add(entity as GKEntity)
+        entity.entityManager = self
+    }
+
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
-
         toRemove.insert(entity)
         entities.remove(entity)
     }

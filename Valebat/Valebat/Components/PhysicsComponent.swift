@@ -9,10 +9,10 @@ import GameplayKit
 import SpriteKit
 
 protocol ContactObserver {
-    func contact(with entity: GKEntity, seconds: TimeInterval)
+    func contact(with entity: BaseEntity, seconds: TimeInterval)
 }
 
-class PhysicsComponent: GKComponent {
+class PhysicsComponent: BaseComponent {
     let physicsBody: SKPhysicsBody
     var contactObservers = [ObjectIdentifier: ContactObserver]()
     init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
@@ -45,8 +45,8 @@ class PhysicsComponent: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         let contactEntities = physicsBody.allContactedBodies()
             .filter({ self.physicsBody.categoryBitMask & $0.contactTestBitMask != 0 })
-            .compactMap({ $0.node?.entity })
-        var filteredEntities = [GKEntity]()
+            .compactMap({ $0.node?.entity }).compactMap({ $0 as? BaseEntity })
+        var filteredEntities = [BaseEntity]()
         var addedIdentifiers = Set<ObjectIdentifier>()
         contactEntities.forEach({ entity in
             if !addedIdentifiers.contains(ObjectIdentifier(entity)) {

@@ -6,7 +6,7 @@
 //
 
 import GameplayKit
-class SpellHitComponent: GKComponent {
+class SpellHitComponent: BaseComponent {
     let animation: SKAction
     let params: [Any]
 
@@ -25,7 +25,7 @@ class SpellHitComponent: GKComponent {
             entity.component(ofType: RegularMovementComponent.self)?.stop() // Removing component doesn't work ?
             entity.removeComponent(ofType: PhysicsComponent.self)
             entity.component(ofType: SpriteComponent.self)?.node.run(self.animation, completion: {
-                EntityManager.getInstance().remove(entity)
+                self.baseEntity?.entityManager?.remove(entity)
             })
         }
     }

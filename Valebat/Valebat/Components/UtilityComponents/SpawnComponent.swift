@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class SpawnComponent: GKComponent {
+class SpawnComponent: BaseComponent {
     let spawnTime: Double
     let location: SpriteComponent
     var clock: Double
@@ -28,7 +28,7 @@ class SpawnComponent: GKComponent {
         clock -= seconds
 
         if clock <= 0 {
-            EntityManager.getInstance().spawnEnemy(at: self.location.node.position)
+            baseEntity?.entityManager?.spawnEnemy(at: self.location.node.position)
             clock = spawnTime
         }
     }

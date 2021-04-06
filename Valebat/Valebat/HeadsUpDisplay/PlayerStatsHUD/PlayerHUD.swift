@@ -13,13 +13,13 @@ class PlayerHUD: SKSpriteNode {
         super.init(coder: aDecoder)
     }
 
-    func updateHUD() {
+    func updateHUD(entityManager: EntityManager) {
         guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar"),
               let levelLabel = childNode(withName: "//PlayerLevel")?
                 .childNode(withName: "//HUDPlayerLevel") else {
             return
         }
-        (hpbar as? PlayerHUDNode)?.update()
-        (levelLabel as? PlayerHUDNode)?.update()
+        (hpbar as? PlayerHUDNode)?.update(entityManager: entityManager)
+        (levelLabel as? PlayerHUDNode)?.update(entityManager: entityManager)
     }
 }

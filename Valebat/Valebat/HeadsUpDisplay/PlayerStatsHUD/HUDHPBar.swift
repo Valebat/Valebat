@@ -17,9 +17,9 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update() {
+    func update(entityManager: EntityManager) {
         let maxHP = PlayerStatsManager.getInstance().maxHP
-        let currentHP = EntityManager.getInstance()
+        let currentHP = entityManager
             .player?.component(ofType: HealthComponent.self)?.health ?? 0
 
         (childNode(withName: "//HP Label") as? SKLabelNode)?.text =

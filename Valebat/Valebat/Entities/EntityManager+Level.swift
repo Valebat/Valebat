@@ -25,7 +25,7 @@ extension EntityManager {
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
         for entity in mapEntities {
             add(entity)
         }
@@ -38,7 +38,7 @@ extension EntityManager {
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
         for entity in mapEntities {
             add(entity)
         }

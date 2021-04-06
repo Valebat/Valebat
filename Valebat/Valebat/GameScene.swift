@@ -21,7 +21,7 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
-        entityManager = EntityManager.getInstance(scene: self)
+        entityManager = EntityManager(scene: self)
         persistenceManager = PersistenceManager.getInstance()
         playerStatsManager = PlayerStatsManager.getInstance()
         setUpScene()
@@ -39,7 +39,7 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
-        persistenceManager.load()
+        persistenceManager.load(entityManager: entityManager)
         setUpUserInputHUD()
         setUpPlayerHUD()
         entityManager.addPlayer()
@@ -88,7 +88,7 @@ class GameScene: SKScene {
         if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
-        playerHUDDisplay.updateHUD()
+        playerHUDDisplay.updateHUD(entityManager: entityManager)
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)

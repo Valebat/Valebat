@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class EnemyMoveComponent: GKComponent, MoveComponent {
+class EnemyMoveComponent: BaseComponent, MoveComponent {
     var currentPosition: CGPoint
     var chaseSpeed: CGFloat
     var normalSpeed: CGFloat
@@ -41,7 +41,7 @@ class EnemyMoveComponent: GKComponent, MoveComponent {
     }
 
     private func getNewPath(targetLocation: CGPoint) {
-        guard let graph = EntityManager.getInstance().obstacleGraph else {
+        guard let graph = baseEntity?.entityManager?.obstacleGraph else {
             return
         }
         let position = currentPosition
@@ -132,7 +132,7 @@ class EnemyMoveComponent: GKComponent, MoveComponent {
     func moveTowardsPlayer(deltaTime: TimeInterval) {
         currentPathTimerCooldown -= deltaTime
         if currentPathTimerCooldown < 0 {
-            if let targetLocation = EntityManager.getInstance().lastKnownPlayerPosition {
+            if let targetLocation = baseEntity?.entityManager?.lastKnownPlayerPosition {
                 getNewPath(targetLocation: targetLocation)
             }
             currentPathTimerCooldown = pathTimerCooldown
