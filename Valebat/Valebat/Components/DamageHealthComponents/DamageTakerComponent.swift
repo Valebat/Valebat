@@ -56,10 +56,6 @@ class DamageTakerComponent: BaseComponent {
     func takeDamage(damages: [BasicType: CGFloat]) {
         let damage = getFinalDamage(damages: damages)
         AudioManager.playSound(soundName: "Hit", cooldown: 0.08)
-        if entity is EnemyEntity {
-            entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage * PlayerModifierUtil.playerDamageMultiplier)
-        } else {
-            entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
-        }
+        entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
     }
 }

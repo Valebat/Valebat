@@ -28,7 +28,8 @@ class SpellEntity: BaseEntity {
         let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
         addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
 
-        let damage = CGFloat(spell.level) * TestConstants.damageValue // Some constant
+        let damage = CGFloat(spell.level) * TestConstants.damageValue
+            * PlayerModifierUtil.playerDamageMultiplier // Some constant
         if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
                                                 type: basicSpell.damageType))
