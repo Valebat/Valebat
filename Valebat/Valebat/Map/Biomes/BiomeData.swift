@@ -22,8 +22,8 @@ class BiomeData {
 
     var intangibleObjectSpawns: [MapObjectEnum: Int] = [.powerupSpawner: 1]
 
-    var defaultSpawnTime: Double = 7.0
-    var defaultStairsTimer: Double = 5.0
+    var defaultSpawnTime: Double = 6.0
+    var defaultStairsTimer: Double = 35.0
 
     init() {
 
