@@ -140,7 +140,7 @@ class MapUtil {
         var entities: [BaseMapEntity] = []
 
         for object in map.objects {
-            var entity: BaseMapEntity
+            var entity: BaseMapObjectEntity
             let point = CGPoint(x: object.position.x, y: object.position.y)
             switch object.type {
             case .wall:
@@ -164,6 +164,18 @@ class MapUtil {
                 entity = PowerupSpawnerEntity()
             }
             entities.append(entity)
+        }
+
+        entities.append(contentsOf: getInitialEnemies())
+
+        return entities
+    }
+
+    static func getInitialEnemies() -> [BaseMapEntity] {
+        var entities: [BaseMapEntity] = []
+
+        if BiomeTypeEnum.getBiomeDataFromType(currentBiome).isBossBiome {
+            entities.append(BossEntity())
         }
 
         return entities

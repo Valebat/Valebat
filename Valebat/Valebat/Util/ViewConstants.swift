@@ -20,6 +20,7 @@ struct ViewConstants {
     static let playerWidth: CGFloat = gridSize * playerToGridRatio
     static let playerHeight: CGFloat = gridSize * playerToGridRatio
     static let playerSpawnOffset: CGFloat = 0.5
+    static let bossSpawnOffset: CGFloat = 0.75
 
     static let baseEnemyEscapeDistance: CGFloat = gridSize / 4
 

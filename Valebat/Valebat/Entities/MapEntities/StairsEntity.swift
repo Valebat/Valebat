@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class StairsEntity: BaseEntity, BaseMapEntity {
+class StairsEntity: BaseEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .stairs
 
     init(size: CGSize, timer: Double, position: CGPoint) {

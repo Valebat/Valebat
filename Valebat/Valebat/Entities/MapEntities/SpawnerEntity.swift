@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class SpawnerEntity: BaseEntity, BaseMapEntity {
+class SpawnerEntity: BaseEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .spawner
 
     init(size: CGSize, defaultSpawnTime: Double, position: CGPoint) {

@@ -50,6 +50,9 @@ class SpawnUtil {
         var guaranteedPositions: [Int] = []
 
         for (key, value) in biomeData.globalGuaranteedSpawns {
+            if value < 1 {
+                continue
+            }
             for _ in 1...value {
                 var rand = Int(arc4random()) % copiedPositons.count
 
@@ -97,7 +100,7 @@ class SpawnUtil {
 
             var rand = Int(arc4random() % 255)
 
-            if biomeData.globalObjectSpawnChance < rand {
+            if biomeData.globalObjectSpawnChance <= rand {
                 continue
             }
 

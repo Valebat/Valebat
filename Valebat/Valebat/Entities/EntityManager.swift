@@ -69,8 +69,14 @@ class EntityManager {
 
         self.obstacles = []
 
-        for entity in mapEntities where MapObjectConstants.globalDefaultCollidables[entity.objectType] ??
-            MapObjectConstants.objectDefaultCollidable {
+        for entity in mapEntities where entity is BaseMapObjectEntity {
+            guard let mapEntity = entity as? BaseMapObjectEntity else {
+                continue
+            }
+            if !(MapObjectConstants.globalDefaultCollidables[mapEntity.objectType] ??
+                    MapObjectConstants.objectDefaultCollidable) {
+                continue
+            }
             var nodes: [SKNode] = []
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
                 nodes.append(spriteComponent.node)
