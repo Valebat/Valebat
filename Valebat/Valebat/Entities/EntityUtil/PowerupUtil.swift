@@ -16,4 +16,9 @@ class PowerupUtil {
             PlayerModifierUtil.playerSpeedMultiplier *= 1.2
         }
     }
+
+    static func resetPowerups() {
+        PlayerModifierUtil.playerDamageMultiplier = 1.0
+        PlayerModifierUtil.playerSpeedMultiplier = 1.0
+    }
 }

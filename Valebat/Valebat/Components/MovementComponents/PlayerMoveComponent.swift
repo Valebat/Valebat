@@ -25,8 +25,10 @@ class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
             return
         }
 
-        let newPosition = CGPoint(x: playerSprite.node.position.x + velocity.x,
-                                  y: playerSprite.node.position.y + velocity.y)
+        let adjustedVelocity = velocity * PlayerModifierUtil.playerSpeedMultiplier
+
+        let newPosition = CGPoint(x: playerSprite.node.position.x + adjustedVelocity.x,
+                                  y: playerSprite.node.position.y + adjustedVelocity.y)
 
         let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
                                                                           Float(playerSprite.node.position.y)))

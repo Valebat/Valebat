@@ -56,7 +56,10 @@ class DamageTakerComponent: GKComponent {
     func takeDamage(damages: [BasicType: CGFloat]) {
         let damage = getFinalDamage(damages: damages)
         AudioManager.playSound(soundName: "Hit", cooldown: 0.08)
-        entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
-
+        if entity is EnemyEntity {
+            entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage * PlayerModifierUtil.playerDamageMultiplier)
+        } else {
+            entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
+        }
     }
 }

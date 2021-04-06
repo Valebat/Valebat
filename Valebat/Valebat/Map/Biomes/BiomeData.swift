@@ -25,6 +25,8 @@ class BiomeData {
     var defaultSpawnTime: Double = 7.0
     var defaultStairsTimer: Double = 5.0
 
+    var isBossBiome: Bool = false
+
     init() {
 
     }
@@ -62,6 +64,11 @@ class BiomeData {
     /// Currently, only guaranteed spawns can be protected.
     func withProtectedSpawn(_ object: MapObjectEnum) -> BiomeData {
         self.protectedSpawns.append(object)
+        return self
+    }
+
+    func setIsBossBiome() -> BiomeData {
+        self.isBossBiome = true
         return self
     }
 }

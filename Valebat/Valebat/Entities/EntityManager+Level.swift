@@ -21,6 +21,7 @@ extension EntityManager {
             userInputNode.toggleRestartButton()
         }
         cleanupLevel()
+        PowerupUtil.resetPowerups()
         MapUtil.goToMap(level: 0)
         addPlayer()
         initialiseGraph()
@@ -34,6 +35,7 @@ extension EntityManager {
 
     func advanceLevel() {
         cleanupLevel()
+        PowerupUtil.resetPowerups()
         MapUtil.advanceToNextMap()
         addPlayer()
         initialiseGraph()

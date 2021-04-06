@@ -9,6 +9,7 @@ enum BiomeTypeEnum: String, CaseIterable {
     case normal
     case dungeon
     case crazyhouse
+    case boss
 }
 
 extension BiomeTypeEnum {
@@ -26,6 +27,11 @@ extension BiomeTypeEnum {
                 .withGlobalObjectSpawnChance(0)
                 .withGuaranteedSpawns(object: .spawner, count: 15)
                 .withDefaultSpawnTime(4.0)
+        case .boss:
+            return BiomeData()
+                .withGlobalObjectSpawnChance(0)
+                .withGuaranteedSpawns(object: .spawner, count: 0)
+                .setIsBossBiome()
         }
     }
 }
