@@ -155,7 +155,11 @@ class MapUtil {
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
                                        defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
-                                       position: point)
+                                       position: point, enemyType: .enemy)
+            case .bossSpawner:
+                entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       position: point, enemyType: .boss)
             case .stairs:
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
                                       timer: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
@@ -164,18 +168,6 @@ class MapUtil {
                 entity = PowerupSpawnerEntity()
             }
             entities.append(entity)
-        }
-
-        entities.append(contentsOf: getInitialEnemies())
-
-        return entities
-    }
-
-    static func getInitialEnemies() -> [BaseMapEntity] {
-        var entities: [BaseMapEntity] = []
-
-        if BiomeTypeEnum.getBiomeDataFromType(currentBiome).isBossBiome {
-            entities.append(BossEntity())
         }
 
         return entities

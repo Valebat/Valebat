@@ -35,6 +35,9 @@ class SpawnUtil {
         var mapObjects: [MapObject] = []
 
         for (key, value) in biomeData.intangibleObjectSpawns {
+            if value < 1 {
+                continue
+            }
             for _ in 1...value {
                 mapObjects.append(spawnIntangibleTypedObject(key))
             }

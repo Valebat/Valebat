@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class BossEntity: EnemyEntity, BaseMapEntity {
+class BossEntity: BaseEnemyEntity, BaseMapEntity {
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
                                         y: ViewConstants.sceneHeight * ViewConstants.bossSpawnOffset)

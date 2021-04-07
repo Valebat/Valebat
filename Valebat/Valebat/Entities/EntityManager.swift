@@ -145,11 +145,11 @@ class EntityManager {
         }
     }
   //  var able = true
-    func spawnEnemy(at location: CGPoint) {
+    func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {
      /*  if !able {
             return
         }*/
-        let enemy = EnemyEntity(position: location)
+        let enemy = SpawnEnemyUtil.spawnEnemyWithType(enemyType, position: location)
         add(enemy)
         // able = false
     }

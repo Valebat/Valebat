@@ -17,7 +17,7 @@ extension LevelListTypeEnum {
         case .easy:
             return [.normal, .normal, .normal, .dungeon, .crazyhouse, .boss]
         case .medium:
-            return [.normal, .dungeon, .dungeon, .crazyhouse, .crazyhouse, .boss]
+            return [.boss, .dungeon, .dungeon, .crazyhouse, .crazyhouse, .boss]
         case .hard:
             return [.normal, .dungeon, .crazyhouse, .dungeon, .boss, .crazyhouse, .crazyhouse, .crazyhouse, .boss]
         }

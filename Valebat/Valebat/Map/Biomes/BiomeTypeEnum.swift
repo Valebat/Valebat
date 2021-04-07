@@ -31,7 +31,7 @@ extension BiomeTypeEnum {
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
                 .withGuaranteedSpawns(object: .spawner, count: 0)
-                .setIsBossBiome()
+                .withIntangibleObjectSpawns(object: .bossSpawner, count: 1)
         }
     }
 }
