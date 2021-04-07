@@ -18,6 +18,7 @@ class EntityManager {
     var toRemove = Set<GKEntity>()
     var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
+    var currentSession: GameSession
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     let scene: SKScene
@@ -41,9 +42,9 @@ class EntityManager {
                 powerupSpawnSystem]
     }()
 
-    init(scene: SKScene) {
+    init(scene: SKScene, currentSession: GameSession) {
         self.scene = scene
-
+        self.currentSession = currentSession
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
@@ -157,7 +158,7 @@ class EntityManager {
     func addPlayer() {
         let spawnLocation = CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
                                 y: scene.size.height * ViewConstants.playerSpawnOffset)
-        let character = PlayerEntity(position: spawnLocation)
+        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats)
         add(character)
         self.player = character
     }

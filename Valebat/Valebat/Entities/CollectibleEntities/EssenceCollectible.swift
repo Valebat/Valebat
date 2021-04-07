@@ -16,7 +16,7 @@ class EssenceCollectible: BaseEntity, CollectibleEntity {
         [.fire: "fireessence", .water: "wateressence", .earth: "earthessence"]
 
     func onCollect(player: PlayerEntity) {
-        PlayerStatsManager.addEssence(type: type, amount: amount)
+        entityManager?.currentSession.playerStats.addEssence(type: type, amount: amount)
     }
 
     init(type: BasicType, amount: Int, location: CGPoint) {

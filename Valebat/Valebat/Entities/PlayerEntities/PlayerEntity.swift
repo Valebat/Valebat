@@ -9,7 +9,7 @@ import GameplayKit
 
 class PlayerEntity: BaseEntity {
 
-    init(position: CGPoint) {
+    init(position: CGPoint, playerStats: PlayerStats) {
         super.init()
 
         let texture = SKTexture(imageNamed: "character")
@@ -17,8 +17,8 @@ class PlayerEntity: BaseEntity {
         let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
         addComponent(spriteComponent)
         addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
-        addComponent(DamageTakerComponent(multipliers: PlayerStatsManager.getInstance().elementalMultipliers))
-        addComponent(HealthComponent(health: PlayerStatsManager.getInstance().maxHP))
+        addComponent(DamageTakerComponent(multipliers: playerStats.elementalMultipliers))
+        addComponent(HealthComponent(health: playerStats.maxHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())

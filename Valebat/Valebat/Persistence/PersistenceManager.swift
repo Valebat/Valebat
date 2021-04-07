@@ -40,6 +40,8 @@ class PersistenceManager {
     }
 
     func load(entityManager: EntityManager) {
+       /* loadInitialData(entityManager: entityManager)
+        return*/
         guard let data = try? Data(contentsOf: Self.fileURL) else {
             loadInitialData(entityManager: entityManager)
             return

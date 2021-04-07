@@ -42,7 +42,7 @@ extension EntityManager: UserInputDelegate {
     }
 
     private func mapBasicType(elementQueue: [BasicType]) -> [Element] {
-        let playerStats = PlayerStatsManager.getInstance()
+        let playerStats = currentSession.playerStats
         return elementQueue.compactMap({ playerStats.elements[$0] ?? nil })
     }
 }

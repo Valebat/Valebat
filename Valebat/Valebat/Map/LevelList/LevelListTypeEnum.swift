@@ -15,9 +15,11 @@ extension LevelListTypeEnum {
     static func getLevelListFromType(_ type: LevelListTypeEnum) -> [BiomeTypeEnum] {
         switch type {
         case .easy:
-            return [.normal, .normal, .normal, .dungeon, .crazyhouse, .boss]
+           // return [.boss]
+             return [.normal, .normal, .normal, .dungeon, .crazyhouse, .boss]
         case .medium:
-            return [.boss, .dungeon, .dungeon, .crazyhouse, .crazyhouse, .boss]
+           // return [.normal]
+             return [.boss, .dungeon, .dungeon, .crazyhouse, .crazyhouse, .boss]
         case .hard:
             return [.normal, .dungeon, .crazyhouse, .dungeon, .boss, .crazyhouse, .crazyhouse, .crazyhouse, .boss]
         }

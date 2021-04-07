@@ -7,25 +7,13 @@
 
 import GameplayKit
 
-class PlayerStatsManager {
+class PlayerStats {
 
-    static private var instance: PlayerStatsManager!
     var level: Int
     var maxHP: CGFloat
     var elementalEssence: [BasicType: Int]
     var elements: [BasicType: Element]
     var elementalMultipliers: [BasicType: CGFloat]
-
-    static func getInstance() -> PlayerStatsManager {
-        if instance == nil {
-            initialise()
-        }
-        return instance
-    }
-
-    static private func initialise() {
-        self.instance = PlayerStatsManager()
-    }
 
     init() {
         level = 0
@@ -44,7 +32,7 @@ class PlayerStatsManager {
         }
     }
 
-    static func addEssence(type: BasicType, amount: Int) {
-        getInstance().elementalEssence[type]! += amount
+    func addEssence(type: BasicType, amount: Int) {
+        elementalEssence[type]! += amount
     }
 }

@@ -41,20 +41,20 @@ class MapUtil {
             allMapEntities.append(getMapEntities(savedMap))
         }
 
-        let level = PlayerStatsManager.getInstance().level
+        let level = PlayerStats.getInstance().level
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
     }
 
     static func goToMap(level: Int) {
-        let playerStats = PlayerStatsManager.getInstance()
+        let playerStats = PlayerStats.getInstance()
         playerStats.level = level
         map = maps[level]
         mapEntities = allMapEntities[level]
     }
 
     static func advanceToNextMap() {
-        let playerStats = PlayerStatsManager.getInstance()
+        let playerStats = PlayerStats.getInstance()
         playerStats.level += 1
         let level = playerStats.level
 
