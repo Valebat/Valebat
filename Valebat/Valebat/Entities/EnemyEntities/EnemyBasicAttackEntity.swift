@@ -7,15 +7,15 @@
 
 import GameplayKit
 
-class EnemyAttackEntity: BaseProjectileEntity {
+class EnemyBasicAttackEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
 
-        let spriteTexture = SKTexture(imageNamed: "GB001")
-        let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
+        let spriteTextures = TextureUltilties.generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
+        let widthHeightRatio = spriteTextures[0].size().width / spriteTextures[0].size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        super.init(texture: spriteTexture, size: spriteSize, physicsType: .enemyAttack,
+        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTextures[0], physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
         addComponent(SpellHitComponent(animatedTextures:
@@ -23,6 +23,18 @@ class EnemyAttackEntity: BaseProjectileEntity {
                                        timePerFrame: 0.05, effectParams: []))
     }
 
+    static func getImage(type: BasicType) -> String {
+        switch type {
+        case .water:
+            return "WB00"
+        case .earth:
+            return "EB00"
+        case .fire:
+            return  "FB00"
+        default:
+            return "GB00"
+        }
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

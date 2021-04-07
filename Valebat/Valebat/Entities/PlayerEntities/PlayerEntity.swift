@@ -30,4 +30,11 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(playerComponent as BaseComponent)
         playerComponent.player = self
     }
+
+    func levelUp() {
+        if let health = component(conformingTo: HealthComponent.self) {
+            health.fullHealth += PlayerStats.maxHPGainPerLevel
+            health.currentHealth += PlayerStats.maxHPGainPerLevel
+        }
+    }
 }

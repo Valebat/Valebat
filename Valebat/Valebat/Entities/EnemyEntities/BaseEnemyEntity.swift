@@ -7,44 +7,27 @@
 
 import GameplayKit
 
-class BaseEnemyEntity: BaseInteractableEntity {
+class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
     var image: String
 
-    init(position: CGPoint, image: String = "enemy",
-         size: CGSize = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
-                               height: ViewConstants.enemyToGridRatio * ViewConstants.gridSize), startingHP: CGFloat = 10) {
-        self.image = image
+    init(enemyData: BasicEnemyData, position: CGPoint) {
+        let size = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
+                          height: ViewConstants.enemyToGridRatio * ViewConstants.gridSize)
+        self.image = enemyData.spriteImage
         let texture = SKTexture(imageNamed: image)
         super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
-        setUpHealth(startingHP: startingHP)
-        addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
-        setUpDamageTaker()
-        setUpMovement(initialPosition: position)
-        setUpAttack()
-        setUpStateMachine()
-        setUpDeath()
-    }
-
-    func setUpDamageTaker() {
-        addComponent(DamageTakerComponent())
-    }
-
-    func setUpHealth(startingHP: CGFloat) {
-        addComponent(HealthComponent(health: startingHP))
-    }
-    func setUpDeath() {
-        addComponent(EnemyDeathComponent())
-    }
-
-    func setUpAttack() {
-        addComponent(EnemyAttackComponent(attackCooldown: 3.0, damageType: .pure, damageValue: 2))
-    }
-    func setUpStateMachine() {
-        addComponent(EnemyStateMachineComponent())
-    }
-
-    func setUpMovement(initialPosition: CGPoint) {
-        addComponent(EnemyMoveComponent(chaseSpeed: 120, normalSpeed: 30, initialPosition: initialPosition))
+        addComponent(HealthComponent(health: enemyData.startingHP))
+        addComponent(HealthBarComponent(barWidth: size.width, barOffset: size.height / 2))
+        addComponent(DamageTakerComponent.getDamageTaker(type: enemyData.enemyType))
+        addComponent(EnemyMoveComponent(chaseSpeed: enemyData.enemyChaseSpeed,
+                                        normalSpeed: enemyData.enemyMoveSpeed, initialPosition: position))
+        addComponent(EnemyAttackComponent(attackCooldown: enemyData.enemyAttackCooldown,
+                                          damageType: enemyData.enemyType,
+                                          damageValue: enemyData.attackDamage,
+                                          attackVelocity: enemyData.attackVelocity))
+        addComponent(EnemyStateMachineComponent(attackRange: enemyData.enemyAttackRange,
+                                                aggroRange: enemyData.enemyAggroRange))
+        addComponent(EnemyDeathComponent(exp: enemyData.deathEXP))
     }
 
     required init?(coder: NSCoder) {

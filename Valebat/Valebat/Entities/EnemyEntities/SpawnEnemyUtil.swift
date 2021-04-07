@@ -8,10 +8,11 @@
 import SpriteKit
 
 class SpawnEnemyUtil {
-    static func spawnEnemyWithType(_ type: EnemyTypeEnum, position: CGPoint) -> BaseEnemyEntity {
+    static func spawnEnemyWithType(_ type: EnemyTypeEnum, position: CGPoint) -> EnemyProtocol {
         switch type {
         case .enemy:
-            return EnemyEntity(position: position)
+            let basicType = BasicEnemyType.init(rawValue: Int.random(in: 0 ... 3))!
+            return BaseEnemyEntity(enemyData: basicType.getEnemyData(), position: position)
         case .boss:
             return BossEntity()
         }

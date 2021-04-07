@@ -16,10 +16,12 @@ class PlayerHUD: SKSpriteNode {
     func updateHUD(entityManager: EntityManager) {
         guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar"),
               let levelLabel = childNode(withName: "//PlayerLevel")?
-                .childNode(withName: "//HUDPlayerLevel") else {
+                .childNode(withName: "//HUDPlayerLevel"),
+              let expBar = childNode(withName: "//PlayerEXP")?.childNode(withName: "//EXPBar") else {
             return
         }
         (hpbar as? PlayerHUDNode)?.update(entityManager: entityManager)
         (levelLabel as? PlayerHUDNode)?.update(entityManager: entityManager)
+        (expBar as? PlayerHUDNode)?.update(entityManager: entityManager)
     }
 }

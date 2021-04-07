@@ -11,8 +11,11 @@ class EnemyStateMachineComponent: BaseComponent {
 
     var cachedEnemyMoveComponent: EnemyMoveComponent?
     var stateMachine: GKStateMachine!
-
-    override init() {
+    var attackRange: CGFloat
+    var aggroRange: CGFloat
+    init(attackRange: CGFloat, aggroRange: CGFloat) {
+        self.aggroRange = aggroRange
+        self.attackRange = attackRange
         super.init()
         let defaultState = DefaultState(stateMachineComponent: self)
         let moveState = MoveState(stateMachineComponent: self)
@@ -32,9 +35,9 @@ class EnemyStateMachineComponent: BaseComponent {
             return
         }
         let distance = (origin - playerOrigin).length()
-        if distance < 250 {
+        if distance < attackRange {
             stateMachine.enter(AttackState.self)
-        } else if distance < 450 {
+        } else if distance < aggroRange {
             stateMachine.enter(MoveState.self)
         } else {
             stateMachine.enter(DefaultState.self)

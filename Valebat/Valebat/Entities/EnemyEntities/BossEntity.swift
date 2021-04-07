@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class BossEntity: BaseEnemyEntity, BaseMapEntity {
+class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
 
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
@@ -16,7 +16,15 @@ class BossEntity: BaseEnemyEntity, BaseMapEntity {
         let image = "boss"
         let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize * 3
         let size = CGSize(width: length, height: length)
-        super.init(position: position, image: image, size: size, startingHP: startingHP)
+        let texture = SKTexture(imageNamed: image)
+        super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
+        addComponent(HealthComponent(health: startingHP))
+        addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
+        addComponent(DamageTakerComponent.getDamageTaker(type: .pure))
+        addComponent(EnemyMoveComponent(chaseSpeed: 1000, normalSpeed: 200, initialPosition: position))
+        addComponent(EnemyAttackComponent(attackCooldown: 1, damageType: .pure, damageValue: 100, attackVelocity: 100))
+        addComponent(EnemyStateMachineComponent(attackRange: 500, aggroRange: 1000))
+        addComponent(DeathComponent())
     }
 
     required init?(coder: NSCoder) {

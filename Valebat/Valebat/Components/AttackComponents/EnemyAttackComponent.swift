@@ -12,8 +12,9 @@ class EnemyAttackComponent: BaseComponent {
     let damageType: BasicType
     let damageValue: CGFloat
     var currentAttackCooldown: TimeInterval = 0.0
-    let attackVelocity: CGFloat = 4
-    init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat) {
+    let attackVelocity: CGFloat
+    init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat, attackVelocity: CGFloat) {
+        self.attackVelocity = attackVelocity
         self.attackCooldown = attackCooldown
         self.damageType = damageType
         self.damageValue = damageValue
@@ -37,7 +38,7 @@ class EnemyAttackComponent: BaseComponent {
                 return
             }
             let velocity = (playerPosition - currentPosition).convertToVector().normalized() * attackVelocity
-            entityManager.add(EnemyAttackEntity(velocity: velocity,
+            entityManager.add(EnemyBasicAttackEntity(velocity: velocity,
                                                               position: currentPosition,
                                                               damageType: damageType,
                                                               damageValue: damageValue))

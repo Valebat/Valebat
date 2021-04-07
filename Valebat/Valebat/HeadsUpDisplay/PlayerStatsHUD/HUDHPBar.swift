@@ -20,10 +20,10 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
     func update(entityManager: EntityManager) {
         let maxHP = entityManager.currentSession.playerStats.maxHP
         let currentHP = entityManager
-            .player?.component(ofType: HealthComponent.self)?.health ?? 0
+            .player?.component(ofType: HealthComponent.self)?.currentHealth ?? 0
 
         (childNode(withName: "//HP Label") as? SKLabelNode)?.text =
-        "\(currentHP) / \(maxHP)"
+            "\(Int(ceil(currentHP))) / \(Int(maxHP))"
         (childNode(withName: "//fillBar") as? SKSpriteNode)?.xScale = originalScale * currentHP / maxHP
     }
 

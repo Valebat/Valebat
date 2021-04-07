@@ -50,6 +50,7 @@ class EntityManager {
         self.gkScene = gkScene
 
         self.spellManager = SpellManager()
+        self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 
     func initialiseMaps() {
@@ -197,5 +198,11 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+    }
+}
+
+extension EntityManager: LevelUPObserver {
+    func onLevelUP(newLevel: Int) {
+        player?.levelUp()
     }
 }

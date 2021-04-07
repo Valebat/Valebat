@@ -31,10 +31,23 @@ class DamageTakerComponent: BaseComponent {
         multiplierValues = multipliers
         super.init()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    static func getDamageTaker(type: BasicType) -> DamageTakerComponent {
+        switch type {
+        case .water:
+            return defaultWaterResist()
+        case .earth:
+            return defaultEarthResist()
+        case .fire:
+            return defaultEarthResist()
+        default:
+            return DamageTakerComponent()
+        }
+    }
     static func defaultWaterResist() -> DamageTakerComponent {
         DamageTakerComponent(water: 1.0, earth: 1.5, fire: 0.75, pure: 1)
     }
