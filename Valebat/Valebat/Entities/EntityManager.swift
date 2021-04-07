@@ -166,7 +166,7 @@ class EntityManager {
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
                     using elementsSelected: [Element]) throws {
         let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
-        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
+        let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
                                 spell: underlyingSpell, position: shootPoint)
         add(spell)
     }

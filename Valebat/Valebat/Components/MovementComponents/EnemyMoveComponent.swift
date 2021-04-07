@@ -8,6 +8,7 @@
 import GameplayKit
 
 class EnemyMoveComponent: BaseComponent, MoveComponent {
+    var orientation: CGFloat?
     var currentPosition: CGPoint
     var chaseSpeed: CGFloat
     var normalSpeed: CGFloat

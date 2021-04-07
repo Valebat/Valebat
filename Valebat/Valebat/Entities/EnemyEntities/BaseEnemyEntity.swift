@@ -7,18 +7,21 @@
 
 import GameplayKit
 
-class BaseEnemyEntity: BaseEntity {
+class BaseEnemyEntity: BaseInteractableEntity {
     var image: String
 
-    init(position: CGPoint, image: String = "enemy", startingHP: CGFloat = 10) {
+    init(position: CGPoint, image: String = "enemy",
+         size: CGSize = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
+                               height: ViewConstants.enemyToGridRatio * ViewConstants.gridSize), startingHP: CGFloat = 10) {
         self.image = image
-        super.init()
-        setUpDamageTaker()
+        let texture = SKTexture(imageNamed: image)
+        super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
         setUpHealth(startingHP: startingHP)
+        addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
+        setUpDamageTaker()
         setUpMovement(initialPosition: position)
         setUpAttack()
         setUpStateMachine()
-        setUpSpriteAndPhysics(imageName: image, position: position)
         setUpDeath()
     }
 
@@ -42,17 +45,6 @@ class BaseEnemyEntity: BaseEntity {
 
     func setUpMovement(initialPosition: CGPoint) {
         addComponent(EnemyMoveComponent(chaseSpeed: 120, normalSpeed: 30, initialPosition: initialPosition))
-    }
-
-    func setUpSpriteAndPhysics(imageName: String, position: CGPoint) {
-        let texture = SKTexture(imageNamed: image)
-        let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize
-        let size = CGSize(width: length, height: length)
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
-        let physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
-        addComponent(spriteComponent)
-        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .enemy))
-        addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
     }
 
     required init?(coder: NSCoder) {

@@ -7,18 +7,11 @@
 
 import GameplayKit
 
-class CrateEntity: BaseEntity, BaseMapObjectEntity {
+class CrateEntity: BaseInteractableEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .crate
 
     init(size: CGSize, position: CGPoint) {
-        super.init()
-
-        let texture = SKTexture(imageNamed: "crate")
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
-        addComponent(spriteComponent)
-
-        let physicsBody = SKPhysicsBody(texture: texture, size: size)
-        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
+        super.init(texture: SKTexture(imageNamed: "crate"), size: size, physicsType: .wall, position: position)
     }
 
     required init?(coder: NSCoder) {

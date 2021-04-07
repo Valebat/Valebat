@@ -14,11 +14,10 @@ import GameplayKit
 class RegularMovementComponent: BaseComponent, MoveComponent {
 
     var velocity: CGVector
-    let spellNode: SKNode
     var currentPosition: CGPoint
-    init(spellNode: SKNode, velocity: CGVector, initialPosition: CGPoint) {
-        self.spellNode = spellNode
-        self.spellNode.zRotation = atan2(velocity.dy, velocity.dx)
+    var orientation: CGFloat?
+    init(velocity: CGVector, initialPosition: CGPoint) {
+        orientation = atan2(velocity.dy, velocity.dx)
         self.velocity = velocity
         self.currentPosition = initialPosition
         super.init()
@@ -30,8 +29,8 @@ class RegularMovementComponent: BaseComponent, MoveComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
-        currentPosition = CGPoint(x: spellNode.position.x + velocity.dx,
-                                     y: spellNode.position.y + velocity.dy)
+        currentPosition = CGPoint(x: currentPosition.x + velocity.dx,
+                                     y: currentPosition.y + velocity.dy)
     }
 
     func stop() {

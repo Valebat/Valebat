@@ -47,6 +47,9 @@ class SpriteComponent: GKSKNodeComponent {
             if let position = getMoveComponent()?.currentPosition {
                 node.position = position
             }
+            if let orientation = getMoveComponent()?.orientation {
+                node.zRotation = orientation
+            }
         }
     }
 }

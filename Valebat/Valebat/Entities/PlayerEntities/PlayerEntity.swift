@@ -7,16 +7,12 @@
 
 import GameplayKit
 
-class PlayerEntity: BaseEntity {
+class PlayerEntity: BaseInteractableEntity {
 
     init(position: CGPoint, playerStats: PlayerStats) {
-        super.init()
-
         let texture = SKTexture(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
-        addComponent(spriteComponent)
-        addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
+        super.init(texture: texture, size: size, physicsType: .player, position: position, isStatic: false)
         addComponent(DamageTakerComponent(multipliers: playerStats.elementalMultipliers))
         addComponent(HealthComponent(health: playerStats.maxHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width,

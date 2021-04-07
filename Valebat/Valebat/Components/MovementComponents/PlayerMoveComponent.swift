@@ -8,6 +8,8 @@
 import GameplayKit
 
 class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
+    var orientation: CGFloat?
+
     var currentPosition: CGPoint
     var player: PlayerEntity?
 

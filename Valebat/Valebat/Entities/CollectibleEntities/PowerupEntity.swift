@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class PowerupEntity: BaseEntity, CollectibleEntity {
+class PowerupEntity: BaseInteractableEntity, CollectibleEntity {
     var powerupType: PowerupEnum?
 
     func onCollect(player: PlayerEntity) {
@@ -18,7 +18,6 @@ class PowerupEntity: BaseEntity, CollectibleEntity {
     }
 
     init(position: CGPoint) {
-        super.init()
 
         powerupType = PowerupEnum(rawValue: Int(arc4random()) % Int(PowerupEnum.allCases.count))
 
@@ -34,14 +33,8 @@ class PowerupEntity: BaseEntity, CollectibleEntity {
         case .none:
             break
         }
-
         let size = CGSize(width: ViewConstants.gridSize, height: ViewConstants.gridSize)
-
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
-        addComponent(spriteComponent)
-
-        let physicsBody = SKPhysicsBody(texture: texture, size: size)
-        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .collectible))
+        super.init(texture: texture, size: size, physicsType: .collectible, position: position)
     }
 
     required init?(coder: NSCoder) {

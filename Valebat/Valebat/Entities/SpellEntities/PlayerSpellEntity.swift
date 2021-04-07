@@ -7,26 +7,16 @@
 
 import GameplayKit
 
-class SpellEntity: BaseEntity {
+class PlayerSpellEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, spell: Spell, position: CGPoint) {
 
-        super.init()
-
-        let spriteTextures = getAnimatedSpell(for: spell)
+        let spriteTextures = PlayerSpellEntity.getAnimatedSpell(for: spell)
         let spriteTexture = spriteTextures[0]
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        let spriteComponent = SpriteComponent(animatedTextures: spriteTextures, size: spriteSize,
-                                              position: position, isStatic: false)
-        addComponent(spriteComponent)
-
-        addComponent(RegularMovementComponent(spellNode: spriteComponent.node,
-                                              velocity: velocity, initialPosition: position))
-
-        let spellPhysicsBody = SKPhysicsBody(texture: spriteTexture, size: spriteSize)
-        addComponent(PhysicsComponent(physicsBody: spellPhysicsBody, collisionType: .playerAttack))
+        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTexture, physicsType: .playerAttack, position: position, velocity: velocity)
 
         let damage = CGFloat(spell.level) * PlayerModifierUtil.playerDamageMultiplier
             * TestConstants.damageValue // Some constant
@@ -41,7 +31,7 @@ class SpellEntity: BaseEntity {
         }
 
         for (effect, effectParams) in zip(spell.effects, spell.effectParams) {
-            addComponent(effect.init(animatedTextures: buildEndAnimation(for: spell),
+            addComponent(effect.init(animatedTextures: PlayerSpellEntity.buildEndAnimation(for: spell),
                                      timePerFrame: 0.05, effectParams: effectParams))
         }
 
@@ -51,18 +41,7 @@ class SpellEntity: BaseEntity {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func getTexturesFromAtlas(atlasName: String) -> [SKTexture] {
-        let atlas = SKTextureAtlas(named: atlasName)
-        var animatedFrames: [SKTexture] = []
-        let numImages = atlas.textureNames.count - 1
-        for index in 1...numImages {
-            let spellTextureName = atlasName + String(index)
-            animatedFrames.append(atlas.textureNamed(spellTextureName))
-        }
-        return animatedFrames
-    }
-
-    func getSpriteFolder(for spell: Spell) -> String {
+    static func getSpriteFolder(for spell: Spell) -> String {
         if let singleElementSpell = spell as? SingleElementSpell {
             let elementType = singleElementSpell.damageType
             switch elementType {
@@ -89,12 +68,12 @@ class SpellEntity: BaseEntity {
         }
     }
 
-    func buildEndAnimation(for spell: Spell) -> [SKTexture] {
-        return getTexturesFromAtlas(atlasName: "explosion") // getSpriteFolder(for: spell) +
+    static func buildEndAnimation(for spell: Spell) -> [SKTexture] {
+        return TextureUltilties.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
     }
 
-    func getAnimatedSpell(for spell: Spell) -> [SKTexture] {
-        return getTexturesFromAtlas(atlasName: getSpriteFolder(for: spell))
+    static func getAnimatedSpell(for spell: Spell) -> [SKTexture] {
+        return TextureUltilties.generateTextures(assetName: getSpriteFolder(for: spell))
     }
 
 }

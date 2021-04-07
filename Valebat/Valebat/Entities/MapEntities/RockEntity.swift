@@ -7,20 +7,12 @@
 
 import GameplayKit
 
-class RockEntity: BaseEntity, BaseMapObjectEntity {
+class RockEntity: BaseInteractableEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .rock
 
     init(size: CGSize, position: CGPoint) {
-        super.init()
-
-        let texture = SKTexture(imageNamed: "rock")
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
-        addComponent(spriteComponent)
-
-        let physicsBody = SKPhysicsBody(texture: texture, size: size)
-        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
+        super.init(texture: SKTexture(imageNamed: "rock"), size: size, physicsType: .wall, position: position)
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
