@@ -41,20 +41,22 @@ class MapUtil {
             allMapEntities.append(getMapEntities(savedMap))
         }
 
-        let level = PlayerStats.getInstance().level
+      //  let level = PlayerStats.getInstance().level
+        let level = 0
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
     }
 
     static func goToMap(level: Int) {
-        let playerStats = PlayerStats.getInstance()
-        playerStats.level = level
+       /* let playerStats = PlayerStats.getInstance()
+        playerStats.level = level*/
         map = maps[level]
         mapEntities = allMapEntities[level]
     }
 
     static func advanceToNextMap() {
-        let playerStats = PlayerStats.getInstance()
+        goToMap(level: 0)
+      /*  let playerStats = PlayerStats.getInstance()
         playerStats.level += 1
         let level = playerStats.level
 
@@ -66,7 +68,7 @@ class MapUtil {
             goToMap(level: 0)
         }
 
-        PersistenceManager.getInstance().savePlayerData()
+        PersistenceManager.getInstance().savePlayerData()*/
     }
 
     private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {

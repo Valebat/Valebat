@@ -9,14 +9,12 @@ import GameplayKit
 
 class PlayerStats {
 
-    var level: Int
     var maxHP: CGFloat
     var elementalEssence: [BasicType: Int]
     var elements: [BasicType: Element]
     var elementalMultipliers: [BasicType: CGFloat]
 
     init() {
-        level = 0
         maxHP = 15
         elementalEssence = [BasicType: Int]()
         elements = [BasicType: Element]()

@@ -19,10 +19,14 @@ class GameScene: SKScene {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-
-        entityManager = EntityManager(scene: self, currentSession: GameSession())
         persistenceManager = PersistenceManager.getInstance()
+        entityManager = EntityManager(scene: self, currentSession: loadGameSession())
         setUpScene()
+    }
+
+    func loadGameSession() -> GameSession {
+        // TODO -> Load Game here!
+        return GameSession()
     }
     func touchDown(atPoint pos: CGPoint) {
 
