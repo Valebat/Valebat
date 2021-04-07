@@ -10,11 +10,11 @@ import GameplayKit
 class TimerComponent: BaseComponent {
     var clock: Double
     var active: Bool = true
-    let parent: GKEntity
+    let parent: BaseEntity
     let spawnedComponent: AdvanceLevelComponent
     let replacementSpriteComponent: SpriteComponent?
 
-    init(timer: Double, component: AdvanceLevelComponent, parent: GKEntity) {
+    init(timer: Double, component: AdvanceLevelComponent, parent: BaseEntity) {
         self.clock = timer
         self.parent = parent
         self.spawnedComponent = component
@@ -22,7 +22,7 @@ class TimerComponent: BaseComponent {
         super.init()
     }
 
-    init(timer: Double, component: AdvanceLevelComponent, parent: GKEntity, sprite: SpriteComponent) {
+    init(timer: Double, component: AdvanceLevelComponent, parent: BaseEntity, sprite: SpriteComponent) {
         self.clock = timer
         self.parent = parent
         self.spawnedComponent = component

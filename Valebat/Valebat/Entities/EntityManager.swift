@@ -122,7 +122,7 @@ class EntityManager {
         entities.remove(entity)
     }
 
-    func replaceSprite(_ entity: GKEntity, component: SpriteComponent) {
+    func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
@@ -131,13 +131,13 @@ class EntityManager {
         scene.addChild(component.node)
     }
 
-    func removeComponentOfEntity(_ entity: GKEntity, component: GKComponent) {
+    func removeComponentOfEntity(_ entity: BaseEntity, component: BaseComponent) {
         for componentSystem in componentSystems {
             componentSystem.removeComponent(component)
         }
     }
 
-    func addComponentToEntity(_ entity: GKEntity, component: GKComponent) {
+    func addComponentToEntity(_ entity: BaseEntity, component: BaseComponent) {
         entity.addComponent(component)
 
         for componentSystem in componentSystems {
