@@ -25,6 +25,7 @@ class EntityManager {
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
+    let objectiveManager: ObjectiveManager
     var playing: Bool = true
 
     weak var persistenceManager: PersistenceManager?
@@ -52,6 +53,7 @@ class EntityManager {
         self.gkScene = gkScene
 
         self.spellManager = SpellManager()
+        self.objectiveManager = ObjectiveManager()
         self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 

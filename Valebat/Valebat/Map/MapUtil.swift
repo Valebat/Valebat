@@ -27,6 +27,7 @@ class MapUtil {
 
         for biomeType in biomeTypes {
             let levelMap = addSpawnsToMap(borderedMap, withBiomeType: biomeType)
+            levelMap.setObjective(ObjectiveUtil.createObjectiveFromBiomeType(biomeType))
             maps.append(levelMap)
             allMapEntities.append(getMapEntities(levelMap))
         }
