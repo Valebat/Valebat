@@ -39,7 +39,8 @@ enum BasicEnemyType: Int {
         case .fireEnemy:
             return BasicEnemyData(spriteImage: "PixieFire", startingHP: 9, attackDamage: 2,
                                   enemyType: .fire, enemyAttackCooldown: 1.3, enemyMoveSpeed: 50,
-                                  enemyAggroRange: 500, enemyAttackRange: 300, enemyChaseSpeed: 150, attackVelocity: 6.7)
+                                  enemyAggroRange: 500, enemyAttackRange: 300,
+                                  enemyChaseSpeed: 150, attackVelocity: 6.7)
         }
     }
 }

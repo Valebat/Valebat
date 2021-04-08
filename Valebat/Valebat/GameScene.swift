@@ -19,8 +19,11 @@ class GameScene: SKScene {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        persistenceManager = PersistenceManager.getInstance()
+
         entityManager = EntityManager(scene: self, currentSession: loadGameSession())
+        persistenceManager = PersistenceManager()
+        persistenceManager.entityManager = entityManager
+        entityManager.persistenceManager = persistenceManager
         setUpScene()
     }
 
@@ -28,6 +31,7 @@ class GameScene: SKScene {
         // TODO -> Load Game here!
         return GameSession()
     }
+
     func touchDown(atPoint pos: CGPoint) {
 
     }
@@ -41,7 +45,7 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
-        persistenceManager.load(entityManager: entityManager)
+        persistenceManager.load()
         setUpUserInputHUD()
         setUpPlayerHUD()
         entityManager.addPlayer()

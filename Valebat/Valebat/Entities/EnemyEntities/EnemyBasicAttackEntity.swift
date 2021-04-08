@@ -11,11 +11,13 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
 
-        let spriteTextures = TextureUltilties.generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
+        let spriteTextures = TextureUltilties
+            .generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
         let widthHeightRatio = spriteTextures[0].size().width / spriteTextures[0].size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTextures[0], physicsType: .enemyAttack,
+        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTextures[0],
+                   physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
         addComponent(SpellHitComponent(animatedTextures:

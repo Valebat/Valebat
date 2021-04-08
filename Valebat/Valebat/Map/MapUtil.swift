@@ -35,40 +35,35 @@ class MapUtil {
         mapEntities = allMapEntities[0]
     }
 
-    static func generateMapsFromPersistence(savedMaps: [Map]) {
+    static func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
         self.maps = savedMaps
         for savedMap in savedMaps {
             allMapEntities.append(getMapEntities(savedMap))
         }
 
-      //  let level = PlayerStats.getInstance().level
-        let level = 0
+        let level = entityManager.currentSession.currentLevel
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
     }
 
-    static func goToMap(level: Int) {
-       /* let playerStats = PlayerStats.getInstance()
-        playerStats.level = level*/
+    static func goToMap(level: Int, entityManager: EntityManager) {
+        entityManager.currentSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
     }
 
-    static func advanceToNextMap() {
-        goToMap(level: 0)
-      /*  let playerStats = PlayerStats.getInstance()
-        playerStats.level += 1
-        let level = playerStats.level
+    static func advanceToNextMap(entityManager: EntityManager) {
+        let gameSession = entityManager.currentSession
+        gameSession.currentLevel += 1
+        let level = gameSession.currentLevel
 
         if level < maxLevel {
             map = maps[level]
             mapEntities = allMapEntities[level]
         } else {
             // TODO implement player win here
-            goToMap(level: 0)
+            goToMap(level: 0, entityManager: entityManager)
         }
-
-        PersistenceManager.getInstance().savePlayerData()*/
     }
 
     private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {

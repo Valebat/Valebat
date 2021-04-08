@@ -22,7 +22,7 @@ extension EntityManager {
         }
         cleanupLevel()
         PowerupUtil.resetPowerups()
-        MapUtil.goToMap(level: 0)
+        MapUtil.goToMap(level: 0, entityManager: self)
         addPlayer()
         initialiseGraph()
 
@@ -36,7 +36,8 @@ extension EntityManager {
     func advanceLevel() {
         cleanupLevel()
         PowerupUtil.resetPowerups()
-        MapUtil.advanceToNextMap()
+        MapUtil.advanceToNextMap(entityManager: self)
+        persistenceManager?.saveAllData()
         addPlayer()
         initialiseGraph()
 
@@ -54,4 +55,5 @@ extension EntityManager {
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
     }
+
 }

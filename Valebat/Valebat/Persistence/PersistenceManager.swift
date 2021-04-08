@@ -9,8 +9,6 @@ import Foundation
 
 class PersistenceManager {
 
-    static private var instance: PersistenceManager!
-
     private static var documentsFolder: URL {
         do {
             return try FileManager.default.url(for: .documentDirectory,
@@ -27,30 +25,21 @@ class PersistenceManager {
     }
 
     var gameData: GameData?
+    weak var entityManager: EntityManager?
 
-    static func getInstance() -> PersistenceManager {
-        if instance == nil {
-            initialise()
+    func load() {
+        guard let entityManager = self.entityManager else {
+            return
         }
-        return instance
-    }
-
-    static private func initialise() {
-        self.instance = PersistenceManager()
-    }
-
-    func load(entityManager: EntityManager) {
-       /* loadInitialData(entityManager: entityManager)
-        return*/
         guard let data = try? Data(contentsOf: Self.fileURL) else {
-            loadInitialData(entityManager: entityManager)
+            loadInitialData()
             return
         }
         guard let gameData = try? JSONDecoder().decode(GameData.self, from: data) else {
             do {
                 let outfile = Self.fileURL
                 try FileManager.default.removeItem(at: outfile)
-                loadInitialData(entityManager: entityManager)
+                loadInitialData()
             } catch {
                 fatalError("Can't write to file")
             }
@@ -58,13 +47,16 @@ class PersistenceManager {
         }
 
         self.gameData = gameData
-        gameData.playerData.assignPlayerStats()
-        gameData.levelData.assignLevelData()
+        gameData.playerData.assignPlayerStats(gameSession: entityManager.currentSession)
+        gameData.levelData.assignLevelData(entityManager: entityManager)
         entityManager.addMapEntities()
         entityManager.initialiseGraph()
     }
 
-    private func loadInitialData(entityManager: EntityManager) {
+    private func loadInitialData() {
+        guard let entityManager = self.entityManager else {
+            return
+        }
         entityManager.initialiseMaps()
         entityManager.initialiseGraph()
         self.gameData = GameData(levelData: LevelData(), playerData: PlayerData())
@@ -85,7 +77,10 @@ class PersistenceManager {
     }
 
     private func assignPlayerDataToStorage() {
-        let playerData = PlayerData.convertToPlayerData()
+        guard let entityManager = self.entityManager else {
+            return
+        }
+        let playerData = PlayerData.convertToPlayerData(gameSession: entityManager.currentSession)
         gameData?.playerData = playerData
     }
 

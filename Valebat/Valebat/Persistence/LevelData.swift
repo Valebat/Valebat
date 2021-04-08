@@ -27,23 +27,23 @@ class LevelData: Codable {
 
     init() {}
 
-    func assignLevelData() {
+    func assignLevelData(entityManager: EntityManager) {
         var positions: [CGPoint] = []
         for pos in self.freePositions {
             positions.append(CGPoint(x: CGFloat(pos.xPos), y: CGFloat(pos.yPos)))
         }
         SpawnUtil.freePositions = positions
         MapUtil.maxLevel = maxLevel
-        assignMaps()
-
+        assignMaps(entityManager: entityManager)
     }
 
-    private func assignMaps() {
+    private func assignMaps(entityManager: EntityManager) {
         var gameMaps: [Map] = []
         for map in self.maps {
             gameMaps.append(map.generateMap())
         }
-        MapUtil.generateMapsFromPersistence(savedMaps: gameMaps)
+        MapUtil.generateMapsFromPersistence(savedMaps: gameMaps,
+                                            entityManager: entityManager)
     }
 
     private func generateLevelListFromString(_ stringList: [String]) -> [BiomeTypeEnum] {

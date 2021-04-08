@@ -27,6 +27,8 @@ class EntityManager {
     let spellManager: SpellManager
     var playing: Bool = true
 
+    weak var persistenceManager: PersistenceManager?
+
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
@@ -146,14 +148,10 @@ class EntityManager {
             componentSystem.addComponent(foundIn: entity)
         }
     }
-  //  var able = true
+
     func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {
-     /*  if !able {
-            return
-        }*/
         let enemy = SpawnEnemyUtil.spawnEnemyWithType(enemyType, position: location)
         add(enemy)
-        // able = false
     }
 
     func addPlayer() {

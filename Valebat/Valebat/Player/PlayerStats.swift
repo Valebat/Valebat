@@ -10,6 +10,7 @@ import GameplayKit
 protocol LevelUPObserver {
     func onLevelUP(newLevel: Int)
 }
+
 class PlayerStats {
 
     var levelUPObservers = [ObjectIdentifier: LevelUPObserver]()
@@ -65,6 +66,7 @@ class PlayerStats {
         maxHP += PlayerStats.maxHPGainPerLevel
         levelUPObservers.values.forEach({ $0.onLevelUP(newLevel: self.currentPlayerLevel) })
     }
+
     static func getEXPPerLevel(level: Int) -> Int {
         return 100 + 25 * (level - 1)
     }

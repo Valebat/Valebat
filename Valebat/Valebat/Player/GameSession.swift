@@ -10,6 +10,7 @@ import Foundation
 class GameSession {
     var playerStats: PlayerStats
     var currentLevel: Int
+
     init() {
         playerStats = PlayerStats()
         currentLevel = 0
