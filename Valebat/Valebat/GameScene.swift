@@ -9,6 +9,9 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+
+    weak var viewController: GameViewController?
+
     // Entity-component system
     var entityManager: EntityManager!
     var persistenceManager: PersistenceManager!
