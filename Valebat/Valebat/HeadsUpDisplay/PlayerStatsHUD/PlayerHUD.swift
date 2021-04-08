@@ -18,7 +18,8 @@ class PlayerHUD: SKSpriteNode {
               let levelLabel = childNode(withName: "//PlayerLevel")?
                 .childNode(withName: "//HUDPlayerLevel"),
               let expBar = childNode(withName: "//PlayerEXP")?.childNode(withName: "//EXPBar"),
-              let objectiveLabel = childNode(withName: "//PlayerObjective") else {
+              let objectiveLabel = childNode(withName: "//PlayerObjective")?
+                .childNode(withName: "//HUDPlayerObjective") else {
             return
         }
         (hpbar as? PlayerHUDNode)?.update(entityManager: entityManager)
