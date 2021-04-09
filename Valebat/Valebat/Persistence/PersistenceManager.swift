@@ -53,7 +53,7 @@ class PersistenceManager {
         entityManager.initialiseGraph()
     }
 
-    private func loadInitialData() {
+    func loadInitialData() {
         guard let entityManager = self.entityManager else {
             return
         }

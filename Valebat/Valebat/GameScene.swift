@@ -11,6 +11,8 @@ import GameplayKit
 class GameScene: SKScene {
 
     weak var viewController: GameViewController?
+    var isNewGame: Bool
+    var isCoop: Bool
 
     // Entity-component system
     var entityManager: EntityManager!
@@ -48,7 +50,11 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
+//        if isNewGame {
+//            persistenceManager.loadInitialData()
+//        } else {
         persistenceManager.load()
+//        }
         setUpUserInputHUD()
         setUpPlayerHUD()
         entityManager.addPlayer()
@@ -106,5 +112,22 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = currentTime
 
+    }
+
+    private override init(size: CGSize) {
+        self.isNewGame = true
+        self.isCoop = false
+        super.init(size: size)
+    }
+
+    convenience init(size: CGSize, isNewGame: Bool, isCoop: Bool) {
+        self.init(size: size)
+
+        self.isNewGame = isNewGame
+        self.isCoop = isCoop
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

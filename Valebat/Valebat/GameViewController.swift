@@ -12,18 +12,26 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var currentScene: GameScene?
+    var isNewGame: Bool?
+    var isCoop: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
+        let isNewGame = self.isNewGame ?? true
+        let isCoop = self.isCoop ?? false
+
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
         ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
         let gameScene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
-                                           height: ViewConstants.sceneHeight))
+                                           height: ViewConstants.sceneHeight),
+                                  isNewGame: isNewGame, isCoop: isCoop)
         self.currentScene = gameScene
         currentScene?.viewController = self
+        currentScene?.isNewGame = isNewGame
+        currentScene?.isCoop = isCoop
 
         gameScene.scaleMode = .aspectFill
 

@@ -11,13 +11,14 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BV1-FR-VrT" customClass="GameViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gni-00-s5r"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,26 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="oIs-ys-4cy">
-                                <rect key="frame" x="0.0" y="0.0" width="1019" height="657"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-new-game" translatesAutoresizingMaskIntoConstraints="NO" id="sI1-gD-ULR">
-                                <rect key="frame" x="105" y="583" width="232" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="RXo-QG-bzE"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-coop-mode" translatesAutoresizingMaskIntoConstraints="NO" id="y03-VP-OCg">
-                                <rect key="frame" x="854" y="583" width="232" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="h1u-KG-EMz"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-resume-game" translatesAutoresizingMaskIntoConstraints="NO" id="7J4-eY-2jE">
-                                <rect key="frame" x="474" y="583" width="232" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="1Y4-Vh-loS"/>
-                                    <constraint firstAttribute="height" constant="128" id="m1L-SF-0iw"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-title" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-9c-pBN">
                                 <rect key="frame" x="-296" y="105" width="1772" height="119"/>
@@ -59,30 +41,60 @@
                                     <constraint firstAttribute="height" constant="119" id="cbd-XX-KYL"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-Yq-VDR" userLabel="newGameButton">
+                                <rect key="frame" x="139" y="583" width="212" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="9Gc-9e-ssW"/>
+                                    <constraint firstAttribute="width" secondItem="Jhj-Yq-VDR" secondAttribute="height" multiplier="53:32" id="kBr-tY-6qK"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="valebat-new-game"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="fM8-dw-OEO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-FB-QK8" userLabel="resumeButtom">
+                                <rect key="frame" x="484" y="583" width="212" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="oDL-8N-7Oh"/>
+                                    <constraint firstAttribute="width" secondItem="XS6-FB-QK8" secondAttribute="height" multiplier="53:32" id="ymj-Dw-8JN"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="valebat-resume-game"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="G1e-gi-8hC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBM-9M-ua6" userLabel="coopButton">
+                                <rect key="frame" x="834" y="583" width="212" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lBM-9M-ua6" secondAttribute="height" multiplier="53:32" id="Gtw-Ru-a99"/>
+                                    <constraint firstAttribute="height" constant="128" id="jDY-Eg-csp"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="valebat-coop-mode"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rzs-L5-BHS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gNz-9c-pBN" firstAttribute="top" secondItem="rzs-L5-BHS" secondAttribute="top" constant="105" id="0UE-Px-sCO"/>
                             <constraint firstItem="rzs-L5-BHS" firstAttribute="trailing" secondItem="oIs-ys-4cy" secondAttribute="trailing" id="5H8-UL-hGR"/>
-                            <constraint firstItem="rzs-L5-BHS" firstAttribute="trailing" secondItem="y03-VP-OCg" secondAttribute="trailing" constant="94" id="63v-9o-qRp"/>
+                            <constraint firstItem="rzs-L5-BHS" firstAttribute="trailing" secondItem="lBM-9M-ua6" secondAttribute="trailing" constant="134" id="6HF-Dk-6Mm"/>
                             <constraint firstItem="oIs-ys-4cy" firstAttribute="leading" secondItem="rzs-L5-BHS" secondAttribute="leading" id="7k9-DB-8r1"/>
-                            <constraint firstItem="y03-VP-OCg" firstAttribute="top" secondItem="7J4-eY-2jE" secondAttribute="top" id="E5p-Yn-zpM"/>
                             <constraint firstItem="oIs-ys-4cy" firstAttribute="top" secondItem="rzs-L5-BHS" secondAttribute="top" id="Iwk-sO-3zO"/>
                             <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="Ng0-OR-PTF"/>
-                            <constraint firstItem="sI1-gD-ULR" firstAttribute="top" secondItem="7J4-eY-2jE" secondAttribute="top" id="TMJ-Yb-lci"/>
                             <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="Umv-Li-EbG"/>
-                            <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="7J4-eY-2jE" secondAttribute="centerX" id="VVK-F1-4jB"/>
                             <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="VhS-V3-FQ3"/>
+                            <constraint firstItem="XS6-FB-QK8" firstAttribute="centerX" secondItem="gNz-9c-pBN" secondAttribute="centerX" id="XbU-pg-y01"/>
+                            <constraint firstItem="Jhj-Yq-VDR" firstAttribute="leading" secondItem="rzs-L5-BHS" secondAttribute="leading" constant="139" id="apc-Jx-34H"/>
+                            <constraint firstItem="rzs-L5-BHS" firstAttribute="bottom" secondItem="XS6-FB-QK8" secondAttribute="bottom" constant="89" id="ckl-LU-D5c"/>
+                            <constraint firstItem="Jhj-Yq-VDR" firstAttribute="top" secondItem="XS6-FB-QK8" secondAttribute="top" id="jie-Dw-tIQ"/>
                             <constraint firstItem="oIs-ys-4cy" firstAttribute="centerY" secondItem="UF8-iW-dPT" secondAttribute="centerY" id="k2v-n5-GYF"/>
-                            <constraint firstItem="y03-VP-OCg" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" id="lCV-9l-Gqh"/>
-                            <constraint firstItem="rzs-L5-BHS" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" constant="89" id="xaF-Qi-D55"/>
-                            <constraint firstItem="sI1-gD-ULR" firstAttribute="leading" secondItem="rzs-L5-BHS" secondAttribute="leading" constant="105" id="ykH-Oq-7aZ"/>
-                            <constraint firstItem="sI1-gD-ULR" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" id="z7a-1a-vfz"/>
+                            <constraint firstItem="lBM-9M-ua6" firstAttribute="top" secondItem="XS6-FB-QK8" secondAttribute="top" id="l7j-rI-pu5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="newGameButton" destination="sI1-gD-ULR" id="Kra-Bd-Qxb"/>
+                        <outlet property="coopModeButton" destination="lBM-9M-ua6" id="Fqe-p8-OrT"/>
+                        <outlet property="newGameButton" destination="Jhj-Yq-VDR" id="P5D-xX-376"/>
+                        <outlet property="resumeGameButton" destination="XS6-FB-QK8" id="0Ig-5y-Hq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-FQ-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,6 +102,9 @@
             <point key="canvasLocation" x="-897.45762711864415" y="69.512195121951223"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="G1e-gi-8hC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="valebat-bg" width="1280" height="719"/>
         <image name="valebat-coop-mode" width="1587" height="939"/>
