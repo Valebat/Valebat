@@ -13,4 +13,5 @@ import GameplayKit
 
 protocol MoveComponent: GKComponent {
     var currentPosition: CGPoint { get set }
+    var orientation: CGFloat? { get set }
 }

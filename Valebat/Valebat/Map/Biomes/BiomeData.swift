@@ -18,12 +18,17 @@ class BiomeData {
 
     /// Nothing can spawn with 1 radius of this object.
     /// Only guaranteed spawns can be protected.
-    var protectedSpawns: [MapObjectEnum] = [.spawner]
+    var protectedSpawns: [MapObjectEnum] = [.spawner,
+                                            .bossSpawner]
 
-    var intangibleObjectSpawns: [MapObjectEnum: Int] = [.powerupSpawner: 1]
+    var intangibleObjectSpawns: [MapObjectEnum: Int] = [.powerupSpawner: 1,
+                                                        .bossSpawner: 0]
 
-    var defaultSpawnTime: Double = 7.0
-    var defaultStairsTimer: Double = 5.0
+    var defaultSpawnTime: Double = 6.0
+    var defaultStairsTimer: Double = 35.0
+
+    var objectiveType: ObjectiveEnum = .kills
+    var objectiveQuantity: Int = 25
 
     init() {
 
@@ -62,6 +67,16 @@ class BiomeData {
     /// Currently, only guaranteed spawns can be protected.
     func withProtectedSpawn(_ object: MapObjectEnum) -> BiomeData {
         self.protectedSpawns.append(object)
+        return self
+    }
+
+    func withObjectiveType(_ objectiveType: ObjectiveEnum) -> BiomeData {
+        self.objectiveType = objectiveType
+        return self
+    }
+
+    func withObjectiveQuantity(_ quantity: Int) -> BiomeData {
+        self.objectiveQuantity = quantity
         return self
     }
 }

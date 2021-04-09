@@ -7,7 +7,9 @@
 
 import GameplayKit
 
-class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
+class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
+    var orientation: CGFloat?
+
     var currentPosition: CGPoint
     var player: PlayerEntity?
 
@@ -21,12 +23,14 @@ class PlayerMoveComponent: GKComponent, PlayerComponent, MoveComponent {
     }
     func movePlayer(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self),
-              let graph = EntityManager.getInstance().obstacleGraph else {
+              let graph = baseEntity?.entityManager?.obstacleGraph else {
             return
         }
 
-        let newPosition = CGPoint(x: playerSprite.node.position.x + velocity.x,
-                                  y: playerSprite.node.position.y + velocity.y)
+        let adjustedVelocity = velocity * PlayerModifierUtil.playerSpeedMultiplier
+
+        let newPosition = CGPoint(x: playerSprite.node.position.x + adjustedVelocity.x,
+                                  y: playerSprite.node.position.y + adjustedVelocity.y)
 
         let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
                                                                           Float(playerSprite.node.position.y)))

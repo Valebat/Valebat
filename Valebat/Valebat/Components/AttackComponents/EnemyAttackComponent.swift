@@ -7,13 +7,14 @@
 
 import GameplayKit
 
-class EnemyAttackComponent: GKComponent {
+class EnemyAttackComponent: BaseComponent {
     let attackCooldown: TimeInterval
     let damageType: BasicType
     let damageValue: CGFloat
     var currentAttackCooldown: TimeInterval = 0.0
-    let attackVelocity: CGFloat = 4
-    init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat) {
+    let attackVelocity: CGFloat
+    init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat, attackVelocity: CGFloat) {
+        self.attackVelocity = attackVelocity
         self.attackCooldown = attackCooldown
         self.damageType = damageType
         self.damageValue = damageValue
@@ -28,13 +29,16 @@ class EnemyAttackComponent: GKComponent {
         currentAttackCooldown -= seconds
     }
     func attack() {
+        guard let entityManager = baseEntity?.entityManager else {
+            return
+        }
         if currentAttackCooldown <= 0 {
             guard let currentPosition = entity?.component(ofType: SpriteComponent.self)?.node.position,
-                  let playerPosition = EntityManager.getInstance().lastKnownPlayerPosition else {
+                  let playerPosition = entityManager.lastKnownPlayerPosition else {
                 return
             }
             let velocity = (playerPosition - currentPosition).convertToVector().normalized() * attackVelocity
-            EntityManager.getInstance().add(EnemyAttackEntity(velocity: velocity,
+            entityManager.add(EnemyBasicAttackEntity(velocity: velocity,
                                                               position: currentPosition,
                                                               damageType: damageType,
                                                               damageValue: damageValue))

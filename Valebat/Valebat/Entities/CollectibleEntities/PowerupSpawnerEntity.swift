@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class PowerupSpawnerEntity: GKEntity, BaseMapEntity {
+class PowerupSpawnerEntity: BaseEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .powerupSpawner
 
     override init() {

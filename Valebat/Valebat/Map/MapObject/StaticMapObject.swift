@@ -8,22 +8,13 @@
 import SpriteKit
 
 class StaticMapObject: MapObject {
-    let type: MapObjectEnum
-
-    let position: CGPoint
-    let xDimension: Double
-    let yDimension: Double
-
-    var collidable: Bool
-
     init(type: MapObjectEnum, position: CGPoint, scale: Double, collidable: Bool) {
-        self.type = type
-        self.position = position
-        self.xDimension = (MapObjectConstants.globalDefaultWidths[type]
+        let xDimension = (MapObjectConstants.globalDefaultWidths[type]
                             ?? MapObjectConstants.objectDefaultWidth) * scale
-        self.yDimension = (MapObjectConstants.globalDefaultHeights[type]
+        let yDimension = (MapObjectConstants.globalDefaultHeights[type]
                             ?? MapObjectConstants.objectDefaultWidth) * scale
-        self.collidable = collidable
+        super.init(type: type, position: position,
+                   xDimension: xDimension, yDimension: yDimension, collidable: collidable)
     }
 
     convenience init(type: MapObjectEnum, position: CGPoint, collidable: Bool) {

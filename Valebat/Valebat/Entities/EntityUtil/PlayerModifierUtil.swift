@@ -5,8 +5,9 @@
 //  Created by Jing Lin Shi on 1/4/21.
 //
 
+import SpriteKit
+
 class PlayerModifierUtil {
-    // TODO make these have effect
-    static var playerDamageMultiplier: Double = 1.0
-    static var playerSpeedMultiplier: Double = 1.0
+    static var playerDamageMultiplier: CGFloat = 1.0
+    static var playerSpeedMultiplier: CGFloat = 1.0
 }

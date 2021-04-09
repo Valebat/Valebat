@@ -14,19 +14,21 @@ import GameplayKit
 
 class EntityManager {
 
-    static private var instance: EntityManager!
-
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
     var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
+    var currentSession: GameSession
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
+    let objectiveManager: ObjectiveManager
     var playing: Bool = true
+
+    weak var persistenceManager: PersistenceManager?
 
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
@@ -43,41 +45,25 @@ class EntityManager {
                 powerupSpawnSystem]
     }()
 
-    static func getInstance() -> EntityManager {
-        return instance
-    }
-
-    static func getInstance(scene: SKScene) -> EntityManager {
-        if instance == nil {
-            createInstance(scene: scene)
-        }
-        return instance
-    }
-
-    private static func createInstance(scene: SKScene) {
-        if self.instance != nil {
-            fatalError()
-        }
-        self.instance = EntityManager(scene: scene)
-    }
-
-    private init(scene: SKScene) {
+    init(scene: SKScene, currentSession: GameSession) {
         self.scene = scene
-
+        self.currentSession = currentSession
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
 
         self.spellManager = SpellManager()
+        self.objectiveManager = ObjectiveManager()
+        self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .easy)
+        MapUtil.generateMaps(withLevelType: .medium)
         addMapEntities()
     }
 
     func addMapEntities() {
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
 
         for entity in mapEntities {
             add(entity)
@@ -89,8 +75,14 @@ class EntityManager {
 
         self.obstacles = []
 
-        for entity in mapEntities where MapObjectConstants.globalDefaultCollidables[entity.objectType] ??
-            MapObjectConstants.objectDefaultCollidable {
+        for entity in mapEntities where entity is BaseMapObjectEntity {
+            guard let mapEntity = entity as? BaseMapObjectEntity else {
+                continue
+            }
+            if !(MapObjectConstants.globalDefaultCollidables[mapEntity.objectType] ??
+                    MapObjectConstants.objectDefaultCollidable) {
+                continue
+            }
             var nodes: [SKNode] = []
             if let spriteComponent = entity.component(ofType: SpriteComponent.self) {
                 nodes.append(spriteComponent.node)
@@ -117,28 +109,26 @@ class EntityManager {
     }
 
     func add(_ entity: GKEntity) {
-      /*  entities.insert(entity)
-
-        for componentSystem in componentSystems {
-            componentSystem.addComponent(foundIn: entity)
-        }
-*/
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
         toAdd.insert(entity)
     }
 
+    func add(_ entity: BaseEntity) {
+        add(entity as GKEntity)
+        entity.entityManager = self
+    }
+
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
-
         toRemove.insert(entity)
         entities.remove(entity)
     }
 
-    func replaceSprite(_ entity: GKEntity, component: SpriteComponent) {
+    func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
@@ -147,33 +137,29 @@ class EntityManager {
         scene.addChild(component.node)
     }
 
-    func removeComponentOfEntity(_ entity: GKEntity, component: GKComponent) {
+    func removeComponentOfEntity(_ entity: BaseEntity, component: BaseComponent) {
         for componentSystem in componentSystems {
             componentSystem.removeComponent(component)
         }
     }
 
-    func addComponentToEntity(_ entity: GKEntity, component: GKComponent) {
+    func addComponentToEntity(_ entity: BaseEntity, component: BaseComponent) {
         entity.addComponent(component)
 
         for componentSystem in componentSystems {
             componentSystem.addComponent(foundIn: entity)
         }
     }
-  //  var able = true
-    func spawnEnemy(at location: CGPoint) {
-     /*  if !able {
-            return
-        }*/
-        let enemy = EnemyEntity(position: location)
+
+    func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {
+        let enemy = SpawnEnemyUtil.spawnEnemyWithType(enemyType, position: location)
         add(enemy)
-        // able = false
     }
 
     func addPlayer() {
         let spawnLocation = CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
                                 y: scene.size.height * ViewConstants.playerSpawnOffset)
-        let character = PlayerEntity(position: spawnLocation)
+        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats)
         add(character)
         self.player = character
     }
@@ -181,7 +167,7 @@ class EntityManager {
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
                     using elementsSelected: [Element]) throws {
         let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
-        let spell = SpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
+        let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
                                 spell: underlyingSpell, position: shootPoint)
         add(spell)
     }
@@ -212,5 +198,11 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+    }
+}
+
+extension EntityManager: LevelUPObserver {
+    func onLevelUP(newLevel: Int) {
+        player?.levelUp()
     }
 }

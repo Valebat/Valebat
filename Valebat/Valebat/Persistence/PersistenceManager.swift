@@ -9,8 +9,6 @@ import Foundation
 
 class PersistenceManager {
 
-    static private var instance: PersistenceManager!
-
     private static var documentsFolder: URL {
         do {
             return try FileManager.default.url(for: .documentDirectory,
@@ -27,20 +25,12 @@ class PersistenceManager {
     }
 
     var gameData: GameData?
-
-    static func getInstance() -> PersistenceManager {
-        if instance == nil {
-            initialise()
-        }
-        return instance
-    }
-
-    static private func initialise() {
-        self.instance = PersistenceManager()
-    }
+    weak var entityManager: EntityManager?
 
     func load() {
-        let entityManager = EntityManager.getInstance()
+        guard let entityManager = self.entityManager else {
+            return
+        }
         guard let data = try? Data(contentsOf: Self.fileURL) else {
             loadInitialData()
             return
@@ -57,14 +47,16 @@ class PersistenceManager {
         }
 
         self.gameData = gameData
-        gameData.playerData.assignPlayerStats()
-        gameData.levelData.assignLevelData()
+        gameData.playerData.assignPlayerStats(gameSession: entityManager.currentSession)
+        gameData.levelData.assignLevelData(entityManager: entityManager)
         entityManager.addMapEntities()
         entityManager.initialiseGraph()
     }
 
     private func loadInitialData() {
-        let entityManager = EntityManager.getInstance()
+        guard let entityManager = self.entityManager else {
+            return
+        }
         entityManager.initialiseMaps()
         entityManager.initialiseGraph()
         self.gameData = GameData(levelData: LevelData(), playerData: PlayerData())
@@ -85,12 +77,15 @@ class PersistenceManager {
     }
 
     private func assignPlayerDataToStorage() {
-        let playerData = PlayerData.convertToPlayerData()
+        guard let entityManager = self.entityManager else {
+            return
+        }
+        let playerData = PlayerData.convertToPlayerData(gameSession: entityManager.currentSession)
         gameData?.playerData = playerData
     }
 
     private func assignLevelDataToStorage() {
-        let levelData = LevelData(maps: MapUtil.maps, levelDataMap: LevelListUtil.levelDataMap)
+        let levelData = LevelData(maps: MapUtil.maps)
         gameData?.levelData = levelData
     }
 

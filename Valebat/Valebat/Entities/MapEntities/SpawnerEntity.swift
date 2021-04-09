@@ -7,19 +7,26 @@
 
 import GameplayKit
 
-class SpawnerEntity: GKEntity, BaseMapEntity {
+class SpawnerEntity: BaseEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .spawner
 
-    init(size: CGSize, defaultSpawnTime: Double, position: CGPoint) {
+    init(size: CGSize, defaultSpawnTime: Double, position: CGPoint, enemyType: EnemyTypeEnum) {
         super.init()
 
         let texture = SKTexture(imageNamed: "spawner")
         let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
 
-        let spawnComponent = SpawnComponent(spawnTime: defaultSpawnTime,
-                                            at: spriteComponent)
-        addComponent(spawnComponent)
+        var spawnComponent: SpawnComponent?
+        switch enemyType {
+        case .enemy:
+            spawnComponent = SpawnComponent(spawnTime: defaultSpawnTime, limit: nil,
+                                                at: spriteComponent, enemyType: .enemy)
+        case .boss:
+            spawnComponent = SpawnComponent(spawnTime: defaultSpawnTime, limit: 1,
+                                                at: spriteComponent, enemyType: .boss)
+        }
+        addComponent(spawnComponent!)
     }
 
     required init?(coder: NSCoder) {

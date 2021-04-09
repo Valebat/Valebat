@@ -21,11 +21,12 @@ extension EntityManager {
             userInputNode.toggleRestartButton()
         }
         cleanupLevel()
-        MapUtil.goToMap(level: 0)
+        PowerupUtil.resetPowerups()
+        MapUtil.goToMap(level: 0, entityManager: self)
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
         for entity in mapEntities {
             add(entity)
         }
@@ -34,11 +35,13 @@ extension EntityManager {
 
     func advanceLevel() {
         cleanupLevel()
-        MapUtil.advanceToNextMap()
+        PowerupUtil.resetPowerups()
+        MapUtil.advanceToNextMap(entityManager: self)
+        persistenceManager?.saveAllData()
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [GKEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = MapUtil.mapEntities
         for entity in mapEntities {
             add(entity)
         }
@@ -52,4 +55,5 @@ extension EntityManager {
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
     }
+
 }

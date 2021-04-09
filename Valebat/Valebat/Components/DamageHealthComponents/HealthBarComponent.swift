@@ -7,11 +7,10 @@
 
 import GameplayKit
 
-class HealthBarComponent: GKComponent, DamageTakenObserver {
+class HealthBarComponent: BaseComponent, DamageTakenObserver {
 
     let healthBarFullWidth: CGFloat
     let healthBar: SKShapeNode
-    let entityManager = EntityManager.getInstance()
 
     init(barWidth: CGFloat, barOffset: CGFloat) {
 

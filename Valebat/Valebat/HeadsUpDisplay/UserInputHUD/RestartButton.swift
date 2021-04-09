@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class RestartButton: SKSpriteNode {
+class RestartButton: SKSpriteNode, UserInputNodeProtocol {
 
     weak var userInputDelegate: UserInputDelegate?
 

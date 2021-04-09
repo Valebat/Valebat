@@ -2,11 +2,11 @@
 //  BaseMapEntity.swift
 //  Valebat
 //
-//  Created by Jing Lin Shi on 20/3/21.
+//  Created by Jing Lin Shi on 7/4/21.
 //
 
 import GameplayKit
 
-protocol BaseMapEntity: GKEntity {
-    var objectType: MapObjectEnum { get }
+protocol BaseMapEntity: BaseEntity {
+
 }

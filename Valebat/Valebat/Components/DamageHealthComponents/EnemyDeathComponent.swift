@@ -7,11 +7,16 @@
 
 import GameplayKit
 class EnemyDeathComponent: DeathComponent {
+    var enemyEXP: Int
+    init(exp: Int) {
+        enemyEXP = exp
+        super.init()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func onDeath() {
-       EntityManager.getInstance()
-            .add(EssenceCollectible(type: .fire, amount: 1,
-                                    location: entity?.component(ofType: SpriteComponent.self)?.node.position ??
-                                        CGPoint(x: 0, y: 0)))
+        baseEntity?.entityManager?.currentSession.playerStats.gainEXP(exp: enemyEXP)
         super.onDeath()
     }
 }

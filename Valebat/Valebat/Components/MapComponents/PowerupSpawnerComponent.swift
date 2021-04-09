@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class PowerupSpawnerComponent: GKComponent {
+class PowerupSpawnerComponent: BaseComponent {
     private let spawnablePositions: [CGPoint]
     private let spawnFrequency: Double = 3.0
     private var clock: Double
@@ -30,7 +30,7 @@ class PowerupSpawnerComponent: GKComponent {
             clock = spawnFrequency
             if spawnablePositions.count != 0 {
                 let randomPosition: CGPoint = spawnablePositions[Int(arc4random()) % Int(spawnablePositions.count)]
-                EntityManager.getInstance().add(PowerupEntity(position: randomPosition))
+                baseEntity?.entityManager?.add(PowerupEntity(position: randomPosition))
             }
         }
     }

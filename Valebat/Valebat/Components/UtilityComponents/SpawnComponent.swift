@@ -7,15 +7,19 @@
 
 import GameplayKit
 
-class SpawnComponent: GKComponent {
+class SpawnComponent: BaseComponent {
     let spawnTime: Double
+    var limit: Int?
     let location: SpriteComponent
     var clock: Double
+    let enemyType: EnemyTypeEnum
 
-    init(spawnTime: Double, at location: SpriteComponent) {
+    init(spawnTime: Double, limit: Int?, at location: SpriteComponent, enemyType: EnemyTypeEnum) {
         self.spawnTime = spawnTime
+        self.limit = limit
         self.clock = Double(Int(arc4random()) % Int(spawnTime * 10)) / 10
         self.location = location
+        self.enemyType = enemyType
         super.init()
     }
 
@@ -27,8 +31,11 @@ class SpawnComponent: GKComponent {
         super.update(deltaTime: seconds)
         clock -= seconds
 
-        if clock <= 0 {
-            EntityManager.getInstance().spawnEnemy(at: self.location.node.position)
+        if clock <= 0 && limit ?? 1 > 0 {
+            baseEntity?.entityManager?.spawnEnemy(at: self.location.node.position, enemyType: enemyType)
+            if limit != nil {
+                limit! -= 1
+            }
             clock = spawnTime
         }
     }

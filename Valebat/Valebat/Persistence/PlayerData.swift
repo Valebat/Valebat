@@ -27,14 +27,14 @@ struct PlayerData: Codable {
         return elements
     }
 
-    func assignPlayerStats() {
-        let playerStats = PlayerStatsManager.getInstance()
-        playerStats.level = level
+    func assignPlayerStats(gameSession: GameSession) {
+        let playerStats = gameSession.playerStats
+        gameSession.currentLevel = level
         playerStats.elements = getElementDictionary()
     }
 
-    static func convertToPlayerData() -> PlayerData {
-        let playerStats = PlayerStatsManager.getInstance()
+    static func convertToPlayerData(gameSession: GameSession) -> PlayerData {
+        let playerStats = gameSession.playerStats
         var elementType: [String] = []
         var elementLevel: [Double] = []
         for (type, element) in playerStats.elements {
@@ -42,7 +42,7 @@ struct PlayerData: Codable {
             elementLevel.append(element.level)
         }
         var playerData = PlayerData()
-        playerData.level = playerStats.level
+        playerData.level = gameSession.currentLevel
         playerData.elementType = elementType
         playerData.elementLevel = elementLevel
         return playerData

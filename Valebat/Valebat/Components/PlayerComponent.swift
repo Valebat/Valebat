@@ -7,6 +7,6 @@
 
 import GameplayKit
 
-protocol PlayerComponent: GKComponent {
+protocol PlayerComponent: BaseComponent {
     var player: PlayerEntity? { get set }
 }

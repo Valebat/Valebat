@@ -7,18 +7,11 @@
 
 import GameplayKit
 
-class WallEntity: GKEntity, BaseMapEntity {
+class WallEntity: BaseInteractableEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .wall
 
     init(size: CGSize, position: CGPoint) {
-        super.init()
-
-        let texture = SKTexture(imageNamed: "wall")
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
-        addComponent(spriteComponent)
-
-        let physicsBody = SKPhysicsBody(texture: texture, size: size)
-        addComponent(PhysicsComponent(physicsBody: physicsBody, collisionType: .wall))
+        super.init(texture: SKTexture(imageNamed: "wall"), size: size, physicsType: .wall, position: position)
     }
 
     required init?(coder: NSCoder) {

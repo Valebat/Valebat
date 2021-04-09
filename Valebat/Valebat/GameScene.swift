@@ -12,7 +12,6 @@ class GameScene: SKScene {
     // Entity-component system
     var entityManager: EntityManager!
     var persistenceManager: PersistenceManager!
-    var playerStatsManager: PlayerStatsManager!
 
     var headsUpDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
@@ -21,11 +20,18 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
-        entityManager = EntityManager.getInstance(scene: self)
-        persistenceManager = PersistenceManager.getInstance()
-        playerStatsManager = PlayerStatsManager.getInstance()
+        entityManager = EntityManager(scene: self, currentSession: loadGameSession())
+        persistenceManager = PersistenceManager()
+        persistenceManager.entityManager = entityManager
+        entityManager.persistenceManager = persistenceManager
         setUpScene()
     }
+
+    func loadGameSession() -> GameSession {
+        // TODO -> Load Game here!
+        return GameSession()
+    }
+
     func touchDown(atPoint pos: CGPoint) {
 
     }
@@ -88,7 +94,7 @@ class GameScene: SKScene {
         if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
-        playerHUDDisplay.updateHUD()
+        playerHUDDisplay.updateHUD(entityManager: entityManager)
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)

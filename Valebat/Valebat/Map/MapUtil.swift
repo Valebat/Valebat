@@ -16,17 +16,18 @@ class MapUtil {
     static var allMapEntities: [[BaseMapEntity]] = []
     static var currentBiome: BiomeTypeEnum = .normal
 
-    static func generateMaps(withLevelType levelType: LevelTypeEnum) {
+    static func generateMaps(withLevelType levelType: LevelListTypeEnum) {
         self.map = Map()
         self.maps = []
 
-        let biomeTypes: [BiomeTypeEnum] = LevelListUtil.getLevelDataFromType(levelType)
+        let biomeTypes: [BiomeTypeEnum] = LevelListTypeEnum.getLevelListFromType(levelType)
         self.maxLevel = biomeTypes.count
 
         let borderedMap = addBordersToMap(Map())
 
         for biomeType in biomeTypes {
             let levelMap = addSpawnsToMap(borderedMap, withBiomeType: biomeType)
+            levelMap.setObjective(ObjectiveUtil.createObjectiveFromBiomeType(biomeType))
             maps.append(levelMap)
             allMapEntities.append(getMapEntities(levelMap))
         }
@@ -35,38 +36,35 @@ class MapUtil {
         mapEntities = allMapEntities[0]
     }
 
-    static func generateMapsFromPersistence(savedMaps: [Map]) {
+    static func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
         self.maps = savedMaps
         for savedMap in savedMaps {
             allMapEntities.append(getMapEntities(savedMap))
         }
 
-        let level = PlayerStatsManager.getInstance().level
+        let level = entityManager.currentSession.currentLevel
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
     }
 
-    static func goToMap(level: Int) {
-        let playerStats = PlayerStatsManager.getInstance()
-        playerStats.level = level
+    static func goToMap(level: Int, entityManager: EntityManager) {
+        entityManager.currentSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
     }
 
-    static func advanceToNextMap() {
-        let playerStats = PlayerStatsManager.getInstance()
-        playerStats.level += 1
-        let level = playerStats.level
+    static func advanceToNextMap(entityManager: EntityManager) {
+        let gameSession = entityManager.currentSession
+        gameSession.currentLevel += 1
+        let level = gameSession.currentLevel
 
         if level < maxLevel {
             map = maps[level]
             mapEntities = allMapEntities[level]
         } else {
             // TODO implement player win here
-            goToMap(level: 0)
+            goToMap(level: 0, entityManager: entityManager)
         }
-
-        PersistenceManager.getInstance().savePlayerData()
     }
 
     private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {
@@ -140,22 +138,29 @@ class MapUtil {
         var entities: [BaseMapEntity] = []
 
         for object in map.objects {
-            var entity: BaseMapEntity
+            var entity: BaseMapObjectEntity
             let point = CGPoint(x: object.position.x, y: object.position.y)
             switch object.type {
             case .wall:
-                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                    position: point)
             case .rock:
-                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                    position: point)
             case .crate:
-                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension), position: point)
+                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                     position: point)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
-                                       position: point)
+                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       position: point, enemyType: .enemy)
+            case .bossSpawner:
+                entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       position: point, enemyType: .boss)
             case .stairs:
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                      timer: BiomeUtil.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                      timer: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                       position: point)
             case .powerupSpawner:
                 entity = PowerupSpawnerEntity()
@@ -170,7 +175,7 @@ class MapUtil {
         var obstacles: [GKPolygonObstacle] = []
 
         for object in map.objects {
-            let obstacle = GKPolygonObstacle(points: object.getPoints())
+            let obstacle = GKPolygonObstacle(points: MapObjectUtil.getBoundingBoxOfMapObject(object))
             obstacles.append(obstacle)
         }
 

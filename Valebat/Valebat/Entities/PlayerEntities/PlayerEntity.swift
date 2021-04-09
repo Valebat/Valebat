@@ -7,18 +7,14 @@
 
 import GameplayKit
 
-class PlayerEntity: GKEntity {
+class PlayerEntity: BaseInteractableEntity {
 
-    init(position: CGPoint) {
-        super.init()
-
+    init(position: CGPoint, playerStats: PlayerStats) {
         let texture = SKTexture(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
-        let spriteComponent = SpriteComponent(texture: texture, size: size, position: position, isStatic: false)
-        addComponent(spriteComponent)
-        addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size), collisionType: .player))
-        addComponent(DamageTakerComponent(multipliers: PlayerStatsManager.getInstance().elementalMultipliers))
-        addComponent(HealthComponent(health: PlayerStatsManager.getInstance().maxHP))
+        super.init(texture: texture, size: size, physicsType: .player, position: position, isStatic: false)
+        addComponent(DamageTakerComponent(multipliers: playerStats.elementalMultipliers))
+        addComponent(HealthComponent(health: playerStats.maxHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
@@ -31,7 +27,14 @@ class PlayerEntity: GKEntity {
     }
 
     func addPlayerComponent(playerComponent: PlayerComponent) {
-        addComponent(playerComponent)
+        addComponent(playerComponent as BaseComponent)
         playerComponent.player = self
+    }
+
+    func levelUp() {
+        if let health = component(conformingTo: HealthComponent.self) {
+            health.fullHealth += PlayerStats.maxHPGainPerLevel
+            health.currentHealth += PlayerStats.maxHPGainPerLevel
+        }
     }
 }

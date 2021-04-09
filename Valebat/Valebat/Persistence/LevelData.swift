@@ -5,51 +5,45 @@
 //  Created by Zhang Yifan on 2/4/21.
 //
 
-// ideally this shld only be saved/generated once, unless player clicks reset. 
+import SpriteKit
 
 class LevelData: Codable {
     var maps: [MapData] = []
-    var levelTypes: [String] = []
-    var levelLists: [[String]] = []
     var maxLevel: Int = 0
+    var freePositions: [PositionData] = []
 
-    init(maps: [Map], levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]]) {
+    init(maps: [Map]) {
         for map in maps {
             self.maps.append(MapData.convertToMapData(map))
         }
-        for (levelType, levelList) in levelDataMap {
-            levelTypes.append(levelType.rawValue)
-            levelLists.append(generateStringListFromLevel(levelList))
-        }
         maxLevel = MapUtil.maxLevel
+        for pos in SpawnUtil.freePositions {
+            let posData = PositionData()
+            posData.xPos = Float(pos.x)
+            posData.yPos = Float(pos.y)
+            freePositions.append(posData)
+        }
     }
 
     init() {}
 
-    func assignLevelData() {
+    func assignLevelData(entityManager: EntityManager) {
+        var positions: [CGPoint] = []
+        for pos in self.freePositions {
+            positions.append(CGPoint(x: CGFloat(pos.xPos), y: CGFloat(pos.yPos)))
+        }
+        SpawnUtil.freePositions = positions
         MapUtil.maxLevel = maxLevel
-        setLevelList()
-        assignMaps()
+        assignMaps(entityManager: entityManager)
     }
 
-    private func assignMaps() {
+    private func assignMaps(entityManager: EntityManager) {
         var gameMaps: [Map] = []
         for map in self.maps {
             gameMaps.append(map.generateMap())
         }
-        MapUtil.generateMapsFromPersistence(savedMaps: gameMaps)
-    }
-
-    private func setLevelList() {
-        var levelDataMap: [LevelTypeEnum: [BiomeTypeEnum]] = [:]
-        for index in 0..<levelTypes.count {
-            guard let levelType = LevelTypeEnum(rawValue: levelTypes[index]) else {
-                continue
-            }
-            let enumLevelList = generateLevelListFromString(levelLists[index])
-            levelDataMap[levelType] = enumLevelList
-        }
-        LevelListUtil.setLevelListFromPersistence(levelDataMap: levelDataMap)
+        MapUtil.generateMapsFromPersistence(savedMaps: gameMaps,
+                                            entityManager: entityManager)
     }
 
     private func generateLevelListFromString(_ stringList: [String]) -> [BiomeTypeEnum] {

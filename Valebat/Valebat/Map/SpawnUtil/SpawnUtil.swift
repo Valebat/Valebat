@@ -14,7 +14,7 @@ class SpawnUtil {
 
     static func spawnObjects(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
-        self.biomeData = BiomeUtil.getBiomeDataFromType(biomeType)
+        self.biomeData = BiomeTypeEnum.getBiomeDataFromType(biomeType)
 
         calculateTotalSpawnChance(biomeData: biomeData)
 
@@ -35,6 +35,9 @@ class SpawnUtil {
         var mapObjects: [MapObject] = []
 
         for (key, value) in biomeData.intangibleObjectSpawns {
+            if value < 1 {
+                continue
+            }
             for _ in 1...value {
                 mapObjects.append(spawnIntangibleTypedObject(key))
             }
@@ -50,6 +53,9 @@ class SpawnUtil {
         var guaranteedPositions: [Int] = []
 
         for (key, value) in biomeData.globalGuaranteedSpawns {
+            if value < 1 {
+                continue
+            }
             for _ in 1...value {
                 var rand = Int(arc4random()) % copiedPositons.count
 
@@ -97,7 +103,7 @@ class SpawnUtil {
 
             var rand = Int(arc4random() % 255)
 
-            if biomeData.globalObjectSpawnChance < rand {
+            if biomeData.globalObjectSpawnChance <= rand {
                 continue
             }
 

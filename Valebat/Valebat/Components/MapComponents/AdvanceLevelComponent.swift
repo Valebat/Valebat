@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class AdvanceLevelComponent: GKComponent {
+class AdvanceLevelComponent: BaseComponent {
     let location: CGPoint
 
     init(at location: CGPoint) {
@@ -20,15 +20,18 @@ class AdvanceLevelComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        guard let playerPosition = EntityManager.getInstance().lastKnownPlayerPosition else {
+        guard let entityManager = baseEntity?.entityManager else {
+            return
+        }
+        guard let playerPosition = entityManager.lastKnownPlayerPosition else {
             return
         }
         let distance = (playerPosition - self.location).length()
         if distance < ViewConstants.gridSize * ViewConstants.stairsSensitivity {
-            if let entity = self.entity {
-                EntityManager.getInstance().remove(entity)
+            if let entity = self.baseEntity {
+                entityManager.remove(entity)
             }
-            EntityManager.getInstance().advanceLevel()
+            entityManager.advanceLevel()
         }
     }
 }

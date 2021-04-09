@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-class DamageTakerComponent: GKComponent {
+class DamageTakerComponent: BaseComponent {
 
     var multiplierValues = [BasicType: CGFloat]()
 
@@ -31,10 +31,23 @@ class DamageTakerComponent: GKComponent {
         multiplierValues = multipliers
         super.init()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    static func getDamageTaker(type: BasicType) -> DamageTakerComponent {
+        switch type {
+        case .water:
+            return defaultWaterResist()
+        case .earth:
+            return defaultEarthResist()
+        case .fire:
+            return defaultEarthResist()
+        default:
+            return DamageTakerComponent()
+        }
+    }
     static func defaultWaterResist() -> DamageTakerComponent {
         DamageTakerComponent(water: 1.0, earth: 1.5, fire: 0.75, pure: 1)
     }
@@ -57,6 +70,5 @@ class DamageTakerComponent: GKComponent {
         let damage = getFinalDamage(damages: damages)
         AudioManager.playSound(soundName: "Hit", cooldown: 0.08)
         entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
-
     }
 }

@@ -10,6 +10,7 @@ enum MapObjectEnum: String, CaseIterable {
     case rock
     case crate
     case spawner
+    case bossSpawner
     case stairs
 
     case powerupSpawner
