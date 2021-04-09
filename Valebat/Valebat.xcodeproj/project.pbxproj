@@ -137,7 +137,7 @@
 		EF61C4F02619A3520076BB3A /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
 		EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */; };
 		EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4FC2619C7F40076BB3A /* RestartButton.swift */; };
-		EF61C5072619DB300076BB3A /* SpellSpawnOnDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */; };
+		EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */; };
 		EF61C5082619DB300076BB3A /* SpellHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5052619DB300076BB3A /* SpellHitComponent.swift */; };
 		EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */; };
 		EF61C5112619DE1F0076BB3A /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */; };
@@ -306,7 +306,7 @@
 		EF61C4BE2618590F0076BB3A /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
 		EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDeathComponent.swift; sourceTree = "<group>"; };
 		EF61C4FC2619C7F40076BB3A /* RestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButton.swift; sourceTree = "<group>"; };
-		EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnDeathComponent.swift; sourceTree = "<group>"; };
+		EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnHitComponent.swift; sourceTree = "<group>"; };
 		EF61C5052619DB300076BB3A /* SpellHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellHitComponent.swift; sourceTree = "<group>"; };
 		EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyAttackComponent.swift; sourceTree = "<group>"; };
 		EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
@@ -524,7 +524,7 @@
 			children = (
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
 				EF61C5052619DB300076BB3A /* SpellHitComponent.swift */,
-				EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */,
+				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -1060,7 +1060,7 @@
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
-				EF61C5072619DB300076BB3A /* SpellSpawnOnDeathComponent.swift in Sources */,
+				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
