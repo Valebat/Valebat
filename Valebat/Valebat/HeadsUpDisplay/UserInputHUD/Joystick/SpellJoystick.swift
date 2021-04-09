@@ -20,6 +20,10 @@ class SpellJoystick: TLAnalogJoystick, UserInputNodeProtocol {
                                                    elementQueue: userInputNode?.elementPane?.elementQueueArray)
     }
 
+    override func didJoystickMove() {
+        self.userInputDelegate?.spellJoystickMoved(angular: self.angular)
+    }
+
     convenience init() {
         let diameter = HUDConstants.joystickDiameter
         let handleRatio: CGFloat = 0.6

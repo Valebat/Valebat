@@ -7,14 +7,12 @@
 
 class SingleElementSpell: Spell {
 
-    let level: Double
     let damageType: BasicType
-    let effects: [SpellHitComponent.Type]
-    let effectParams: [[Any]]
 
     init(with element: Element) {
-        self.level = element.level
         self.damageType = element.type
+        super.init()
+        self.level = element.level
         self.effects = [SpellHitComponent.self]
         self.effectParams = [[]]
     }

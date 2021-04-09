@@ -10,6 +10,11 @@ import GameplayKit
 
 extension EntityManager: UserInputDelegate {
     func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?) {
+        guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
+            return
+        }
+        aimIndicatorComp.onJoystickEnded()
+
         guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
             return
         }
@@ -26,6 +31,15 @@ extension EntityManager: UserInputDelegate {
         } catch {
             print("Unexpected error")
         }
+    }
+
+    func spellJoystickMoved(angular: CGFloat) {
+        guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
+            return
+        }
+
+        aimIndicatorComp.onJoystickMoved(angle: angular,
+                                         playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation)
     }
 
     func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
