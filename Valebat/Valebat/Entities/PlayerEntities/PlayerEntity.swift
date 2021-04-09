@@ -19,6 +19,9 @@ class PlayerEntity: BaseInteractableEntity {
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
         addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
+        addComponent(AimIndicatorComponent(size: CGSize(width: 10,
+                                                        height: texture.size().height/2),
+                                           playerSize: texture.size().height))
         addComponent(PlayerDeathComponent())
     }
 
