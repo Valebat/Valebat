@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MWE-ey-fS4">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -26,35 +26,64 @@
         <!--Menu View Controller-->
         <scene sceneID="ozx-1t-BUk">
             <objects>
-                <viewController id="MWE-ey-fS4" customClass="MenuViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MWE-ey-fS4" customClass="MenuViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UF8-iW-dPT">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="oIs-ys-4cy">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="oIs-ys-4cy">
+                                <rect key="frame" x="0.0" y="0.0" width="1019" height="657"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valebat-new-game" translatesAutoresizingMaskIntoConstraints="NO" id="sI1-gD-ULR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-new-game" translatesAutoresizingMaskIntoConstraints="NO" id="sI1-gD-ULR">
                                 <rect key="frame" x="105" y="583" width="232" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="RXo-QG-bzE"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valebat-coop-mode" translatesAutoresizingMaskIntoConstraints="NO" id="y03-VP-OCg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-coop-mode" translatesAutoresizingMaskIntoConstraints="NO" id="y03-VP-OCg">
                                 <rect key="frame" x="854" y="583" width="232" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="h1u-KG-EMz"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valebat-title" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-9c-pBN">
-                                <rect key="frame" x="328" y="51" width="525" height="119"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valebat-resume-game" translatesAutoresizingMaskIntoConstraints="NO" id="7J4-eY-2jE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-resume-game" translatesAutoresizingMaskIntoConstraints="NO" id="7J4-eY-2jE">
                                 <rect key="frame" x="474" y="583" width="232" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="1Y4-Vh-loS"/>
+                                    <constraint firstAttribute="height" constant="128" id="m1L-SF-0iw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-title" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-9c-pBN">
+                                <rect key="frame" x="-296" y="105" width="1772" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="cbd-XX-KYL"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rzs-L5-BHS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gNz-9c-pBN" firstAttribute="top" secondItem="rzs-L5-BHS" secondAttribute="top" constant="105" id="0UE-Px-sCO"/>
+                            <constraint firstItem="rzs-L5-BHS" firstAttribute="trailing" secondItem="oIs-ys-4cy" secondAttribute="trailing" id="5H8-UL-hGR"/>
+                            <constraint firstItem="rzs-L5-BHS" firstAttribute="trailing" secondItem="y03-VP-OCg" secondAttribute="trailing" constant="94" id="63v-9o-qRp"/>
+                            <constraint firstItem="oIs-ys-4cy" firstAttribute="leading" secondItem="rzs-L5-BHS" secondAttribute="leading" id="7k9-DB-8r1"/>
+                            <constraint firstItem="y03-VP-OCg" firstAttribute="top" secondItem="7J4-eY-2jE" secondAttribute="top" id="E5p-Yn-zpM"/>
+                            <constraint firstItem="oIs-ys-4cy" firstAttribute="top" secondItem="rzs-L5-BHS" secondAttribute="top" id="Iwk-sO-3zO"/>
+                            <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="Ng0-OR-PTF"/>
+                            <constraint firstItem="sI1-gD-ULR" firstAttribute="top" secondItem="7J4-eY-2jE" secondAttribute="top" id="TMJ-Yb-lci"/>
+                            <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="Umv-Li-EbG"/>
+                            <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="7J4-eY-2jE" secondAttribute="centerX" id="VVK-F1-4jB"/>
+                            <constraint firstItem="gNz-9c-pBN" firstAttribute="centerX" secondItem="UF8-iW-dPT" secondAttribute="centerX" id="VhS-V3-FQ3"/>
+                            <constraint firstItem="oIs-ys-4cy" firstAttribute="centerY" secondItem="UF8-iW-dPT" secondAttribute="centerY" id="k2v-n5-GYF"/>
+                            <constraint firstItem="y03-VP-OCg" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" id="lCV-9l-Gqh"/>
+                            <constraint firstItem="rzs-L5-BHS" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" constant="89" id="xaF-Qi-D55"/>
+                            <constraint firstItem="sI1-gD-ULR" firstAttribute="leading" secondItem="rzs-L5-BHS" secondAttribute="leading" constant="105" id="ykH-Oq-7aZ"/>
+                            <constraint firstItem="sI1-gD-ULR" firstAttribute="bottom" secondItem="7J4-eY-2jE" secondAttribute="bottom" id="z7a-1a-vfz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newGameButton" destination="sI1-gD-ULR" id="Kra-Bd-Qxb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-FQ-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
