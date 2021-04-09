@@ -68,7 +68,7 @@ class EntityManager {
 
     func initialiseMaps() {
         mapManager.generateMaps(withLevelType: .medium)
-        addMapEntities()
+        immediateAddMapEntities()
     }
 
     func addMapEntities() {
@@ -76,6 +76,16 @@ class EntityManager {
 
         for entity in mapEntities {
             add(entity)
+        }
+    }
+
+    /// This function is to bypass toAdd on initialisation (as we don't have to accommodate the update loop).
+    /// Do not call this while the game is running.
+    func immediateAddMapEntities() {
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
+
+        for entity in mapEntities {
+            immediateAdd(entity)
         }
     }
 
@@ -126,6 +136,21 @@ class EntityManager {
 
     func add(_ entity: BaseEntity) {
         add(entity as GKEntity)
+        entity.entityManager = self
+    }
+
+    private func immediateAdd(_ entity: GKEntity) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            scene.addChild(spriteNode)
+        }
+        entities.insert(entity)
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+    }
+
+    private func immediateAdd(_ entity: BaseEntity) {
+        immediateAdd(entity as GKEntity)
         entity.entityManager = self
     }
 

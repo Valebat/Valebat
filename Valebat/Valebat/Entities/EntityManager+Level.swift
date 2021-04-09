@@ -9,11 +9,7 @@ import GameplayKit
 
 extension EntityManager {
     func initialiseLevel() {
-        let mapEntities: [BaseEntity] = mapManager.mapEntities
-        for entity in mapEntities {
-            add(entity)
-        }
-
+        immediateAddMapEntities()
         addPlayer()
         initialiseGraph()
         initialiseObservers()
@@ -55,13 +51,6 @@ extension EntityManager {
 
     func initialiseObservers() {
         for entity in self.entities where entity is ObjectiveObserver {
-            guard let observer = entity as? ObjectiveObserver else {
-                continue
-            }
-            self.objectiveManager.registerObserver(observer)
-        }
-
-        for entity in self.toAdd where entity is ObjectiveObserver {
             guard let observer = entity as? ObjectiveObserver else {
                 continue
             }

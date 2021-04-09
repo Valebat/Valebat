@@ -49,7 +49,7 @@ class PersistenceManager {
         self.gameData = gameData
         gameData.playerData.assignPlayerStats(gameSession: entityManager.currentSession)
         gameData.levelData.assignLevelData(entityManager: entityManager)
-        entityManager.addMapEntities()
+        entityManager.immediateAddMapEntities()
         entityManager.initialiseGraph()
     }
 
