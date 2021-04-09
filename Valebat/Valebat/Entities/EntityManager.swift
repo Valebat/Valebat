@@ -25,6 +25,9 @@ class EntityManager {
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
+    let objectiveManager: ObjectiveManager
+    var mapManager: MapManager!
+    let spawnManager: SpawnManager
     var playing: Bool = true
 
     weak var persistenceManager: PersistenceManager?
@@ -36,12 +39,10 @@ class EntityManager {
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
-                powerupSpawnSystem]
+                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem]
     }()
 
     init(scene: SKScene, currentSession: GameSession) {
@@ -52,24 +53,44 @@ class EntityManager {
         self.gkScene = gkScene
 
         self.spellManager = SpellManager()
+        self.objectiveManager = ObjectiveManager()
+        self.spawnManager = SpawnManager()
+        self.mapManager = MapManager(entityManager: self, spawnManager: spawnManager,
+                                     objectiveManager: objectiveManager)
         self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 
+    func setup() {
+        initialiseMaps()
+        initialiseGraph()
+        initialiseObservers()
+    }
+
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .medium)
-        addMapEntities()
+        mapManager.generateMaps(withLevelType: .medium)
+        immediateAddMapEntities()
     }
 
     func addMapEntities() {
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
 
         for entity in mapEntities {
             add(entity)
         }
     }
 
+    /// This function is to bypass toAdd on initialisation (as we don't have to accommodate the update loop).
+    /// Do not call this while the game is running.
+    func immediateAddMapEntities() {
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
+
+        for entity in mapEntities {
+            immediateAdd(entity)
+        }
+    }
+
     func initialiseGraph() {
-        let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseMapEntity] = mapManager.mapEntities
 
         self.obstacles = []
 
@@ -115,6 +136,21 @@ class EntityManager {
 
     func add(_ entity: BaseEntity) {
         add(entity as GKEntity)
+        entity.entityManager = self
+    }
+
+    private func immediateAdd(_ entity: GKEntity) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            scene.addChild(spriteNode)
+        }
+        entities.insert(entity)
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+    }
+
+    private func immediateAdd(_ entity: BaseEntity) {
+        immediateAdd(entity as GKEntity)
         entity.entityManager = self
     }
 

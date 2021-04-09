@@ -27,6 +27,9 @@ class BiomeData {
     var defaultSpawnTime: Double = 6.0
     var defaultStairsTimer: Double = 35.0
 
+    var objectiveType: ObjectiveEnum = .kills
+    var objectiveQuantity: Int = 25
+
     init() {
 
     }
@@ -64,6 +67,16 @@ class BiomeData {
     /// Currently, only guaranteed spawns can be protected.
     func withProtectedSpawn(_ object: MapObjectEnum) -> BiomeData {
         self.protectedSpawns.append(object)
+        return self
+    }
+
+    func withObjectiveType(_ objectiveType: ObjectiveEnum) -> BiomeData {
+        self.objectiveType = objectiveType
+        return self
+    }
+
+    func withObjectiveQuantity(_ quantity: Int) -> BiomeData {
+        self.objectiveQuantity = quantity
         return self
     }
 }

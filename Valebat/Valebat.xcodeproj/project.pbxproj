@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */ = {isa = PBXBuildFile; fileRef = C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */; };
+		C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
-		C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapUtil.swift */; };
+		C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapManager.swift */; };
 		C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */; };
 		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
@@ -21,7 +23,7 @@
 		C6A9431625FE494100087256 /* RockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431525FE494100087256 /* RockEntity.swift */; };
 		C6A9432025FE50E000087256 /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C6A9433125FF566600087256 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9433025FF566600087256 /* MoveComponent.swift */; };
-		C6A943642603437A00087256 /* SpawnUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnUtil.swift */; };
+		C6A943642603437A00087256 /* SpawnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnManager.swift */; };
 		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
 		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
@@ -32,7 +34,7 @@
 		C6A943EE260B007500087256 /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
 		C6A94401260B4D1000087256 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		C6A9440C261373F700087256 /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
-		C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* TimerComponent.swift */; };
+		C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */; };
 		C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */; };
 		C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
 		C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
@@ -50,6 +52,11 @@
 		C6A94517261D80A200087256 /* EnemyTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94516261D80A200087256 /* EnemyTypeEnum.swift */; };
 		C6A9451C261DC19400087256 /* BaseEnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9451B261DC19400087256 /* BaseEnemyEntity.swift */; };
 		C6A94524261DC29A00087256 /* SpawnEnemyUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */; };
+		C6A9452D261F598100087256 /* ObjectiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9452C261F598100087256 /* ObjectiveManager.swift */; };
+		C6A94532261F59CA00087256 /* ObjectiveEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94531261F59CA00087256 /* ObjectiveEnum.swift */; };
+		C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */; };
+		C6A9453C261F5AA100087256 /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9453B261F5AA100087256 /* Objective.swift */; };
+		C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94555261F617F00087256 /* HUDPlayerObjective.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -144,11 +151,12 @@
 		EF61C4F02619A3520076BB3A /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
 		EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */; };
 		EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4FC2619C7F40076BB3A /* RestartButton.swift */; };
-		EF61C5072619DB300076BB3A /* SpellSpawnOnDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */; };
+		EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */; };
 		EF61C5082619DB300076BB3A /* SpellHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5052619DB300076BB3A /* SpellHitComponent.swift */; };
 		EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */; };
 		EF61C5112619DE1F0076BB3A /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */; };
 		EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */; };
+		EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */; };
 		EF8087532606785000923494 /* GenericSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087522606785000923494 /* GenericSpellTests.swift */; };
 		EF808787260679A200923494 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415A25FFC71900341BF5 /* Spell.swift */; };
 		EF808789260679A200923494 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -184,10 +192,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerObjective.sks; sourceTree = "<group>"; };
+		C652DCD22620717300349576 /* ObjectiveObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveObserver.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
-		C6A942CA25FCE7EA00087256 /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		C6A942CA25FCE7EA00087256 /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticMapObject.swift; sourceTree = "<group>"; };
 		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -198,7 +208,7 @@
 		C6A9431525FE494100087256 /* RockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockEntity.swift; sourceTree = "<group>"; };
 		C6A9431F25FE50E000087256 /* WallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallEntity.swift; sourceTree = "<group>"; };
 		C6A9433025FF566600087256 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
-		C6A943632603437A00087256 /* SpawnUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnUtil.swift; sourceTree = "<group>"; };
+		C6A943632603437A00087256 /* SpawnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnManager.swift; sourceTree = "<group>"; };
 		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
 		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapObjectEntity.swift; sourceTree = "<group>"; };
@@ -209,7 +219,7 @@
 		C6A943ED260B007500087256 /* BiomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeData.swift; sourceTree = "<group>"; };
 		C6A94400260B4D1000087256 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		C6A9440B261373F700087256 /* StairsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StairsEntity.swift; sourceTree = "<group>"; };
-		C6A9441026138D3E00087256 /* TimerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerComponent.swift; sourceTree = "<group>"; };
+		C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDetectionComponent.swift; sourceTree = "<group>"; };
 		C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceLevelComponent.swift; sourceTree = "<group>"; };
 		C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListTypeEnum.swift; sourceTree = "<group>"; };
 		C6A944532615B69200087256 /* EntityManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+Level.swift"; sourceTree = "<group>"; };
@@ -227,6 +237,11 @@
 		C6A94516261D80A200087256 /* EnemyTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyTypeEnum.swift; sourceTree = "<group>"; };
 		C6A9451B261DC19400087256 /* BaseEnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnemyEntity.swift; sourceTree = "<group>"; };
 		C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnEnemyUtil.swift; sourceTree = "<group>"; };
+		C6A9452C261F598100087256 /* ObjectiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveManager.swift; sourceTree = "<group>"; };
+		C6A94531261F59CA00087256 /* ObjectiveEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveEnum.swift; sourceTree = "<group>"; };
+		C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveUtil.swift; sourceTree = "<group>"; };
+		C6A9453B261F5AA100087256 /* Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
+		C6A94555261F617F00087256 /* HUDPlayerObjective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerObjective.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -320,11 +335,12 @@
 		EF61C4BE2618590F0076BB3A /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
 		EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDeathComponent.swift; sourceTree = "<group>"; };
 		EF61C4FC2619C7F40076BB3A /* RestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButton.swift; sourceTree = "<group>"; };
-		EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnDeathComponent.swift; sourceTree = "<group>"; };
+		EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnHitComponent.swift; sourceTree = "<group>"; };
 		EF61C5052619DB300076BB3A /* SpellHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellHitComponent.swift; sourceTree = "<group>"; };
 		EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyAttackComponent.swift; sourceTree = "<group>"; };
 		EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
 		EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PowerupSpawnerComponent.swift; path = Valebat/Components/MapComponents/PowerupSpawnerComponent.swift; sourceTree = SOURCE_ROOT; };
+		EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AimIndicatorComponent.swift; sourceTree = "<group>"; };
 		EF8087522606785000923494 /* GenericSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSpellTests.swift; sourceTree = "<group>"; };
 		EF80879D2606820700923494 /* SingleElementSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleElementSpellTests.swift; sourceTree = "<group>"; };
 		EF8087A2260683E900923494 /* MagmaSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagmaSpellTests.swift; sourceTree = "<group>"; };
@@ -391,7 +407,8 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
+				C6A942CA25FCE7EA00087256 /* MapManager.swift */,
+				C6A9452B261F593D00087256 /* Objectives */,
 				C6A944912616D41500087256 /* Util */,
 				C6A9442D2615B3F500087256 /* LevelList */,
 				C6A943D5260AFF6600087256 /* Biomes */,
@@ -503,7 +520,7 @@
 		C6A944292615B3B200087256 /* SpawnUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A943632603437A00087256 /* SpawnUtil.swift */,
+				C6A943632603437A00087256 /* SpawnManager.swift */,
 			);
 			path = SpawnUtil;
 			sourceTree = "<group>";
@@ -540,7 +557,7 @@
 			children = (
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
 				EF61C5052619DB300076BB3A /* SpellHitComponent.swift */,
-				EF61C5042619DB2F0076BB3A /* SpellSpawnOnDeathComponent.swift */,
+				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -550,7 +567,6 @@
 			children = (
 				CBA494F026038AB1003A05F7 /* CollectingComponent.swift */,
 				C6A943A82605D20F00087256 /* SpawnComponent.swift */,
-				C6A9441026138D3E00087256 /* TimerComponent.swift */,
 			);
 			path = UtilityComponents;
 			sourceTree = "<group>";
@@ -560,8 +576,21 @@
 			children = (
 				EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */,
 				C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */,
+				C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */,
 			);
 			path = MapComponents;
+			sourceTree = "<group>";
+		};
+		C6A9452B261F593D00087256 /* Objectives */ = {
+			isa = PBXGroup;
+			children = (
+				C6A9452C261F598100087256 /* ObjectiveManager.swift */,
+				C6A94531261F59CA00087256 /* ObjectiveEnum.swift */,
+				C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */,
+				C6A9453B261F5AA100087256 /* Objective.swift */,
+				C652DCD22620717300349576 /* ObjectiveObserver.swift */,
+			);
+			path = Objectives;
 			sourceTree = "<group>";
 		};
 		CB9E9DD9261095500016B046 /* EnemyStates */ = {
@@ -595,6 +624,7 @@
 				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
 				CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
+				EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */,
 			);
 			path = DamageHealthComponents;
 			sourceTree = "<group>";
@@ -781,6 +811,8 @@
 				DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */,
 				CB9E9ED2261E4BC80016B046 /* EXPBar.sks */,
 				CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */,
+				C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */,
+				C6A94555261F617F00087256 /* HUDPlayerObjective.swift */,
 			);
 			path = PlayerStatsHUD;
 			sourceTree = "<group>";
@@ -940,6 +972,7 @@
 			files = (
 				CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */,
 				CB9E9ED3261E4BC90016B046 /* EXPBar.sks in Resources */,
+				C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */,
 				CB9E9E17261727190016B046 /* PlayerHUD.sks in Resources */,
 				CB9E9E21261738A60016B046 /* HPBar.sks in Resources */,
 				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
@@ -1013,9 +1046,12 @@
 				CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
+				C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
+				EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
+				C6A9452D261F598100087256 /* ObjectiveManager.swift in Sources */,
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */,
@@ -1031,6 +1067,7 @@
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
+				C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
@@ -1053,9 +1090,10 @@
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
-				C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */,
+				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
+				C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
 				CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */,
@@ -1063,6 +1101,7 @@
 				C6A94517261D80A200087256 /* EnemyTypeEnum.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
 				DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */,
+				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
 				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */,
@@ -1078,19 +1117,21 @@
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
+				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
 				EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */,
 				CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
+				C6A94532261F59CA00087256 /* ObjectiveEnum.swift in Sources */,
 				CB9E9E76261C5C1E0016B046 /* BaseEntity.swift in Sources */,
 				CB9E9E9D261E1B720016B046 /* BaseInteractableEntity.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
-				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
+				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
-				EF61C5072619DB300076BB3A /* SpellSpawnOnDeathComponent.swift in Sources */,
+				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
@@ -1305,7 +1346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = F7K7KGXMG2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1324,7 +1365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DY9Z592D2;
+				DEVELOPMENT_TEAM = F7K7KGXMG2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

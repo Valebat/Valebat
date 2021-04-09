@@ -16,6 +16,7 @@ class DeathComponent: BaseComponent {
     func onDeath() {
         onDeathObservers.values.forEach({ $0.onDeath() })
         if let entity = self.baseEntity {
+            entity.entityManager?.objectiveManager.incrementKillCounter()
             entity.entityManager?.remove(entity)
         }
     }

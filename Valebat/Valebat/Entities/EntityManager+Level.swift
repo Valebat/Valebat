@@ -8,6 +8,12 @@
 import GameplayKit
 
 extension EntityManager {
+    func initialiseLevel() {
+        immediateAddMapEntities()
+        addPlayer()
+        initialiseGraph()
+        initialiseObservers()
+    }
 
     func playerDied() {
         playing = false
@@ -21,30 +27,16 @@ extension EntityManager {
             userInputNode.toggleRestartButton()
         }
         cleanupLevel()
-        PowerupUtil.resetPowerups()
-        MapUtil.goToMap(level: 0, entityManager: self)
-        addPlayer()
-        initialiseGraph()
-
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
-        for entity in mapEntities {
-            add(entity)
-        }
+        mapManager.goToMap(level: 0, entityManager: self)
+        initialiseLevel()
         playing = true
     }
 
     func advanceLevel() {
         cleanupLevel()
-        PowerupUtil.resetPowerups()
-        MapUtil.advanceToNextMap(entityManager: self)
+        mapManager.advanceToNextMap(entityManager: self)
         persistenceManager?.saveAllData()
-        addPlayer()
-        initialiseGraph()
-
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
-        for entity in mapEntities {
-            add(entity)
-        }
+        initialiseLevel()
     }
 
     func cleanupLevel() {
@@ -54,6 +46,15 @@ extension EntityManager {
         self.obstacles = []
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
+        PowerupUtil.resetPowerups()
     }
 
+    func initialiseObservers() {
+        for entity in self.entities where entity is ObjectiveObserver {
+            guard let observer = entity as? ObjectiveObserver else {
+                continue
+            }
+            self.objectiveManager.registerObserver(observer)
+        }
+    }
 }

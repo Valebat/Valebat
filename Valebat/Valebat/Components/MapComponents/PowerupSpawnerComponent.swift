@@ -8,12 +8,12 @@
 import GameplayKit
 
 class PowerupSpawnerComponent: BaseComponent {
-    private let spawnablePositions: [CGPoint]
+    private var spawnablePositions: [CGPoint]!
+    private var isSetup: Bool = false
     private let spawnFrequency: Double = 3.0
     private var clock: Double
 
     override init() {
-        self.spawnablePositions = SpawnUtil.freePositions
         self.clock = spawnFrequency
         super.init()
     }
@@ -24,6 +24,10 @@ class PowerupSpawnerComponent: BaseComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
+        if !isSetup {
+            self.spawnablePositions = baseEntity?.entityManager?.spawnManager.freePositions ?? []
+            isSetup = true
+        }
         clock -= seconds
 
         if clock <= 0 {
