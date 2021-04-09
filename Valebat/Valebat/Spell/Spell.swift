@@ -5,8 +5,8 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
-protocol Spell {
-    var level: Double { get }
-    var effects: [SpellHitComponent.Type] { get }
-    var effectParams: [[Any]] { get }
+class Spell {
+    var level: Double = 1.0
+    var effects: [SpellHitComponent.Type] = []
+    var effectParams: [[Any]] = []
 }
