@@ -39,12 +39,10 @@ class EntityManager {
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let objectiveDetectionSystem = GKComponentSystem(componentClass: ObjectiveDetectionComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, objectiveDetectionSystem, advanceLevelSystem,
-                powerupSpawnSystem]
+                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem]
     }()
 
     init(scene: SKScene, currentSession: GameSession) {
@@ -60,6 +58,12 @@ class EntityManager {
         self.mapManager = MapManager(entityManager: self, spawnManager: spawnManager,
                                      objectiveManager: objectiveManager)
         self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
+    }
+
+    func setup() {
+        initialiseMaps()
+        initialiseGraph()
+        initialiseObservers()
     }
 
     func initialiseMaps() {

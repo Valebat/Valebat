@@ -57,8 +57,7 @@ class PersistenceManager {
         guard let entityManager = self.entityManager else {
             return
         }
-        entityManager.initialiseMaps()
-        entityManager.initialiseGraph()
+        entityManager.setup()
         self.gameData = GameData(levelData: LevelData(), playerData: PlayerData())
         saveAllData()
     }

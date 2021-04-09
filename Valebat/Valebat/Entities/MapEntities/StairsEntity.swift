@@ -7,7 +7,8 @@
 
 import GameplayKit
 
-class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity {
+class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserver {
+
     let objectType: MapObjectEnum = .stairs
 
     init(size: CGSize, timer: Double, position: CGPoint) {
@@ -24,5 +25,10 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func objectiveUpdate() {
+        let objectiveDetectionComponent = self.component(ofType: ObjectiveDetectionComponent.self)
+        objectiveDetectionComponent?.open()
     }
 }

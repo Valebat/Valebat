@@ -8,7 +8,6 @@
 import GameplayKit
 
 class ObjectiveDetectionComponent: BaseComponent {
-    var active: Bool = true
     let parent: BaseEntity
     let spawnedComponent: AdvanceLevelComponent
     let replacementSpriteComponent: SpriteComponent?
@@ -31,18 +30,14 @@ class ObjectiveDetectionComponent: BaseComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func update(deltaTime seconds: TimeInterval) {
-        super.update(deltaTime: seconds)
+    func open() {
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        if entityManager.objectiveManager.isObjectiveCompleted() && active {
-            active = false
-            entityManager.removeComponentOfEntity(parent, component: self)
-            entityManager.addComponentToEntity(parent, component: spawnedComponent)
-            if self.replacementSpriteComponent != nil {
-                entityManager.replaceSprite(parent, component: self.replacementSpriteComponent!)
-            }
+        entityManager.removeComponentOfEntity(parent, component: self)
+        entityManager.addComponentToEntity(parent, component: spawnedComponent)
+        if self.replacementSpriteComponent != nil {
+            entityManager.replaceSprite(parent, component: self.replacementSpriteComponent!)
         }
     }
 }

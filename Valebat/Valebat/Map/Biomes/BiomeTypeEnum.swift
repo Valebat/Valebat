@@ -18,14 +18,14 @@ extension BiomeTypeEnum {
         case .normal:
             return BiomeData()
                 .withObjectiveType(.kills)
-                .withObjectiveQuantity(10)
+                .withObjectiveQuantity(5)
         case .dungeon:
             return BiomeData()
                 .withGlobalObjectSpawnChance(20)
                 .withGuaranteedSpawns(object: .spawner, count: 4)
                 .withDefaultSpawnTime(4.0)
                 .withObjectiveType(.powerupscollected)
-                .withObjectiveQuantity(10)
+                .withObjectiveQuantity(5)
         case .crazyhouse:
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
