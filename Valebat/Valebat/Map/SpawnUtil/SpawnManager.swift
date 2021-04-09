@@ -7,12 +7,12 @@
 
 import GameplayKit
 
-class SpawnUtil {
-    private(set) static var totalSpawnChance: Int?
-    private(set) static var biomeData: BiomeData = BiomeData()
-    static var freePositions: [CGPoint] = []
+class SpawnManager {
+    private(set) var totalSpawnChance: Int?
+    private(set) var biomeData: BiomeData = BiomeData()
+    var freePositions: [CGPoint] = []
 
-    static func spawnObjects(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
+    func spawnObjects(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
         var mapObjects: [MapObject] = []
         self.biomeData = BiomeTypeEnum.getBiomeDataFromType(biomeType)
 
@@ -31,7 +31,7 @@ class SpawnUtil {
         return mapObjects
     }
 
-    private static func handleIntangibleSpawns() -> [MapObject] {
+    private func handleIntangibleSpawns() -> [MapObject] {
         var mapObjects: [MapObject] = []
 
         for (key, value) in biomeData.intangibleObjectSpawns {
@@ -46,7 +46,7 @@ class SpawnUtil {
         return mapObjects
     }
 
-    private static func handleGuaranteedSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+    private func handleGuaranteedSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
         var copiedPositons = positions
         var mapObjects: [MapObject] = []
         var indexesToRemove: [Int] = []
@@ -91,7 +91,7 @@ class SpawnUtil {
         return (mapObjects, copiedPositons)
     }
 
-    private static func handleRegularSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
+    private func handleRegularSpawns(positions: [CGPoint]) -> ([MapObject], [CGPoint]) {
         var copiedPositons: [CGPoint] = positions
         var mapObjects: [MapObject] = []
         var indexesToRemove: [Int] = []
@@ -130,7 +130,7 @@ class SpawnUtil {
         return (mapObjects, copiedPositons)
     }
 
-    private static func isValidPosition(position: CGPoint) -> Bool {
+    private func isValidPosition(position: CGPoint) -> Bool {
         let playerXSpawnPosition = ViewConstants.sceneWidth * ViewConstants.playerSpawnOffset
         let playerYSpawnPosition = ViewConstants.sceneHeight * ViewConstants.playerSpawnOffset
 
@@ -144,15 +144,15 @@ class SpawnUtil {
         return true
     }
 
-    private static func spawnStaticTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
+    private func spawnStaticTypedObject(_ type: MapObjectEnum, position: CGPoint) -> MapObject {
         return StaticMapObject(type: type, position: position)
     }
 
-    private static func spawnIntangibleTypedObject(_ type: MapObjectEnum) -> MapObject {
+    private func spawnIntangibleTypedObject(_ type: MapObjectEnum) -> MapObject {
         return IntangibleMapObject(type: type)
     }
 
-    private static func calculateTotalSpawnChance(biomeData: BiomeData) {
+    private func calculateTotalSpawnChance(biomeData: BiomeData) {
         var sum: Int = 0
         biomeData.globalSpawnChances.forEach { sum = sum + $1 }
         totalSpawnChance = sum

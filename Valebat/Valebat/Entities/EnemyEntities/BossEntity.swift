@@ -22,7 +22,7 @@ class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
         addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
         addComponent(DamageTakerComponent.getDamageTaker(type: .pure))
         addComponent(EnemyMoveComponent(chaseSpeed: 1000, normalSpeed: 200, initialPosition: position))
-        addComponent(EnemyAttackComponent(attackCooldown: 1, damageType: .pure, damageValue: 100, attackVelocity: 100))
+        addComponent(EnemyAttackComponent(attackCooldown: 1, damageType: .pure, damageValue: 20, attackVelocity: 20))
         addComponent(EnemyStateMachineComponent(attackRange: 500, aggroRange: 1000))
         addComponent(DeathComponent())
     }

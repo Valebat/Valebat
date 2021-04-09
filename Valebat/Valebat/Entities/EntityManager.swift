@@ -26,6 +26,8 @@ class EntityManager {
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
     let spellManager: SpellManager
     let objectiveManager: ObjectiveManager
+    var mapManager: MapManager!
+    let spawnManager: SpawnManager
     var playing: Bool = true
 
     weak var persistenceManager: PersistenceManager?
@@ -54,16 +56,18 @@ class EntityManager {
 
         self.spellManager = SpellManager()
         self.objectiveManager = ObjectiveManager()
+        self.spawnManager = SpawnManager()
+        self.mapManager = MapManager(entityManager: self, spawnManager: spawnManager)
         self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .medium)
+        mapManager.generateMaps(withLevelType: .medium)
         addMapEntities()
     }
 
     func addMapEntities() {
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
 
         for entity in mapEntities {
             add(entity)
@@ -71,7 +75,7 @@ class EntityManager {
     }
 
     func initialiseGraph() {
-        let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseMapEntity] = mapManager.mapEntities
 
         self.obstacles = []
 

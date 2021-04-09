@@ -22,11 +22,11 @@ extension EntityManager {
         }
         cleanupLevel()
         PowerupUtil.resetPowerups()
-        MapUtil.goToMap(level: 0, entityManager: self)
+        mapManager.goToMap(level: 0, entityManager: self)
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
         for entity in mapEntities {
             add(entity)
         }
@@ -36,12 +36,12 @@ extension EntityManager {
     func advanceLevel() {
         cleanupLevel()
         PowerupUtil.resetPowerups()
-        MapUtil.advanceToNextMap(entityManager: self)
+        mapManager.advanceToNextMap(entityManager: self)
         persistenceManager?.saveAllData()
         addPlayer()
         initialiseGraph()
 
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
         for entity in mapEntities {
             add(entity)
         }

@@ -8,15 +8,22 @@
 import SpriteKit
 import GameplayKit
 
-class MapUtil {
-    static var maxLevel = 0
-    static var map: Map = Map()
-    static var maps: [Map] = []
-    static var mapEntities: [BaseMapEntity] = []
-    static var allMapEntities: [[BaseMapEntity]] = []
-    static var currentBiome: BiomeTypeEnum = .normal
+class MapManager {
+    var maxLevel = 0
+    var map: Map = Map()
+    var maps: [Map] = []
+    var mapEntities: [BaseMapEntity] = []
+    var allMapEntities: [[BaseMapEntity]] = []
+    var currentBiome: BiomeTypeEnum = .normal
+    let entityManager: EntityManager
+    let spawnManager: SpawnManager
 
-    static func generateMaps(withLevelType levelType: LevelListTypeEnum) {
+    init(entityManager: EntityManager, spawnManager: SpawnManager) {
+        self.entityManager = entityManager
+        self.spawnManager = spawnManager
+    }
+
+    func generateMaps(withLevelType levelType: LevelListTypeEnum) {
         self.map = Map()
         self.maps = []
 
@@ -36,7 +43,7 @@ class MapUtil {
         mapEntities = allMapEntities[0]
     }
 
-    static func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
+    func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
         self.maps = savedMaps
         for savedMap in savedMaps {
             allMapEntities.append(getMapEntities(savedMap))
@@ -47,13 +54,13 @@ class MapUtil {
         self.mapEntities = allMapEntities[level]
     }
 
-    static func goToMap(level: Int, entityManager: EntityManager) {
+    func goToMap(level: Int, entityManager: EntityManager) {
         entityManager.currentSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
     }
 
-    static func advanceToNextMap(entityManager: EntityManager) {
+    func advanceToNextMap(entityManager: EntityManager) {
         let gameSession = entityManager.currentSession
         gameSession.currentLevel += 1
         let level = gameSession.currentLevel
@@ -67,7 +74,7 @@ class MapUtil {
         }
     }
 
-    private static func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {
+    private func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {
         currentBiome = biomeType
         var mapObjects: [MapObject] = []
 
@@ -95,7 +102,7 @@ class MapUtil {
             }
         }
 
-        let spawnedObjects: [MapObject] = SpawnUtil.spawnObjects(positions: spawnLocations, withBiomeType: biomeType)
+        let spawnedObjects: [MapObject] = spawnManager.spawnObjects(positions: spawnLocations, withBiomeType: biomeType)
 
         mapObjects.append(contentsOf: spawnedObjects)
 
@@ -105,7 +112,7 @@ class MapUtil {
         return resultMap
     }
 
-    private static func addBordersToMap(_ map: Map) -> Map {
+    private func addBordersToMap(_ map: Map) -> Map {
         var mapObjects: [MapObject] = []
 
         guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
@@ -134,7 +141,7 @@ class MapUtil {
         return resultMap
     }
 
-    private static func getMapEntities(_ map: Map) -> [BaseMapEntity] {
+    private func getMapEntities(_ map: Map) -> [BaseMapEntity] {
         var entities: [BaseMapEntity] = []
 
         for object in map.objects {
@@ -171,7 +178,7 @@ class MapUtil {
         return entities
     }
 
-    static func getGraph() -> GKGraph {
+    func getGraph() -> GKGraph {
         var obstacles: [GKPolygonObstacle] = []
 
         for object in map.objects {
@@ -184,7 +191,7 @@ class MapUtil {
         return graph
     }
 
-    static func resetMap() {
+    func resetMap() {
         self.map = Map()
     }
 }

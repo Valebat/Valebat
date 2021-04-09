@@ -85,7 +85,10 @@ class PersistenceManager {
     }
 
     private func assignLevelDataToStorage() {
-        let levelData = LevelData(maps: MapUtil.maps)
+        guard let entityManager = self.entityManager else {
+            return
+        }
+        let levelData = LevelData(maps: entityManager.mapManager.maps, entityManager: entityManager)
         gameData?.levelData = levelData
     }
 

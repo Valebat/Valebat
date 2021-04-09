@@ -11,7 +11,7 @@
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
-		C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapUtil.swift */; };
+		C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapManager.swift */; };
 		C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */; };
 		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
@@ -22,7 +22,7 @@
 		C6A9431625FE494100087256 /* RockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431525FE494100087256 /* RockEntity.swift */; };
 		C6A9432025FE50E000087256 /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C6A9433125FF566600087256 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9433025FF566600087256 /* MoveComponent.swift */; };
-		C6A943642603437A00087256 /* SpawnUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnUtil.swift */; };
+		C6A943642603437A00087256 /* SpawnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnManager.swift */; };
 		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
 		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
@@ -193,7 +193,7 @@
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
-		C6A942CA25FCE7EA00087256 /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		C6A942CA25FCE7EA00087256 /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticMapObject.swift; sourceTree = "<group>"; };
 		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		C6A9431525FE494100087256 /* RockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockEntity.swift; sourceTree = "<group>"; };
 		C6A9431F25FE50E000087256 /* WallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallEntity.swift; sourceTree = "<group>"; };
 		C6A9433025FF566600087256 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
-		C6A943632603437A00087256 /* SpawnUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnUtil.swift; sourceTree = "<group>"; };
+		C6A943632603437A00087256 /* SpawnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnManager.swift; sourceTree = "<group>"; };
 		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
 		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapObjectEntity.swift; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
+				C6A942CA25FCE7EA00087256 /* MapManager.swift */,
 				C6A9452B261F593D00087256 /* Objectives */,
 				C6A944912616D41500087256 /* Util */,
 				C6A9442D2615B3F500087256 /* LevelList */,
@@ -514,7 +514,7 @@
 		C6A944292615B3B200087256 /* SpawnUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A943632603437A00087256 /* SpawnUtil.swift */,
+				C6A943632603437A00087256 /* SpawnManager.swift */,
 			);
 			path = SpawnUtil;
 			sourceTree = "<group>";
@@ -1088,7 +1088,7 @@
 				CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */,
 				EF1941882600B15F00341BF5 /* PlayerSpellEntity.swift in Sources */,
 				C6A94517261D80A200087256 /* EnemyTypeEnum.swift in Sources */,
-				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
+				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
 				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */,
@@ -1114,7 +1114,7 @@
 				CB9E9E9D261E1B720016B046 /* BaseInteractableEntity.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
-				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
+				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
