@@ -17,11 +17,12 @@ class SpellSpawnOnShootComponent: SpellEffectComponent {
     }
 
     override func createEffect() {
-        guard let spriteNode = baseEntity?.component(ofType: SpriteComponent.self)?.node else {
+        guard let pos = baseEntity?.component(ofType: SpriteComponent.self)?.node.position else {
             return super.createEffect()
         }
-        let pos = spriteNode.position
-        let angle = Double(spriteNode.zRotation)
+        guard let orientation = baseEntity?.component(ofType: RegularMovementComponent.self)?.orientation else {
+            return super.createEffect()
+        }
         guard let entityManager = baseEntity?.entityManager else {
             return super.createEffect()
         }
@@ -29,7 +30,8 @@ class SpellSpawnOnShootComponent: SpellEffectComponent {
               let spawnLevel = self.params[1] as? Double else {
             return super.createEffect()
         }
-        for angle in stride(from: angle - Double.pi/2, to: angle + Double.pi/2, by: Double.pi / 4) {
+        for angle in stride(from: orientation + CGFloat.pi/3, to: orientation  - 4*CGFloat.pi/3,
+                            by: -CGFloat.pi/3) {
             do {
                 try entityManager.shootSpell(from: pos, with: CGVector(dx: -sin(angle), dy: cos(angle)),
                                              using: [Element(with: spawnType, at: spawnLevel)])
