@@ -11,8 +11,8 @@ class MudSpell: CompositeSpell {
         try super.init(at: level)
         self.damageTypes.append(.earth)
         self.damageTypes.append(.water)
-        self.effects = [SpellHitComponent.self]
-        self.effectParams = [[]]
+        self.effects.append(SpellExplodeOnHitComponent.self)
+        self.effectParams.append([Spell.buildEndAnimation(), 0.05])
     }
 
     override class var description: String {

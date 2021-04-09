@@ -1,12 +1,12 @@
 //
-//  SpawnOnDeathComponent.swift
+//  SpellSpawnOnShootComponent.swift
 //  Valebat
 //
-//  Created by Sreyans Sipani on 4/4/21.
+//  Created by Sreyans Sipani on 9/4/21.
 //
 
 import GameplayKit
-class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
+class SpellSpawnOnShootComponent: SpellEffectComponent {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -17,21 +17,22 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
     }
 
     override func createEffect() {
-        guard let pos = self.entity?.component(ofType: SpriteComponent.self)?.node.position else {
+        guard let spriteNode = baseEntity?.component(ofType: SpriteComponent.self)?.node else {
             return super.createEffect()
         }
+        let pos = spriteNode.position
+        let angle = Double(spriteNode.zRotation)
         guard let entityManager = baseEntity?.entityManager else {
             return super.createEffect()
         }
-        guard let spawnType = self.params[2] as? BasicType,
-              let spawnLevel = self.params[3] as? Double else {
+        guard let spawnType = self.params[0] as? BasicType,
+              let spawnLevel = self.params[1] as? Double else {
             return super.createEffect()
         }
-        for angle in stride(from: 0, to: 2 * Double.pi, by: Double.pi / 4) {
+        for angle in stride(from: angle - Double.pi/2, to: angle + Double.pi/2, by: Double.pi / 4) {
             do {
-                try entityManager.shootSpell(from: pos,
-                                                           with: CGVector(dx: -sin(angle), dy: cos(angle)),
-                                                           using: [Element(with: spawnType, at: spawnLevel)])
+                try entityManager.shootSpell(from: pos, with: CGVector(dx: -sin(angle), dy: cos(angle)),
+                                             using: [Element(with: spawnType, at: spawnLevel)])
             } catch SpellErrors.invalidLevelError {
                 print("Wrong level was given")
             } catch SpellErrors.wrongBasicTypeError {
@@ -41,5 +42,6 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
             }
         }
         super.createEffect()
+        baseEntity?.removeComponent(ofType: Self.self)
     }
 }

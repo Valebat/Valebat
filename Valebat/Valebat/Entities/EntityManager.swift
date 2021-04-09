@@ -170,6 +170,7 @@ class EntityManager {
         let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
                                 spell: underlyingSpell, position: shootPoint)
         add(spell)
+        spell.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
     }
 
     func updateLastKnownPlayerPosition() {

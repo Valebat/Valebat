@@ -31,9 +31,9 @@ class PlayerSpellEntity: BaseProjectileEntity {
         }
 
         for (effect, effectParams) in zip(spell.effects, spell.effectParams) {
-            addComponent(effect.init(animatedTextures: PlayerSpellEntity.buildEndAnimation(for: spell),
-                                     timePerFrame: 0.05, effectParams: effectParams))
+            addComponent(effect.init(effectParams: effectParams))
         }
+        self.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
 
     }
 
@@ -66,10 +66,6 @@ class PlayerSpellEntity: BaseProjectileEntity {
                 return "GB00"
             }
         }
-    }
-
-    static func buildEndAnimation(for spell: Spell) -> [SKTexture] {
-        return TextureUltilties.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
     }
 
     static func getAnimatedSpell(for spell: Spell) -> [SKTexture] {
