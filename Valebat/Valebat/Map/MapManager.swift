@@ -17,10 +17,12 @@ class MapManager {
     var currentBiome: BiomeTypeEnum = .normal
     let entityManager: EntityManager
     let spawnManager: SpawnManager
+    let objectiveManager: ObjectiveManager
 
-    init(entityManager: EntityManager, spawnManager: SpawnManager) {
+    init(entityManager: EntityManager, spawnManager: SpawnManager, objectiveManager: ObjectiveManager) {
         self.entityManager = entityManager
         self.spawnManager = spawnManager
+        self.objectiveManager = objectiveManager
     }
 
     func generateMaps(withLevelType levelType: LevelListTypeEnum) {
@@ -41,6 +43,7 @@ class MapManager {
 
         map = maps[0]
         mapEntities = allMapEntities[0]
+        setObjective()
     }
 
     func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
@@ -58,6 +61,7 @@ class MapManager {
         entityManager.currentSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
+        setObjective()
     }
 
     func advanceToNextMap(entityManager: EntityManager) {
@@ -68,10 +72,15 @@ class MapManager {
         if level < maxLevel {
             map = maps[level]
             mapEntities = allMapEntities[level]
+            setObjective()
         } else {
             // TODO implement player win here
             goToMap(level: 0, entityManager: entityManager)
         }
+    }
+
+    func setObjective() {
+        objectiveManager.setCurrentObjective(map.objective)
     }
 
     private func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {

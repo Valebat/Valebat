@@ -8,22 +8,19 @@
 import GameplayKit
 
 class ObjectiveDetectionComponent: BaseComponent {
-    var clock: Double
     var active: Bool = true
     let parent: BaseEntity
     let spawnedComponent: AdvanceLevelComponent
     let replacementSpriteComponent: SpriteComponent?
 
-    init(timer: Double, component: AdvanceLevelComponent, parent: BaseEntity) {
-        self.clock = timer
+    init(component: AdvanceLevelComponent, parent: BaseEntity) {
         self.parent = parent
         self.spawnedComponent = component
         self.replacementSpriteComponent = nil
         super.init()
     }
 
-    init(timer: Double, component: AdvanceLevelComponent, parent: BaseEntity, sprite: SpriteComponent) {
-        self.clock = timer
+    init(component: AdvanceLevelComponent, parent: BaseEntity, sprite: SpriteComponent) {
         self.parent = parent
         self.spawnedComponent = component
         self.replacementSpriteComponent = sprite
@@ -36,11 +33,10 @@ class ObjectiveDetectionComponent: BaseComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
-        clock -= seconds
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        if clock <= 0 && active {
+        if entityManager.objectiveManager.isObjectiveCompleted() && active {
             active = false
             entityManager.removeComponentOfEntity(parent, component: self)
             entityManager.addComponentToEntity(parent, component: spawnedComponent)

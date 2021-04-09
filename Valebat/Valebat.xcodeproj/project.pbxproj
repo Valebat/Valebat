@@ -33,7 +33,7 @@
 		C6A943EE260B007500087256 /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
 		C6A94401260B4D1000087256 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		C6A9440C261373F700087256 /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
-		C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* TimerComponent.swift */; };
+		C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */; };
 		C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */; };
 		C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
 		C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
@@ -215,7 +215,7 @@
 		C6A943ED260B007500087256 /* BiomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeData.swift; sourceTree = "<group>"; };
 		C6A94400260B4D1000087256 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		C6A9440B261373F700087256 /* StairsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StairsEntity.swift; sourceTree = "<group>"; };
-		C6A9441026138D3E00087256 /* TimerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerComponent.swift; sourceTree = "<group>"; };
+		C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDetectionComponent.swift; sourceTree = "<group>"; };
 		C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceLevelComponent.swift; sourceTree = "<group>"; };
 		C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListTypeEnum.swift; sourceTree = "<group>"; };
 		C6A944532615B69200087256 /* EntityManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+Level.swift"; sourceTree = "<group>"; };
@@ -561,7 +561,6 @@
 			children = (
 				CBA494F026038AB1003A05F7 /* CollectingComponent.swift */,
 				C6A943A82605D20F00087256 /* SpawnComponent.swift */,
-				C6A9441026138D3E00087256 /* TimerComponent.swift */,
 			);
 			path = UtilityComponents;
 			sourceTree = "<group>";
@@ -571,6 +570,7 @@
 			children = (
 				EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */,
 				C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */,
+				C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */,
 			);
 			path = MapComponents;
 			sourceTree = "<group>";
@@ -1080,7 +1080,7 @@
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
-				C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */,
+				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,

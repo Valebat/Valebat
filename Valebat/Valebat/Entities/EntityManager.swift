@@ -39,11 +39,11 @@ class EntityManager {
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
+        let objectiveDetectionSystem = GKComponentSystem(componentClass: ObjectiveDetectionComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
+                enemyAttackSystem, spriteSystem, objectiveDetectionSystem, advanceLevelSystem,
                 powerupSpawnSystem]
     }()
 
@@ -57,7 +57,8 @@ class EntityManager {
         self.spellManager = SpellManager()
         self.objectiveManager = ObjectiveManager()
         self.spawnManager = SpawnManager()
-        self.mapManager = MapManager(entityManager: self, spawnManager: spawnManager)
+        self.mapManager = MapManager(entityManager: self, spawnManager: spawnManager,
+                                     objectiveManager: objectiveManager)
         self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
     }
 

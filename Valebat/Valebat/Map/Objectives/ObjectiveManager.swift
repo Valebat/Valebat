@@ -6,10 +6,28 @@
 //
 
 class ObjectiveManager {
-    let currentObjective: Objective = Objective()
+    private(set) var currentObjective: Objective = Objective()
 
-    let killCounter: Int = 0
-    let powerupCounter: Int = 0
+    var killCounter: Int = 0
+    var powerupCounter: Int = 0
+
+    func setCurrentObjective(_ objective: Objective) {
+        self.currentObjective = objective
+        resetCounters()
+    }
+
+    private func resetCounters() {
+        self.killCounter = 0
+        self.powerupCounter = 0
+    }
+
+    func incrementKillCounter() {
+        self.killCounter += 1
+    }
+
+    func incrementPowerupCounter() {
+        self.powerupCounter += 1
+    }
 
     func isObjectiveCompleted() -> Bool {
         switch currentObjective.objectiveType {

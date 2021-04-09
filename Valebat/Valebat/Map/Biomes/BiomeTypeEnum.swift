@@ -17,21 +17,29 @@ extension BiomeTypeEnum {
         switch type {
         case .normal:
             return BiomeData()
+                .withObjectiveType(.kills)
+                .withObjectiveQuantity(10)
         case .dungeon:
             return BiomeData()
                 .withGlobalObjectSpawnChance(20)
-                .withGuaranteedSpawns(object: .spawner, count: 5)
+                .withGuaranteedSpawns(object: .spawner, count: 4)
                 .withDefaultSpawnTime(4.0)
+                .withObjectiveType(.powerupscollected)
+                .withObjectiveQuantity(10)
         case .crazyhouse:
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
-                .withGuaranteedSpawns(object: .spawner, count: 15)
+                .withGuaranteedSpawns(object: .spawner, count: 6)
                 .withDefaultSpawnTime(4.0)
+                .withObjectiveType(.kills)
+                .withObjectiveQuantity(20)
         case .boss:
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
                 .withGuaranteedSpawns(object: .spawner, count: 0)
                 .withIntangibleObjectSpawns(object: .bossSpawner, count: 1)
+                .withObjectiveType(.kills)
+                .withObjectiveQuantity(1)
         }
     }
 }
