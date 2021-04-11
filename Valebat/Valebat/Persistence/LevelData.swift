@@ -12,12 +12,12 @@ class LevelData: Codable {
     var maxLevel: Int = 0
     var freePositions: [PositionData] = []
 
-    init(maps: [Map], entityManager: EntityManager) {
+    init(maps: [Map], gameSession: GameSession) {
         for map in maps {
             self.maps.append(MapData.convertToMapData(map))
         }
-        maxLevel = entityManager.mapManager.maxLevel
-        for pos in entityManager.spawnManager.freePositions {
+        maxLevel = gameSession.mapManager.maxLevel
+        for pos in gameSession.spawnManager.freePositions {
             let posData = PositionData()
             posData.xPos = Float(pos.x)
             posData.yPos = Float(pos.y)
@@ -27,23 +27,23 @@ class LevelData: Codable {
 
     init() {}
 
-    func assignLevelData(entityManager: EntityManager) {
+    func assignLevelData(gameSession: GameSession) {
         var positions: [CGPoint] = []
         for pos in self.freePositions {
             positions.append(CGPoint(x: CGFloat(pos.xPos), y: CGFloat(pos.yPos)))
         }
-        entityManager.spawnManager.freePositions = positions
-        entityManager.mapManager.maxLevel = maxLevel
-        assignMaps(entityManager: entityManager)
+        gameSession.spawnManager.freePositions = positions
+        gameSession.mapManager.maxLevel = maxLevel
+        assignMaps(gameSession: gameSession)
     }
 
-    private func assignMaps(entityManager: EntityManager) {
+    private func assignMaps(gameSession: GameSession) {
         var gameMaps: [Map] = []
         for map in self.maps {
             gameMaps.append(map.generateMap())
         }
-        entityManager.mapManager.generateMapsFromPersistence(savedMaps: gameMaps,
-                                                             entityManager: entityManager)
+        gameSession.mapManager.generateMapsFromPersistence(savedMaps: gameMaps,
+                                                           gameSession: gameSession)
     }
 
     private func generateLevelListFromString(_ stringList: [String]) -> [BiomeTypeEnum] {

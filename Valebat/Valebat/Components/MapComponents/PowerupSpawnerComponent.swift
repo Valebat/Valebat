@@ -25,7 +25,7 @@ class PowerupSpawnerComponent: BaseComponent {
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         if !isSetup {
-            self.spawnablePositions = baseEntity?.entityManager?.spawnManager.freePositions ?? []
+            self.spawnablePositions = baseEntity?.entityManager?.currentSession?.spawnManager.freePositions ?? []
             isSetup = true
         }
         clock -= seconds

@@ -16,7 +16,7 @@ class EnemyDeathComponent: DeathComponent {
         fatalError("init(coder:) has not been implemented")
     }
     override func onDeath() {
-        baseEntity?.entityManager?.currentSession.playerStats.gainEXP(exp: enemyEXP)
+        baseEntity?.entityManager?.currentSession?.playerStats.gainEXP(exp: enemyEXP)
         super.onDeath()
     }
 }

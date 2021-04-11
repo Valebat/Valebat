@@ -13,8 +13,8 @@ class HUDPlayerLevel: SKSpriteNode, PlayerHUDNode {
         super.init(coder: aDecoder)
     }
 
-    func update(entityManager: EntityManager) {
-        let level = entityManager.currentSession.currentLevel
+    func update(gameSession: GameSession) {
+        let level = gameSession.currentLevel
         (childNode(withName: "//Level Label") as? SKLabelNode)?.text =
         "Level \(level + 1)"
     }

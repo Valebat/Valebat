@@ -10,6 +10,7 @@ import GameplayKit
 class HUDHPBar: SKSpriteNode, PlayerHUDNode {
 
     var originalScale: CGFloat = 0.0
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         if let scale =  childNode(withName: "//fillBar")?.xScale {
@@ -17,9 +18,9 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update(entityManager: EntityManager) {
-        let maxHP = entityManager.currentSession.playerStats.maxHP
-        let currentHP = entityManager
+    func update(gameSession: GameSession) {
+        let maxHP = gameSession.playerStats.maxHP
+        let currentHP = gameSession.entityManager
             .player?.component(ofType: HealthComponent.self)?.currentHealth ?? 0
 
         (childNode(withName: "//HP Label") as? SKLabelNode)?.text =

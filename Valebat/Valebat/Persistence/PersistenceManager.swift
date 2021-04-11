@@ -25,10 +25,10 @@ class PersistenceManager {
     }
 
     var gameData: GameData?
-    weak var entityManager: EntityManager?
+    weak var gameSession: GameSession?
 
     func load() {
-        guard let entityManager = self.entityManager else {
+        guard let gameSession = self.gameSession else {
             return
         }
         guard let data = try? Data(contentsOf: Self.fileURL) else {
@@ -45,19 +45,17 @@ class PersistenceManager {
             }
             return
         }
+        let entityManager = gameSession.entityManager
 
         self.gameData = gameData
-        gameData.playerData.assignPlayerStats(gameSession: entityManager.currentSession)
-        gameData.levelData.assignLevelData(entityManager: entityManager)
+        gameData.playerData.assignPlayerStats(gameSession: gameSession)
+        gameData.levelData.assignLevelData(gameSession: gameSession)
         entityManager.immediateAddMapEntities()
         entityManager.initialiseGraph()
     }
 
     func loadInitialData() {
-        guard let entityManager = self.entityManager else {
-            return
-        }
-        entityManager.setup()
+        gameSession?.entityManager.setup()
         self.gameData = GameData(levelData: LevelData(), playerData: PlayerData())
         saveAllData()
     }
@@ -76,18 +74,18 @@ class PersistenceManager {
     }
 
     private func assignPlayerDataToStorage() {
-        guard let entityManager = self.entityManager else {
+        guard let gameSession = self.gameSession else {
             return
         }
-        let playerData = PlayerData.convertToPlayerData(gameSession: entityManager.currentSession)
+        let playerData = PlayerData.convertToPlayerData(gameSession: gameSession)
         gameData?.playerData = playerData
     }
 
     private func assignLevelDataToStorage() {
-        guard let entityManager = self.entityManager else {
+        guard let gameSession = self.gameSession else {
             return
         }
-        let levelData = LevelData(maps: entityManager.mapManager.maps, entityManager: entityManager)
+        let levelData = LevelData(maps: gameSession.mapManager.maps, gameSession: gameSession)
         gameData?.levelData = levelData
     }
 

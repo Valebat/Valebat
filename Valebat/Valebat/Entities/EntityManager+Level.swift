@@ -23,19 +23,25 @@ extension EntityManager {
     }
 
     func restart() {
+        guard let currentSession = self.currentSession else {
+            return
+        }
         if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
             userInputNode.toggleRestartButton()
         }
         cleanupLevel()
-        mapManager.goToMap(level: 0, entityManager: self)
+        mapManager?.goToMap(level: 0, gameSession: currentSession)
         initialiseLevel()
         playing = true
     }
 
     func advanceLevel() {
+        guard let currentSession = self.currentSession else {
+            return
+        }
         cleanupLevel()
-        mapManager.advanceToNextMap(entityManager: self)
-        persistenceManager?.saveAllData()
+        mapManager?.advanceToNextMap(gameSession: currentSession)
+        currentSession.persistenceManager?.saveAllData()
         initialiseLevel()
     }
 
@@ -54,7 +60,7 @@ extension EntityManager {
             guard let observer = entity as? ObjectiveObserver else {
                 continue
             }
-            self.objectiveManager.registerObserver(observer)
+            self.currentSession?.objectiveManager.registerObserver(observer)
         }
     }
 }

@@ -14,7 +14,7 @@ class GameScene: SKScene {
     var userConfig: UserConfig
 
     // Entity-component system
-    var entityManager: EntityManager!
+    var gameSession: GameSession!
     var persistenceManager: PersistenceManager!
 
     var headsUpDisplay: UserInputNode!
@@ -24,16 +24,17 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
-        entityManager = EntityManager(scene: self, currentSession: loadGameSession())
+        let entityManager = EntityManager(scene: self)
+        gameSession = loadGameSession(entityManager)
         persistenceManager = PersistenceManager()
-        persistenceManager.entityManager = entityManager
-        entityManager.persistenceManager = persistenceManager
+        gameSession.persistenceManager = persistenceManager
+        persistenceManager.gameSession = gameSession
         setUpScene()
     }
 
-    func loadGameSession() -> GameSession {
+    func loadGameSession(_ entityManager: EntityManager) -> GameSession {
         // TODO -> Load Game here!
-        return GameSession()
+        return GameSession(entityManager: entityManager)
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -56,7 +57,7 @@ class GameScene: SKScene {
         }
         setUpUserInputHUD()
         setUpPlayerHUD()
-        entityManager.addPlayer()
+        gameSession.entityManager.addPlayer()
     }
 
     private func setUpPlayerHUD() {
@@ -76,7 +77,7 @@ class GameScene: SKScene {
     private func setUpUserInputHUD() {
         let hudNode = UserInputNode(screenSize: self.size)
         addChild(hudNode)
-        hudNode.assignInputDelegate(delegate: entityManager)
+        hudNode.assignInputDelegate(delegate: gameSession.entityManager)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,12 +103,12 @@ class GameScene: SKScene {
         if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
-        playerHUDDisplay.updateHUD(entityManager: entityManager)
+        playerHUDDisplay.updateHUD(gameSession: gameSession)
         // Calculate time since last update
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)
         // Update entities
-        entityManager.update(deltaTime)
+        gameSession.entityManager.update(deltaTime)
 
         self.lastUpdateTime = currentTime
 

@@ -14,7 +14,7 @@ class PowerupEntity: BaseInteractableEntity, CollectibleEntity {
         guard let type = powerupType else {
             return
         }
-        entityManager?.objectiveManager.incrementPowerupCounter()
+        entityManager?.currentSession?.objectiveManager.incrementPowerupCounter()
         PowerupUtil.collectedPowerup(type, player: player)
     }
 

@@ -608,7 +608,6 @@
 			isa = PBXGroup;
 			children = (
 				CB9E9E3426174A8E0016B046 /* PlayerStats.swift */,
-				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -693,6 +692,7 @@
 				C6A942C425FCE7EA00087256 /* TestUtil */,
 				C6A942D025FCE7EA00087256 /* Util */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
+				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
 				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
 				DD9D6E15261F381400D20723 /* MenuViewController.swift */,

@@ -46,26 +46,25 @@ class MapManager {
         setObjective()
     }
 
-    func generateMapsFromPersistence(savedMaps: [Map], entityManager: EntityManager) {
+    func generateMapsFromPersistence(savedMaps: [Map], gameSession: GameSession) {
         self.maps = savedMaps
         for savedMap in savedMaps {
             allMapEntities.append(getMapEntities(savedMap))
         }
 
-        let level = entityManager.currentSession.currentLevel
+        let level = gameSession.currentLevel
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
     }
 
-    func goToMap(level: Int, entityManager: EntityManager) {
-        entityManager.currentSession.currentLevel = level
+    func goToMap(level: Int, gameSession: GameSession) {
+        gameSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
         setObjective()
     }
 
-    func advanceToNextMap(entityManager: EntityManager) {
-        let gameSession = entityManager.currentSession
+    func advanceToNextMap(gameSession: GameSession) {
         gameSession.currentLevel += 1
         let level = gameSession.currentLevel
 
@@ -75,7 +74,7 @@ class MapManager {
             setObjective()
         } else {
             // TODO implement player win here
-            goToMap(level: 0, entityManager: entityManager)
+            goToMap(level: 0, gameSession: gameSession)
         }
     }
 
