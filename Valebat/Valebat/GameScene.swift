@@ -11,8 +11,7 @@ import GameplayKit
 class GameScene: SKScene {
 
     weak var viewController: GameViewController?
-    var isNewGame: Bool
-    var isCoop: Bool
+    var userConfig: UserConfig
 
     // Entity-component system
     var entityManager: EntityManager!
@@ -50,11 +49,13 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
-//        if isNewGame {
-//            persistenceManager.loadInitialData()
-//        } else {
-        persistenceManager.load()
-//        }
+        if userConfig.isNewGame {
+            print("newGame")
+            persistenceManager.loadInitialData()
+        } else {
+            print("oldgame")
+            persistenceManager.load()
+        }
         setUpUserInputHUD()
         setUpPlayerHUD()
         entityManager.addPlayer()
@@ -114,17 +115,9 @@ class GameScene: SKScene {
 
     }
 
-    private override init(size: CGSize) {
-        self.isNewGame = true
-        self.isCoop = false
+    init(size: CGSize, userConfig: UserConfig) {
+        self.userConfig = userConfig
         super.init(size: size)
-    }
-
-    convenience init(size: CGSize, isNewGame: Bool, isCoop: Bool) {
-        self.init(size: size)
-
-        self.isNewGame = isNewGame
-        self.isCoop = isCoop
     }
 
     required init?(coder aDecoder: NSCoder) {
