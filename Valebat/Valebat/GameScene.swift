@@ -50,10 +50,8 @@ class GameScene: SKScene {
 
     private func setUpScene() {
         if userConfig.isNewGame {
-            print("newGame")
             persistenceManager.loadInitialData()
         } else {
-            print("oldgame")
             persistenceManager.load()
         }
         setUpUserInputHUD()
