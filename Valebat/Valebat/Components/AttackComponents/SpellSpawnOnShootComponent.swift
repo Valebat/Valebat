@@ -30,8 +30,7 @@ class SpellSpawnOnShootComponent: SpellEffectComponent {
               let spawnLevel = self.params[1] as? Double else {
             return super.createEffect()
         }
-        for angle in stride(from: orientation + CGFloat.pi/3, to: orientation  - 4*CGFloat.pi/3,
-                            by: -CGFloat.pi/3) {
+        for angle in stride(from: 0, to: 2*Double.pi, by: Double.pi/2) {
             do {
                 try entityManager.shootSpell(from: pos, with: CGVector(dx: -sin(angle), dy: cos(angle)),
                                              using: [Element(with: spawnType, at: spawnLevel)])

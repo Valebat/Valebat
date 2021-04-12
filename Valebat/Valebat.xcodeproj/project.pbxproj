@@ -139,6 +139,8 @@
 		EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19416725FFC76B00341BF5 /* SpellErrors.swift */; };
 		EF1941882600B15F00341BF5 /* PlayerSpellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */; };
 		EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */; };
+		EF37C1952621A5DF006974F7 /* ProjectileMotionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37C1942621A5DF006974F7 /* ProjectileMotionComponent.swift */; };
+		EF37C19A26243C34006974F7 /* SpellMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37C19926243C34006974F7 /* SpellMovementComponent.swift */; };
 		EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4B12618576F0076BB3A /* CompositeSpell.swift */; };
 		EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4B22618576F0076BB3A /* BasicType.swift */; };
 		EF61C4BF2618590F0076BB3A /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4BE2618590F0076BB3A /* ClassInfo.swift */; };
@@ -330,6 +332,8 @@
 		EF19416725FFC76B00341BF5 /* SpellErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellErrors.swift; sourceTree = "<group>"; };
 		EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSpellEntity.swift; sourceTree = "<group>"; };
 		EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularMovementComponent.swift; sourceTree = "<group>"; };
+		EF37C1942621A5DF006974F7 /* ProjectileMotionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileMotionComponent.swift; sourceTree = "<group>"; };
+		EF37C19926243C34006974F7 /* SpellMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellMovementComponent.swift; sourceTree = "<group>"; };
 		EF61C4B12618576F0076BB3A /* CompositeSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeSpell.swift; sourceTree = "<group>"; };
 		EF61C4B22618576F0076BB3A /* BasicType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicType.swift; sourceTree = "<group>"; };
 		EF61C4BE2618590F0076BB3A /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
@@ -637,6 +641,8 @@
 				EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */,
 				C6A9433025FF566600087256 /* MoveComponent.swift */,
 				CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */,
+				EF37C1942621A5DF006974F7 /* ProjectileMotionComponent.swift */,
+				EF37C19926243C34006974F7 /* SpellMovementComponent.swift */,
 			);
 			path = MovementComponents;
 			sourceTree = "<group>";
@@ -1128,6 +1134,8 @@
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
+				EF37C1952621A5DF006974F7 /* ProjectileMotionComponent.swift in Sources */,
+				EF37C19A26243C34006974F7 /* SpellMovementComponent.swift in Sources */,
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
 				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,

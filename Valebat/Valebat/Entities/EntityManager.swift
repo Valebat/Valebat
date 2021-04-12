@@ -33,6 +33,7 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
+        let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
@@ -40,7 +41,7 @@ class EntityManager {
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
+        return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
                 enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
                 powerupSpawnSystem]
     }()

@@ -11,16 +11,14 @@ class GenericSpell: CompositeSpell {
         try super.init(at: level)
         self.damageTypes.append(.pure)
         self.effects.append(SpellExplodeOnHitComponent.self)
-        let effectParam: [Any] = [Spell.buildEndAnimation(), 0.05]
-        self.effectParams.append(effectParam)
+        self.effectParams.append([Spell.buildEndAnimation(), 0.05])
     }
 
     init(at level: Double, from basicTypes: [BasicType]) throws {
         try super.init(at: level)
         self.damageTypes.append(contentsOf: basicTypes)
         self.effects.append(SpellExplodeOnHitComponent.self)
-        let effectParam: [Any] = [Spell.buildEndAnimation(), 0.05]
-        self.effectParams.append(effectParam)
+        self.effectParams.append([Spell.buildEndAnimation(), 0.05])
     }
 
     override class var description: String {
