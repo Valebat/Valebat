@@ -17,7 +17,7 @@ class PlayerSpellEntity: BaseProjectileEntity {
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
         super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTexture,
-                   physicsType: .playerAttack, position: position, velocity: velocity)
+                   physicsType: .playerAttack, position: position, velocity: velocity, movementType: spell.movement)
 
         let damage = CGFloat(spell.level) * PlayerModifierUtil.playerDamageMultiplier
             * TestConstants.damageValue // Some constant
