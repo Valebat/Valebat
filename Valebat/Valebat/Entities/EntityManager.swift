@@ -39,10 +39,11 @@ class EntityManager {
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
+        let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, timerSystem, advanceLevelSystem,
+                enemyAttackSystem, spriteSystem, timerSystem, autoDestructSystem, advanceLevelSystem,
                 powerupSpawnSystem]
     }()
 

@@ -30,12 +30,17 @@ class SpriteComponent: GKSKNodeComponent {
         return cachedMoveComponent
     }
 
-    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true) {
+    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true, runForever: Bool = true) {
         self.isStatic = isStatic
         super.init()
         node = SKSpriteNode(texture: animatedTextures[0], color: SKColor.white, size: size)
         node.position = position
-        let animation = SKAction.repeatForever(SKAction.animate(with: animatedTextures, timePerFrame: 0.1))
+        let animation: SKAction
+        if runForever {
+            animation = SKAction.repeatForever(SKAction.animate(with: animatedTextures, timePerFrame: 0.1))
+        } else {
+            animation = SKAction.animate(with: animatedTextures, timePerFrame: 0.1)
+        }
         node.run(animation)
     }
 

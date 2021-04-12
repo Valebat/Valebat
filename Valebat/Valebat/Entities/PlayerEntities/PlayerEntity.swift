@@ -22,6 +22,7 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(AimIndicatorComponent(size: CGSize(width: 10,
                                                         height: texture.size().height/2),
                                            playerSize: texture.size().height))
+        addComponent(LobIndicatorComponent(initialPosition: position))
         addComponent(PlayerDeathComponent())
     }
 
