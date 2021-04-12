@@ -28,6 +28,4 @@ struct ViewConstants {
     static let essenceSize: CGFloat = gridSize * 0.9
 
     static let enemySavedPositions: Int = 40
-
-    static var stairsSensitivity: CGFloat = 0.5
 }

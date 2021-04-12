@@ -75,9 +75,9 @@ class GameScene: SKScene {
     }
 
     private func setUpUserInputHUD() {
-        let hudNode = UserInputNode(screenSize: self.size)
-        addChild(hudNode)
-        hudNode.assignInputDelegate(delegate: gameSession.entityManager)
+        headsUpDisplay = UserInputNode(screenSize: self.size)
+        addChild(headsUpDisplay)
+        headsUpDisplay.assignInputDelegate(delegate: gameSession.entityManager)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

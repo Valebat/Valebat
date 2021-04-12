@@ -42,15 +42,6 @@ extension EntityManager: UserInputDelegate {
                                          playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation)
     }
 
-    func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
-        guard let playerMoveComp = player?.component(ofType: PlayerMoveComponent.self) else {
-            return
-        }
-
-        playerMoveComp.movePlayer(velocity: velocity * HUDConstants.joystickVelocityMultiplier,
-                                  angular: angular)
-    }
-
     func restartClicked() {
         self.restart()
     }

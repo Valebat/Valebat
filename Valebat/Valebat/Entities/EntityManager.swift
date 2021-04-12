@@ -16,6 +16,7 @@ class EntityManager {
 
     weak var currentSession: GameSession?
     weak var mapManager: MapManager?
+    weak var scene: GameScene!
 
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
@@ -24,7 +25,6 @@ class EntityManager {
 
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-    let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
 
@@ -39,11 +39,13 @@ class EntityManager {
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
+        let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
         return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem]
+                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem,
+                playerMovementSystem]
     }()
 
-    init(scene: SKScene) {
+    init(scene: GameScene) {
         self.scene = scene
         let gkScene = GKScene()
         gkScene.rootNode = scene
@@ -185,7 +187,8 @@ class EntityManager {
         }
         let spawnLocation = CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
                                 y: scene.size.height * ViewConstants.playerSpawnOffset)
-        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats)
+        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats,
+                                     entityManager: self)
         add(character)
         self.player = character
     }

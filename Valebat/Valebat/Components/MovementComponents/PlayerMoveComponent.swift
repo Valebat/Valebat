@@ -8,20 +8,29 @@
 import GameplayKit
 
 class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
+    let movementJoystick: MovementJoystick
     var orientation: CGFloat?
 
     var currentPosition: CGPoint
     var player: PlayerEntity?
 
-    init(initialPosition: CGPoint) {
-        currentPosition = initialPosition
+    init(initialPosition: CGPoint, movementJoystick: MovementJoystick) {
+        self.currentPosition = initialPosition
+        self.movementJoystick = movementJoystick
         super.init()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func movePlayer(velocity: CGPoint, angular: CGFloat) {
+
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        movePlayer(velocity: movementJoystick.velocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
+                   angular: movementJoystick.angular)
+    }
+
+    private func movePlayer(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self),
               let graph = baseEntity?.entityManager?.obstacleGraph else {
             return

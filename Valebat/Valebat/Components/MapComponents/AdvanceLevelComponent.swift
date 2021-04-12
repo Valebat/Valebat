@@ -27,7 +27,7 @@ class AdvanceLevelComponent: BaseComponent {
             return
         }
         let distance = (playerPosition - self.location).length()
-        if distance < ViewConstants.gridSize * ViewConstants.stairsSensitivity {
+        if distance < ViewConstants.gridSize * GameConstants.stairsSensitivity {
             if let entity = self.baseEntity {
                 entityManager.remove(entity)
             }
