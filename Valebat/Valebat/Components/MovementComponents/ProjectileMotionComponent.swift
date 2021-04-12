@@ -12,6 +12,7 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
 
     static let defaultDuration: CGFloat = 1
     static let defaultRadius: CGFloat = 200
+    static let defaultHeight: CGFloat = 100
 
     let targetPosition: CGPoint
     let initialPosition: CGPoint
@@ -49,21 +50,31 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
+        time += CGFloat(seconds)
         if time < duration {
-            time += CGFloat(seconds)
             let height: CGVector
             if time < duration / 2 {
                 height = lerp(start: CGVector(dx: 0, dy: 0),
-                              end: CGVector(dx: 0, dy: 100),
+                              end: CGVector(dx: 0, dy: ProjectileMotionComponent.defaultHeight),
                               linearT: 2*time/duration)
             } else {
-                height = lerp(start: CGVector(dx: 0, dy: 100),
+                height = lerp(start: CGVector(dx: 0, dy: ProjectileMotionComponent.defaultHeight),
                               end: CGVector(dx: 0, dy: 0),
                               linearT: (2*time/duration) - 1)
             }
             currentPosition = lerp(start: initialPosition.convertToVector(),
                                    end: targetPosition.convertToVector(),
                                    linearT: time/duration).convertToPoint() + height.convertToPoint()
+        } else {
+            guard let entityManager = baseEntity?.entityManager else {
+                return
+            }
+            let explosionPosition = currentPosition
+            let explosion = ExplosionEntity(position: explosionPosition, scale: 4)
+            entityManager.add(explosion)
+            if let entity = self.baseEntity {
+                entityManager.remove(entity)
+            }
         }
     }
 }
