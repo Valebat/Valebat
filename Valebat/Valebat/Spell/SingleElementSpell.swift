@@ -13,7 +13,7 @@ class SingleElementSpell: Spell {
         self.damageType = element.type
         super.init()
         self.level = element.level
-        self.effects = [SpellHitComponent.self]
-        self.effectParams = [[]]
+        self.effects.append(SpellExplodeOnHitComponent.self)
+        self.effectParams.append([Spell.buildEndAnimation(), 0.05])
     }
 }

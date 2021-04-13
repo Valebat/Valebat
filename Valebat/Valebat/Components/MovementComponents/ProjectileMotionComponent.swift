@@ -74,5 +74,4 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
         let thirdTerm = targetPosition * pow(prop, 2)
         return firstTerm + secondTerm + thirdTerm
     }
-
 }
