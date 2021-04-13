@@ -17,6 +17,7 @@ class GameSession {
     let objectiveManager: ObjectiveManager
     var mapManager: MapManager!
     let spawnManager: SpawnManager
+    var coopManager: CoopManager?
 
     weak var persistenceManager: PersistenceManager?
 
@@ -33,6 +34,9 @@ class GameSession {
                                      objectiveManager: objectiveManager)
         entityManager.mapManager = mapManager
         entityManager.currentSession = self
+
+        // TODO: can add conditional creation of coopmanager base on userconfig
+        self.coopManager = CoopManager()
     }
 
     func loadGame() {

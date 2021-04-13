@@ -38,7 +38,6 @@ class EntityManager {
         let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
-//        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
@@ -245,20 +244,13 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+        saveSprites()
 
+    }
+
+    private func saveSprites() {
         let spriteComponents = spriteSystem.components
-
-        for spriteComp in spriteComponents {
-            guard let spriteNode = (spriteComp as? SpriteComponent)?.node as? SKSpriteNode else {
-                continue
-            }
-            guard let texture = spriteNode.texture as? CustomTexture else {
-                continue
-            }
-
-//            print(texture.imageName)
-//            print(spriteNode.position)
-        }
+        currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
     }
 }
 
