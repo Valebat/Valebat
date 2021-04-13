@@ -46,7 +46,7 @@ class EntityManager {
         let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
 
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem,
+                enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem,
                 playerMovementSystem]
     }()
 
