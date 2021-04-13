@@ -8,7 +8,6 @@
 import CoreGraphics
 
 struct HUDConstants {
-    static let joystickVelocityMultiplier: CGFloat = 0.1
     static let joystickZPosition: CGFloat = 50
     static let joystickDiameter: CGFloat = 100
     static let spellJoystickPos: CGPoint = CGPoint(x: 680, y: 128)

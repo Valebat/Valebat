@@ -11,16 +11,27 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var currentScene: GameScene?
+    var userConfig: UserConfig?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
+        guard let userConfig = self.userConfig else {
+            return
+        }
+
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
         ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
-        let scene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
-                                           height: ViewConstants.sceneHeight))
-        scene.scaleMode = .aspectFill
+        let gameScene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
+                                           height: ViewConstants.sceneHeight),
+                                  userConfig: userConfig)
+        self.currentScene = gameScene
+        currentScene?.viewController = self
+
+        gameScene.scaleMode = .aspectFill
 
         guard let skView = self.view as? SKView else {
             assertionFailure("View failed to load.")
@@ -28,7 +39,8 @@ class GameViewController: UIViewController {
         }
         skView.showsFPS = true
 
-        skView.presentScene(scene)
+        skView.presentScene(gameScene)
+
     }
 
     override var shouldAutorotate: Bool {
@@ -40,7 +52,7 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-      return .landscape
+        return .landscape
     }
 
 }

@@ -8,6 +8,12 @@
 import GameplayKit
 
 extension EntityManager {
+    func initialiseLevel() {
+        immediateAddMapEntities()
+        addPlayer()
+        initialiseGraph()
+        initialiseObservers()
+    }
 
     func playerDied() {
         playing = false
@@ -17,34 +23,26 @@ extension EntityManager {
     }
 
     func restart() {
+        guard let currentSession = self.currentSession else {
+            return
+        }
         if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
             userInputNode.toggleRestartButton()
         }
         cleanupLevel()
-        PowerupUtil.resetPowerups()
-        MapUtil.goToMap(level: 0, entityManager: self)
-        addPlayer()
-        initialiseGraph()
-
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
-        for entity in mapEntities {
-            add(entity)
-        }
+        mapManager?.goToMap(level: 0, gameSession: currentSession)
+        initialiseLevel()
         playing = true
     }
 
     func advanceLevel() {
-        cleanupLevel()
-        PowerupUtil.resetPowerups()
-        MapUtil.advanceToNextMap(entityManager: self)
-        persistenceManager?.saveAllData()
-        addPlayer()
-        initialiseGraph()
-
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
-        for entity in mapEntities {
-            add(entity)
+        guard let currentSession = self.currentSession else {
+            return
         }
+        cleanupLevel()
+        mapManager?.advanceToNextMap(gameSession: currentSession)
+        currentSession.persistenceManager?.saveAllData()
+        initialiseLevel()
     }
 
     func cleanupLevel() {
@@ -54,6 +52,15 @@ extension EntityManager {
         self.obstacles = []
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
+        PowerupUtil.resetPowerups()
     }
 
+    func initialiseObservers() {
+        for entity in self.entities where entity is ObjectiveObserver {
+            guard let observer = entity as? ObjectiveObserver else {
+                continue
+            }
+            self.currentSession?.objectiveManager.registerObserver(observer)
+        }
+    }
 }

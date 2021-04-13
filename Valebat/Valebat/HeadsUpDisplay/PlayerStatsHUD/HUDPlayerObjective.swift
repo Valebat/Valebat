@@ -13,8 +13,8 @@ class HUDPlayerObjective: SKSpriteNode, PlayerHUDNode {
         super.init(coder: aDecoder)
     }
 
-    func update(entityManager: EntityManager) {
-        let objective = entityManager.objectiveManager.getDescription()
+    func update(gameSession: GameSession) {
+        let objective = gameSession.objectiveManager.getDescription()
         (childNode(withName: "//Objective Label") as? SKLabelNode)?.text = objective
     }
 

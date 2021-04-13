@@ -12,13 +12,6 @@ class MovementJoystick: TLAnalogJoystick, UserInputNodeProtocol {
     weak var userInputDelegate: UserInputDelegate?
     weak var userInputNode: UserInputNode?
 
-    override func didJoystickMove() {
-        if self.velocity.length() < 0.2 {
-            return
-        }
-        self.userInputDelegate?.playerJoystickMoved(velocity: self.velocity, angular: self.angular)
-    }
-
     convenience init() {
         let diameter = HUDConstants.joystickDiameter
         let handleRatio: CGFloat = 0.6

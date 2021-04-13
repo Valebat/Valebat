@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */ = {isa = PBXBuildFile; fileRef = C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */; };
+		C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
+		C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */; };
+		C652DCE72624174600349576 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE62624174600349576 /* GameConstants.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
-		C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapUtil.swift */; };
+		C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapManager.swift */; };
 		C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */; };
 		C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CD25FCE7EA00087256 /* MapObject.swift */; };
 		C6A942DE25FCE7EA00087256 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CF25FCE7EA00087256 /* Map.swift */; };
@@ -22,7 +25,7 @@
 		C6A9431625FE494100087256 /* RockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431525FE494100087256 /* RockEntity.swift */; };
 		C6A9432025FE50E000087256 /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C6A9433125FF566600087256 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9433025FF566600087256 /* MoveComponent.swift */; };
-		C6A943642603437A00087256 /* SpawnUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnUtil.swift */; };
+		C6A943642603437A00087256 /* SpawnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnManager.swift */; };
 		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
 		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
@@ -33,7 +36,7 @@
 		C6A943EE260B007500087256 /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
 		C6A94401260B4D1000087256 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		C6A9440C261373F700087256 /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
-		C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* TimerComponent.swift */; };
+		C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */; };
 		C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */; };
 		C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
 		C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
@@ -41,7 +44,6 @@
 		C6A9446E2615FEA400087256 /* PlayerModifierUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */; };
 		C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944722615FF1600087256 /* PowerupEnum.swift */; };
 		C6A9447B2616001F00087256 /* PowerupUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9447A2616001F00087256 /* PowerupUtil.swift */; };
-		C6A944882616D34800087256 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944872616D34800087256 /* GameConstants.swift */; };
 		C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */; };
 		C6A944962616D5FA00087256 /* IntangibleMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944952616D5FA00087256 /* IntangibleMapObject.swift */; };
 		C6A944A126198C1A00087256 /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
@@ -100,6 +102,7 @@
 		CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
 		CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */; };
 		CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
+		DD34F1B92622B38C006EC95A /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34F1B82622B38C006EC95A /* UserConfig.swift */; };
 		DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
 		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
@@ -128,6 +131,7 @@
 		DD703591261AED5200D3602B /* PositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703590261AED5200D3602B /* PositionData.swift */; };
 		EF0160C62620A53A001AED09 /* SpellSpawnOnShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0160C52620A53A001AED09 /* SpellSpawnOnShootComponent.swift */; };
 		EF0160CE2620A680001AED09 /* SpellExplodeOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0160CD2620A680001AED09 /* SpellExplodeOnHitComponent.swift */; };
+		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
 		EF19415E25FFC71900341BF5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
@@ -198,10 +202,13 @@
 
 /* Begin PBXFileReference section */
 		C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerObjective.sks; sourceTree = "<group>"; };
+		C652DCD22620717300349576 /* ObjectiveObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveObserver.swift; sourceTree = "<group>"; };
+		C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystickSubscriber.swift; sourceTree = "<group>"; };
+		C652DCE62624174600349576 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
-		C6A942CA25FCE7EA00087256 /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		C6A942CA25FCE7EA00087256 /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		C6A942CC25FCE7EA00087256 /* StaticMapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticMapObject.swift; sourceTree = "<group>"; };
 		C6A942CD25FCE7EA00087256 /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		C6A942CF25FCE7EA00087256 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -212,7 +219,7 @@
 		C6A9431525FE494100087256 /* RockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockEntity.swift; sourceTree = "<group>"; };
 		C6A9431F25FE50E000087256 /* WallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallEntity.swift; sourceTree = "<group>"; };
 		C6A9433025FF566600087256 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
-		C6A943632603437A00087256 /* SpawnUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnUtil.swift; sourceTree = "<group>"; };
+		C6A943632603437A00087256 /* SpawnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnManager.swift; sourceTree = "<group>"; };
 		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
 		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapObjectEntity.swift; sourceTree = "<group>"; };
@@ -223,7 +230,7 @@
 		C6A943ED260B007500087256 /* BiomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeData.swift; sourceTree = "<group>"; };
 		C6A94400260B4D1000087256 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		C6A9440B261373F700087256 /* StairsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StairsEntity.swift; sourceTree = "<group>"; };
-		C6A9441026138D3E00087256 /* TimerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerComponent.swift; sourceTree = "<group>"; };
+		C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDetectionComponent.swift; sourceTree = "<group>"; };
 		C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceLevelComponent.swift; sourceTree = "<group>"; };
 		C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListTypeEnum.swift; sourceTree = "<group>"; };
 		C6A944532615B69200087256 /* EntityManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+Level.swift"; sourceTree = "<group>"; };
@@ -231,7 +238,6 @@
 		C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModifierUtil.swift; sourceTree = "<group>"; };
 		C6A944722615FF1600087256 /* PowerupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupEnum.swift; sourceTree = "<group>"; };
 		C6A9447A2616001F00087256 /* PowerupUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupUtil.swift; sourceTree = "<group>"; };
-		C6A944872616D34800087256 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupSpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A944952616D5FA00087256 /* IntangibleMapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntangibleMapObject.swift; sourceTree = "<group>"; };
 		C6A944A026198C1A00087256 /* BiomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeTests.swift; sourceTree = "<group>"; };
@@ -296,6 +302,7 @@
 		CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDamageComponent.swift; sourceTree = "<group>"; };
 		CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPSDamageComponent.swift; sourceTree = "<group>"; };
+		DD34F1B82622B38C006EC95A /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +331,7 @@
 		DD703590261AED5200D3602B /* PositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionData.swift; sourceTree = "<group>"; };
 		EF0160C52620A53A001AED09 /* SpellSpawnOnShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnShootComponent.swift; sourceTree = "<group>"; };
 		EF0160CD2620A680001AED09 /* SpellExplodeOnHitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellExplodeOnHitComponent.swift; sourceTree = "<group>"; };
+		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
 		EF19415525FFC71900341BF5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -385,6 +393,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C652DCE026240A0E00349576 /* JoystickUtil */ = {
+			isa = PBXGroup;
+			children = (
+				C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */,
+			);
+			path = JoystickUtil;
+			sourceTree = "<group>";
+		};
 		C6A942C225FCE7EA00087256 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,7 +433,7 @@
 		C6A942C625FCE7EA00087256 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942CA25FCE7EA00087256 /* MapUtil.swift */,
+				C6A942CA25FCE7EA00087256 /* MapManager.swift */,
 				C6A9452B261F593D00087256 /* Objectives */,
 				C6A944912616D41500087256 /* Util */,
 				C6A9442D2615B3F500087256 /* LevelList */,
@@ -457,7 +473,8 @@
 				DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */,
 				DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */,
 				C6A942D525FCE7EA00087256 /* ViewConstants.swift */,
-				C6A944872616D34800087256 /* GameConstants.swift */,
+				C652DCE62624174600349576 /* GameConstants.swift */,
+				DD34F1B82622B38C006EC95A /* UserConfig.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -530,7 +547,7 @@
 		C6A944292615B3B200087256 /* SpawnUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A943632603437A00087256 /* SpawnUtil.swift */,
+				C6A943632603437A00087256 /* SpawnManager.swift */,
 			);
 			path = SpawnUtil;
 			sourceTree = "<group>";
@@ -590,6 +607,7 @@
 			children = (
 				EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */,
 				C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */,
+				C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */,
 			);
 			path = MapComponents;
 			sourceTree = "<group>";
@@ -601,6 +619,7 @@
 				C6A94531261F59CA00087256 /* ObjectiveEnum.swift */,
 				C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */,
 				C6A9453B261F5AA100087256 /* Objective.swift */,
+				C652DCD22620717300349576 /* ObjectiveObserver.swift */,
 			);
 			path = Objectives;
 			sourceTree = "<group>";
@@ -620,7 +639,6 @@
 			isa = PBXGroup;
 			children = (
 				CB9E9E3426174A8E0016B046 /* PlayerStats.swift */,
-				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -708,8 +726,10 @@
 				C6A942C425FCE7EA00087256 /* TestUtil */,
 				C6A942D025FCE7EA00087256 /* Util */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
+				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
 				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
+				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
@@ -804,6 +824,7 @@
 		DD70354F26199FCF00D3602B /* UserInputHUD */ = {
 			isa = PBXGroup;
 			children = (
+				C652DCE026240A0E00349576 /* JoystickUtil */,
 				DD5783EF2605D13100E15493 /* Joystick */,
 				DD4E015425FF52A7002C5556 /* ElementPane */,
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
@@ -1041,7 +1062,6 @@
 				CB9E9E1C2617377C0016B046 /* HUDHPBar.swift in Sources */,
 				EF0160C62620A53A001AED09 /* SpellSpawnOnShootComponent.swift in Sources */,
 				CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */,
-				C6A944882616D34800087256 /* GameConstants.swift in Sources */,
 				CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				CB9E9E95261DEB140016B046 /* GameSession.swift in Sources */,
@@ -1071,6 +1091,7 @@
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				C6A9452D261F598100087256 /* ObjectiveManager.swift in Sources */,
+				C652DCE72624174600349576 /* GameConstants.swift in Sources */,
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */,
@@ -1110,16 +1131,20 @@
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
-				C6A9441126138D3E00087256 /* TimerComponent.swift in Sources */,
+				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
+				C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
 				CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */,
 				EF1941882600B15F00341BF5 /* PlayerSpellEntity.swift in Sources */,
 				C6A94517261D80A200087256 /* EnemyTypeEnum.swift in Sources */,
-				C6A942DA25FCE7EA00087256 /* MapUtil.swift in Sources */,
+				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
+				DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */,
+				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
 				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
+				DD34F1B92622B38C006EC95A /* UserConfig.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
 				CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */,
 				C6A944F3261B61E500087256 /* MapObjectUtil.swift in Sources */,
@@ -1144,7 +1169,7 @@
 				CB9E9E9D261E1B720016B046 /* BaseInteractableEntity.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
-				C6A943642603437A00087256 /* SpawnUtil.swift in Sources */,
+				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				EF37C1952621A5DF006974F7 /* ProjectileMotionComponent.swift in Sources */,
 				EF37C19A26243C34006974F7 /* SpellMovementComponent.swift in Sources */,
@@ -1170,6 +1195,7 @@
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
+				C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */,
 				CB9E9DE82610A1170016B046 /* BaseEnemyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

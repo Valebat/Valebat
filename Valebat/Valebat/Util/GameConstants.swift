@@ -2,9 +2,13 @@
 //  GameConstants.swift
 //  Valebat
 //
-//  Created by Jing Lin Shi on 2/4/21.
+//  Created by Jing Lin Shi on 12/4/21.
 //
 
-class GameConstants {
+import CoreGraphics
 
+struct GameConstants {
+    static let playerMoveSpeed: CGFloat = 4.0
+
+    static var stairsSensitivity: CGFloat = 0.5
 }

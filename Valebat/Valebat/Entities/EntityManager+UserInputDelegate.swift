@@ -70,21 +70,14 @@ extension EntityManager: UserInputDelegate {
         }
     }
 
-    func playerJoystickMoved(velocity: CGPoint, angular: CGFloat) {
-        guard let playerMoveComp = player?.component(ofType: PlayerMoveComponent.self) else {
-            return
-        }
-
-        playerMoveComp.movePlayer(velocity: velocity * HUDConstants.joystickVelocityMultiplier,
-                                  angular: angular)
-    }
-
     func restartClicked() {
         self.restart()
     }
 
     private func mapBasicType(elementQueue: [BasicType]) -> [Element] {
-        let playerStats = currentSession.playerStats
+        guard let playerStats = currentSession?.playerStats else {
+            return []
+        }
         return elementQueue.compactMap({ playerStats.elements[$0] ?? nil })
     }
 }

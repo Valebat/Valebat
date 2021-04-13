@@ -13,7 +13,7 @@ class PlayerHUD: SKSpriteNode {
         super.init(coder: aDecoder)
     }
 
-    func updateHUD(entityManager: EntityManager) {
+    func updateHUD(gameSession: GameSession) {
         guard let hpbar = childNode(withName: "//PlayerHP")?.childNode(withName: "//HPBar"),
               let levelLabel = childNode(withName: "//PlayerLevel")?
                 .childNode(withName: "//HUDPlayerLevel"),
@@ -22,9 +22,9 @@ class PlayerHUD: SKSpriteNode {
                 .childNode(withName: "//HUDPlayerObjective") else {
             return
         }
-        (hpbar as? PlayerHUDNode)?.update(entityManager: entityManager)
-        (levelLabel as? PlayerHUDNode)?.update(entityManager: entityManager)
-        (expBar as? PlayerHUDNode)?.update(entityManager: entityManager)
-        (objectiveLabel as? PlayerHUDNode)?.update(entityManager: entityManager)
+        (hpbar as? PlayerHUDNode)?.update(gameSession: gameSession)
+        (levelLabel as? PlayerHUDNode)?.update(gameSession: gameSession)
+        (expBar as? PlayerHUDNode)?.update(gameSession: gameSession)
+        (objectiveLabel as? PlayerHUDNode)?.update(gameSession: gameSession)
     }
 }

@@ -9,7 +9,7 @@ import GameplayKit
 
 class PlayerEntity: BaseInteractableEntity {
 
-    init(position: CGPoint, playerStats: PlayerStats) {
+    init(position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
         let texture = SKTexture(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
         super.init(texture: texture, size: size, physicsType: .player, position: position, isStatic: false)
@@ -18,7 +18,8 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
-        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
+        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position,
+                                                                movementJoystick: (entityManager.scene?.headsUpDisplay.movementJoystick)!))
         addComponent(AimIndicatorComponent(size: CGSize(width: 10,
                                                         height: texture.size().height/2),
                                            playerSize: texture.size().height))

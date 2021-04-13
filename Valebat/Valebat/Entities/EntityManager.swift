@@ -14,21 +14,21 @@ import GameplayKit
 
 class EntityManager {
 
+    weak var currentSession: GameSession?
+    weak var mapManager: MapManager?
+    weak var scene: GameScene!
+
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
     var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
-    var currentSession: GameSession
+
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
-    let scene: SKScene
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
-    let spellManager: SpellManager
-    let objectiveManager: ObjectiveManager
-    var playing: Bool = true
 
-    weak var persistenceManager: PersistenceManager?
+    var playing: Bool = true
 
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
@@ -47,33 +47,43 @@ class EntityManager {
                 powerupSpawnSystem]
     }()
 
-    init(scene: SKScene, currentSession: GameSession) {
+    init(scene: GameScene) {
         self.scene = scene
-        self.currentSession = currentSession
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
+    }
 
-        self.spellManager = SpellManager()
-        self.objectiveManager = ObjectiveManager()
-        self.currentSession.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
+    func setup() {
+        self.currentSession?.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
+        initialiseMaps()
+        initialiseGraph()
+        initialiseObservers()
     }
 
     func initialiseMaps() {
-        MapUtil.generateMaps(withLevelType: .medium)
-        addMapEntities()
+        mapManager?.generateMaps(withLevelType: .medium)
+        immediateAddMapEntities()
     }
 
-    func addMapEntities() {
-        let mapEntities: [BaseEntity] = MapUtil.mapEntities
+    /// This function is to bypass toAdd on initialisation (as we don't have to accommodate the update loop).
+    /// Do not call this while the game is running.
+    func immediateAddMapEntities() {
+        guard let mapManager = self.mapManager else {
+            return
+        }
+        let mapEntities: [BaseEntity] = mapManager.mapEntities
 
         for entity in mapEntities {
-            add(entity)
+            immediateAdd(entity)
         }
     }
 
     func initialiseGraph() {
-        let mapEntities: [BaseMapEntity] = MapUtil.mapEntities
+        guard let mapManager = self.mapManager else {
+            return
+        }
+        let mapEntities: [BaseMapEntity] = mapManager.mapEntities
 
         self.obstacles = []
 
@@ -122,6 +132,21 @@ class EntityManager {
         entity.entityManager = self
     }
 
+    private func immediateAdd(_ entity: GKEntity) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            scene.addChild(spriteNode)
+        }
+        entities.insert(entity)
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+    }
+
+    private func immediateAdd(_ entity: BaseEntity) {
+        immediateAdd(entity as GKEntity)
+        entity.entityManager = self
+    }
+
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
@@ -159,16 +184,23 @@ class EntityManager {
     }
 
     func addPlayer() {
+        guard let currentSession = self.currentSession else {
+            return
+        }
         let spawnLocation = CGPoint(x: scene.size.width * ViewConstants.playerSpawnOffset,
                                 y: scene.size.height * ViewConstants.playerSpawnOffset)
-        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats)
+        let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats,
+                                     entityManager: self)
         add(character)
         self.player = character
     }
 
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
                     using elementsSelected: [Element]) throws {
-        let underlyingSpell = try self.spellManager.combine(elements: elementsSelected)
+        guard let underlyingSpell = try self.currentSession?
+                .spellManager.combine(elements: elementsSelected) else {
+            return
+        }
         let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
                                 spell: underlyingSpell, position: shootPoint)
         add(spell)
