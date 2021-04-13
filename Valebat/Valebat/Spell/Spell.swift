@@ -5,8 +5,14 @@
 //  Created by Sreyans Sipani on 11/3/21.
 //
 
+import SpriteKit
 class Spell {
     var level: Double = 1.0
-    var effects: [SpellHitComponent.Type] = []
+    var effects: [SpellEffectComponent.Type] = []
     var effectParams: [[Any]] = []
+    var movement: SpellMovementComponent.Type = RegularMovementComponent.self
+
+    static func buildEndAnimation() -> [SKTexture] {
+        return TextureUltilties.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
+    }
 }
