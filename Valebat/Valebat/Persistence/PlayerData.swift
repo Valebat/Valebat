@@ -4,47 +4,41 @@
 //
 //  Created by Zhang Yifan on 2/4/21.
 //
-
+import GameplayKit
 struct PlayerData: Codable {
     var level: Int = 0
-    var elementType: [String] = []
-    var elementLevel: [Double] = []
-
-    func getElementDictionary() -> [BasicType: Element] {
-        var elements: [BasicType: Element] = [:]
-        let elementTypes = convertElementStringToEnum()
-        do {
-            for index in 0..<elementTypes.count {
-                try elements.updateValue(Element(with: elementTypes[index],
-                                                 at: elementLevel[index]),
-                                         forKey: elementTypes[index])
-            }
-        } catch SpellErrors.wrongBasicTypeError {
-            print("Wrong element type was given")
-        } catch {
-            print("Unexpected error")
-        }
-        return elements
-    }
+    var elementType = [String]()
+    var elementLevels = [Double]()
+    var elementMultipliers = [Double]()
 
     func assignPlayerStats(gameSession: GameSession) {
         let playerStats = gameSession.playerStats
         gameSession.currentLevel = level
-        playerStats.elements = getElementDictionary()
+        for index in 0 ..< elementType.count {
+            if let type = BasicType.init(rawValue: elementType[index]) {
+                playerStats.elementalLevels[type] = elementLevels[index]
+                playerStats.elementalMultipliers[type] = CGFloat(elementMultipliers[index])
+            }
+        }
     }
 
     static func convertToPlayerData(gameSession: GameSession) -> PlayerData {
         let playerStats = gameSession.playerStats
         var elementType: [String] = []
-        var elementLevel: [Double] = []
-        for (type, element) in playerStats.elements {
+        var elementLevels: [Double] = []
+        var elementalMultipliers: [Double] = []
+        for (type, level) in playerStats.elementalLevels {
             elementType.append(type.rawValue)
-            elementLevel.append(element.level)
+            elementLevels.append(level)
+        }
+        for (type, multiplier) in playerStats.elementalLevels {
+            elementalMultipliers.append(multiplier)
         }
         var playerData = PlayerData()
         playerData.level = gameSession.currentLevel
         playerData.elementType = elementType
-        playerData.elementLevel = elementLevel
+        playerData.elementLevels = elementLevels
+        playerData.elementMultipliers = elementalMultipliers
         return playerData
     }
 

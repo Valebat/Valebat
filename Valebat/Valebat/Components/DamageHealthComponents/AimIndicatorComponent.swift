@@ -24,6 +24,7 @@ class AimIndicatorComponent: SpriteComponent {
     }
 
     override func willRemoveFromEntity() {
+        node.removeFromParent()
         super.willRemoveFromEntity()
     }
 

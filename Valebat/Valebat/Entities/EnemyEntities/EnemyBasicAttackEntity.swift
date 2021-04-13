@@ -20,9 +20,8 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
                    physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
-        addComponent(SpellHitComponent(animatedTextures:
-                                        TextureUtilities.generateTextures(assetName: "explosion"),
-                                       timePerFrame: 0.05, effectParams: []))
+        let effectParams: [Any] = [TextureUltilties.generateTextures(assetName: "explosion"), 0.05]
+        addComponent(SpellExplodeOnHitComponent(effectParams: effectParams))
     }
 
     static func getImage(type: BasicType) -> String {
