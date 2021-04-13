@@ -15,6 +15,7 @@ class BossAttackComponent: BaseComponent {
     private var cachedMoveComponent: MoveComponent?
     override init() {
         super.init()
+        attachedSubComponent.append(BossBorderOfWaveAndParticle(attachedAttackComponent: self))
         attachedSubComponent.append(BossAttackLaser(attachedAttackComponent: self))
         attachedSubComponent.append(BossAttackRingOfBullets(attachedAttackComponent: self))
     }

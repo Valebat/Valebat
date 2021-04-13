@@ -25,18 +25,19 @@ class AudioManager {
         }
     }
 
-    static func playSound(soundName: String, cooldown: Double) {
-        if soundCoolDowns[soundName] != nil {
+    static func playSound(soundEffect: SoundEffect) {
+        let soundData = soundEffect.getSoundEffectData()
+        if soundCoolDowns[soundData.soundName] != nil {
             return
         }
         currentCounter += 1
         currentCounter %= numberOfAudio
-        guard let pathToSound = Bundle.main.path(forResource: soundName, ofType: "wav") else {
+        guard let pathToSound = Bundle.main.path(forResource: soundData.soundName, ofType: "wav") else {
            return
         }
         let url = URL(fileURLWithPath: pathToSound)
         audioPlayer[currentCounter] = try? AVAudioPlayer(contentsOf: url)
         audioPlayer[currentCounter]?.play()
-        soundCoolDowns[soundName] = cooldown
+        soundCoolDowns[soundData.soundName] = soundData.coolDown
     }
 }

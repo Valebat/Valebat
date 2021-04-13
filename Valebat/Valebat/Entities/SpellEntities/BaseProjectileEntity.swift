@@ -13,9 +13,7 @@ class BaseProjectileEntity: BaseInteractableEntity {
          physicsType: CollisionType?, position: CGPoint, velocity: CGVector) {
         super.init(textures: textures, size: size, physicsTexture: physicsTexture,
                    physicsType: physicsType, position: position, isStatic: false)
-        if let baseComponent = RegularMovementComponent(velocity: velocity, initialPosition: position) as? BaseComponent {
-            addComponent(baseComponent)
-        }
+       addComponent(RegularMovementComponent(velocity: velocity, initialPosition: position) as BaseComponent)
         self.component(ofType: SpriteComponent.self)?.node.zPosition = 3
     }
 
@@ -32,6 +30,8 @@ class BaseProjectileEntity: BaseInteractableEntity {
 
     init(texture: SKTexture, size: CGSize, physicsType: CollisionType?, position: CGPoint, velocity: CGVector) {
         super.init(texture: texture, size: size, physicsType: physicsType, position: position, isStatic: false)
+        addComponent(RegularMovementComponent(velocity: velocity, initialPosition: position) as BaseComponent)
+        self.component(ofType: SpriteComponent.self)?.node.zPosition = 3
     }
 
     required init?(coder: NSCoder) {
