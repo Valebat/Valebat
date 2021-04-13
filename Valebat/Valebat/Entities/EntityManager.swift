@@ -256,8 +256,8 @@ class EntityManager {
                 continue
             }
 
-            print(texture.imageName)
-            print(spriteNode.position)
+//            print(texture.imageName)
+//            print(spriteNode.position)
         }
     }
 }
