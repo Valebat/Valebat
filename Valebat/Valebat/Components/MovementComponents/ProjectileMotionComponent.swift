@@ -52,19 +52,8 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
         super.update(deltaTime: seconds)
         time += CGFloat(seconds)
         if time < duration {
-            let height: CGVector
-            if time < duration / 2 {
-                height = lerp(start: CGVector(dx: 0, dy: 0),
-                              end: CGVector(dx: 0, dy: ProjectileMotionComponent.defaultHeight),
-                              linearT: 2*time/duration)
-            } else {
-                height = lerp(start: CGVector(dx: 0, dy: ProjectileMotionComponent.defaultHeight),
-                              end: CGVector(dx: 0, dy: 0),
-                              linearT: (2*time/duration) - 1)
-            }
-            currentPosition = lerp(start: initialPosition.convertToVector(),
-                                   end: targetPosition.convertToVector(),
-                                   linearT: time/duration).convertToPoint() + height.convertToPoint()
+            currentPosition = getPoint(at: time / duration, initialPosition: initialPosition,
+                                       targetPosition: targetPosition)
         } else {
             guard let entityManager = baseEntity?.entityManager else {
                 return
@@ -77,4 +66,13 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
             }
         }
     }
+
+    func getPoint(at prop: CGFloat, initialPosition: CGPoint, targetPosition: CGPoint) -> CGPoint {
+        let controlPoint = (targetPosition + initialPosition) / 2 + (CGPoint(x: 0, y: ProjectileMotionComponent.defaultHeight))
+        let firstTerm = initialPosition * pow(1 - prop, 2)
+        let secondTerm = controlPoint * 2 * prop * (1 - prop)
+        let thirdTerm = targetPosition * pow(prop, 2)
+        return firstTerm + secondTerm + thirdTerm
+    }
+
 }
