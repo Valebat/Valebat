@@ -23,6 +23,8 @@ class EntityManager {
     var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
 
+    var spriteSystem: GKComponentSystem<GKComponent>
+
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     let gkScene: GKScene
@@ -35,7 +37,7 @@ class EntityManager {
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
-        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
+//        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
@@ -50,6 +52,7 @@ class EntityManager {
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
+        self.spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
     }
 
     func setup() {
@@ -239,6 +242,20 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+
+        let spriteComponents = spriteSystem.components
+
+        for spriteComp in spriteComponents {
+            guard let spriteNode = (spriteComp as? SpriteComponent)?.node as? SKSpriteNode else {
+                continue
+            }
+            guard let texture = spriteNode.texture as? CustomTexture else {
+                continue
+            }
+
+            print(texture.imageName)
+            print(spriteNode.position)
+        }
     }
 }
 

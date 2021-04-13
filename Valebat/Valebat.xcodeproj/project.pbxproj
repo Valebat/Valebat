@@ -700,6 +700,7 @@
 				EFCC5B412605D574006F2771 /* Exceptions */,
 				EF19415125FFC71900341BF5 /* Spell */,
 				DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */,
+				DD4A22AE26257BD000D98A7A /* Coop */,
 				DD7034EA2616E26300D3602B /* Persistence */,
 				C6A942C625FCE7EA00087256 /* Map */,
 				C6A942D225FCE7EA00087256 /* Components */,
@@ -738,6 +739,13 @@
 				CBC7781E25FCE1C200581E20 /* Info.plist */,
 			);
 			path = ValebatUITests;
+			sourceTree = "<group>";
+		};
+		DD4A22AE26257BD000D98A7A /* Coop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coop;
 			sourceTree = "<group>";
 		};
 		DD4E00FE25FDBC2E002C5556 /* PlayerEntities */ = {

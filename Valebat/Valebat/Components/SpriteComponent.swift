@@ -13,10 +13,15 @@ import GameplayKit
 
 class SpriteComponent: GKSKNodeComponent {
 
+    static var idCounter: Double = 0.0
+    private(set) var id: Double
+
     var cachedMoveComponent: MoveComponent?
     var isStatic: Bool
     init(texture: SKTexture, size: CGSize, position: CGPoint, zPosition: CGFloat = 2, isStatic: Bool = true) {
         self.isStatic = isStatic
+        self.id = SpriteComponent.idCounter
+        SpriteComponent.idCounter += 1.0
         super.init()
         node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
         node.position = position
@@ -32,6 +37,8 @@ class SpriteComponent: GKSKNodeComponent {
 
     init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true) {
         self.isStatic = isStatic
+        self.id = SpriteComponent.idCounter
+        SpriteComponent.idCounter += 1.0
         super.init()
         node = SKSpriteNode(texture: animatedTextures[0], color: SKColor.white, size: size)
         node.position = position
@@ -52,10 +59,5 @@ class SpriteComponent: GKSKNodeComponent {
                 node.zRotation = orientation
             }
         }
-
-        guard let texture = (node as? SKSpriteNode)?.texture as? CustomTexture else {
-            return
-        }
-
     }
 }
