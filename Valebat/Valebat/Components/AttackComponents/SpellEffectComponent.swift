@@ -6,6 +6,7 @@
 //
 
 import GameplayKit
+
 class SpellEffectComponent: BaseComponent {
     let params: [Any]
 

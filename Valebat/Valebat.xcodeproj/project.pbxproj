@@ -58,6 +58,14 @@
 		C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */; };
 		C6A9453C261F5AA100087256 /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9453B261F5AA100087256 /* Objective.swift */; };
 		C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94555261F617F00087256 /* HUDPlayerObjective.swift */; };
+		C6AA39F62625A0630058003C /* SpellExplodeOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */; };
+		C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA39FA2625A09A0058003C /* SpellEffectComponent.swift */; };
+		C6AA3A032625A14B0058003C /* ProjectileMotionComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A022625A14B0058003C /* ProjectileMotionComponents.swift */; };
+		C6AA3A082625A16B0058003C /* SpellMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A072625A16B0058003C /* SpellMovementComponent.swift */; };
+		C6AA3A0D2625A1930058003C /* SpellSpawnOnShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */; };
+		C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
+		C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */; };
+		C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A262625A26E0058003C /* ExplosionEntity.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -155,7 +163,6 @@
 		EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */; };
 		EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4FC2619C7F40076BB3A /* RestartButton.swift */; };
 		EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */; };
-		EF61C5082619DB300076BB3A /* SpellHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5052619DB300076BB3A /* SpellHitComponent.swift */; };
 		EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */; };
 		EF61C5112619DE1F0076BB3A /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */; };
 		EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */; };
@@ -246,6 +253,14 @@
 		C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveUtil.swift; sourceTree = "<group>"; };
 		C6A9453B261F5AA100087256 /* Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
 		C6A94555261F617F00087256 /* HUDPlayerObjective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerObjective.swift; sourceTree = "<group>"; };
+		C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellExplodeOnHitComponent.swift; sourceTree = "<group>"; };
+		C6AA39FA2625A09A0058003C /* SpellEffectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellEffectComponent.swift; sourceTree = "<group>"; };
+		C6AA3A022625A14B0058003C /* ProjectileMotionComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileMotionComponents.swift; sourceTree = "<group>"; };
+		C6AA3A072625A16B0058003C /* SpellMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellMovementComponent.swift; sourceTree = "<group>"; };
+		C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnShootComponent.swift; sourceTree = "<group>"; };
+		C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobIndicatorComponent.swift; sourceTree = "<group>"; };
+		C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDestructComponent.swift; sourceTree = "<group>"; };
+		C6AA3A262625A26E0058003C /* ExplosionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionEntity.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -342,7 +357,6 @@
 		EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDeathComponent.swift; sourceTree = "<group>"; };
 		EF61C4FC2619C7F40076BB3A /* RestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButton.swift; sourceTree = "<group>"; };
 		EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellSpawnOnHitComponent.swift; sourceTree = "<group>"; };
-		EF61C5052619DB300076BB3A /* SpellHitComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellHitComponent.swift; sourceTree = "<group>"; };
 		EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyAttackComponent.swift; sourceTree = "<group>"; };
 		EF61C5102619DE1F0076BB3A /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
 		EF61C5152619DE350076BB3A /* PowerupSpawnerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PowerupSpawnerComponent.swift; path = Valebat/Components/MapComponents/PowerupSpawnerComponent.swift; sourceTree = SOURCE_ROOT; };
@@ -571,9 +585,11 @@
 			isa = PBXGroup;
 			children = (
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
-				EF61C5052619DB300076BB3A /* SpellHitComponent.swift */,
 				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
 				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
+				C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */,
+				C6AA39FA2625A09A0058003C /* SpellEffectComponent.swift */,
+				C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -640,6 +656,8 @@
 				CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
 				EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */,
+				C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */,
+				C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */,
 			);
 			path = DamageHealthComponents;
 			sourceTree = "<group>";
@@ -651,6 +669,8 @@
 				EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */,
 				C6A9433025FF566600087256 /* MoveComponent.swift */,
 				CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */,
+				C6AA3A022625A14B0058003C /* ProjectileMotionComponents.swift */,
+				C6AA3A072625A16B0058003C /* SpellMovementComponent.swift */,
 			);
 			path = MovementComponents;
 			sourceTree = "<group>";
@@ -856,6 +876,7 @@
 			children = (
 				EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */,
 				CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */,
+				C6AA3A262625A26E0058003C /* ExplosionEntity.swift */,
 			);
 			path = SpellEntities;
 			sourceTree = "<group>";
@@ -1059,6 +1080,7 @@
 				DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */,
 				EF61C4BF2618590F0076BB3A /* ClassInfo.swift in Sources */,
 				CBA49522260679FA003A05F7 /* HealthBarComponent.swift in Sources */,
+				C6AA39F62625A0630058003C /* SpellExplodeOnHitComponent.swift in Sources */,
 				CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
@@ -1086,6 +1108,7 @@
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
 				C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
+				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
 				CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */,
@@ -1120,6 +1143,7 @@
 				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
 				DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */,
 				C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */,
+				C6AA3A032625A14B0058003C /* ProjectileMotionComponents.swift in Sources */,
 				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
 				DD34F1B92622B38C006EC95A /* UserConfig.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
@@ -1160,17 +1184,21 @@
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */,
 				CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */,
-				EF61C5082619DB300076BB3A /* SpellHitComponent.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,
+				C6AA3A082625A16B0058003C /* SpellMovementComponent.swift in Sources */,
 				EF61C5112619DE1F0076BB3A /* PlayerMoveComponent.swift in Sources */,
 				DD7034F22616E37200D3602B /* PlayerData.swift in Sources */,
 				CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */,
+				C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */,
+				C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */,
 				C6A9447B2616001F00087256 /* PowerupUtil.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
+				C6AA3A0D2625A1930058003C /* SpellSpawnOnShootComponent.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
 				C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */,
+				C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */,
 				CB9E9DE82610A1170016B046 /* BaseEnemyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //
 
 import GameplayKit
+
 class SpellExplodeOnHitComponent: SpellEffectComponent {
     let animation: SKAction
 
