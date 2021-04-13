@@ -21,7 +21,7 @@ extension EntityManager {
             userInputNode.toggleOutcomeButton(success: false)
         }
     }
-    
+
     func playerWon() {
         playing = false
         if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
