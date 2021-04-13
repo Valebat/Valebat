@@ -13,4 +13,18 @@ enum BasicType: String, CaseIterable, Codable {
     var imageName: String {
         rawValue
     }
+
+    static func getRandomType() -> BasicType {
+        let val = Int.random(in: 0 ... 3)
+        switch val {
+        case 0:
+            return .water
+        case 1:
+            return .earth
+        case 2:
+            return .fire
+        default:
+            return .pure
+        }
+    }
 }
