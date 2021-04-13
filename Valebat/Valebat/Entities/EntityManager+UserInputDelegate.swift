@@ -43,7 +43,9 @@ extension EntityManager: UserInputDelegate {
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
         let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         do {
-            let currentSpell = try self.spellManager.combine(elements: elementQueue)
+            guard let currentSpell = try self.currentSession?.spellManager.combine(elements: elementQueue) else {
+                return
+            }
             if currentSpell.movement == ProjectileMotionComponent.self {
                 guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
                     return
