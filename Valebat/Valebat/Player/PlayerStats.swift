@@ -18,38 +18,32 @@ class PlayerStats {
     var currentEXP: Int
     static let maxHPGainPerLevel: CGFloat = 10.0
     var currentPlayerLevel: Int
-    var elements: [BasicType: Element]
+    // var elements: [BasicType: Element]
+    var elementalLevels: [BasicType: Double]
     var elementalMultipliers: [BasicType: CGFloat]
 
     init() {
         maxHP = 100.0
         currentPlayerLevel = 1
         currentEXP = 0
-        elements = [BasicType: Element]()
+        // elements = [BasicType: Element]()
         elementalMultipliers = [BasicType: CGFloat]()
-        do {
-            for type in BasicType.allCases {
-                elements[type] = try Element(with: type, at: 1.0)
-                elementalMultipliers[type] = 1
-            }
-        } catch {
-            print("invalid element")
+        elementalLevels = [BasicType: Double]()
+        for type in BasicType.allCases {
+            elementalLevels[type] = 1.0
+            elementalMultipliers[type] = 1
         }
     }
 
     func reset() {
-        maxHP = 15
+        maxHP = 100.0
         currentPlayerLevel = 1
         currentEXP = 0
-        elements = [BasicType: Element]()
+        // elements = [BasicType: Element]()
         elementalMultipliers = [BasicType: CGFloat]()
-        do {
-            for type in BasicType.allCases {
-                elements[type] = try Element(with: type, at: 1.0)
-                elementalMultipliers[type] = 1
-            }
-        } catch {
-            print("invalid element")
+        for type in BasicType.allCases {
+            elementalLevels[type] = 1.0
+            elementalMultipliers[type] = 1
         }
     }
 
@@ -69,5 +63,13 @@ class PlayerStats {
 
     static func getEXPPerLevel(level: Int) -> Int {
         return 100 + 25 * (level - 1)
+    }
+
+    func getElement(type: BasicType) -> Element? {
+        do {
+            return try Element(with: type, at: elementalLevels[type] ?? 1)
+        } catch {
+            return nil
+        }
     }
 }

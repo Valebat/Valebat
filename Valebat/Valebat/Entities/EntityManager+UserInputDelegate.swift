@@ -50,6 +50,7 @@ extension EntityManager: UserInputDelegate {
         guard let playerStats = currentSession?.playerStats else {
             return []
         }
-        return elementQueue.compactMap({ playerStats.elements[$0] ?? nil })
+        return elementQueue.compactMap({ playerStats.getElement(type: $0) })
+
     }
 }

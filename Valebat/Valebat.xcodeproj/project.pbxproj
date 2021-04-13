@@ -84,6 +84,7 @@
 		CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */; };
 		CB9E9ED3261E4BC90016B046 /* EXPBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9ED2261E4BC80016B046 /* EXPBar.sks */; };
 		CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */; };
+		CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EEE262590330016B046 /* BossAttackComponent.swift */; };
 		CBA494DF26036789003A05F7 /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
 		CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -271,6 +272,7 @@
 		CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyProtocol.swift; sourceTree = "<group>"; };
 		CB9E9ED2261E4BC80016B046 /* EXPBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EXPBar.sks; sourceTree = "<group>"; };
 		CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDEXPBar.swift; sourceTree = "<group>"; };
+		CB9E9EEE262590330016B046 /* BossAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackComponent.swift; sourceTree = "<group>"; };
 		CBA494DE26036789003A05F7 /* CollisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionType.swift; sourceTree = "<group>"; };
 		CBA494E62603847A003A05F7 /* DeathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathComponent.swift; sourceTree = "<group>"; };
 		CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
 				EF61C5052619DB300076BB3A /* SpellHitComponent.swift */,
 				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
+				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
 				CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */,
 				C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */,
+				CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStats.swift in Sources */,

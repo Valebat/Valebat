@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BasicType: String, CaseIterable {
+enum BasicType: String, CaseIterable, Codable {
     case water, earth, fire, pure
 
     var imageName: String {

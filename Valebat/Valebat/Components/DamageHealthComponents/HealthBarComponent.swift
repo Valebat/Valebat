@@ -32,6 +32,7 @@ class HealthBarComponent: BaseComponent, DamageTakenObserver {
     override func willRemoveFromEntity() {
         entity?.component(ofType: HealthComponent.self)?
             .damageTakenObservers.removeValue(forKey: ObjectIdentifier(self))
+        healthBar.removeFromParent()
         super.willRemoveFromEntity()
     }
     required init?(coder aDecoder: NSCoder) {
