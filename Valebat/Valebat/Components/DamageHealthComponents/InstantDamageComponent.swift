@@ -14,7 +14,7 @@ class InstantDamageComponent: DamageComponent {
             damageTaker.takeDamage(damages: damageValues)
         }
         if let entity = self.entity {
-            entity.component(conformingTo: SpellHitComponent.self)?.onHit()
+            entity.component(conformingTo: SpellExplodeOnHitComponent.self)?.createEffect()
         }
 
     }
