@@ -11,7 +11,7 @@ class InstantDamageComponent: DamageComponent {
 
     override func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let damageTaker = entity.component(ofType: DamageTakerComponent.self) {
-            damageTaker.takeDamage(damages: damageValues)
+            damageTaker.takeDamage(damages: damageValues, soundTrack: "Hit")
         }
         if let entity = self.entity {
             entity.component(conformingTo: SpellExplodeOnHitComponent.self)?.createEffect()

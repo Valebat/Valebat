@@ -66,9 +66,13 @@ class DamageTakerComponent: BaseComponent {
         return finalDamage
     }
 
-    func takeDamage(damages: [BasicType: CGFloat]) {
+    func takeDamage(damages: [BasicType: CGFloat], soundTrack: String?) {
         let damage = getFinalDamage(damages: damages)
-        AudioManager.playSound(soundName: "Hit", cooldown: 0.08)
+        if let track = soundTrack {
+            if damage >= 1 {
+                AudioManager.playSound(soundName: track, cooldown: 0.08)
+            }
+        }
         entity?.component(ofType: HealthComponent.self)?.takeDamage(damage: damage)
     }
 }

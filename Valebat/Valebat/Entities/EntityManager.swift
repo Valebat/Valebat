@@ -37,13 +37,16 @@ class EntityManager {
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
+        let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
+        let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
+
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem,
+                enemyAttackSystem, bossAttackSystem, bossStateMachineSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem,
                 playerMovementSystem]
     }()
 
@@ -228,10 +231,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
+       // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {
             for componentSystem in componentSystems {
                 componentSystem.update(deltaTime: deltaTime)
             }
+            // entities.forEach({ $0.update(deltaTime: deltaTime )})
             updateLastKnownPlayerPosition()
         }
         for curRemove in toRemove {
