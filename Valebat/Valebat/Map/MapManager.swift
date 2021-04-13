@@ -74,7 +74,7 @@ class MapManager {
             setObjective()
         } else {
             // TODO implement player win here
-            entityManager.playerWon()
+            goToMap(level: 0, gameSession: gameSession)
         }
     }
 

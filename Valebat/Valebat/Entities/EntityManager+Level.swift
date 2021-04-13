@@ -18,14 +18,7 @@ extension EntityManager {
     func playerDied() {
         playing = false
         if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
-            userInputNode.toggleOutcomeButton(success: false)
-        }
-    }
-
-    func playerWon() {
-        playing = false
-        if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
-            userInputNode.toggleOutcomeButton(success: true)
+            userInputNode.toggleRestartButton()
         }
     }
 
@@ -34,7 +27,7 @@ extension EntityManager {
             return
         }
         if let userInputNode = scene.childNode(withName: "input") as? UserInputNode {
-            userInputNode.outcomeButton?.goBackDown()
+            userInputNode.toggleRestartButton()
         }
         cleanupLevel()
         mapManager?.goToMap(level: 0, gameSession: currentSession)

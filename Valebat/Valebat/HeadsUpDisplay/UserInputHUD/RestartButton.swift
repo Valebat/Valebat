@@ -7,15 +7,21 @@
 
 import SpriteKit
 
-class RestartButton: SKSpriteNode {
+class RestartButton: SKSpriteNode, UserInputNodeProtocol {
 
     weak var userInputDelegate: UserInputDelegate?
 
     init() {
-        let texture = SKTexture(imageNamed: "restart-button")
-        super.init(texture: texture, color: .brown, size: HUDConstants.restartButtonSize)
-        self.isUserInteractionEnabled = true
+        super.init(texture: SKTexture(imageNamed: "elementbox"),
+                   color: UIColor.brown, size: HUDConstants.restartButtonSize)
+        self.isUserInteractionEnabled = false
+        self.isHidden = true
         self.position = HUDConstants.restartButtonPos
+        let restartText = SKLabelNode(text: "Restart")
+        restartText.fontColor = UIColor.black
+        restartText.fontSize = 20
+//        restartText.position = HUDConstants.textPos
+        self.addChild(restartText)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,5 +31,4 @@ class RestartButton: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

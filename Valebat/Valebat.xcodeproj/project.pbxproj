@@ -190,7 +190,6 @@
 		EF8087A82606843400923494 /* MudSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087A72606843400923494 /* MudSpellTests.swift */; };
 		EF8087AD260684BE00923494 /* SteamSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087AC260684BE00923494 /* SteamSpellTests.swift */; };
 		EF8087B5260688C700923494 /* SpellManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087B4260688C700923494 /* SpellManagerTests.swift */; };
-		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,7 +383,6 @@
 		EF8087A72606843400923494 /* MudSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudSpellTests.swift; sourceTree = "<group>"; };
 		EF8087AC260684BE00923494 /* SteamSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpellTests.swift; sourceTree = "<group>"; };
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
-		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -865,7 +863,6 @@
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
 				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
 				EF61C4FC2619C7F40076BB3A /* RestartButton.swift */,
-				EF8BFF962625A74300647771 /* OutcomeButton.swift */,
 			);
 			path = UserInputHUD;
 			sourceTree = "<group>";
@@ -1174,7 +1171,6 @@
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
-				EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */,
 				C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,

@@ -20,10 +20,7 @@ struct HUDConstants {
     static let elementQueueElementSize: CGSize = CGSize(width: 30, height: 30)
     static let elementQueueLength: Int = 2
 
-    static let outcomeButtonSize: CGSize = CGSize(width: 200, height: 200)
-    static let outcomeButtonHiddenPos: CGPoint = CGPoint(x: 400, y: -100)
-    static let outcomeButtonPos: CGPoint = CGPoint(x: 400, y: 300)
-
-    static let restartButtonSize: CGSize = CGSize(width: 100, height: 60)
-    static let restartButtonPos: CGPoint = CGPoint(x: 20, y: -40)
+    static let restartButtonSize: CGSize = CGSize(width: 90, height: 30)
+    static let restartButtonPos: CGPoint = CGPoint(x: 700, y: 600)
+    static let textPos: CGPoint = CGPoint(x: 45, y: 15)
 }

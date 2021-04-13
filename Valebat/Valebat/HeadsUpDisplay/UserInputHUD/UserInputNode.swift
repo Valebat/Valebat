@@ -19,7 +19,7 @@ class UserInputNode: SKNode {
 
     private(set) var elementPane: ElementPane?
 
-    private(set) var outcomeButton: OutcomeButton?
+    private(set) var restartButton: RestartButton?
 
     override init() {
         super.init()
@@ -32,25 +32,21 @@ class UserInputNode: SKNode {
     }
 
     private func setUpRestartButton() {
-        outcomeButton = OutcomeButton()
-        if let button = outcomeButton {
+        restartButton = RestartButton()
+        if let button = restartButton {
             self.addChild(button)
         }
     }
 
-    public func toggleOutcomeButton(success: Bool) {
-        if !success {
-            outcomeButton?.texture = SKTexture(imageNamed: "lose-pop")
-        } else {
-            outcomeButton?.texture = SKTexture(imageNamed: "win-pop")
-        }
-        outcomeButton?.popUp()
+    public func toggleRestartButton() {
+        restartButton?.isHidden = !(restartButton?.isHidden ?? false)
+        restartButton?.isUserInteractionEnabled = !(restartButton?.isUserInteractionEnabled ?? false)
     }
 
     public func assignInputDelegate(delegate: UserInputDelegate) {
         movementJoystick?.userInputDelegate = delegate
         spellJoystick?.userInputDelegate = delegate
-        outcomeButton?.restartButton.userInputDelegate = delegate
+        restartButton?.userInputDelegate = delegate
     }
 
     private func setUpJoysticks() {
