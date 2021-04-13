@@ -5,7 +5,7 @@
 //  Created by Jing Lin Shi on 8/4/21.
 //
 
-enum ObjectiveEnum {
+enum ObjectiveEnum: String {
     case kills
     case powerupscollected
 }
