@@ -16,8 +16,7 @@ class PlayerSpellEntity: BaseProjectileEntity {
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTexture,
-                   physicsType: .playerAttack, position: position, velocity: velocity, movementType: spell.movement)
+        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTexture, physicsType: .playerAttack, position: position, velocity: velocity)
 
         let damage = CGFloat(spell.level) * PlayerModifierUtil.playerDamageMultiplier
             * TestConstants.damageValue // Some constant
@@ -32,9 +31,9 @@ class PlayerSpellEntity: BaseProjectileEntity {
         }
 
         for (effect, effectParams) in zip(spell.effects, spell.effectParams) {
-            addComponent(effect.init(effectParams: effectParams))
+            addComponent(effect.init(animatedTextures: PlayerSpellEntity.buildEndAnimation(for: spell),
+                                     timePerFrame: 0.05, effectParams: effectParams))
         }
-        self.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
 
     }
 
@@ -67,6 +66,10 @@ class PlayerSpellEntity: BaseProjectileEntity {
                 return "GB00"
             }
         }
+    }
+
+    static func buildEndAnimation(for spell: Spell) -> [SKTexture] {
+        return TextureUltilties.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
     }
 
     static func getAnimatedSpell(for spell: Spell) -> [SKTexture] {

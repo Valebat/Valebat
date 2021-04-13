@@ -11,9 +11,9 @@ class SteamSpell: CompositeSpell {
         try super.init(at: level)
         self.damageTypes.append(.water)
         self.damageTypes.append(.fire)
-        self.effects.append(SpellSpawnOnHitComponent.self)
-        let spawnTypeParam: [Any] = [Spell.buildEndAnimation(), 0.05, BasicType.water, self.level / 2]
-        self.effectParams.append(spawnTypeParam)
+        self.effects = [SpellSpawnOnHitComponent.self]
+        let spawnTypeParam: [Any] = [BasicType.water, self.level / 2]
+        self.effectParams = [spawnTypeParam]
     }
 
     override class var description: String {

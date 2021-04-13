@@ -14,10 +14,6 @@ extension EntityManager: UserInputDelegate {
             return
         }
         aimIndicatorComp.onJoystickEnded()
-        guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
-            return
-        }
-        lobIndicatorComp.onJoystickEnded()
 
         guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
             return
@@ -37,37 +33,13 @@ extension EntityManager: UserInputDelegate {
         }
     }
 
-    func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?) {
-
-        let elementTypeQueue = elementQueue ?? []
-        let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
-        let direction = CGVector(dx: -sin(angular), dy: cos(angular))
-        do {
-            let currentSpell = try self.spellManager.combine(elements: elementQueue)
-            if currentSpell.movement == ProjectileMotionComponent.self {
-                guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
-                    return
-                }
-                guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
-                    return
-                }
-                lobIndicatorComp.onJoystickMoved(angle: angular,
-                                                 playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation,
-                                                 direction: direction, initialPosition: playerPos)
-            } else {
-                guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
-                    return
-                }
-                aimIndicatorComp.onJoystickMoved(angle: angular,
-                                                 playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation)
-            }
-        } catch SpellErrors.invalidLevelError {
-            print("Wrong level was given")
-        } catch SpellErrors.wrongBasicTypeError {
-            print("Wrong element type was given")
-        } catch {
-            print("Unexpected error")
+    func spellJoystickMoved(angular: CGFloat) {
+        guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
+            return
         }
+
+        aimIndicatorComp.onJoystickMoved(angle: angular,
+                                         playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation)
     }
 
     func restartClicked() {

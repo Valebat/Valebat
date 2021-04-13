@@ -11,12 +11,12 @@
 import SpriteKit
 import GameplayKit
 
-class RegularMovementComponent: BaseComponent, SpellMovementComponent {
+class RegularMovementComponent: BaseComponent, MoveComponent {
 
     var velocity: CGVector
     var currentPosition: CGPoint
     var orientation: CGFloat?
-    required init(velocity: CGVector, initialPosition: CGPoint) {
+    init(velocity: CGVector, initialPosition: CGPoint) {
         orientation = atan2(velocity.dy, velocity.dx)
         self.velocity = velocity
         self.currentPosition = initialPosition

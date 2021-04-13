@@ -9,9 +9,10 @@ class MudSpell: CompositeSpell {
 
     required init(at level: Double) throws {
         try super.init(at: level)
-        self.effects.append(SpellEffectComponent.self)
-        self.effectParams.append([])
-        self.movement = ProjectileMotionComponent.self
+        self.damageTypes.append(.earth)
+        self.damageTypes.append(.water)
+        self.effects = [SpellHitComponent.self]
+        self.effectParams = [[]]
     }
 
     override class var description: String {

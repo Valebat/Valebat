@@ -21,8 +21,7 @@ class SpellJoystick: TLAnalogJoystick, UserInputNodeProtocol {
     }
 
     override func didJoystickMove() {
-        self.userInputDelegate?.spellJoystickMoved(angular: self.angular,
-                                                   elementQueue: userInputNode?.elementPane?.elementQueueArray)
+        self.userInputDelegate?.spellJoystickMoved(angular: self.angular)
     }
 
     convenience init() {
