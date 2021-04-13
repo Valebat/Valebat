@@ -11,7 +11,8 @@ class WallEntity: BaseInteractableEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .wall
 
     init(size: CGSize, position: CGPoint) {
-        super.init(texture: SKTexture(imageNamed: "wall"), size: size, physicsType: .wall, position: position)
+        super.init(texture: CustomTexture.initialise(imageNamed: "wall"),
+                   size: size, physicsType: .wall, position: position)
     }
 
     required init?(coder: NSCoder) {

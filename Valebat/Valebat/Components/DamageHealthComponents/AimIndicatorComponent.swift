@@ -13,7 +13,7 @@ class AimIndicatorComponent: SpriteComponent {
 
     init(size: CGSize, playerSize: CGFloat) {
         self.playerSize = playerSize
-        let texture  = SKTexture(imageNamed: "aim_indicator")
+        let texture  = CustomTexture.initialise(imageNamed: "aim_indicator")
         super.init(texture: texture, size: size, position: CGPoint(x: 0, y: 0))
         self.node.isHidden = true
     }

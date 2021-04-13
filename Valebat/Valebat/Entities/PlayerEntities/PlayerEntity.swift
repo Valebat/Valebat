@@ -10,7 +10,7 @@ import GameplayKit
 class PlayerEntity: BaseInteractableEntity {
 
     init(position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
-        let texture = SKTexture(imageNamed: "character")
+        let texture = CustomTexture.initialise(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
         super.init(texture: texture, size: size, physicsType: .player, position: position, isStatic: false)
         addComponent(DamageTakerComponent(multipliers: playerStats.elementalMultipliers))

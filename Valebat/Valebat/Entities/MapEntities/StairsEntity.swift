@@ -13,9 +13,9 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserv
 
     init(size: CGSize, timer: Double, position: CGPoint) {
 
-        let texture = SKTexture(imageNamed: "stairs_closed")
+        let texture = CustomTexture.initialise(imageNamed: "stairs_closed")
         super.init(texture: texture, size: size, physicsType: nil, position: position)
-        let postObjectiveSprite = SpriteComponent(texture: SKTexture(imageNamed: "stairs_open"),
+        let postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
                                                   size: size, position: position)
         let objectiveDetectionComponent = ObjectiveDetectionComponent(component: AdvanceLevelComponent(at: position),
                                                                       parent: self,

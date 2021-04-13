@@ -154,11 +154,20 @@ class EntityManager {
     }
 
     func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
+        for componentSystem in componentSystems {
+            componentSystem.removeComponent(foundIn: entity)
+        }
+
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
 
         entity.addComponent(component)
+
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+
         scene.addChild(component.node)
     }
 

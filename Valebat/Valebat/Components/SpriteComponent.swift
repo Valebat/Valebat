@@ -42,6 +42,7 @@ class SpriteComponent: GKSKNodeComponent {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     override func update(deltaTime seconds: TimeInterval) {
         if !isStatic {
             if let position = getMoveComponent()?.currentPosition {
@@ -51,5 +52,10 @@ class SpriteComponent: GKSKNodeComponent {
                 node.zRotation = orientation
             }
         }
+
+        guard let texture = (node as? SKSpriteNode)?.texture as? CustomTexture else {
+            return
+        }
+
     }
 }

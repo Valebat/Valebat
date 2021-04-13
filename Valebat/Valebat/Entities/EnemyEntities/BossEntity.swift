@@ -16,7 +16,7 @@ class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
         let image = "boss"
         let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize * 3
         let size = CGSize(width: length, height: length)
-        let texture = SKTexture(imageNamed: image)
+        let texture = CustomTexture.initialise(imageNamed: image)
         super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
         addComponent(HealthComponent(health: startingHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
