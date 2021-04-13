@@ -61,6 +61,9 @@ class MapManager {
         gameSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
+        let stairEntities =  mapEntities.filter({ $0 is StairsEntity })
+//        print(stairEntities)
+        stairEntities.forEach({ ( $0 as? StairsEntity)?.reset() })
         setObjective()
     }
 
@@ -73,7 +76,6 @@ class MapManager {
             mapEntities = allMapEntities[level]
             setObjective()
         } else {
-            // TODO implement player win here
             entityManager.playerWon()
         }
     }
