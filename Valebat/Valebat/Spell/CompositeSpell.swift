@@ -18,5 +18,7 @@ class CompositeSpell: Spell {
             throw SpellErrors.invalidLevelError
         }
         self.level = level
+        self.effects = [SpellHitComponent.self]
+        self.effectParams = [[]]
     }
 }

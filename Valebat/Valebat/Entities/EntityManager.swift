@@ -33,18 +33,16 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
-        let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let timerSystem = GKComponentSystem(componentClass: TimerComponent.self)
-        let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, timerSystem, autoDestructSystem, advanceLevelSystem,
-                powerupSpawnSystem]
+        let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
+        return [physicsSystem, regularMovementSystem, spawnSystem, enemyStateSystem,
+                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem,
+                playerMovementSystem]
     }()
 
     init(scene: GameScene) {
@@ -204,7 +202,6 @@ class EntityManager {
         let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
                                 spell: underlyingSpell, position: shootPoint)
         add(spell)
-        spell.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
     }
 
     func updateLastKnownPlayerPosition() {
