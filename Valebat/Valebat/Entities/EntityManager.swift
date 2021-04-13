@@ -147,6 +147,20 @@ class EntityManager {
         entity.entityManager = self
     }
 
+    func immediateRemove(_ entity: GKEntity) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            spriteNode.removeFromParent()
+        }
+        for componentSystem in componentSystems {
+            componentSystem.removeComponent(foundIn: entity)
+        }
+        entities.remove(entity)
+    }
+
+    private func immediateRemove(_ entity: BaseEntity) {
+        immediateRemove(entity as GKEntity)
+    }
+
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()

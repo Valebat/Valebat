@@ -47,7 +47,7 @@ extension EntityManager {
 
     func cleanupLevel() {
         for entity in self.entities {
-            remove(entity)
+            immediateRemove(entity)
         }
         self.obstacles = []
         self.obstacleGraph = nil
