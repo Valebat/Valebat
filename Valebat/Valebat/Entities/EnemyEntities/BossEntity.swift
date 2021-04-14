@@ -16,14 +16,14 @@ class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
         let image = "boss"
         let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize * 3
         let size = CGSize(width: length, height: length)
-        let texture = SKTexture(imageNamed: image)
+        let texture = CustomTexture.initialise(imageNamed: image)
         super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
         addComponent(HealthComponent(health: startingHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
         addComponent(DamageTakerComponent.getDamageTaker(type: .pure))
-        addComponent(EnemyMoveComponent(chaseSpeed: 1000, normalSpeed: 200, initialPosition: position))
-        addComponent(EnemyAttackComponent(attackCooldown: 1, damageType: .pure, damageValue: 20, attackVelocity: 20))
-        addComponent(EnemyStateMachineComponent(attackRange: 500, aggroRange: 1000))
+        addComponent(EnemyMoveComponent(chaseSpeed: 300, normalSpeed: 200, initialPosition: position))
+        addComponent(BossAttackComponent())
+        addComponent(BossStateMachineComponent())
         addComponent(DeathComponent())
     }
 

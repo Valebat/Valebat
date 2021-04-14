@@ -11,7 +11,7 @@ class ExplosionEntity: BaseEntity {
 
     init(position: CGPoint, scale: Int) {
         super.init()
-        let spriteTextures = TextureUltilties.generateTextures(assetName: "explosion")
+        let spriteTextures = TextureUtilities.generateTextures(assetName: "explosion")
         let spriteTexture = spriteTextures[0]
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
@@ -56,7 +56,7 @@ class ExplosionEntity: BaseEntity {
     }
 
     static func getAnimatedSpell(for spell: Spell) -> [SKTexture] {
-        return TextureUltilties.generateTextures(assetName: getSpriteFolder(for: spell))
+        return TextureUtilities.generateTextures(assetName: getSpriteFolder(for: spell))
     }
 
 }

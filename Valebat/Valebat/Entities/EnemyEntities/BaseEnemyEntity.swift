@@ -14,7 +14,7 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
         let size = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
                           height: ViewConstants.enemyToGridRatio * ViewConstants.gridSize)
         self.image = enemyData.spriteImage
-        let texture = SKTexture(imageNamed: image)
+        let texture = CustomTexture.initialise(imageNamed: image)
         super.init(texture: texture, size: size, physicsType: .enemy, position: position, isStatic: false)
         addComponent(HealthComponent(health: enemyData.startingHP))
         addComponent(HealthBarComponent(barWidth: size.width, barOffset: size.height / 2))

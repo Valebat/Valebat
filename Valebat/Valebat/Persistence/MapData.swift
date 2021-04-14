@@ -8,11 +8,13 @@
 struct MapData: Codable {
 
     var mapObjects: [MapObjectData] = []
+    var objective: ObjectiveData
 
     init(map: Map) {
         for object in map.objects {
             mapObjects.append(MapObjectData.convertToMapObjectData(object))
         }
+        self.objective = ObjectiveData(objective: map.objective)
     }
 
     func generateMap() -> Map {
@@ -25,6 +27,10 @@ struct MapData: Codable {
         }
         let map = Map()
         map.addObjects(mapGameObjects)
+        if let mapObjective = objective.generateObjective() {
+            map.setObjective(mapObjective)
+        }
+
         return map
     }
 

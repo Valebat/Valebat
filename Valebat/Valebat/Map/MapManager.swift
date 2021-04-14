@@ -55,6 +55,7 @@ class MapManager {
         let level = gameSession.currentLevel
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
+        setObjective()
     }
 
     func goToMap(level: Int, gameSession: GameSession) {

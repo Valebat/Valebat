@@ -22,15 +22,15 @@ class PowerupEntity: BaseInteractableEntity, CollectibleEntity {
 
         powerupType = PowerupEnum(rawValue: Int(arc4random()) % Int(PowerupEnum.allCases.count))
 
-        var texture = SKTexture(imageNamed: "powerup_unknown")
+        var texture = CustomTexture.initialise(imageNamed: "powerup_unknown")
 
         switch powerupType {
         case .heal:
-            texture = SKTexture(imageNamed: "powerup_heal")
+            texture = CustomTexture.initialise(imageNamed: "powerup_heal")
         case .speed:
-            texture = SKTexture(imageNamed: "powerup_speed")
+            texture = CustomTexture.initialise(imageNamed: "powerup_speed")
         case .damage:
-            texture = SKTexture(imageNamed: "powerup_attack")
+            texture = CustomTexture.initialise(imageNamed: "powerup_attack")
         case .none:
             break
         }

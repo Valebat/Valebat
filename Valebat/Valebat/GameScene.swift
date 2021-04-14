@@ -25,16 +25,19 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
 
         let entityManager = EntityManager(scene: self)
-        gameSession = loadGameSession(entityManager)
         persistenceManager = PersistenceManager()
-        gameSession.persistenceManager = persistenceManager
-        persistenceManager.gameSession = gameSession
+        gameSession = loadGameSession(entityManager: entityManager, userConfig: userConfig)
         setUpScene()
     }
 
-    func loadGameSession(_ entityManager: EntityManager) -> GameSession {
-        // TODO -> Load Game here!
-        return GameSession(entityManager: entityManager)
+    func loadGameSession(entityManager: EntityManager, userConfig: UserConfig) -> GameSession {
+        let currentSession = GameSession(entityManager: entityManager, userConfig: userConfig)
+        currentSession.persistenceManager = persistenceManager
+        persistenceManager.gameSession = currentSession
+
+        currentSession.loadGame()
+
+        return currentSession
     }
 
     func touchDown(atPoint pos: CGPoint) {
@@ -50,11 +53,6 @@ class GameScene: SKScene {
     }
 
     private func setUpScene() {
-        if userConfig.isNewGame {
-            persistenceManager.loadInitialData()
-        } else {
-            persistenceManager.load()
-        }
         setUpUserInputHUD()
         setUpPlayerHUD()
         gameSession.entityManager.addPlayer()

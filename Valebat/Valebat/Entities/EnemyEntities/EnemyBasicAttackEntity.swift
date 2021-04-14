@@ -11,7 +11,7 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
 
-        let spriteTextures = TextureUltilties
+        let spriteTextures = TextureUtilities
             .generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
         let widthHeightRatio = spriteTextures[0].size().width / spriteTextures[0].size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
@@ -20,7 +20,7 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
                    physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
-        let effectParams: [Any] = [TextureUltilties.generateTextures(assetName: "explosion"), 0.05]
+        let effectParams: [Any] = [TextureUtilities.generateTextures(assetName: "explosion"), 0.05]
         addComponent(SpellExplodeOnHitComponent(effectParams: effectParams))
     }
 
