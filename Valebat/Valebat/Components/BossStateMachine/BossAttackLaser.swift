@@ -29,9 +29,7 @@ class BossAttackLaser: BossAttackSubComponent {
         }
         var ratio = CGFloat(currentTimer / timeToPrepare)
         ratio = ratio > 1 ? 1 : ratio
-        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: ratio, currentAngle: currentAngle)
         if currentTimer < timeToPrepare {
-            laserEntity?.resize(widthRatio: ratio, lengthRatio: ratio)
             laserEntity?.changeOpacity(opacity: ratio)
         } else if currentTimer > laserTimer {
             finishLaser()
@@ -47,8 +45,8 @@ class BossAttackLaser: BossAttackSubComponent {
             } else {
                 currentAngle += CGFloat(deltaTime)  * laserRotationSpeed
             }
-            laserEntity?.rotate(angle: currentAngle)
         }
+        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: ratio, currentAngle: currentAngle)
     }
 
     func getAngle() -> CGFloat? {
@@ -65,6 +63,7 @@ class BossAttackLaser: BossAttackSubComponent {
     func finishLaser() {
         attachedAttackComponent?.baseEntity?.entityManager?.remove(laserEntity!)
         isCurrentlyCasting = false
+        laserEntity = nil
     }
     var isCurrentlyCasting: Bool = false
 
@@ -77,11 +76,14 @@ class BossAttackLaser: BossAttackSubComponent {
         activated = false
         isCurrentlyCasting = true
         laserEntity = LaserSpell()
-        laserEntity?.resize(widthRatio: 0.01, lengthRatio: 0.01)
         attachedAttackComponent?.baseEntity?.entityManager?.add(laserEntity!)
         laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: currentAngle)
         laserEntity?.changeOpacity(opacity: 0.0)
-        laserEntity?.rotate(angle: currentAngle)
 
+    }
+    func deathCleanUp() {
+        if let entity = laserEntity {
+            attachedAttackComponent?.baseEntity?.entityManager?.remove(entity)
+        }
     }
 }

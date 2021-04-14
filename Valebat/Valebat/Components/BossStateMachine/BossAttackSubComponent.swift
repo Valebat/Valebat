@@ -13,4 +13,5 @@ protocol BossAttackSubComponent {
     func triggerAttack()
     var attachedAttackComponent: BossAttackComponent? { get set }
     var coolDown: TimeInterval { get set }
+    func deathCleanUp()
 }
