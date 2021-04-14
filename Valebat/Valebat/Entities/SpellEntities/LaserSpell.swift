@@ -9,7 +9,7 @@ import Foundation
 import GameplayKit
 class LaserSpell: BaseInteractableEntity {
 
-    var laserTexture = SKTexture(imageNamed: "laser")
+    var laserTexture = CustomTexture.initialise(imageNamed: "laser")
     let baseLength = ViewConstants.gridSize * 1.2
     let baseWidth = ViewConstants.gridSize * 30
     var baseSize = CGSize(width: ViewConstants.gridSize * 40, height: ViewConstants.gridSize * 5)
