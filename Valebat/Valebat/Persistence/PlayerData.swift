@@ -31,7 +31,7 @@ struct PlayerData: Codable {
             elementType.append(type.rawValue)
             elementLevels.append(level)
         }
-        for (type, multiplier) in playerStats.elementalLevels {
+        for (_, multiplier) in playerStats.elementalLevels {
             elementalMultipliers.append(multiplier)
         }
         var playerData = PlayerData()

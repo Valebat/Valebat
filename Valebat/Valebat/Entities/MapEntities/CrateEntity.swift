@@ -11,7 +11,8 @@ class CrateEntity: BaseInteractableEntity, BaseMapObjectEntity {
     let objectType: MapObjectEnum = .crate
 
     init(size: CGSize, position: CGPoint) {
-        super.init(texture: SKTexture(imageNamed: "crate"), size: size, physicsType: .wall, position: position)
+        super.init(texture: CustomTexture.initialise(imageNamed: "crate"),
+                   size: size, physicsType: .wall, position: position)
     }
 
     required init?(coder: NSCoder) {

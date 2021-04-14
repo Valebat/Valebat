@@ -23,6 +23,8 @@ class EntityManager {
     var toAdd = Set<GKEntity>()
     var player: PlayerEntity?
 
+    var spriteSystem: GKComponentSystem<GKComponent>
+
     var lastKnownPlayerPosition: CGPoint?
     var obstacles: [GKPolygonObstacle] = []
     let gkScene: GKScene
@@ -35,15 +37,14 @@ class EntityManager {
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
         let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
-        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
-        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
-        let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
-        let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
+        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
+        let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
+        let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
+        let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
 
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
                 enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem,
@@ -55,6 +56,7 @@ class EntityManager {
         let gkScene = GKScene()
         gkScene.rootNode = scene
         self.gkScene = gkScene
+        self.spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
     }
 
     func setup() {
@@ -173,11 +175,20 @@ class EntityManager {
     }
 
     func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
+        for componentSystem in componentSystems {
+            componentSystem.removeComponent(foundIn: entity)
+        }
+
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
 
         entity.addComponent(component)
+
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+
         scene.addChild(component.node)
     }
 
@@ -252,6 +263,13 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+        saveSprites()
+
+    }
+
+    private func saveSprites() {
+        let spriteComponents = spriteSystem.components
+        currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
     }
 }
 

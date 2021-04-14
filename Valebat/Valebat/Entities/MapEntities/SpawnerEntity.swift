@@ -13,7 +13,7 @@ class SpawnerEntity: BaseEntity, BaseMapObjectEntity {
     init(size: CGSize, defaultSpawnTime: Double, position: CGPoint, enemyType: EnemyTypeEnum) {
         super.init()
 
-        let texture = SKTexture(imageNamed: "spawner")
+        let texture = CustomTexture.initialise(imageNamed: "spawner")
         let spriteComponent = SpriteComponent(texture: texture, size: size, position: position)
         addComponent(spriteComponent)
 

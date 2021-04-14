@@ -11,18 +11,21 @@ class GameSession {
     var playerStats: PlayerStats
     var currentLevel: Int
     var entityManager: EntityManager
+    var userConfig: UserConfig
 
     let spellManager: SpellManager
     let objectiveManager: ObjectiveManager
     var mapManager: MapManager!
     let spawnManager: SpawnManager
+    var coopManager: CoopManager?
 
     weak var persistenceManager: PersistenceManager?
 
-    init(entityManager: EntityManager) {
+    init(entityManager: EntityManager, userConfig: UserConfig) {
         playerStats = PlayerStats()
         currentLevel = 0
 
+        self.userConfig = userConfig
         self.entityManager = entityManager
         self.spellManager = SpellManager()
         self.objectiveManager = ObjectiveManager()
@@ -31,5 +34,16 @@ class GameSession {
                                      objectiveManager: objectiveManager)
         entityManager.mapManager = mapManager
         entityManager.currentSession = self
+
+        // TODO: can add conditional creation of coopmanager base on userconfig
+        self.coopManager = CoopManager()
+    }
+
+    func loadGame() {
+        if userConfig.isNewGame {
+            persistenceManager?.loadInitialData()
+        } else {
+            persistenceManager?.load()
+        }
     }
 }

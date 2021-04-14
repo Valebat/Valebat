@@ -99,7 +99,7 @@
 		CB9E9E95261DEB140016B046 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E94261DEB140016B046 /* GameSession.swift */; };
 		CB9E9E9D261E1B720016B046 /* BaseInteractableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E9C261E1B720016B046 /* BaseInteractableEntity.swift */; };
 		CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */; };
-		CB9E9EB0261E28380016B046 /* TextureUltilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EAF261E28380016B046 /* TextureUltilities.swift */; };
+		CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EAF261E28380016B046 /* TextureUtilities.swift */; };
 		CB9E9EB8261E2E7A0016B046 /* BasicEnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EB7261E2E7A0016B046 /* BasicEnemyData.swift */; };
 		CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */; };
 		CB9E9ED3261E4BC90016B046 /* EXPBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9ED2261E4BC80016B046 /* EXPBar.sks */; };
@@ -150,6 +150,10 @@
 		DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
 		DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
 		DD703591261AED5200D3602B /* PositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703590261AED5200D3602B /* PositionData.swift */; };
+		DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* CoopManager.swift */; };
+		DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3512625DD7700838B0F /* SpriteData.swift */; };
+		DD85F3632625F84500838B0F /* ObjectiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3622625F84500838B0F /* ObjectiveData.swift */; };
+		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -307,7 +311,7 @@
 		CB9E9E94261DEB140016B046 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		CB9E9E9C261E1B720016B046 /* BaseInteractableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractableEntity.swift; sourceTree = "<group>"; };
 		CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProjectileEntity.swift; sourceTree = "<group>"; };
-		CB9E9EAF261E28380016B046 /* TextureUltilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureUltilities.swift; sourceTree = "<group>"; };
+		CB9E9EAF261E28380016B046 /* TextureUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureUtilities.swift; sourceTree = "<group>"; };
 		CB9E9EB7261E2E7A0016B046 /* BasicEnemyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEnemyData.swift; sourceTree = "<group>"; };
 		CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyProtocol.swift; sourceTree = "<group>"; };
 		CB9E9ED2261E4BC80016B046 /* EXPBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EXPBar.sks; sourceTree = "<group>"; };
@@ -364,6 +368,10 @@
 		DD7035682619C5D700D3602B /* PlayerLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerLevel.sks; sourceTree = "<group>"; };
 		DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerLevel.swift; sourceTree = "<group>"; };
 		DD703590261AED5200D3602B /* PositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionData.swift; sourceTree = "<group>"; };
+		DD85F34C2625DD4200838B0F /* CoopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopManager.swift; sourceTree = "<group>"; };
+		DD85F3512625DD7700838B0F /* SpriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteData.swift; sourceTree = "<group>"; };
+		DD85F3622625F84500838B0F /* ObjectiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveData.swift; sourceTree = "<group>"; };
+		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -510,6 +518,7 @@
 		C6A942D225FCE7EA00087256 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD98498B26256842006B741E /* TextureUtil */,
 				C6A944BB2619B4FD00087256 /* MapComponents */,
 				C6A944BA2619B4CF00087256 /* UtilityComponents */,
 				C6A944AD2619B49E00087256 /* AttackComponents */,
@@ -522,7 +531,6 @@
 				CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */,
 				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CB9E9E7A261C5C840016B046 /* BaseComponent.swift */,
-				CB9E9EAF261E28380016B046 /* TextureUltilities.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -765,6 +773,7 @@
 				EFCC5B412605D574006F2771 /* Exceptions */,
 				EF19415125FFC71900341BF5 /* Spell */,
 				DD4E010A25FDC99B002C5556 /* HeadsUpDisplay */,
+				DD4A22AE26257BD000D98A7A /* Coop */,
 				DD7034EA2616E26300D3602B /* Persistence */,
 				C6A942C625FCE7EA00087256 /* Map */,
 				C6A942D225FCE7EA00087256 /* Components */,
@@ -803,6 +812,15 @@
 				CBC7781E25FCE1C200581E20 /* Info.plist */,
 			);
 			path = ValebatUITests;
+			sourceTree = "<group>";
+		};
+		DD4A22AE26257BD000D98A7A /* Coop */ = {
+			isa = PBXGroup;
+			children = (
+				DD85F34C2625DD4200838B0F /* CoopManager.swift */,
+				DD85F3512625DD7700838B0F /* SpriteData.swift */,
+			);
+			path = Coop;
 			sourceTree = "<group>";
 		};
 		DD4E00FE25FDBC2E002C5556 /* PlayerEntities */ = {
@@ -863,6 +881,7 @@
 				DD70352B2618317500D3602B /* MapObjectData.swift */,
 				DD70353026183FF400D3602B /* MapData.swift */,
 				DD703590261AED5200D3602B /* PositionData.swift */,
+				DD85F3622625F84500838B0F /* ObjectiveData.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -897,6 +916,15 @@
 				C6A94555261F617F00087256 /* HUDPlayerObjective.swift */,
 			);
 			path = PlayerStatsHUD;
+			sourceTree = "<group>";
+		};
+		DD98498B26256842006B741E /* TextureUtil */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E9EAF261E28380016B046 /* TextureUtilities.swift */,
+				DD9849862624AB4A006B741E /* CustomTexture.swift */,
+			);
+			path = TextureUtil;
 			sourceTree = "<group>";
 		};
 		EF19415125FFC71900341BF5 /* Spell */ = {
@@ -1111,6 +1139,7 @@
 				C6A9440C261373F700087256 /* StairsEntity.swift in Sources */,
 				CB9E9E1C2617377C0016B046 /* HUDHPBar.swift in Sources */,
 				CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */,
+				DD85F3632625F84500838B0F /* ObjectiveData.swift in Sources */,
 				CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				CB9E9E95261DEB140016B046 /* GameSession.swift in Sources */,
@@ -1134,6 +1163,7 @@
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */,
 				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
+				DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */,
 				C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */,
@@ -1188,6 +1218,7 @@
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
+				DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */,
 				EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */,
 				C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
@@ -1212,7 +1243,7 @@
 				CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
 				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
-				CB9E9EB0261E28380016B046 /* TextureUltilities.swift in Sources */,
+				CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */,
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				CB744D972625BA2C00DF2188 /* LaserSpell.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
@@ -1234,6 +1265,7 @@
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
 				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,
+				DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */,
 				CB744DC42625F66F00DF2188 /* StarProjectiles.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
