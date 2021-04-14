@@ -38,13 +38,17 @@ class EntityManager {
         let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
         let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
+        let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
+        let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
+        let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
         let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
+
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem,
+                enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem,
                 playerMovementSystem]
     }()
 
@@ -149,6 +153,20 @@ class EntityManager {
         entity.entityManager = self
     }
 
+    func immediateRemove(_ entity: GKEntity) {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            spriteNode.removeFromParent()
+        }
+        for componentSystem in componentSystems {
+            componentSystem.removeComponent(foundIn: entity)
+        }
+        entities.remove(entity)
+    }
+
+    private func immediateRemove(_ entity: BaseEntity) {
+        immediateRemove(entity as GKEntity)
+    }
+
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
@@ -225,10 +243,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
+       // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {
             for componentSystem in componentSystems {
                 componentSystem.update(deltaTime: deltaTime)
             }
+            // entities.forEach({ $0.update(deltaTime: deltaTime )})
             updateLastKnownPlayerPosition()
         }
         for curRemove in toRemove {

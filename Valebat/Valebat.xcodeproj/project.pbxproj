@@ -66,6 +66,18 @@
 		C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
 		C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */; };
 		C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A262625A26E0058003C /* ExplosionEntity.swift */; };
+		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
+		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
+		CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
+		CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
+		CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
+		CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
+		CB744D972625BA2C00DF2188 /* LaserSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D962625BA2C00DF2188 /* LaserSpell.swift */; };
+		CB744DA42625D56C00DF2188 /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
+		CB744DC42625F66F00DF2188 /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC32625F66F00DF2188 /* StarProjectiles.swift */; };
+		CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
+		CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB744DD026261C3400DF2188 /* LaserDamage.wav */; };
+		CB744DD626261CB400DF2188 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DD526261CB400DF2188 /* SoundEffects.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -186,6 +198,7 @@
 		EF8087A82606843400923494 /* MudSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087A72606843400923494 /* MudSpellTests.swift */; };
 		EF8087AD260684BE00923494 /* SteamSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087AC260684BE00923494 /* SteamSpellTests.swift */; };
 		EF8087B5260688C700923494 /* SpellManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8087B4260688C700923494 /* SpellManagerTests.swift */; };
+		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +278,18 @@
 		C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobIndicatorComponent.swift; sourceTree = "<group>"; };
 		C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDestructComponent.swift; sourceTree = "<group>"; };
 		C6AA3A262625A26E0058003C /* ExplosionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionEntity.swift; sourceTree = "<group>"; };
+		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
+		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
+		CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfFire.swift; sourceTree = "<group>"; };
+		CB744D872625AE8100DF2188 /* BossStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossStateMachine.swift; sourceTree = "<group>"; };
+		CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBossState.swift; sourceTree = "<group>"; };
+		CB744D912625B81C00DF2188 /* BossMoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossMoveState.swift; sourceTree = "<group>"; };
+		CB744D962625BA2C00DF2188 /* LaserSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserSpell.swift; sourceTree = "<group>"; };
+		CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackLaser.swift; sourceTree = "<group>"; };
+		CB744DC32625F66F00DF2188 /* StarProjectiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarProjectiles.swift; sourceTree = "<group>"; };
+		CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossBorderOfWaveAndParticle.swift; sourceTree = "<group>"; };
+		CB744DD026261C3400DF2188 /* LaserDamage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LaserDamage.wav; sourceTree = "<group>"; };
+		CB744DD526261CB400DF2188 /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -375,6 +400,7 @@
 		EF8087A72606843400923494 /* MudSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudSpellTests.swift; sourceTree = "<group>"; };
 		EF8087AC260684BE00923494 /* SteamSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpellTests.swift; sourceTree = "<group>"; };
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
+		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -498,11 +524,11 @@
 				C6A944AD2619B49E00087256 /* AttackComponents */,
 				CB9E9E4526174F2A0016B046 /* MovementComponents */,
 				CB9E9E4426174EED0016B046 /* DamageHealthComponents */,
+				CB744D692625A58800DF2188 /* BossStateMachine */,
 				CB9E9DD9261095500016B046 /* EnemyStates */,
 				C6A942F825FCFD5B00087256 /* SpriteComponent.swift */,
 				CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */,
 				CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */,
-				CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */,
 				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CB9E9E7A261C5C840016B046 /* BaseComponent.swift */,
 			);
@@ -594,7 +620,6 @@
 			children = (
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
 				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
-				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
 				C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */,
 				C6AA39FA2625A09A0058003C /* SpellEffectComponent.swift */,
 				C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */,
@@ -633,6 +658,22 @@
 			path = Objectives;
 			sourceTree = "<group>";
 		};
+		CB744D692625A58800DF2188 /* BossStateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
+				CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */,
+				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
+				CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */,
+				CB744D872625AE8100DF2188 /* BossStateMachine.swift */,
+				CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */,
+				CB744D912625B81C00DF2188 /* BossMoveState.swift */,
+				CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */,
+				CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */,
+			);
+			path = BossStateMachine;
+			sourceTree = "<group>";
+		};
 		CB9E9DD9261095500016B046 /* EnemyStates */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +681,7 @@
 				CB9E9DDA261095CC0016B046 /* MoveState.swift */,
 				CB9E9DE72610A1170016B046 /* BaseEnemyState.swift */,
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
+				CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */,
 			);
 			path = EnemyStates;
 			sourceTree = "<group>";
@@ -686,7 +728,9 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
 				CB9E9E4E26175AA40016B046 /* Hit.wav */,
+				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -851,6 +895,7 @@
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
 				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
 				EF61C4FC2619C7F40076BB3A /* RestartButton.swift */,
+				EF8BFF962625A74300647771 /* OutcomeButton.swift */,
 			);
 			path = UserInputHUD;
 			sourceTree = "<group>";
@@ -905,6 +950,8 @@
 				EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */,
 				CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */,
 				C6AA3A262625A26E0058003C /* ExplosionEntity.swift */,
+				CB744D962625BA2C00DF2188 /* LaserSpell.swift */,
+				CB744DC32625F66F00DF2188 /* StarProjectiles.swift */,
 			);
 			path = SpellEntities;
 			sourceTree = "<group>";
@@ -1044,6 +1091,7 @@
 				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
+				CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,13 +1159,16 @@
 				CBA49522260679FA003A05F7 /* HealthBarComponent.swift in Sources */,
 				C6AA39F62625A0630058003C /* SpellExplodeOnHitComponent.swift in Sources */,
 				CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */,
+				CB744DA42625D56C00DF2188 /* BossAttackLaser.swift in Sources */,
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
+				CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */,
 				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
 				DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */,
 				C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
+				CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
 				C6A9452D261F598100087256 /* ObjectiveManager.swift in Sources */,
 				C652DCE72624174600349576 /* GameConstants.swift in Sources */,
@@ -1135,8 +1186,10 @@
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
+				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
 				C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */,
+				CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */,
 				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
@@ -1158,6 +1211,7 @@
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
 				CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
+				CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */,
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
@@ -1165,6 +1219,7 @@
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
 				DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */,
+				EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */,
 				C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */,
 				C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */,
 				EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */,
@@ -1178,17 +1233,21 @@
 				DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */,
 				DD34F1B92622B38C006EC95A /* UserConfig.swift in Sources */,
 				C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */,
+				CB744DD626261CB400DF2188 /* SoundEffects.swift in Sources */,
 				CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */,
 				C6A944F3261B61E500087256 /* MapObjectUtil.swift in Sources */,
 				DD7034FF2616F23A00D3602B /* LevelData.swift in Sources */,
 				CB9E9E26261744060016B046 /* PlayerHUD.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
+				CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
 				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
 				CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */,
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
+				CB744D972625BA2C00DF2188 /* LaserSpell.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
+				CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
 				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
@@ -1207,6 +1266,7 @@
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
 				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,
 				DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */,
+				CB744DC42625F66F00DF2188 /* StarProjectiles.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
