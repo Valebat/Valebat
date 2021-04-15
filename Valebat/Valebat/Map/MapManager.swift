@@ -62,9 +62,8 @@ class MapManager {
         gameSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
-        let stairEntities =  mapEntities.filter({ $0 is StairsEntity })
-//        print(stairEntities)
-        stairEntities.forEach({ ( $0 as? StairsEntity)?.reset() })
+        let resettableEntities = mapEntities.filter({ $0.conforms(to: ResettableEntity.self) })
+        resettableEntities.forEach({  ($0 as? ResettableEntity)?.reset() })
         setObjective()
     }
 

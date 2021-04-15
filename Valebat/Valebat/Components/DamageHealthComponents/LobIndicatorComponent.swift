@@ -40,7 +40,7 @@ class LobIndicatorComponent: GKSKNodeComponent {
     func onJoystickEnded() -> Bool {
         let lastState = node.isHidden
         node.isHidden = true
-        return lastState
+        return !lastState
     }
 
     func isLobbingOutside(target: CGPoint) -> Bool {
