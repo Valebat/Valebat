@@ -38,5 +38,7 @@ class LaserSpell: BaseInteractableEntity {
     func reposition(origin: CGPoint, currentSizeRatio: CGFloat, currentAngle: CGFloat) {
         let newOrigin = CGVector(point: origin) + CGVector(angle: currentAngle) * currentSizeRatio * baseWidth / 2
         cachedSpriteNode?.position = CGPoint(x: newOrigin.dx, y: newOrigin.dy)
+        rotate(angle: currentAngle)
+        resize(widthRatio: currentSizeRatio, lengthRatio: currentSizeRatio)
     }
 }

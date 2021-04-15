@@ -32,8 +32,10 @@ class AimIndicatorComponent: SpriteComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func onJoystickEnded() {
-        self.node.isHidden = true
+    func onJoystickEnded() -> Bool {
+        let lastState = node.isHidden
+        node.isHidden = true
+        return lastState
     }
 
     func onJoystickMoved(angle: CGFloat, playerAngle: CGFloat?) {

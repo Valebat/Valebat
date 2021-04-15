@@ -13,11 +13,16 @@ extension EntityManager: UserInputDelegate {
         guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
             return
         }
-        aimIndicatorComp.onJoystickEnded()
+        let aiming = aimIndicatorComp.onJoystickEnded()
+
         guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
             return
         }
-        lobIndicatorComp.onJoystickEnded()
+        let lobbing = lobIndicatorComp.onJoystickEnded()
+
+        if !lobbing && !aiming {
+            return
+        }
 
         guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
             return

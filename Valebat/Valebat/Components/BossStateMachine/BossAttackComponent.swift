@@ -7,7 +7,20 @@
 
 import Foundation
 
-class BossAttackComponent: BaseComponent {
+class BossAttackComponent: BaseComponent, OnDeathObservers {
+    func onDeath() {
+        attachedSubComponent.forEach({ $0.deathCleanUp() })
+    }
+
+    override func didAddToEntity() {
+        entity?.component(conformingTo: EnemyDeathComponent.self)?.onDeathObservers[ObjectIdentifier(self)] = self
+        super.didAddToEntity()
+    }
+
+    override func willRemoveFromEntity() {
+        entity?.component(conformingTo: EnemyDeathComponent.self)?.onDeathObservers[ObjectIdentifier(self)] = nil
+        super.willRemoveFromEntity()
+    }
     var attachedSubComponent = [BossAttackSubComponent]()
     var currentAttackingComponent: BossAttackSubComponent?
     var coolDown = 0.0

@@ -37,16 +37,29 @@ class LobIndicatorComponent: GKSKNodeComponent {
         super.willRemoveFromEntity()
     }
 
-    func onJoystickEnded() {
+    func onJoystickEnded() -> Bool {
+        let lastState = node.isHidden
         node.isHidden = true
+        return lastState
+    }
+
+    func isLobbingOutside(target: CGPoint) -> Bool {
+        let wallWidth: CGFloat = CGFloat(MapObjectConstants.globalDefaultWidths[.wall] ?? 0.0)
+        let wallHeight: CGFloat = CGFloat(MapObjectConstants.globalDefaultHeights[.wall] ?? 0.0)
+        return !(target.x > wallWidth && target.x < (ViewConstants.sceneWidth - wallWidth)
+                    && target.y > wallHeight && target.y < (ViewConstants.sceneHeight - wallHeight))
     }
 
     func onJoystickMoved(angle: CGFloat, playerAngle: CGFloat?, direction: CGVector, initialPosition: CGPoint) {
         let targetPosition = initialPosition + (direction * ProjectileMotionComponent.defaultRadius).convertToPoint()
-        (node as? SKShapeNode)?.path = getPath(initialPosition: initialPosition, targetPosition: targetPosition ,
-                            duration: ProjectileMotionComponent.defaultDuration)
-        (node as? SKShapeNode)?.lineWidth = 1.5
-        node.isHidden = false
-        node.zRotation = -(playerAngle ?? 0)
+        if !isLobbingOutside(target: targetPosition) {
+            (node as? SKShapeNode)?.path = getPath(initialPosition: initialPosition, targetPosition: targetPosition ,
+                                duration: ProjectileMotionComponent.defaultDuration)
+            (node as? SKShapeNode)?.lineWidth = 1.5
+            node.isHidden = false
+            node.zRotation = -(playerAngle ?? 0)
+        } else {
+            node.isHidden = true
+        }
     }
 }

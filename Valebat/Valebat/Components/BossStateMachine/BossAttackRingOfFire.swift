@@ -8,6 +8,9 @@
 import Foundation
 import GameplayKit
 class BossAttackRingOfBullets: BossAttackSubComponent {
+    func deathCleanUp() {
+        return
+    }
 
     weak var attachedAttackComponent: BossAttackComponent?
     let totalCastTime = 1.0
