@@ -58,7 +58,7 @@ class MapManager {
         setObjective()
     }
 
-    func goToMap(level: Int, gameSession: GameSession) {
+    func goToMap(level: Int, gameSession: BaseGameSession) {
         gameSession.currentLevel = level
         map = maps[level]
         mapEntities = allMapEntities[level]
@@ -67,7 +67,7 @@ class MapManager {
         setObjective()
     }
 
-    func advanceToNextMap(gameSession: GameSession) {
+    func advanceToNextMap(gameSession: BaseGameSession) {
         gameSession.currentLevel += 1
         let level = gameSession.currentLevel
 

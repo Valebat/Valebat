@@ -71,6 +71,11 @@
 		C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A262625A26E0058003C /* ExplosionEntity.swift */; };
 		C6AA3A32262988250058003C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6AA3A31262988250058003C /* GoogleService-Info.plist */; };
 		C6AA3A37262988F20058003C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6AA3A36262988F20058003C /* Podfile */; };
+		C6ACE6D6262992A80000A2E6 /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
+		C6ACE6DA262992AA0000A2E6 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
+		C6ACE6DF262992B60000A2E6 /* CoopEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */; };
+		C6ACE6E4262993250000A2E6 /* CoopGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6E3262993250000A2E6 /* CoopGameSession.swift */; };
+		C6ACE6E9262993490000A2E6 /* BaseGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
@@ -295,6 +300,9 @@
 		C6AA3A262625A26E0058003C /* ExplosionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionEntity.swift; sourceTree = "<group>"; };
 		C6AA3A31262988250058003C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C6AA3A36262988F20058003C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopEntityManager.swift; sourceTree = "<group>"; };
+		C6ACE6E3262993250000A2E6 /* CoopGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopGameSession.swift; sourceTree = "<group>"; };
+		C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameSession.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
 		CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfFire.swift; sourceTree = "<group>"; };
@@ -492,9 +500,7 @@
 				DD4E00FE25FDBC2E002C5556 /* PlayerEntities */,
 				C6A9430D25FD04FC00087256 /* MapEntities */,
 				C6A9430E25FD050600087256 /* EnemyEntities */,
-				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
-				DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */,
-				C6A944532615B69200087256 /* EntityManager+Level.swift */,
+				C6ACE6D52629929F0000A2E6 /* EntityManager */,
 				CBA494DE26036789003A05F7 /* CollisionType.swift */,
 				CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */,
 				CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */,
@@ -705,6 +711,27 @@
 			path = Objectives;
 			sourceTree = "<group>";
 		};
+		C6ACE6D42629926F0000A2E6 /* GameSession */ = {
+			isa = PBXGroup;
+			children = (
+				C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */,
+				CB9E9E94261DEB140016B046 /* GameSession.swift */,
+				C6ACE6E3262993250000A2E6 /* CoopGameSession.swift */,
+			);
+			path = GameSession;
+			sourceTree = "<group>";
+		};
+		C6ACE6D52629929F0000A2E6 /* EntityManager */ = {
+			isa = PBXGroup;
+			children = (
+				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
+				DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */,
+				C6A944532615B69200087256 /* EntityManager+Level.swift */,
+				C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */,
+			);
+			path = EntityManager;
+			sourceTree = "<group>";
+		};
 		CB744D692625A58800DF2188 /* BossStateMachine */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,8 +859,8 @@
 				C6A942C425FCE7EA00087256 /* TestUtil */,
 				C6A942D025FCE7EA00087256 /* Util */,
 				DDAADB702629864800263AFA /* ViewController */,
+				C6ACE6D42629926F0000A2E6 /* GameSession */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
-				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
@@ -1345,6 +1372,7 @@
 				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
 				EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */,
 				C6A943EE260B007500087256 /* BiomeData.swift in Sources */,
+				C6ACE6DF262992B60000A2E6 /* CoopEntityManager.swift in Sources */,
 				C6A9450F261CD6D800087256 /* BaseMapEntity.swift in Sources */,
 				C6A944FB261CCDBA00087256 /* BossEntity.swift in Sources */,
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
@@ -1367,6 +1395,7 @@
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStats.swift in Sources */,
+				C6ACE6E9262993490000A2E6 /* BaseGameSession.swift in Sources */,
 				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,
 				DD70350D26176D6C00D3602B /* GameData.swift in Sources */,
 				EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */,
@@ -1424,6 +1453,7 @@
 				CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
 				C6A94532261F59CA00087256 /* ObjectiveEnum.swift in Sources */,
+				C6ACE6E4262993250000A2E6 /* CoopGameSession.swift in Sources */,
 				CB9E9E76261C5C1E0016B046 /* BaseEntity.swift in Sources */,
 				CB9E9E9D261E1B720016B046 /* BaseInteractableEntity.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
@@ -1477,6 +1507,7 @@
 				DD5784182605F35100E15493 /* ElementPaneTests.swift in Sources */,
 				CBC7781225FCE1C200581E20 /* ValebatTests.swift in Sources */,
 				EF80878A260679A200923494 /* Element.swift in Sources */,
+				C6ACE6D6262992A80000A2E6 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF61C4EC2619A3130076BB3A /* EntityManager.swift in Sources */,
 				EF808787260679A200923494 /* Spell.swift in Sources */,
 				EF80879E2606820700923494 /* SingleElementSpellTests.swift in Sources */,
@@ -1493,6 +1524,7 @@
 				C6A943BF2605EBCC00087256 /* MapTests.swift in Sources */,
 				EF61C4C626185AA10076BB3A /* BasicType.swift in Sources */,
 				EF61C4EB2619A3130076BB3A /* RegularMovementComponent.swift in Sources */,
+				C6ACE6DA262992AA0000A2E6 /* EntityManager+Level.swift in Sources */,
 				EF808791260679A200923494 /* MudSpell.swift in Sources */,
 				EF8087A3260683E900923494 /* MagmaSpellTests.swift in Sources */,
 			);

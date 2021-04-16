@@ -17,8 +17,12 @@ class ExplosionEntity: BaseEntity {
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
             .applying(CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale)))
-        addComponent(SpriteComponent(animatedTextures: spriteTextures, size: spriteSize, position: position, runForever: false))
-        addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: spriteTexture, size: spriteSize), collisionType: .playerAttack))
+        addComponent(SpriteComponent(animatedTextures: spriteTextures,
+                                     size: spriteSize,
+                                     position: position,
+                                     runForever: false))
+        addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: spriteTexture, size: spriteSize),
+                                      collisionType: .playerAttack))
         let damage = PlayerModifierUtil.playerDamageMultiplier * TestConstants.damageValue // Some constant
         addComponent(InstantDamageComponent(damage: damage, type: .pure))
         addComponent(AutoDestructComponent(timer: Double(spriteTextures.count) * 0.1))

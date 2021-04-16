@@ -13,8 +13,7 @@ import SpriteKit
 import GameplayKit
 
 class EntityManager {
-
-    weak var currentSession: GameSession?
+    weak var currentSession: BaseGameSession?
     weak var mapManager: MapManager?
     weak var scene: GameScene!
 
@@ -47,8 +46,8 @@ class EntityManager {
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
 
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem,
-                playerMovementSystem]
+                enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem,
+                advanceLevelSystem, powerupSpawnSystem, autoDestructSystem, playerMovementSystem]
     }()
 
     init(scene: GameScene) {
@@ -263,13 +262,6 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
-        saveSprites()
-
-    }
-
-    private func saveSprites() {
-        let spriteComponents = spriteSystem.components
-        currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
     }
 }
 

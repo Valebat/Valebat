@@ -63,7 +63,10 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
             return
         }
         let launchVelocity = CGVector(angle: angle) * 4.0
-        let fireBall: EnemyBasicAttackEntity = EnemyBasicAttackEntity(velocity: launchVelocity, position: position, damageType: type, damageValue: CGFloat(fireBallDamage))
+        let fireBall: EnemyBasicAttackEntity = EnemyBasicAttackEntity(velocity: launchVelocity,
+                                                                      position: position,
+                                                                      damageType: type,
+                                                                      damageValue: CGFloat(fireBallDamage))
         entityManager.add(fireBall)
     }
 }
