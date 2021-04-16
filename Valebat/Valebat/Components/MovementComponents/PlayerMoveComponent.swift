@@ -8,15 +8,14 @@
 import GameplayKit
 
 class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
-    let movementJoystick: MovementJoystick
+
     var orientation: CGFloat?
 
     var currentPosition: CGPoint
     var player: PlayerEntity?
 
-    init(initialPosition: CGPoint, movementJoystick: MovementJoystick) {
+    init(initialPosition: CGPoint) {
         self.currentPosition = initialPosition
-        self.movementJoystick = movementJoystick
         super.init()
     }
 
@@ -26,8 +25,11 @@ class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
-        movePlayer(velocity: movementJoystick.velocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
-                   angular: movementJoystick.angular)
+        guard let userInput = baseEntity?.entityManager?.scene.userInputInfo else {
+            return
+        }
+        movePlayer(velocity: userInput.movementJoystickVelocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
+                   angular: userInput.movementJoystickAngular)
     }
 
     private func movePlayer(velocity: CGPoint, angular: CGFloat) {

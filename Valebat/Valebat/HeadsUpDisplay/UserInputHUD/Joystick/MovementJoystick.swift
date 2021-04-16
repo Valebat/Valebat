@@ -7,9 +7,8 @@
 
 import SpriteKit
 
-class MovementJoystick: TLAnalogJoystick, UserInputNodeProtocol {
+class MovementJoystick: TLAnalogJoystick {
 
-    weak var userInputDelegate: UserInputDelegate?
     weak var userInputNode: UserInputNode?
 
     convenience init() {
@@ -19,6 +18,16 @@ class MovementJoystick: TLAnalogJoystick, UserInputNodeProtocol {
         let handleDiameter = getDiameter(fromDiameter: diameter, withRatio: handleRatio)
         let handle = TLAnalogJoystickComponent(diameter: handleDiameter, color: .black, opacity: 0.6)
         self.init(withBase: base, handle: handle)
+    }
+
+    override func didJoystickMove() {
+        userInputNode?.userInputInfo?.movementJoystickAngular = self.angular
+        userInputNode?.userInputInfo?.movementJoystickVelocity = self.velocity
+    }
+
+    override func didJoystickEnd() {
+        userInputNode?.userInputInfo?.movementJoystickAngular = CGFloat.zero
+        userInputNode?.userInputInfo?.movementJoystickVelocity = CGPoint.zero
     }
 
     override init(withBase: TLAnalogJoystickComponent, handle: TLAnalogJoystickComponent) {

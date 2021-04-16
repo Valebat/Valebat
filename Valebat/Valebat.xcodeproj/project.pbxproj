@@ -173,6 +173,7 @@
 		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
+		DDAADBFD2629B17F00263AFA /* UserInputInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */; };
 		EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16228E2628C598003C2DE3 /* ResettableEntity.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -413,6 +414,7 @@
 		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
+		DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputInfo.swift; sourceTree = "<group>"; };
 		EF16228E2628C598003C2DE3 /* ResettableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResettableEntity.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -1016,6 +1018,7 @@
 				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
 				EF61C4FC2619C7F40076BB3A /* RestartButton.swift */,
 				EF8BFF962625A74300647771 /* OutcomeButton.swift */,
+				DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */,
 			);
 			path = UserInputHUD;
 			sourceTree = "<group>";
@@ -1396,6 +1399,7 @@
 				C6A9446E2615FEA400087256 /* PlayerModifierUtil.swift in Sources */,
 				EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */,
 				DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */,
+				DDAADBFD2629B17F00263AFA /* UserInputInfo.swift in Sources */,
 				EF61C4BF2618590F0076BB3A /* ClassInfo.swift in Sources */,
 				CBA49522260679FA003A05F7 /* HealthBarComponent.swift in Sources */,
 				C6AA39F62625A0630058003C /* SpellExplodeOnHitComponent.swift in Sources */,

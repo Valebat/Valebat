@@ -262,6 +262,19 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
+
+        updateShoot()
+    }
+
+    private func updateShoot() {
+        if scene.userInputInfo.spellJoystickMoved {
+            spellJoystickMoved(angular: scene.userInputInfo.spellJoystickAngular,
+                               elementQueue: scene.userInputInfo.elementQueueArray)
+        } else if scene.userInputInfo.spellJoystickEnd {
+            spellJoystickEnded(angular: scene.userInputInfo.spellJoystickAngular,
+                               elementQueue: scene.userInputInfo.elementQueueArray)
+            scene.userInputInfo.spellJoystickEnd = false
+        }
     }
 }
 

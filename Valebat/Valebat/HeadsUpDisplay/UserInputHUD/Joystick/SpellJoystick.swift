@@ -7,22 +7,26 @@
 
 import SpriteKit
 
-class SpellJoystick: TLAnalogJoystick, UserInputNodeProtocol {
+class SpellJoystick: TLAnalogJoystick {
 
-    weak var userInputDelegate: UserInputDelegate?
     weak var userInputNode: UserInputNode?
 
     override func didJoystickEnd() {
         if self.velocity.length() < 0.2 {
             return
         }
-        self.userInputDelegate?.spellJoystickEnded(angular: self.angular,
-                                                   elementQueue: userInputNode?.elementPane?.elementQueueArray)
+        userInputNode?.userInputInfo?.spellJoystickAngular = self.angular
+        userInputNode?.userInputInfo?.spellJoystickEnd = true
+        userInputNode?.userInputInfo?.spellJoystickMoved = false
     }
 
     override func didJoystickMove() {
-        self.userInputDelegate?.spellJoystickMoved(angular: self.angular,
-                                                   elementQueue: userInputNode?.elementPane?.elementQueueArray)
+        if self.velocity.length() < 0.2 {
+            return
+        }
+        userInputNode?.userInputInfo?.spellJoystickAngular = self.angular
+        userInputNode?.userInputInfo?.spellJoystickEnd = false
+        userInputNode?.userInputInfo?.spellJoystickMoved = true
     }
 
     convenience init() {
