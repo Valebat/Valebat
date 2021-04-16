@@ -1,13 +1,13 @@
 //
-//  GameSession.swift
+//  BaseGameSession.swift
 //  Valebat
 //
-//  Created by Aloysius Lim on 7/4/21.
+//  Created by Jing Lin Shi on 16/4/21.
 //
 
 import Foundation
 
-class GameSession {
+class BaseGameSession {
     var playerStats: PlayerStats
     var currentLevel: Int
     var entityManager: EntityManager
@@ -17,9 +17,8 @@ class GameSession {
     let objectiveManager: ObjectiveManager
     var mapManager: MapManager!
     let spawnManager: SpawnManager
-    var coopManager: CoopManager?
-
     weak var persistenceManager: PersistenceManager?
+    var coopManager: CoopManager?
 
     init(entityManager: EntityManager, userConfig: UserConfig) {
         playerStats = PlayerStats()
@@ -34,16 +33,5 @@ class GameSession {
                                      objectiveManager: objectiveManager)
         entityManager.mapManager = mapManager
         entityManager.currentSession = self
-
-        // TODO: can add conditional creation of coopmanager base on userconfig
-        self.coopManager = CoopManager()
-    }
-
-    func loadGame() {
-        if userConfig.isNewGame {
-            persistenceManager?.loadInitialData()
-        } else {
-            persistenceManager?.load()
-        }
     }
 }
