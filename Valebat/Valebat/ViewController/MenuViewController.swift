@@ -19,20 +19,12 @@ class MenuViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gameViewController = segue.destination as? GameViewController
-        let buttonClicked = sender as? NSObject
-        var userConfig = UserConfig(isCoop: false, isNewGame: true)
-        if buttonClicked == newGameButton {
-            userConfig.isCoop = false
-            userConfig.isNewGame = true
-        } else if buttonClicked == resumeGameButton {
-            userConfig.isCoop = false
-            userConfig.isNewGame = false
-        } else if buttonClicked == coopModeButton {
-            userConfig.isCoop = true
-            userConfig.isNewGame = true
+        if let gameViewController = segue.destination as? GameViewController {
+            let userConfig = UserConfig.resumeGame()
+            gameViewController.userConfig = userConfig
+        } else if let difficultyVC = segue.destination as? DifficultyViewController {
+
         }
-        gameViewController?.userConfig = userConfig
     }
 
     override var shouldAutorotate: Bool {

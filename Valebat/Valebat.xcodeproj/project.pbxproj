@@ -161,6 +161,7 @@
 		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16228E2628C598003C2DE3 /* ResettableEntity.swift */; };
+		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
 		EF19415E25FFC71900341BF5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415525FFC71900341BF5 /* Element.swift */; };
@@ -390,6 +391,7 @@
 		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EF16228E2628C598003C2DE3 /* ResettableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResettableEntity.swift; sourceTree = "<group>"; };
+		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
 		EF19415525FFC71900341BF5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -829,11 +831,10 @@
 				C6A942C225FCE7EA00087256 /* Entities */,
 				C6A942C425FCE7EA00087256 /* TestUtil */,
 				C6A942D025FCE7EA00087256 /* Util */,
+				DDAADB702629864800263AFA /* ViewController */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
 				CB9E9E94261DEB140016B046 /* GameSession.swift */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
-				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
-				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
@@ -974,6 +975,16 @@
 				DD9849862624AB4A006B741E /* CustomTexture.swift */,
 			);
 			path = TextureUtil;
+			sourceTree = "<group>";
+		};
+		DDAADB702629864800263AFA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
+				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
+				DDAADB742629878E00263AFA /* DifficultyViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		EF19415125FFC71900341BF5 /* Spell */ = {
@@ -1373,6 +1384,7 @@
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
+				DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
 				DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */,
 				EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */,
@@ -1644,13 +1656,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F7K7KGXMG2;
+				DEVELOPMENT_TEAM = 2DY9Z592D2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
+				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1664,13 +1676,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F7K7KGXMG2;
+				DEVELOPMENT_TEAM = 2DY9Z592D2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat;
+				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
