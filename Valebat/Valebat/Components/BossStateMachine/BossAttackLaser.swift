@@ -39,7 +39,8 @@ class BossAttackLaser: BossAttackSubComponent {
                 activated = true
             }
             let angle = getAngle() ?? 0
-            let offset = (angle - currentAngle + 2 * CGFloat(Double.pi)).truncatingRemainder(dividingBy: 2 * CGFloat(Double.pi))
+            let offset = (angle - currentAngle +
+                            2 * CGFloat(Double.pi)).truncatingRemainder(dividingBy: 2 * CGFloat(Double.pi))
             if offset > CGFloat(Double.pi) {
                 currentAngle -= CGFloat(deltaTime) * laserRotationSpeed
             } else {

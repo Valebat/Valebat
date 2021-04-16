@@ -19,7 +19,8 @@ class LobIndicatorComponent: GKSKNodeComponent {
     func getPath(initialPosition: CGPoint, targetPosition: CGPoint, duration: CGFloat) -> CGPath {
         let path = CGMutablePath()
         path.move(to: .zero)
-        let controlPoint = (targetPosition + initialPosition) / 2 + (CGPoint(x: 0, y: ProjectileMotionComponent.defaultHeight))
+        let controlPoint = (targetPosition + initialPosition) / 2 +
+            (CGPoint(x: 0, y: ProjectileMotionComponent.defaultHeight))
         path.addQuadCurve(to: targetPosition - initialPosition, control: controlPoint - initialPosition)
         return path
     }

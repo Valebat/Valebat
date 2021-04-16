@@ -33,7 +33,8 @@ class SpriteComponent: GKSKNodeComponent {
         return cachedMoveComponent
     }
 
-    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true, runForever: Bool = true) {
+    init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true,
+         runForever: Bool = true) {
         self.isStatic = isStatic
         self.idx = UUID()
         super.init()

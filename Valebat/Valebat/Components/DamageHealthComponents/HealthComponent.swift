@@ -29,7 +29,9 @@ class HealthComponent: BaseComponent {
     func takeDamage(damage: CGFloat) {
         currentHealth = max(currentHealth - damage, 0)
         damageTakenObservers.values
-            .forEach({ $0.onDamageTaken(damageAmount: damage, currentHealth: currentHealth, maximumHealth: fullHealth )})
+            .forEach({ $0.onDamageTaken(damageAmount: damage,
+                                        currentHealth: currentHealth,
+                                        maximumHealth: fullHealth )})
         if currentHealth == 0 {
             entity?.component(conformingTo: DeathComponent.self)?.onDeath()
         }
@@ -38,7 +40,9 @@ class HealthComponent: BaseComponent {
     func healDamage(_ damage: CGFloat) {
         currentHealth = min(currentHealth + damage, fullHealth)
         damageTakenObservers.values
-            .forEach({ $0.onDamageTaken(damageAmount: damage, currentHealth: currentHealth, maximumHealth: fullHealth )})
+            .forEach({ $0.onDamageTaken(damageAmount: damage,
+                                        currentHealth: currentHealth,
+                                        maximumHealth: fullHealth )})
     }
 
     required init?(coder aDecoder: NSCoder) {

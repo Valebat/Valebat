@@ -24,7 +24,8 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
 
     required init(velocity: CGVector, initialPosition: CGPoint) {
         self.initialPosition = initialPosition
-        self.targetPosition = initialPosition + (velocity.normalized() * ProjectileMotionComponent.defaultRadius).convertToPoint()
+        self.targetPosition = initialPosition +
+            (velocity.normalized() * ProjectileMotionComponent.defaultRadius).convertToPoint()
         self.duration = ProjectileMotionComponent.defaultDuration
         currentPosition = initialPosition
         orientation = atan2(self.targetPosition.y - currentPosition.y,
@@ -68,7 +69,8 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
     }
 
     func getPoint(at prop: CGFloat, initialPosition: CGPoint, targetPosition: CGPoint) -> CGPoint {
-        let controlPoint = (targetPosition + initialPosition) / 2 + (CGPoint(x: 0, y: ProjectileMotionComponent.defaultHeight))
+        let controlPoint = (targetPosition + initialPosition) / 2 +
+            (CGPoint(x: 0, y: ProjectileMotionComponent.defaultHeight))
         let firstTerm = initialPosition * pow(1 - prop, 2)
         let secondTerm = controlPoint * 2 * prop * (1 - prop)
         let thirdTerm = targetPosition * pow(prop, 2)
