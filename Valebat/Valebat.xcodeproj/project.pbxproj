@@ -76,6 +76,8 @@
 		C6ACE6DF262992B60000A2E6 /* CoopEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */; };
 		C6ACE6E4262993250000A2E6 /* CoopGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6E3262993250000A2E6 /* CoopGameSession.swift */; };
 		C6ACE6E9262993490000A2E6 /* BaseGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */; };
+		CB315AD02629B0F70064EE0D /* CoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB315ACF2629B0F70064EE0D /* CoopViewController.swift */; };
+		CB315AD52629BD670064EE0D /* CoopRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB315AD42629BD670064EE0D /* CoopRoomViewController.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
@@ -303,6 +305,8 @@
 		C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopEntityManager.swift; sourceTree = "<group>"; };
 		C6ACE6E3262993250000A2E6 /* CoopGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopGameSession.swift; sourceTree = "<group>"; };
 		C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameSession.swift; sourceTree = "<group>"; };
+		CB315ACF2629B0F70064EE0D /* CoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopViewController.swift; sourceTree = "<group>"; };
+		CB315AD42629BD670064EE0D /* CoopRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopRoomViewController.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
 		CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfFire.swift; sourceTree = "<group>"; };
@@ -1010,6 +1014,8 @@
 				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
 				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				DDAADB742629878E00263AFA /* DifficultyViewController.swift */,
+				CB315ACF2629B0F70064EE0D /* CoopViewController.swift */,
+				CB315AD42629BD670064EE0D /* CoopRoomViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1413,6 +1419,7 @@
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
+				CB315AD02629B0F70064EE0D /* CoopViewController.swift in Sources */,
 				DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */,
 				C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */,
 				DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */,
@@ -1488,6 +1495,7 @@
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
+				CB315AD52629BD670064EE0D /* CoopRoomViewController.swift in Sources */,
 				C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */,
 				C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */,
 				CB9E9DE82610A1170016B046 /* BaseEnemyState.swift in Sources */,

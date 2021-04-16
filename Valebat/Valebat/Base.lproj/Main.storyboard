@@ -61,7 +61,6 @@
                                 <state key="normal" title="Button" image="valebat-resume-game"/>
                                 <connections>
                                     <action selector="resumeGame:" destination="MWE-ey-fS4" eventType="touchUpInside" id="pq5-OB-3MH"/>
-                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="G1e-gi-8hC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBM-9M-ua6" userLabel="coopButton">
@@ -72,7 +71,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="valebat-coop-mode"/>
                                 <connections>
-                                    <action selector="coopGame:" destination="MWE-ey-fS4" eventType="touchUpInside" id="PQ7-dj-I92"/>
+                                    <segue destination="g9a-LH-yqa" kind="presentation" id="RRB-dC-Bvj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,11 +94,6 @@
                             <constraint firstItem="lBM-9M-ua6" firstAttribute="top" secondItem="XS6-FB-QK8" secondAttribute="top" id="l7j-rI-pu5"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="coopModeButton" destination="lBM-9M-ua6" id="Fqe-p8-OrT"/>
-                        <outlet property="newGameButton" destination="Jhj-Yq-VDR" id="P5D-xX-376"/>
-                        <outlet property="resumeGameButton" destination="XS6-FB-QK8" id="0Ig-5y-Hq9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-FQ-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,10 +171,106 @@
             </objects>
             <point key="canvasLocation" x="-1005" y="871"/>
         </scene>
+        <!--Coop View Controller-->
+        <scene sceneID="Mit-ck-Wwm">
+            <objects>
+                <viewController storyboardIdentifier="CoopVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g9a-LH-yqa" customClass="CoopViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tpo-Bp-7fH">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Ip-qX-CD6">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="uxA-eJ-IMF">
+                                <rect key="frame" x="385" y="185" width="410" height="450"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-tz-KR3">
+                                        <rect key="frame" x="0.0" y="0.0" width="410" height="205"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Nof-tz-KR3" secondAttribute="height" multiplier="2:1" id="fzt-UV-S93"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="join-room"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-XJ-q2W">
+                                        <rect key="frame" x="0.0" y="245" width="410" height="205"/>
+                                        <state key="normal" title="Button" image="host-room"/>
+                                        <connections>
+                                            <action selector="hostRoom:" destination="g9a-LH-yqa" eventType="touchUpInside" id="77G-ca-eI3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZRe-Wi-QHQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uxA-eJ-IMF" firstAttribute="centerY" secondItem="Tpo-Bp-7fH" secondAttribute="centerY" id="2LT-nP-G8I"/>
+                            <constraint firstItem="Nof-tz-KR3" firstAttribute="height" secondItem="Tpo-Bp-7fH" secondAttribute="height" multiplier="0.25" id="4i1-3K-3tV"/>
+                            <constraint firstItem="uxA-eJ-IMF" firstAttribute="centerX" secondItem="Tpo-Bp-7fH" secondAttribute="centerX" id="CoY-6Y-9tp"/>
+                            <constraint firstAttribute="bottom" secondItem="0Ip-qX-CD6" secondAttribute="bottom" id="Rdo-3P-se2"/>
+                            <constraint firstItem="0Ip-qX-CD6" firstAttribute="leading" secondItem="Tpo-Bp-7fH" secondAttribute="leading" id="le3-29-u4N"/>
+                            <constraint firstItem="0Ip-qX-CD6" firstAttribute="top" secondItem="Tpo-Bp-7fH" secondAttribute="top" id="rIW-eI-DF7"/>
+                            <constraint firstAttribute="trailing" secondItem="0Ip-qX-CD6" secondAttribute="trailing" id="uwy-4E-GZ3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syi-2n-IHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1629.1525423728815" y="757.31707317073165"/>
+        </scene>
+        <!--Coop Room View Controller-->
+        <scene sceneID="4qj-Hd-Ztc">
+            <objects>
+                <viewController storyboardIdentifier="CoopRoomVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s2m-hN-fEM" customClass="CoopRoomViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uzp-ku-xef">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="giM-ba-n3O">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S55-5s-NKH">
+                                <rect key="frame" x="856" y="628" width="279" height="143"/>
+                                <state key="normal" title="Button" image="valebat-new-game"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ROOM ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-V2-Tgr">
+                                <rect key="frame" x="445" y="80" width="290" height="88"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ca4-2h-BEh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="S55-5s-NKH" firstAttribute="top" secondItem="Ca4-2h-BEh" secondAttribute="top" constant="628" id="2EK-oj-5Uc"/>
+                            <constraint firstItem="Ca4-2h-BEh" firstAttribute="bottom" secondItem="S55-5s-NKH" secondAttribute="bottom" constant="29" id="5cS-al-L1M"/>
+                            <constraint firstAttribute="trailing" secondItem="giM-ba-n3O" secondAttribute="trailing" id="8s2-3i-1Iw"/>
+                            <constraint firstItem="Pfm-V2-Tgr" firstAttribute="top" secondItem="Ca4-2h-BEh" secondAttribute="top" constant="80" id="C7E-Lb-kJe"/>
+                            <constraint firstItem="giM-ba-n3O" firstAttribute="top" secondItem="Uzp-ku-xef" secondAttribute="top" id="MMw-Ue-tbK"/>
+                            <constraint firstItem="Pfm-V2-Tgr" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="PgF-I6-OQX"/>
+                            <constraint firstItem="S55-5s-NKH" firstAttribute="leading" secondItem="Ca4-2h-BEh" secondAttribute="leading" constant="856" id="Yke-Ij-Xi1"/>
+                            <constraint firstItem="Ca4-2h-BEh" firstAttribute="trailing" secondItem="S55-5s-NKH" secondAttribute="trailing" constant="45" id="cvk-Kt-9qY"/>
+                            <constraint firstItem="giM-ba-n3O" firstAttribute="leading" secondItem="Uzp-ku-xef" secondAttribute="leading" id="jzC-XZ-XF6"/>
+                            <constraint firstAttribute="bottom" secondItem="giM-ba-n3O" secondAttribute="bottom" id="lHc-Mm-KgW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="roomIDText" destination="Pfm-V2-Tgr" id="7YY-hG-41j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGN-ru-EAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536.4406779661017" y="-611.70731707317077"/>
+        </scene>
     </scenes>
     <resources>
         <image name="easy-button" width="936" height="553"/>
         <image name="hard-button" width="936" height="553"/>
+        <image name="host-room" width="936" height="553"/>
+        <image name="join-room" width="936" height="553"/>
         <image name="normal-button" width="936" height="553"/>
         <image name="valebat-bg" width="1280" height="719"/>
         <image name="valebat-coop-mode" width="1587" height="939"/>
@@ -189,6 +279,9 @@
         <image name="valebat-title" width="1772" height="335"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
