@@ -63,9 +63,6 @@ class EntityManager {
         initialiseMaps()
         initialiseGraph()
         initialiseObservers()
-
-        let rmm = RoomManager()
-        rmm.createRoom()
     }
 
     func initialiseMaps() {

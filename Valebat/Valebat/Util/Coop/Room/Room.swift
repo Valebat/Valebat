@@ -5,15 +5,14 @@
 //  Created by Jing Lin Shi on 16/4/21.
 //
 
-import SpriteKit
+import FirebaseFirestoreSwift
 
-class Room: Codable {
-    let idx: UUID
+class Room: Identifiable, Codable {
+    @DocumentID var idx: String? = UUID().uuidString
     let code: String
     var started: Bool
 
     init() {
-        self.idx = UUID()
         self.code = RoomCodeGenerator.randomString(length: 6)
         self.started = false
     }
