@@ -66,7 +66,7 @@ class EntityManager {
     }
 
     func initialiseMaps() {
-        mapManager?.generateMaps(withLevelType: .medium)
+        mapManager?.generateMaps(withLevelType: currentSession?.userConfig.diffLevel ?? .medium)
         immediateAddMapEntities()
     }
 

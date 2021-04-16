@@ -11,7 +11,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BV1-FR-VrT" customClass="GameViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +122,7 @@
                                         </constraints>
                                         <state key="normal" image="easy-button"/>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="CIw-bW-g3k"/>
+                                            <action selector="loadEasyGame:" destination="Mmk-fh-Wvl" eventType="touchUpInside" id="xQj-Vx-hxc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wze-Ob-M6Q">
@@ -132,7 +132,7 @@
                                         </constraints>
                                         <state key="normal" image="normal-button"/>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="J7X-vV-msD"/>
+                                            <action selector="loadNormalGame:" destination="Mmk-fh-Wvl" eventType="touchUpInside" id="lcN-8R-Ltv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPM-sK-qkt">
@@ -142,7 +142,7 @@
                                         </constraints>
                                         <state key="normal" image="hard-button"/>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="xfL-Sp-kUW"/>
+                                            <action selector="loadHardGame:" destination="Mmk-fh-Wvl" eventType="touchUpInside" id="XjL-Je-5Wp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -174,9 +174,6 @@
             <point key="canvasLocation" x="-1005" y="871"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="CIw-bW-g3k"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="easy-button" width="936" height="553"/>
         <image name="hard-button" width="936" height="553"/>

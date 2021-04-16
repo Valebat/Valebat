@@ -22,8 +22,6 @@ class MenuViewController: UIViewController {
         if let gameViewController = segue.destination as? GameViewController {
             let userConfig = UserConfig.resumeGame()
             gameViewController.userConfig = userConfig
-        } else if let difficultyVC = segue.destination as? DifficultyViewController {
-
         }
     }
 
