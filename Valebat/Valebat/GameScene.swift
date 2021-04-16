@@ -14,7 +14,7 @@ class GameScene: SKScene {
     var userConfig: UserConfig
 
     // Entity-component system
-    var gameSession: GameSession!
+    var gameSession: BaseGameSession!
     var persistenceManager: PersistenceManager!
 
     var headsUpDisplay: UserInputNode!
@@ -30,7 +30,23 @@ class GameScene: SKScene {
         setUpScene()
     }
 
-    func loadGameSession(entityManager: EntityManager, userConfig: UserConfig) -> GameSession {
+    func loadGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
+        if userConfig.isCoop {
+            return loadCoopGameSession(entityManager: entityManager, userConfig: userConfig)
+        } else {
+            return loadSinglePlayerGameSession(entityManager: entityManager, userConfig: userConfig)
+        }
+    }
+
+    func loadCoopGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
+        let currentSession = CoopGameSession(entityManager: entityManager, userConfig: userConfig)
+
+        currentSession.loadGame()
+
+        return currentSession
+    }
+
+    func loadSinglePlayerGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
         let currentSession = GameSession(entityManager: entityManager, userConfig: userConfig)
         currentSession.persistenceManager = persistenceManager
         persistenceManager.gameSession = currentSession

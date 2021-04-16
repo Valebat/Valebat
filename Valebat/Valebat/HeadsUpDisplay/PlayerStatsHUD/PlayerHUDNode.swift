@@ -8,5 +8,5 @@
 import SpriteKit
 
 protocol PlayerHUDNode: SKSpriteNode {
-    func update(gameSession: GameSession)
+    func update(gameSession: BaseGameSession)
 }

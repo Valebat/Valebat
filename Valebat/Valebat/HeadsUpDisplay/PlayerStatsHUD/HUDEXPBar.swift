@@ -17,7 +17,7 @@ class HUDEXPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update(gameSession: GameSession) {
+    func update(gameSession: BaseGameSession) {
         let exp = gameSession.playerStats.currentEXP
         let currentLevel = gameSession.playerStats.currentPlayerLevel
         let fullEXP = PlayerStats.getEXPPerLevel(level: currentLevel)

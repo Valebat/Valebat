@@ -11,4 +11,6 @@ struct GameConstants {
     static let playerMoveSpeed: CGFloat = 4.0
 
     static var stairsSensitivity: CGFloat = 0.5
+
+    static var timeBeforeBossSpawns: Double = 1.0
 }
