@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08FB8D3430DE7C0C48A1CD2D /* Pods_Valebat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469A63A6BD060FEF8EF3707D /* Pods_Valebat.framework */; };
+		0CC4C97B89FA7ABA24245D72 /* Pods_ValebatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8DFB6F5F7930DB70A9B5B2 /* Pods_ValebatTests.framework */; };
+		623603E90AF8AAA6C1645568 /* Pods_Valebat_ValebatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CADD992F6294D871AB5E7B /* Pods_Valebat_ValebatUITests.framework */; };
 		C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */ = {isa = PBXBuildFile; fileRef = C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */; };
 		C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
 		C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */; };
@@ -66,6 +69,8 @@
 		C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
 		C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */; };
 		C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A262625A26E0058003C /* ExplosionEntity.swift */; };
+		C6AA3A32262988250058003C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6AA3A31262988250058003C /* GoogleService-Info.plist */; };
+		C6AA3A37262988F20058003C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6AA3A36262988F20058003C /* Podfile */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
@@ -220,6 +225,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E8DFB6F5F7930DB70A9B5B2 /* Pods_ValebatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ValebatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2349927680EA611E370C0067 /* Pods-Valebat-ValebatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valebat-ValebatUITests.release.xcconfig"; path = "Target Support Files/Pods-Valebat-ValebatUITests/Pods-Valebat-ValebatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		29CADD992F6294D871AB5E7B /* Pods_Valebat_ValebatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valebat_ValebatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1D335B7CDBE5EAC01A306F /* Pods-ValebatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValebatTests.debug.xcconfig"; path = "Target Support Files/Pods-ValebatTests/Pods-ValebatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		469A63A6BD060FEF8EF3707D /* Pods_Valebat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valebat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		571CC77645BD357FDD57B846 /* Pods-Valebat-ValebatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valebat-ValebatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Valebat-ValebatUITests/Pods-Valebat-ValebatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6DBB4E31D96647093CDF146E /* Pods-Valebat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valebat.release.xcconfig"; path = "Target Support Files/Pods-Valebat/Pods-Valebat.release.xcconfig"; sourceTree = "<group>"; };
+		B74EBFA68053CA08AE675A44 /* Pods-Valebat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valebat.debug.xcconfig"; path = "Target Support Files/Pods-Valebat/Pods-Valebat.debug.xcconfig"; sourceTree = "<group>"; };
 		C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerObjective.sks; sourceTree = "<group>"; };
 		C652DCD22620717300349576 /* ObjectiveObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveObserver.swift; sourceTree = "<group>"; };
 		C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystickSubscriber.swift; sourceTree = "<group>"; };
@@ -279,6 +292,8 @@
 		C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobIndicatorComponent.swift; sourceTree = "<group>"; };
 		C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDestructComponent.swift; sourceTree = "<group>"; };
 		C6AA3A262625A26E0058003C /* ExplosionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionEntity.swift; sourceTree = "<group>"; };
+		C6AA3A31262988250058003C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C6AA3A36262988F20058003C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
 		CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfFire.swift; sourceTree = "<group>"; };
@@ -404,6 +419,7 @@
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
 		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
+		F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValebatTests.release.xcconfig"; path = "Target Support Files/Pods-ValebatTests/Pods-ValebatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +427,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08FB8D3430DE7C0C48A1CD2D /* Pods_Valebat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +435,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC4C97B89FA7ABA24245D72 /* Pods_ValebatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,12 +443,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623603E90AF8AAA6C1645568 /* Pods_Valebat_ValebatUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		215F1F14ED89012B65C76186 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B74EBFA68053CA08AE675A44 /* Pods-Valebat.debug.xcconfig */,
+				6DBB4E31D96647093CDF146E /* Pods-Valebat.release.xcconfig */,
+				571CC77645BD357FDD57B846 /* Pods-Valebat-ValebatUITests.debug.xcconfig */,
+				2349927680EA611E370C0067 /* Pods-Valebat-ValebatUITests.release.xcconfig */,
+				3A1D335B7CDBE5EAC01A306F /* Pods-ValebatTests.debug.xcconfig */,
+				F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BBDEEC31C2E00037EF5DFE64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				469A63A6BD060FEF8EF3707D /* Pods_Valebat.framework */,
+				29CADD992F6294D871AB5E7B /* Pods_Valebat_ValebatUITests.framework */,
+				1E8DFB6F5F7930DB70A9B5B2 /* Pods_ValebatTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C652DCE026240A0E00349576 /* JoystickUtil */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +797,8 @@
 				CBC7781025FCE1C200581E20 /* ValebatTests */,
 				CBC7781B25FCE1C200581E20 /* ValebatUITests */,
 				CBC777F725FCE1C000581E20 /* Products */,
+				215F1F14ED89012B65C76186 /* Pods */,
+				BBDEEC31C2E00037EF5DFE64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -771,6 +815,8 @@
 		CBC777F825FCE1C000581E20 /* Valebat */ = {
 			isa = PBXGroup;
 			children = (
+				C6AA3A36262988F20058003C /* Podfile */,
+				C6AA3A31262988250058003C /* GoogleService-Info.plist */,
 				CB9E9E5326175AB10016B046 /* Sounds */,
 				CB9E9E3326174A7E0016B046 /* Player */,
 				EFCC5B412605D574006F2771 /* Exceptions */,
@@ -988,10 +1034,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBC7782125FCE1C200581E20 /* Build configuration list for PBXNativeTarget "Valebat" */;
 			buildPhases = (
+				5575E28324C232C0E847E569 /* [CP] Check Pods Manifest.lock */,
 				C6A9430325FD007000087256 /* ShellScript */,
 				CBC777F225FCE1C000581E20 /* Sources */,
 				CBC777F325FCE1C000581E20 /* Frameworks */,
 				CBC777F425FCE1C000581E20 /* Resources */,
+				BDAD3579A8610AC24C795754 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1006,6 +1054,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBC7782425FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatTests" */;
 			buildPhases = (
+				576397A03A1FC933D107660E /* [CP] Check Pods Manifest.lock */,
 				CBC7780925FCE1C200581E20 /* Sources */,
 				CBC7780A25FCE1C200581E20 /* Frameworks */,
 				CBC7780B25FCE1C200581E20 /* Resources */,
@@ -1024,9 +1073,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBC7782725FCE1C200581E20 /* Build configuration list for PBXNativeTarget "ValebatUITests" */;
 			buildPhases = (
+				C87AB64E9A321887CC98902B /* [CP] Check Pods Manifest.lock */,
 				CBC7781425FCE1C200581E20 /* Sources */,
 				CBC7781525FCE1C200581E20 /* Frameworks */,
 				CBC7781625FCE1C200581E20 /* Resources */,
+				CEAE1CF1E01AAE45EF1B727C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1093,8 +1144,10 @@
 				CB9E9E21261738A60016B046 /* HPBar.sks in Resources */,
 				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
+				C6AA3A32262988250058003C /* GoogleService-Info.plist in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
 				CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */,
+				C6AA3A37262988F20058003C /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1168,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5575E28324C232C0E847E569 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Valebat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		576397A03A1FC933D107660E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ValebatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDAD3579A8610AC24C795754 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valebat/Pods-Valebat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valebat/Pods-Valebat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Valebat/Pods-Valebat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6A9430325FD007000087256 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1131,6 +1245,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C87AB64E9A321887CC98902B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Valebat-ValebatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEAE1CF1E01AAE45EF1B727C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valebat-ValebatUITests/Pods-Valebat-ValebatUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valebat-ValebatUITests/Pods-Valebat-ValebatUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Valebat-ValebatUITests/Pods-Valebat-ValebatUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1486,6 +1639,7 @@
 		};
 		CBC7782225FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B74EBFA68053CA08AE675A44 /* Pods-Valebat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1505,6 +1659,7 @@
 		};
 		CBC7782325FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DBB4E31D96647093CDF146E /* Pods-Valebat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1524,6 +1679,7 @@
 		};
 		CBC7782525FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A1D335B7CDBE5EAC01A306F /* Pods-ValebatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1549,6 +1705,7 @@
 		};
 		CBC7782625FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1573,6 +1730,7 @@
 		};
 		CBC7782825FCE1C200581E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 571CC77645BD357FDD57B846 /* Pods-Valebat-ValebatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1593,6 +1751,7 @@
 		};
 		CBC7782925FCE1C200581E20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2349927680EA611E370C0067 /* Pods-Valebat-ValebatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
