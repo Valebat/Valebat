@@ -14,6 +14,8 @@ protocol UserInputNodeProtocol: AnyObject {
 
 class UserInputNode: SKNode {
 
+    weak var userInputInfo: UserInputInfo?
+
     private(set) var movementJoystick: MovementJoystick?
     private(set) var spellJoystick: SpellJoystick?
 
@@ -48,8 +50,6 @@ class UserInputNode: SKNode {
     }
 
     public func assignInputDelegate(delegate: UserInputDelegate) {
-        movementJoystick?.userInputDelegate = delegate
-        spellJoystick?.userInputDelegate = delegate
         outcomeButton?.restartButton.userInputDelegate = delegate
     }
 
@@ -73,6 +73,8 @@ class UserInputNode: SKNode {
         if let elementPane = elementPane {
             self.addChild(elementPane)
         }
+
+        elementPane?.userInputNode = self
     }
 
     convenience init(screenSize: CGSize) {

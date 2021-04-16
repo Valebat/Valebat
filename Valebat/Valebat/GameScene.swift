@@ -17,9 +17,11 @@ class GameScene: SKScene {
     var gameSession: BaseGameSession!
     var persistenceManager: PersistenceManager!
 
-    var headsUpDisplay: UserInputNode!
+    var inputHUDDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
     private var lastUpdateTime: TimeInterval = 0
+
+    var userInputInfo: UserInputInfo = UserInputInfo()
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -89,9 +91,10 @@ class GameScene: SKScene {
     }
 
     private func setUpUserInputHUD() {
-        headsUpDisplay = UserInputNode(screenSize: self.size)
-        addChild(headsUpDisplay)
-        headsUpDisplay.assignInputDelegate(delegate: gameSession.entityManager)
+        inputHUDDisplay = UserInputNode(screenSize: self.size)
+        addChild(inputHUDDisplay)
+        inputHUDDisplay.userInputInfo = userInputInfo
+        inputHUDDisplay.assignInputDelegate(delegate: gameSession.entityManager)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

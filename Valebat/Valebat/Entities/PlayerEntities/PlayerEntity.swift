@@ -18,8 +18,7 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
-        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position,
-                                                                movementJoystick: (entityManager.scene?.headsUpDisplay.movementJoystick)!))
+        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
         addComponent(AimIndicatorComponent(size: CGSize(width: 10,
                                                         height: texture.size().height/2),
                                            playerSize: texture.size().height))

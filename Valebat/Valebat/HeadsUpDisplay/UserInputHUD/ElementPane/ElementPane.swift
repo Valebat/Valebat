@@ -8,10 +8,11 @@
 import SpriteKit
 
 class ElementPane: SKNode {
-    private(set) var elementQueueArray: [BasicType] = []
     private(set) var elementQueue: ElementQueue
     private(set) var elementSelection: ElementSelection
     private(set) var arrayCount: Int = 1
+
+    weak var userInputNode: UserInputNode?
 
     convenience init(count: Int = HUDConstants.elementQueueLength) {
         self.init()
@@ -32,16 +33,19 @@ class ElementPane: SKNode {
     }
 
     func setNewElement(elementType: BasicType) {
-        if elementQueueArray.count == arrayCount {
-            elementQueueArray.removeFirst()
+        guard let userInputInfo = userInputNode?.userInputInfo else {
+            return
         }
-        elementQueueArray.append(elementType)
-        elementQueue.renderElementsInQueue(selectedElements: elementQueueArray)
+        userInputInfo.setNewElement(elementType: elementType)
+        elementQueue.renderElementsInQueue(selectedElements: userInputInfo.elementQueueArray)
     }
 
     func clearElementQueue() {
-        elementQueueArray.removeAll()
-        elementQueue.renderElementsInQueue(selectedElements: elementQueueArray)
+        guard let userInputInfo = userInputNode?.userInputInfo else {
+            return
+        }
+        userInputInfo.clearElementQueue()
+        elementQueue.renderElementsInQueue(selectedElements: userInputInfo.elementQueueArray)
     }
 
     required init?(coder aDecoder: NSCoder) {

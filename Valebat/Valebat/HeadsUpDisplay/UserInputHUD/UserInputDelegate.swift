@@ -8,7 +8,7 @@
 import CoreGraphics
 
 protocol UserInputDelegate: AnyObject {
-    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?)
-    func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?)
+//    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?)
+//    func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?)
     func restartClicked()
 }
