@@ -52,6 +52,7 @@ class PersistenceManager {
         gameData.levelData.assignLevelData(gameSession: gameSession)
         entityManager.immediateAddMapEntities()
         entityManager.initialiseGraph()
+        entityManager.initialiseObservers()
     }
 
     func loadInitialData() {
