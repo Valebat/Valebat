@@ -60,6 +60,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="valebat-resume-game"/>
                                 <connections>
+                                    <action selector="resumeGame:" destination="MWE-ey-fS4" eventType="touchUpInside" id="pq5-OB-3MH"/>
                                     <segue destination="BV1-FR-VrT" kind="showDetail" id="G1e-gi-8hC"/>
                                 </connections>
                             </button>
@@ -70,6 +71,9 @@
                                     <constraint firstAttribute="height" constant="128" id="jDY-Eg-csp"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="valebat-coop-mode"/>
+                                <connections>
+                                    <action selector="coopGame:" destination="MWE-ey-fS4" eventType="touchUpInside" id="PQ7-dj-I92"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rzs-L5-BHS"/>
