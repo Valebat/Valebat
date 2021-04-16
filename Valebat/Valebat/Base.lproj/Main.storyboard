@@ -49,7 +49,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="valebat-new-game"/>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="fM8-dw-OEO"/>
+                                    <segue destination="Mmk-fh-Wvl" kind="showDetail" id="Yu1-Lh-UQD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-FB-QK8" userLabel="resumeButtom">
@@ -101,11 +101,86 @@
             </objects>
             <point key="canvasLocation" x="-897.45762711864415" y="69.512195121951223"/>
         </scene>
+        <!--Difficulty View Controller-->
+        <scene sceneID="XWI-X9-8Aa">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Mmk-fh-Wvl" customClass="DifficultyViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qTt-sf-rHg">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEP-eM-l40">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yhc-0R-dSQ">
+                                <rect key="frame" x="455.5" y="171.5" width="269" height="477"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-C0-Qt8">
+                                        <rect key="frame" x="0.0" y="0.0" width="269" height="159"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6lb-C0-Qt8" secondAttribute="height" multiplier="269:159" id="BjP-15-Rq0"/>
+                                        </constraints>
+                                        <state key="normal" image="easy-button"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="CIw-bW-g3k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wze-Ob-M6Q">
+                                        <rect key="frame" x="0.0" y="159" width="269" height="159"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Wze-Ob-M6Q" secondAttribute="height" multiplier="269:159" id="h0T-9F-zeo"/>
+                                        </constraints>
+                                        <state key="normal" image="normal-button"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="J7X-vV-msD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPM-sK-qkt">
+                                        <rect key="frame" x="0.0" y="318" width="269" height="159"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SPM-sK-qkt" secondAttribute="height" multiplier="269:159" id="HTG-ng-Nyu"/>
+                                        </constraints>
+                                        <state key="normal" image="hard-button"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="showDetail" id="xfL-Sp-kUW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="7Vh-lS-cRW"/>
+                                    <constraint firstItem="Wze-Ob-M6Q" firstAttribute="width" secondItem="Wze-Ob-M6Q" secondAttribute="height" multiplier="269:159" id="QCg-4j-yg9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xNf-BG-rKc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gEP-eM-l40" firstAttribute="centerY" secondItem="qTt-sf-rHg" secondAttribute="centerY" id="3bt-I0-IvL"/>
+                            <constraint firstItem="gEP-eM-l40" firstAttribute="leading" secondItem="xNf-BG-rKc" secondAttribute="leading" id="A88-Go-ukZ"/>
+                            <constraint firstItem="gEP-eM-l40" firstAttribute="top" secondItem="xNf-BG-rKc" secondAttribute="top" id="J9X-om-1hZ"/>
+                            <constraint firstItem="Yhc-0R-dSQ" firstAttribute="centerY" secondItem="qTt-sf-rHg" secondAttribute="centerY" id="N6U-bs-zlT"/>
+                            <constraint firstItem="Yhc-0R-dSQ" firstAttribute="centerX" secondItem="qTt-sf-rHg" secondAttribute="centerX" id="T5o-H0-xhT"/>
+                            <constraint firstItem="gEP-eM-l40" firstAttribute="centerX" secondItem="qTt-sf-rHg" secondAttribute="centerX" id="hdb-KV-syx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="easyButton" destination="6lb-C0-Qt8" id="di9-c1-rFp"/>
+                        <outlet property="hardButton" destination="SPM-sK-qkt" id="OQC-dn-elK"/>
+                        <outlet property="normalButton" destination="Wze-Ob-M6Q" id="YIv-xR-GUc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30Y-zn-Qcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1005" y="871"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G1e-gi-8hC"/>
+        <segue reference="CIw-bW-g3k"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="easy-button" width="936" height="553"/>
+        <image name="hard-button" width="936" height="553"/>
+        <image name="normal-button" width="936" height="553"/>
         <image name="valebat-bg" width="1280" height="719"/>
         <image name="valebat-coop-mode" width="1587" height="939"/>
         <image name="valebat-new-game" width="1587" height="939"/>
