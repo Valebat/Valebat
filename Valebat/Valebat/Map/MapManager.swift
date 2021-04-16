@@ -173,11 +173,10 @@ class MapManager {
                                        position: point, enemyType: .enemy)
             case .bossSpawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       defaultSpawnTime: GameConstants.timeBeforeBossSpawns,
                                        position: point, enemyType: .boss)
             case .stairs:
                 entity = StairsEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                      timer: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
                                       position: point)
             case .powerupSpawner:
                 entity = PowerupSpawnerEntity()

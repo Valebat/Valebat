@@ -13,7 +13,7 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserv
     let pos: CGPoint
     let size: CGSize
 
-    init(size: CGSize, timer: Double, position: CGPoint) {
+    init(size: CGSize, position: CGPoint) {
         pos = position
         self.size = size
         let texture = CustomTexture.initialise(imageNamed: "stairs_closed")

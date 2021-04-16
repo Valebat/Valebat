@@ -8,7 +8,7 @@
 import Foundation
 
 class GameSession: BaseGameSession {
-    func loadGame() {
+    override func loadGame() {
         if userConfig.isNewGame {
             persistenceManager?.loadInitialData()
         } else {

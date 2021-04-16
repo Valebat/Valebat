@@ -18,7 +18,7 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update(gameSession: GameSession) {
+    func update(gameSession: BaseGameSession) {
         let maxHP = gameSession.playerStats.maxHP
         let currentHP = gameSession.entityManager
             .player?.component(ofType: HealthComponent.self)?.currentHealth ?? 0

@@ -34,4 +34,8 @@ class BaseGameSession {
         entityManager.mapManager = mapManager
         entityManager.currentSession = self
     }
+
+    func loadGame() {
+        self.entityManager.setup()
+    }
 }

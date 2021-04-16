@@ -9,6 +9,7 @@ import GameplayKit
 
 class CoopManager {
     var spritesData: Set<SpriteData> = Set()
+
     func saveSprites(spriteComponents: [GKComponent]) {
         spritesData = Set()
         for spriteComp in spriteComponents {
