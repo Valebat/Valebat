@@ -51,6 +51,7 @@ class UsernameManager {
         return true
     }
 
+    /// Currently not deleting from DB.
     func removeUsername(_ uname: String) {
         _ = usernames.filter { $0 != uname }
     }

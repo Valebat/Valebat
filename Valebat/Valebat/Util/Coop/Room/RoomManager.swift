@@ -54,6 +54,7 @@ class RoomManager {
         return room
     }
 
+    /// Currently not deleting from DB.
     func removeRoom(_ room: Room) {
         _ = roomCodes.filter { $0 != room.code }
     }
