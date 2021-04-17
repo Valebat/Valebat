@@ -11,6 +11,8 @@ import GameplayKit
 class ClientScene: SKScene {
 
     weak var viewController: ClientViewController?
+    
+    var coopManager: CoopManager?
 
     var inputHUDDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
@@ -20,6 +22,7 @@ class ClientScene: SKScene {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
+        self.coopManager = CoopManager()
         setUpScene()
     }
 
@@ -92,9 +95,10 @@ class ClientScene: SKScene {
         self.lastUpdateTime = currentTime
 
     }
-
+    
+    // Gives sprites which have changed
     func loadSpriteData() -> Set<SpriteData> {
-        // TODO: Fetch from firebase
+        // TODO: Fetch from coop manager
         let sampleSprite = SpriteData(idx: UUID(), name: "character",
                                       width: Float(ViewConstants.playerWidth),
                                       height: Float(ViewConstants.playerHeight),
@@ -110,7 +114,7 @@ class ClientScene: SKScene {
                                                        height: CGFloat(sprite.height)))
             spriteNode.position = CGPoint(x: CGFloat(sprite.xPos), y: CGFloat(sprite.yPos))
             spriteNode.zRotation = CGFloat(sprite.orientation)
-            self.addChild(spriteNode)
+            addChild(spriteNode)
         }
     }
 
