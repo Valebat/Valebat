@@ -11,7 +11,7 @@ class Objective {
 
     init(type: ObjectiveEnum, quantity: Int) {
         self.objectiveType = type
-        self.objectiveQuantity = quantity
+        self.objectiveQuantity = quantity > 0 ? quantity : 0
     }
 
     init() {

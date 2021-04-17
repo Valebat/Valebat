@@ -211,6 +211,7 @@
 		C69D36C0262B2A1F00EDE2AC /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943BE2605EBCC00087256 /* MapTests.swift */; };
 		C69D36C1262B2A1F00EDE2AC /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
 		C69D36C6262B2A1F00EDE2AC /* Valebat.app in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F625FCE1C000581E20 /* Valebat.app */; };
+		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -427,6 +428,7 @@
 		C652DCE62624174600349576 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -839,6 +841,7 @@
 				C6A943B52605E33D00087256 /* MapObjectTests.swift */,
 				C6A943BE2605EBCC00087256 /* MapTests.swift */,
 				C6A944A026198C1A00087256 /* BiomeTests.swift */,
+				C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */,
 			);
 			path = MapTests;
 			sourceTree = "<group>";
@@ -1957,6 +1960,7 @@
 				C69D36BA262B2A1F00EDE2AC /* MagmaSpellTests.swift in Sources */,
 				C69D36BB262B2A1F00EDE2AC /* MudSpellTests.swift in Sources */,
 				C69D36BC262B2A1F00EDE2AC /* SteamSpellTests.swift in Sources */,
+				C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */,
 				C69D36BD262B2A1F00EDE2AC /* SpellManagerTests.swift in Sources */,
 				C69D36BE262B2A1F00EDE2AC /* ElementPaneTests.swift in Sources */,
 				C69D36BF262B2A1F00EDE2AC /* MapObjectTests.swift in Sources */,

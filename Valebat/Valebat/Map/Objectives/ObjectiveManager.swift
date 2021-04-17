@@ -9,8 +9,7 @@ class ObjectiveManager {
     private(set) var currentObjective: Objective = Objective()
     private var observers: [ObjectiveObserver] = []
 
-    var killCounter: Int = 0
-    var powerupCounter: Int = 0
+    var counters: [ObjectiveEnum: Int] = [:]
 
     func setCurrentObjective(_ objective: Objective) {
         self.currentObjective = objective
@@ -18,8 +17,7 @@ class ObjectiveManager {
     }
 
     private func resetCounters() {
-        self.killCounter = 0
-        self.powerupCounter = 0
+        counters.keys.forEach { counters[$0] = 0 }
     }
 
     func registerObserver(_ observer: ObjectiveObserver) {
@@ -34,13 +32,9 @@ class ObjectiveManager {
         self.observers = []
     }
 
-    func incrementKillCounter() {
-        self.killCounter += 1
-        checkCompletion()
-    }
-
-    func incrementPowerupCounter() {
-        self.powerupCounter += 1
+    func incrementCounter(_ objective: ObjectiveEnum) {
+        let currentValue = self.counters[objective] ?? 0
+        self.counters[objective] = currentValue + 1
         checkCompletion()
     }
 
@@ -52,21 +46,11 @@ class ObjectiveManager {
     }
 
     func isObjectiveCompleted() -> Bool {
-        switch currentObjective.objectiveType {
-        case .kills:
-            return killCounter >= currentObjective.objectiveQuantity
-        case .powerupscollected:
-            return powerupCounter >= currentObjective.objectiveQuantity
-        }
+        return (self.counters[currentObjective.objectiveType] ?? 0) >= currentObjective.objectiveQuantity
     }
 
     func remainingQuantity() -> Int {
-        switch currentObjective.objectiveType {
-        case .kills:
-            return max(currentObjective.objectiveQuantity - killCounter, 0)
-        case .powerupscollected:
-            return max(currentObjective.objectiveQuantity - powerupCounter, 0)
-        }
+        return max(currentObjective.objectiveQuantity - (self.counters[currentObjective.objectiveType] ?? 0), 0)
     }
 
     func getDescription() -> String {
