@@ -191,6 +191,9 @@
                                             <constraint firstAttribute="width" secondItem="Nof-tz-KR3" secondAttribute="height" multiplier="2:1" id="fzt-UV-S93"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="join-room"/>
+                                        <connections>
+                                            <action selector="joinRoom:" destination="g9a-LH-yqa" eventType="touchUpInside" id="wJO-FG-WoI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-XJ-q2W">
                                         <rect key="frame" x="0.0" y="245" width="410" height="205"/>
@@ -233,6 +236,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S55-5s-NKH">
                                 <rect key="frame" x="856" y="628" width="279" height="143"/>
                                 <state key="normal" title="Button" image="valebat-new-game"/>
+                                <connections>
+                                    <action selector="gameStarted:" destination="s2m-hN-fEM" eventType="touchUpInside" id="rEW-Tf-wvI"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ROOM ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-V2-Tgr">
                                 <rect key="frame" x="445" y="80" width="290" height="88"/>
@@ -264,6 +270,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGN-ru-EAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-536.4406779661017" y="-611.70731707317077"/>
+        </scene>
+        <!--Client View Controller-->
+        <scene sceneID="Uqd-t0-1xd">
+            <objects>
+                <viewController storyboardIdentifier="ClientVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NQs-zf-omU" customClass="ClientViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X0x-eS-cRZ" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Izy-lq-Qga"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFX-NN-rlu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2253" y="185"/>
         </scene>
     </scenes>
     <resources>

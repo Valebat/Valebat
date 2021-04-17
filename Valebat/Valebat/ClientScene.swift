@@ -10,7 +10,7 @@ import GameplayKit
 
 class ClientScene: SKScene {
 
-    weak var viewController: GameViewController?
+    weak var viewController: ClientViewController?
 
     var inputHUDDisplay: UserInputNode!
     var playerHUDDisplay: PlayerHUD!
@@ -112,6 +112,11 @@ class ClientScene: SKScene {
             spriteNode.zRotation = CGFloat(sprite.orientation)
             self.addChild(spriteNode)
         }
+    }
+
+    // Fix this - makes no sense but didn't compile without :(
+    override init(size: CGSize) {
+        super.init(size: size)
     }
 
     required init?(coder aDecoder: NSCoder) {

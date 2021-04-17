@@ -27,16 +27,31 @@ class CoopViewController: UIViewController {
         }
     }
 
+    @IBAction func joinRoom(_ sender: Any) {
+        joinRoom(isHost: false, roomID: "just for testing clientVC")
+    }
+
     func joinRoom(isHost: Bool, roomID: String) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(identifier: "CoopRoomVC")
-        viewController.modalPresentationStyle = .fullScreen
-        guard let roomVC = viewController as? CoopRoomViewController else {
-            return
+        print("just for testing client VC")
+        if !isHost {
+            let viewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(identifier: "ClientVC")
+            viewController.modalPresentationStyle = .fullScreen
+            guard let clientVC = viewController as? ClientViewController else {
+                return
+            }
+            present(clientVC, animated: true, completion: nil)
+        } else {
+            let viewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(identifier: "CoopRoomVC")
+            viewController.modalPresentationStyle = .fullScreen
+            guard let roomVC = viewController as? CoopRoomViewController else {
+                return
+            }
+            roomVC.isHost = isHost
+            roomVC.roomID = roomID
+            present(roomVC, animated: true, completion: nil)
         }
-        roomVC.isHost = isHost
-        roomVC.roomID = roomID
-        present(roomVC, animated: true, completion: nil)
     }
 
     /*
