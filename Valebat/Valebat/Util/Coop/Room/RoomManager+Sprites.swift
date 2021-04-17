@@ -52,6 +52,9 @@ extension RoomManager {
 
             var spriteDataSet = Set<SpriteData>()
 
+            print("dataArr")
+            print(dataArr)
+
             for rawData in dataArr {
                 guard let rawSpriteData = rawData as? [String: Any] else {
                     print("convert to string failed")
@@ -64,6 +67,8 @@ extension RoomManager {
 
             guaranteedRoom.sprites = Array(spriteDataSet)
 
+            print("spriteDataSet")
+            print(spriteDataSet.count)
             print(spriteDataSet)
         }
     }

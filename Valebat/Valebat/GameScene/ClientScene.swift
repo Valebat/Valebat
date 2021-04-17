@@ -31,13 +31,15 @@ class ClientScene: BaseGameScene {
         AudioManager.update(seconds: deltaTime)
 
         clientManager.getSpriteData()
-        renderSprites(sprites: clientManager.spritesData)
+        renderSprites()
 
         self.lastUpdateTime = currentTime
 
     }
 
-    func renderSprites(sprites: Set<SpriteData>) {
+    func renderSprites() {
+        print("in render")
+        let sprites = clientManager.spritesData
         print(sprites.count)
         spriteNodes.forEach({ $0.removeFromParent() })
         spriteNodes = [SKSpriteNode]()

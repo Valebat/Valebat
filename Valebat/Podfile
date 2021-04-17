@@ -12,6 +12,7 @@ target 'Valebat' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
+  pod 'Firebase/Database'
 
   target 'ValebatTests' do
     inherit! :search_paths

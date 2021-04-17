@@ -7,8 +7,10 @@
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseDatabase
 
 class RoomManager {
+    var ref: DatabaseReference = Database.database().reference()
     var fdb = Firestore.firestore()
     var roomCodes: [String] = []
     var room: Room?

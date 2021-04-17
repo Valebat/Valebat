@@ -35,5 +35,7 @@ class ClientManager {
         print(roomManager)
         self.roomManager?.loadSprites()
         spritesData = Set(self.roomManager?.room?.sprites ?? [])
+        print("in client manager")
+        print(spritesData.count)
     }
 }
