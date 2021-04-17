@@ -11,6 +11,7 @@ class CoopRoomViewController: UIViewController {
 
     @IBOutlet var roomIDText: UITextField!
     var isHost = false
+    var roomManager: RoomManager!
     var roomID = ""
     var username = ""
 
@@ -33,7 +34,8 @@ class CoopRoomViewController: UIViewController {
         guard let gameVC = viewController as? GameViewController else {
             return
         }
-        gameVC.userConfig = UserConfig(isCoop: true, isNewGame: true, diffLevel: difficulty)
+        gameVC.userConfig = UserConfig(isCoop: true, isNewGame: true, diffLevel: difficulty,
+                                       isHost: isHost, roomManager: roomManager)
         present(gameVC, animated: true, completion: nil)
     }
 

@@ -9,6 +9,13 @@ import GameplayKit
 
 class CoopManager {
     var spritesData: Set<SpriteData> = Set()
+    var entityManager: CoopEntityManager
+    var coopGameSession: CoopGameSession!
+
+    init(coopEntityManager: CoopEntityManager) {
+        self.entityManager = coopEntityManager
+        self.coopGameSession = coopEntityManager.currentSession as? CoopGameSession
+    }
 
     func saveSprites(spriteComponents: [GKComponent]) {
         spritesData = Set()
@@ -21,5 +28,15 @@ class CoopManager {
                 spritesData.insert(spData)
             }
         }
+        updateDatabase()
+    }
+
+    func updateDatabase() {
+        coopGameSession.roomManager.updateSprites(spritesData)
+    }
+
+    func loadSprites() {
+        coopGameSession.roomManager.loadSprites()
+        spritesData = Set(coopGameSession.roomManager.room?.sprites ?? [])
     }
 }

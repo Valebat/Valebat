@@ -19,7 +19,7 @@ extension RoomManager {
         room.players.append(username)
     }
 
-    private func fetchRoom(roomCode: String, completed: @escaping () -> Void) {
+    func fetchRoom(roomCode: String, completed: @escaping () -> Void) {
         fdb.collection("rooms").whereField("code", isEqualTo: roomCode).getDocuments { (querySnapshot, error) in
             if let err = error {
                 print("[Fetch Room] Database error: \(err)")

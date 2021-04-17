@@ -44,6 +44,7 @@ class CoopViewController: UIViewController {
                 }
                 roomVC.isHost = isHost
                 roomVC.roomID = roomID
+                roomVC.roomManager = roomManager
                 roomVC.username = username.username
                 present(roomVC, animated: true, completion: nil)
 
