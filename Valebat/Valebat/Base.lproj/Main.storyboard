@@ -233,6 +233,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S55-5s-NKH">
                                 <rect key="frame" x="856" y="628" width="279" height="143"/>
                                 <state key="normal" title="Button" image="valebat-new-game"/>
+                                <connections>
+                                    <action selector="loadNewGame:" destination="s2m-hN-fEM" eventType="touchUpInside" id="A1g-W3-H98"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ROOM ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-V2-Tgr">
                                 <rect key="frame" x="445" y="80" width="290" height="88"/>

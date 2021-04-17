@@ -9,6 +9,7 @@ enum LevelListTypeEnum: String {
     case easy
     case medium
     case hard
+    case coop
 }
 
 extension LevelListTypeEnum {
@@ -17,10 +18,11 @@ extension LevelListTypeEnum {
         case .easy:
               return [.normal, .normal, .normal, .dungeon, .crazyhouse, .boss]
         case .medium:
-            // return [.boss]
             return [.normal, .dungeon, .crazyhouse, .boss, .normal, .boss]
         case .hard:
             return [.normal, .dungeon, .crazyhouse, .dungeon, .boss, .crazyhouse, .crazyhouse, .crazyhouse, .boss]
+        case .coop:
+            return [.normal, .dungeon]
         }
     }
 }

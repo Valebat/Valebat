@@ -22,6 +22,21 @@ class CoopRoomViewController: UIViewController {
         print(username)
     }
 
+    @IBAction func loadNewGame(_ sender: Any) {
+        loadGame(difficulty: .coop)
+    }
+
+    func loadGame(difficulty: LevelListTypeEnum) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(identifier: "GameVC")
+        viewController.modalPresentationStyle = .fullScreen
+        guard let gameVC = viewController as? GameViewController else {
+            return
+        }
+        gameVC.userConfig = UserConfig(isCoop: true, isNewGame: true, diffLevel: difficulty)
+        present(gameVC, animated: true, completion: nil)
+    }
+
     /*
     // MARK: - Navigation
 
