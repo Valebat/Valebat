@@ -11,18 +11,18 @@ import FirebaseFirestoreSwift
 class UsernameManager {
     private var fdb = Firestore.firestore()
     private var usernames: [String] = []
+    var username: Username?
 
-    func fetchUsernames() {
-        fdb.collection("usernames").addSnapshotListener { (querySnapsnot, _) in
-            guard let documents = querySnapsnot?.documents else {
-                print("Database error: no documents found.")
-                return
-            }
-
-            self.usernames = documents.compactMap { (queryDocumentSnapshot) -> String? in
-                let data = queryDocumentSnapshot.data()
-
-                return data["username"] as? String ?? ""
+    func fetchUsernames(completed: @escaping () -> Void) {
+        fdb.collection("usernames").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Database error: \(err).")
+            } else {
+                self.usernames = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
+                    let data = queryDocumentSnapshot.data()
+                    return data["username"] as? String ?? ""
+                }
+                completed()
             }
         }
     }
@@ -35,20 +35,24 @@ class UsernameManager {
         }
     }
 
-    func createUsername(_ uname: String) -> Bool {
-        fetchUsernames()
+    func setupUser(completed: @escaping () -> Void) {
+        fetchUsernames { [self] in
+            createUsername()
+            completed()
+        }
+    }
 
-        if usernames.contains(uname) {
-            return false
+    private func createUsername() {
+        var username = Username()
+
+        while usernames.contains(username.username) {
+            username = Username()
         }
 
-        let username = Username(uname)
-
         addUsernameToDatabase(username)
+        usernames.append(username.username)
 
-        usernames.append(uname)
-
-        return true
+        self.username = username
     }
 
     /// Currently not deleting from DB.

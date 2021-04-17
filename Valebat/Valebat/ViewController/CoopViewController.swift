@@ -8,6 +8,8 @@
 import UIKit
 
 class CoopViewController: UIViewController {
+    var roomManager = RoomManager()
+    var usernameManager = UsernameManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,9 +17,29 @@ class CoopViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func joinRoomButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Join Room", message: "Enter a room ID", preferredStyle: .alert)
+
+        // 2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = "Some default text"
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            if let roomID = alert?.textFields?[0].text {
+                print(roomID)
+                self.joinRoom(isHost: false, roomID: roomID)
+            } // Force unwrapping because we know it exists.
+
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+
     @IBAction func hostRoom(_ sender: Any) {
-        let roomManager = RoomManager()
-        roomManager.createNewRoom { [self] in
+        roomManager.setupNewRoom { [self] in
             guard let hostedRoom = roomManager.room else {
                 return
             }
@@ -32,26 +54,27 @@ class CoopViewController: UIViewController {
 //    }
 
     func joinRoom(isHost: Bool, roomID: String) {
-//        print("just for testing client VC")
-//        if !isHost {
-//            let viewController = UIStoryboard(name: "Main", bundle: nil)
-//                .instantiateViewController(identifier: "ClientVC")
-//            viewController.modalPresentationStyle = .fullScreen
-//            guard let clientVC = viewController as? ClientViewController else {
-//                return
-//            }
-//            present(clientVC, animated: true, completion: nil)
-//        } else {
-            let viewController = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(identifier: "CoopRoomVC")
-            viewController.modalPresentationStyle = .fullScreen
-            guard let roomVC = viewController as? CoopRoomViewController else {
+        usernameManager.setupUser { [self] in
+            guard let username = usernameManager.username else {
                 return
             }
-            roomVC.isHost = isHost
-            roomVC.roomID = roomID
-            present(roomVC, animated: true, completion: nil)
-//        }
+
+            roomManager.joinRoom(username: username.username, roomCode: roomID) {
+
+                let viewController = UIStoryboard(name: "Main", bundle: nil)
+                    .instantiateViewController(identifier: "CoopRoomVC")
+                viewController.modalPresentationStyle = .fullScreen
+                guard let roomVC = viewController as? CoopRoomViewController else {
+                    return
+                }
+                roomVC.isHost = isHost
+                roomVC.roomID = roomID
+                roomVC.roomManager = roomManager
+                roomVC.username = username.username
+                present(roomVC, animated: true, completion: nil)
+
+            }
+        }
     }
 
     /*

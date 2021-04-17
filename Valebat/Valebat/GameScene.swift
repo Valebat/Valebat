@@ -26,7 +26,12 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
 
-        let entityManager = EntityManager(scene: self)
+        var entityManager = EntityManager(scene: self)
+
+        if self.userConfig.isCoop {
+            entityManager = CoopEntityManager(scene: self, isHost: self.userConfig.isHost ?? false)
+        }
+
         persistenceManager = PersistenceManager()
         gameSession = loadGameSession(entityManager: entityManager, userConfig: userConfig)
         setUpScene()
@@ -41,7 +46,13 @@ class GameScene: SKScene {
     }
 
     func loadCoopGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
-        let currentSession = CoopGameSession(entityManager: entityManager, userConfig: userConfig)
+        guard let coopEntityManager = entityManager as? CoopEntityManager else {
+            print("Failed to load co-op entity manager.")
+            fatalError()
+        }
+        let currentSession = CoopGameSession(coopEntityManager: coopEntityManager,
+                                             userConfig: userConfig,
+                                             roomManager: userConfig.roomManager!)
 
         currentSession.loadGame()
 

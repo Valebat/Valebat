@@ -10,15 +10,30 @@ import SpriteKit
 import GameplayKit
 
 class CoopEntityManager: EntityManager {
-    var clientPlayers: [PlayerEntity] = []
+    let isHost: Bool
+
+    init(scene: GameScene, isHost: Bool) {
+        self.isHost = isHost
+        super.init(scene: scene)
+    }
 
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
-        saveSprites()
+
+        if self.isHost {
+            saveSprites()
+        } else {
+            loadSprites()
+        }
+        loadSprites()
     }
 
     private func saveSprites() {
         let spriteComponents = spriteSystem.components
         currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
+    }
+
+    private func loadSprites() {
+        currentSession?.coopManager?.loadSprites()
     }
 }

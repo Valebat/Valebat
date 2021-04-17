@@ -22,7 +22,7 @@ class ClientScene: SKScene {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        self.coopManager = CoopManager()
+//        self.coopManager = CoopManager()
         setUpScene()
     }
 

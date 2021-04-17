@@ -8,10 +8,13 @@
 import Foundation
 
 class CoopGameSession: BaseGameSession {
-    override init(entityManager: EntityManager, userConfig: UserConfig) {
-        super.init(entityManager: entityManager, userConfig: userConfig)
+    let roomManager: RoomManager
 
-        // TODO: can add conditional creation of coopmanager base on userconfig
-        self.coopManager = CoopManager()
+    init(coopEntityManager: CoopEntityManager, userConfig: UserConfig, roomManager: RoomManager) {
+        self.roomManager = roomManager
+
+        super.init(entityManager: coopEntityManager, userConfig: userConfig)
+
+        self.coopManager = CoopManager(coopEntityManager: coopEntityManager)
     }
 }
