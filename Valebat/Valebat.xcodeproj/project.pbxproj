@@ -2222,8 +2222,9 @@
 			baseConfigurationReference = 571CC77645BD357FDD57B846 /* Pods-Valebat-ValebatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66TBSN4N8V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValebatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2243,8 +2244,9 @@
 			baseConfigurationReference = 2349927680EA611E370C0067 /* Pods-Valebat-ValebatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66TBSN4N8V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValebatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

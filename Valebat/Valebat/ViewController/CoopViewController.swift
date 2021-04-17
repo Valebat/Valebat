@@ -69,7 +69,7 @@ class CoopViewController: UIViewController {
                 return
             }
 
-            roomManager.joinRoom(username: username.username, roomCode: roomID) {
+            roomManager.joinRoom(username: username.username, isHost: isHost, roomCode: roomID) {
 
                 let viewController = UIStoryboard(name: "Main", bundle: nil)
                     .instantiateViewController(identifier: "CoopRoomVC")

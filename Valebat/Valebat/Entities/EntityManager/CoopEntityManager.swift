@@ -31,7 +31,6 @@ class CoopEntityManager: EntityManager {
             return
         }
         let character = ClientPlayerEntity(playerId: playerID, position: spawnLocation, playerStats: playerStats, entityManager: self)
-        print("SDFdsfsdf")
         add(character)
         clientPlayers[playerID] = character
     }

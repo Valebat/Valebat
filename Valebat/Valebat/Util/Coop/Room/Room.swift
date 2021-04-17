@@ -9,6 +9,7 @@ import FirebaseFirestoreSwift
 
 class Room: Identifiable, Codable {
     @DocumentID var idx: String?
+    var hostId: String?
     let code: String
     var started: Bool
     var players: [String] = []
