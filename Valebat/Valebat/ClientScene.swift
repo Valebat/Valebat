@@ -95,8 +95,11 @@ class ClientScene: SKScene {
 
     func loadSpriteData() -> Set<SpriteData> {
         // TODO: Fetch from firebase
-        let sampleSprite = SpriteData(idx: 0, name: "character", width: ViewConstants.playerWidth, height: ViewConstants.playerHeight, xPos: 100, yPos: 100, orientation: 0)
-        return []
+        let sampleSprite = SpriteData(idx: UUID(), name: "character",
+                                      width: Float(ViewConstants.playerWidth),
+                                      height: Float(ViewConstants.playerHeight),
+                                      xPos: 100.0, yPos: 100.0, orientation: 0.0)
+        return [sampleSprite]
     }
 
     func renderSprites(sprites: Set<SpriteData>) {
