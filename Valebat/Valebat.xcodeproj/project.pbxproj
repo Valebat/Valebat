@@ -189,6 +189,8 @@
 		EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19416725FFC76B00341BF5 /* SpellErrors.swift */; };
 		EF1941882600B15F00341BF5 /* PlayerSpellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */; };
 		EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */; };
+		EF5C4788262AC25B00A46C4E /* ClientScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C4787262AC25B00A46C4E /* ClientScene.swift */; };
+		EF5C47AA262AD5C000A46C4E /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */; };
 		EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4B12618576F0076BB3A /* CompositeSpell.swift */; };
 		EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4B22618576F0076BB3A /* BasicType.swift */; };
 		EF61C4BF2618590F0076BB3A /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4BE2618590F0076BB3A /* ClassInfo.swift */; };
@@ -433,6 +435,8 @@
 		EF19416725FFC76B00341BF5 /* SpellErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellErrors.swift; sourceTree = "<group>"; };
 		EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSpellEntity.swift; sourceTree = "<group>"; };
 		EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularMovementComponent.swift; sourceTree = "<group>"; };
+		EF5C4787262AC25B00A46C4E /* ClientScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientScene.swift; sourceTree = "<group>"; };
+		EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		EF61C4B12618576F0076BB3A /* CompositeSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeSpell.swift; sourceTree = "<group>"; };
 		EF61C4B22618576F0076BB3A /* BasicType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicType.swift; sourceTree = "<group>"; };
 		EF61C4BE2618590F0076BB3A /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
@@ -916,6 +920,7 @@
 				C6ACE6D42629926F0000A2E6 /* GameSession */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
 				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
+				EF5C4787262AC25B00A46C4E /* ClientScene.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
@@ -1067,6 +1072,7 @@
 				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
 				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				DDAADB742629878E00263AFA /* DifficultyViewController.swift */,
+				EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1465,12 +1471,14 @@
 				DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */,
 				C6A94524261DC29A00087256 /* SpawnEnemyUtil.swift in Sources */,
 				C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */,
+				EF5C47AA262AD5C000A46C4E /* ClientViewController.swift in Sources */,
 				DD4E014C25FF482C002C5556 /* ElementPane.swift in Sources */,
 				CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */,
 				C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */,
 				CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */,
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
+				EF5C4788262AC25B00A46C4E /* ClientScene.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
 				CBA494EC26038A3A003A05F7 /* PlayerComponent.swift in Sources */,
@@ -1670,7 +1678,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1743,6 +1750,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

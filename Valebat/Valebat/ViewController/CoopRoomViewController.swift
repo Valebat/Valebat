@@ -69,6 +69,10 @@ class CoopRoomViewController: UIViewController {
         }
     }
 
+//    @IBAction func gameStarted(_ sender: UIButton) {
+//        hasStarted = true
+//    }
+
     /*
     // MARK: - Navigation
 

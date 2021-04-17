@@ -49,6 +49,10 @@ class CoopViewController: UIViewController {
         }
     }
 
+//    @IBAction func joinRoom(_ sender: Any) {
+//        joinRoom(isHost: false, roomID: "just for testing clientVC")
+//    }
+
     func joinRoom(isHost: Bool, roomID: String) {
         usernameManager.setupUser { [self] in
             guard let username = usernameManager.username else {
