@@ -56,7 +56,7 @@ class PlayerStats {
         currentPlayerLevel += 1
         maxHP += PlayerStats.maxHPGainPerLevel
         for type in BasicType.allCases {
-            elementalMultipliers[type] += 1
+            elementalMultipliers[type] = elementalMultipliers[type] ?? 0 + 1.0
         }
         levelUPObservers.values.forEach({ $0.onLevelUP(newLevel: self.currentPlayerLevel) })
     }
