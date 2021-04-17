@@ -107,6 +107,8 @@ class ClientScene: SKScene {
     }
 
     func renderSprites(sprites: Set<SpriteData>) {
+        self.removeAllChildren()
+        setUpScene()
         for sprite in sprites {
             let spriteNode = SKSpriteNode(texture: CustomTexture.initialise(imageNamed: sprite.name),
                                           color: SKColor.white,
