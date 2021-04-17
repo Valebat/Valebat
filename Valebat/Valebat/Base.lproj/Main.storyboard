@@ -250,11 +250,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="List of Players" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78m-F9-Sdp">
-                                <rect key="frame" x="483" y="188" width="214" height="46.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Players" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEr-Tg-hYv">
+                                <rect key="frame" x="445" y="196" width="290" height="537"/>
+                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ca4-2h-BEh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -263,18 +265,20 @@
                             <constraint firstItem="Ca4-2h-BEh" firstAttribute="bottom" secondItem="S55-5s-NKH" secondAttribute="bottom" constant="29" id="5cS-al-L1M"/>
                             <constraint firstAttribute="trailing" secondItem="giM-ba-n3O" secondAttribute="trailing" id="8s2-3i-1Iw"/>
                             <constraint firstItem="Pfm-V2-Tgr" firstAttribute="top" secondItem="Ca4-2h-BEh" secondAttribute="top" constant="80" id="C7E-Lb-kJe"/>
+                            <constraint firstItem="kEr-Tg-hYv" firstAttribute="trailing" secondItem="Pfm-V2-Tgr" secondAttribute="trailing" id="EuM-J7-K9g"/>
                             <constraint firstItem="giM-ba-n3O" firstAttribute="top" secondItem="Uzp-ku-xef" secondAttribute="top" id="MMw-Ue-tbK"/>
                             <constraint firstItem="Pfm-V2-Tgr" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="PgF-I6-OQX"/>
-                            <constraint firstItem="78m-F9-Sdp" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="Pho-Mc-35v"/>
-                            <constraint firstItem="78m-F9-Sdp" firstAttribute="top" secondItem="Pfm-V2-Tgr" secondAttribute="bottom" constant="20" id="Pya-PB-QNm"/>
                             <constraint firstItem="S55-5s-NKH" firstAttribute="leading" secondItem="Ca4-2h-BEh" secondAttribute="leading" constant="856" id="Yke-Ij-Xi1"/>
                             <constraint firstItem="Ca4-2h-BEh" firstAttribute="trailing" secondItem="S55-5s-NKH" secondAttribute="trailing" constant="45" id="cvk-Kt-9qY"/>
+                            <constraint firstItem="kEr-Tg-hYv" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="fdO-R0-ps8"/>
+                            <constraint firstItem="Ca4-2h-BEh" firstAttribute="bottom" secondItem="kEr-Tg-hYv" secondAttribute="bottom" constant="67" id="fkU-Wc-3Uj"/>
                             <constraint firstItem="giM-ba-n3O" firstAttribute="leading" secondItem="Uzp-ku-xef" secondAttribute="leading" id="jzC-XZ-XF6"/>
                             <constraint firstAttribute="bottom" secondItem="giM-ba-n3O" secondAttribute="bottom" id="lHc-Mm-KgW"/>
+                            <constraint firstItem="kEr-Tg-hYv" firstAttribute="top" secondItem="Pfm-V2-Tgr" secondAttribute="bottom" constant="28" id="lp8-i2-XbB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playerText" destination="78m-F9-Sdp" id="eV2-U2-zJD"/>
+                        <outlet property="playerText" destination="kEr-Tg-hYv" id="APw-hc-q27"/>
                         <outlet property="roomIDText" destination="Pfm-V2-Tgr" id="7YY-hG-41j"/>
                     </connections>
                 </viewController>
@@ -309,6 +313,9 @@
         <image name="valebat-new-game" width="1587" height="939"/>
         <image name="valebat-resume-game" width="1587" height="939"/>
         <image name="valebat-title" width="1772" height="335"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -22,7 +22,7 @@ class CoopViewController: UIViewController {
 
         // 2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.text = "Some default text"
+            textField.text = ""
         }
 
         // 3. Grab the value from the text field, and print it when the user clicks OK.
