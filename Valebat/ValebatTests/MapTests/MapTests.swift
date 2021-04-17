@@ -22,7 +22,7 @@ class MapTests: XCTestCase {
             objects.append(object)
         }
 
-        let map: Map = Map(withObjects: objects)
+        let map: Map = Map(withObjects: objects, withObjective: Objective())
         XCTAssertEqual(map.objects.count, objects.count, "Initialised map should have no objects.")
     }
 

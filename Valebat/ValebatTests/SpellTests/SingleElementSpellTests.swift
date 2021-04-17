@@ -20,7 +20,7 @@ class SingleElementSpellTests: XCTestCase {
     func test_initWithElement() throws {
         for type in BasicType.allCases {
             let element = try Element(with: type, at: 2)
-            let spell = try SingleElementSpell(with: element)
+            let spell = SingleElementSpell(with: element)
             XCTAssert(spell.damageType == type)
         }
     }

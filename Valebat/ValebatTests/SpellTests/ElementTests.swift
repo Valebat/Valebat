@@ -20,12 +20,12 @@ class ElementTests: XCTestCase {
     }
 
     func test_startingLevel() throws {
-        let element = Element(with: .water, at: 1)
+        let element = try Element(with: .water, at: 1)
         XCTAssert(element.level == 1)
     }
 
     func test_validLevel() throws {
-        let element = Element(with: .water, at: 100.5)
+        let element = try Element(with: .water, at: 100.5)
         XCTAssert(element.level == 100.5)
     }
 

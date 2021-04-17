@@ -81,7 +81,7 @@ class MapObjectTests: XCTestCase {
     func test_createStaticEntity_hasFourPoints() {
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50))
-            XCTAssertEqual(object.getPoints().count, 4,
+            XCTAssertEqual(MapObjectUtil.getBoundingBoxOfMapObject(object).count, 4,
                            "Object has incorrect number of points.")
         }
     }
@@ -89,7 +89,7 @@ class MapObjectTests: XCTestCase {
     func test_createStaticEntity_pointDifferenceIsCorrect() {
         MapObjectEnum.allCases.forEach {
             let object = StaticMapObject(type: $0, position: CGPoint(x: 50, y: 50))
-            let points: [SIMD2<Float>] = object.getPoints()
+            let points: [SIMD2<Float>] = MapObjectUtil.getBoundingBoxOfMapObject(object)
             for idx in 0...2 {
                 let point1: SIMD2<Float> = points[idx]
                 let point2: SIMD2<Float> = points[idx + 1]

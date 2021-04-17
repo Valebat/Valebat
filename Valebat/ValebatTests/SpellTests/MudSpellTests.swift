@@ -20,9 +20,6 @@ class MudSpellTests: XCTestCase {
     func test_initWithLevel() throws {
         let mudSpell = try MudSpell(at: 2.5)
         XCTAssert(mudSpell.level == 2.5)
-        XCTAssert(mudSpell.damageTypes.count == 2)
-        XCTAssert(mudSpell.damageTypes.contains(.water))
-        XCTAssert(mudSpell.damageTypes.contains(.earth))
     }
 
     func test_initWithInvalidLevel() throws {
