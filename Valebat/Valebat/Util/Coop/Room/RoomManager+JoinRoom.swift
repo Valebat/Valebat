@@ -43,4 +43,11 @@ extension RoomManager {
         fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
         completed()
     }
+    func startRoom(completed: () -> Void) {
+        guard let room = self.room else {
+            return
+        }
+        fdb.collection("rooms").document(room.idx!).setData([ "started": true ], merge: true)
+        completed()
+    }
 }

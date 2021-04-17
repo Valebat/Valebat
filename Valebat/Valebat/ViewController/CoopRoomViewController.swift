@@ -16,6 +16,7 @@ class CoopRoomViewController: UIViewController {
     var username = ""
     @IBOutlet var playerText: UITextField!
     var refreshTimer: Timer?
+    var locallyStarted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +24,26 @@ class CoopRoomViewController: UIViewController {
         // Do any additional setup after loading the view.
         print(roomID)
         print(username)
-        loadPlayerText()
+        loadRoomData()
         refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
 
-    func loadPlayerText() {
-        roomManager.fetchRoom(roomCode: roomID) {
+    func loadRoomData() {
+        roomManager.fetchRoom(roomCode: roomID) { [self] in
             var string = "List Of Players: \n"
             self.roomManager.room?.players.forEach({ string.append($0 + "\n") })
             self.playerText.text = string
+            if self.roomManager.room?.started ?? false {
+                if !self.locallyStarted {
+                    self.locallyStarted  = true
+                    print("TRIGGERED!")
+                }
+            }
         }
 
     }
     @objc func fireTimer() {
-        loadPlayerText()
+        loadRoomData()
     }
     @IBAction func loadNewGame(_ sender: Any) {
         if isHost {
@@ -51,9 +58,15 @@ class CoopRoomViewController: UIViewController {
         guard let gameVC = viewController as? GameViewController else {
             return
         }
+
         gameVC.userConfig = UserConfig(isCoop: true, isNewGame: true, diffLevel: difficulty,
                                        isHost: isHost, roomManager: roomManager)
-        present(gameVC, animated: true, completion: nil)
+        if isHost {
+            roomManager.startRoom {
+                locallyStarted = true
+                present(gameVC, animated: true, completion: nil)
+            }
+        }
     }
 
     /*
