@@ -14,6 +14,7 @@ struct SpriteData: Codable, Hashable {
     var height: Float
     var xPos: Float
     var yPos: Float
+    var orientation: Float
 
     static func initialise(spNode: SKSpriteNode, idx: UUID) -> SpriteData? {
         guard let texture = spNode.texture as? CustomTexture,
@@ -23,8 +24,9 @@ struct SpriteData: Codable, Hashable {
 
         let size = texture.size()
         let pos = spNode.position
+        let orientation = spNode.zRotation
 
         return SpriteData(idx: idx, name: textureName, width: Float(size.width), height: Float(size.height),
-                          xPos: Float(pos.x), yPos: Float(pos.y))
+                          xPos: Float(pos.x), yPos: Float(pos.y), orientation: Float(orientation))
     }
 }
