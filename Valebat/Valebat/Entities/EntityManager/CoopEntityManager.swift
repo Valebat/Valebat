@@ -14,12 +14,6 @@ class CoopEntityManager: EntityManager {
     var clientPlayers = [String: ClientPlayerEntity]()
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
-        print(clientPlayers.capacity)
-        if let vaal = clientPlayers.first?.value {
-            print(vaal)
-            print(vaal.component(conformingTo: MoveComponent.self)?.currentPosition)
-        }
-        print(clientPlayers.first?.value.playerId)
         saveSprites()
         // currentSession?.coopManager?.loadSprites()
     }

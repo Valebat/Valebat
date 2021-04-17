@@ -18,7 +18,6 @@ class PlayerStats {
     var currentEXP: Int
     static let maxHPGainPerLevel: CGFloat = 10.0
     var currentPlayerLevel: Int
-    // var elements: [BasicType: Element]
     var elementalLevels: [BasicType: Double]
     var elementalMultipliers: [BasicType: CGFloat]
 
@@ -26,7 +25,6 @@ class PlayerStats {
         maxHP = 100.0
         currentPlayerLevel = 1
         currentEXP = 0
-        // elements = [BasicType: Element]()
         elementalMultipliers = [BasicType: CGFloat]()
         elementalLevels = [BasicType: Double]()
         for type in BasicType.allCases {
@@ -39,7 +37,6 @@ class PlayerStats {
         maxHP = 100.0
         currentPlayerLevel = 1
         currentEXP = 0
-        // elements = [BasicType: Element]()
         elementalMultipliers = [BasicType: CGFloat]()
         for type in BasicType.allCases {
             elementalLevels[type] = 1.0
@@ -58,6 +55,9 @@ class PlayerStats {
     func levelUP() {
         currentPlayerLevel += 1
         maxHP += PlayerStats.maxHPGainPerLevel
+        for type in BasicType.allCases {
+            elementalMultipliers[type] += 1
+        }
         levelUPObservers.values.forEach({ $0.onLevelUP(newLevel: self.currentPlayerLevel) })
     }
 
