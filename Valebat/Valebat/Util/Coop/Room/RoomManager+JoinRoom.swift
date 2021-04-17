@@ -13,7 +13,7 @@ extension RoomManager {
                 return
             }
             addUserToRoom(username: username, room: room)
-            setRoom(room) {
+            setRoomPlayer(room) {
                 completed()
             }
         }
@@ -39,7 +39,7 @@ extension RoomManager {
         }
     }
 
-    private func setRoom(_ room: Room, completed: () -> Void) {
+    private func setRoomPlayer(_ room: Room, completed: () -> Void) {
         fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
         completed()
     }
