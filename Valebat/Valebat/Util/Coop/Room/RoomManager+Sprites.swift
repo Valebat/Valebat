@@ -48,47 +48,10 @@ extension RoomManager {
                 let roomData = snapshot.value as? [String: Any] ?? [:]
                 let spriteDataSet = self.processRoom(roomData: roomData)
                 guaranteedRoom.sprites = Array(spriteDataSet)
-                print("spriteDataSet")
-                print(spriteDataSet.count)
             } else {
                 print("No data available")
             }
         }
-
-//        let roomRef = fdb.collection("rooms").document(guaranteedRoom.idx!)
-
-//        roomRef.getDocument { (document, _) in
-//            guard let data = document?.data()?["sprites"] else {
-//                print("[Load Sprites] Data not found.")
-//                return
-//            }
-//
-//            guard let dataArr = data as? [Any] else {
-//                print("conversion failed")
-//                return
-//            }
-//
-//            var spriteDataSet = Set<SpriteData>()
-//
-//            print("dataArr")
-//            print(dataArr)
-//
-//            for rawData in dataArr {
-//                guard let rawSpriteData = rawData as? [String: Any] else {
-//                    print("convert to string failed")
-//                    continue
-//                }
-//                if let spData = SpriteData(data: rawSpriteData) {
-//                    spriteDataSet.insert(spData)
-//                }
-//            }
-//
-//            guaranteedRoom.sprites = Array(spriteDataSet)
-//
-//            print("spriteDataSet")
-//            print(spriteDataSet.count)
-//            print(spriteDataSet)
-//        }
     }
 
     private func processRoom(roomData: [String: Any]) -> Set<SpriteData> {

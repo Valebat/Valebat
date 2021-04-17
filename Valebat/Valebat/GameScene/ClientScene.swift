@@ -38,9 +38,7 @@ class ClientScene: BaseGameScene {
     }
 
     func renderSprites() {
-        print("in render")
         let sprites = clientManager.spritesData
-        print(sprites.count)
         spriteNodes.forEach({ $0.removeFromParent() })
         spriteNodes = [SKSpriteNode]()
         for sprite in sprites {

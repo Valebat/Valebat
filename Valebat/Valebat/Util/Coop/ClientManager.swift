@@ -31,13 +31,11 @@ class ClientManager {
     }
     */
     func getSpriteData() {
-        print("sprite data called")
-        print(roomManager)
         self.roomManager?.loadSprites()
-        if self.roomManager?.room?.sprites != nil {
-            spritesData = Set(self.roomManager?.room?.sprites ?? [])
+        if let sprites = self.roomManager?.room?.sprites {
+            if sprites.count > 0 {
+                spritesData = Set(sprites)
+            }
         }
-        print("in client manager")
-        print(spritesData.count)
     }
 }
