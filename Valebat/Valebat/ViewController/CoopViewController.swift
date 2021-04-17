@@ -17,11 +17,14 @@ class CoopViewController: UIViewController {
 
     @IBAction func hostRoom(_ sender: Any) {
         let roomManager = RoomManager()
-        let room = roomManager.createNewRoom()
-        let roomID = room.code
-        // CREATE ROOM IN DB HERE
+        roomManager.createNewRoom { [self] in
+            guard let hostedRoom = roomManager.room else {
+                return
+            }
+            let roomID = hostedRoom.code
 
-        joinRoom(isHost: true, roomID: roomID)
+            joinRoom(isHost: true, roomID: roomID)
+        }
     }
 
     func joinRoom(isHost: Bool, roomID: String) {

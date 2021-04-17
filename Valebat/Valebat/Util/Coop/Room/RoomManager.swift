@@ -11,25 +11,9 @@ import FirebaseFirestoreSwift
 class RoomManager {
     private var fdb = Firestore.firestore()
     private var roomCodes: [String] = []
+    var room: Room?
 
-//    func fetchRooms(completed: @escaping () -> Void) {
-//        print("Fetch called.")
-//        fdb.collection("rooms").getDocuments { (querySnapshot, error) in
-//            if let err = error {
-//                print("Database error: \(err).")
-//            } else {
-//                self.roomCodes = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
-//                    let data = queryDocumentSnapshot.data()
-//                    return data["code"] as? String ?? ""
-//                }
-//                print("after roomCodes")
-//                print(self.roomCodes)
-//                completed()
-//            }
-//        }
-//    }
-
-    func fetchRooms() {
+    func fetchRooms(completed: @escaping () -> Void) {
         fdb.collection("rooms").getDocuments { (querySnapshot, error) in
             if let err = error {
                 print("Database error: \(err).")
@@ -38,8 +22,7 @@ class RoomManager {
                     let data = queryDocumentSnapshot.data()
                     return data["code"] as? String ?? ""
                 }
-                print("after roomCodes")
-                print(self.roomCodes)
+                completed()
             }
         }
     }
@@ -52,40 +35,14 @@ class RoomManager {
         }
     }
 
-    func createNewRoom() -> Room {
-        print("Create new called.")
-
-        let group = DispatchGroup()
-        print("Before enter.")
-        group.enter()
-        print("After enter.")
-
-        DispatchQueue.global(qos: .default).async {
-            print("In async.")
-            self.fdb.collection("rooms").getDocuments { (querySnapshot, error) in
-                print("In collection.")
-                if let err = error {
-                    print("Database error: \(err).")
-                } else {
-                    self.roomCodes = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
-                        let data = queryDocumentSnapshot.data()
-                        return data["code"] as? String ?? ""
-                    }
-                    print("after roomCodes")
-                    print(self.roomCodes)
-                    group.leave()
-                }
-            }
+    func createNewRoom(completed: @escaping () -> Void) {
+        fetchRooms { [self] in
+            createRoom()
+            completed()
         }
-
-        group.wait()
-
-        print("End create new.")
-        return createRoom()
     }
 
-    private func createRoom() -> Room {
-        print("Create called.")
+    private func createRoom() {
         var room = Room()
 
         while roomCodes.contains(room.code) {
@@ -95,10 +52,7 @@ class RoomManager {
         addRoomToDatabase(room)
         roomCodes.append(room.code)
 
-        print("Codes:")
-        print(roomCodes)
-        print("End create.")
-        return room
+        self.room = room
     }
 
     /// Currently not deleting from DB.

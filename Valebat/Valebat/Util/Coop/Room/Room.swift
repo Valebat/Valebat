@@ -8,12 +8,14 @@
 import FirebaseFirestoreSwift
 
 class Room: Identifiable, Codable {
-    @DocumentID var idx: String? = UUID().uuidString
+    @DocumentID var idx: String?
     let code: String
     var started: Bool
 
     init() {
-        self.code = RoomCodeGenerator.randomString(length: 6)
+        let roomCode: String = RoomCodeGenerator.randomString(length: 6)
+        self.idx = roomCode
+        self.code = roomCode
         self.started = false
     }
 }
