@@ -11,7 +11,7 @@ import GameplayKit
 class ClientScene: SKScene {
 
     weak var viewController: ClientViewController?
-    
+
     var coopManager: CoopManager?
 
     var inputHUDDisplay: UserInputNode!
@@ -95,7 +95,7 @@ class ClientScene: SKScene {
         self.lastUpdateTime = currentTime
 
     }
-    
+
     // Gives sprites which have changed
     func loadSpriteData() -> Set<SpriteData> {
         // TODO: Fetch from coop manager

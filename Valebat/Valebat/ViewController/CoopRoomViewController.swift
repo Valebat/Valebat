@@ -20,9 +20,9 @@ class CoopRoomViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func gameStarted(_ sender: UIButton) {
-        hasStarted = true
-    }
+//    @IBAction func gameStarted(_ sender: UIButton) {
+//        hasStarted = true
+//    }
 
     /*
     // MARK: - Navigation
