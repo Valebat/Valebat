@@ -6,7 +6,7 @@
 //
 
 import FirebaseFirestore
-// import FirebaseFirestoreSwift
+import FirebaseFirestoreSwift
 
 class UsernameManager {
     private var fdb = Firestore.firestore()

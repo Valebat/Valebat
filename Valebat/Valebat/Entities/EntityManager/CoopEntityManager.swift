@@ -25,6 +25,7 @@ class CoopEntityManager: EntityManager {
         } else {
             loadSprites()
         }
+        loadSprites()
     }
 
     private func saveSprites() {
