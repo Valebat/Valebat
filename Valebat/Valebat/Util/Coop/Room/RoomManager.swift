@@ -9,14 +9,14 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class RoomManager {
-    private var fdb = Firestore.firestore()
-    private var roomCodes: [String] = []
+    var fdb = Firestore.firestore()
+    var roomCodes: [String] = []
     var room: Room?
 
     func fetchRooms(completed: @escaping () -> Void) {
         fdb.collection("rooms").getDocuments { (querySnapshot, error) in
             if let err = error {
-                print("Database error: \(err).")
+                print("[Fetch Rooms] Database error: \(err).")
             } else {
                 self.roomCodes = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
                     let data = queryDocumentSnapshot.data()
@@ -35,7 +35,7 @@ class RoomManager {
         }
     }
 
-    func createNewRoom(completed: @escaping () -> Void) {
+    func setupNewRoom(completed: @escaping () -> Void) {
         fetchRooms { [self] in
             createRoom()
             completed()

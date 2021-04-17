@@ -12,11 +12,14 @@ class CoopRoomViewController: UIViewController {
     @IBOutlet var roomIDText: UITextField!
     var isHost = false
     var roomID = ""
+    var username = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         roomIDText.text = "ROOM ID: \(roomID)"
         // Do any additional setup after loading the view.
+        print(roomID)
+        print(username)
     }
 
     /*

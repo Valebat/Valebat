@@ -8,6 +8,8 @@
 import UIKit
 
 class CoopViewController: UIViewController {
+    var roomManager = RoomManager()
+    var usernameManager = UsernameManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +18,7 @@ class CoopViewController: UIViewController {
     }
 
     @IBAction func hostRoom(_ sender: Any) {
-        let roomManager = RoomManager()
-        roomManager.createNewRoom { [self] in
+        roomManager.setupNewRoom { [self] in
             guard let hostedRoom = roomManager.room else {
                 return
             }
@@ -28,15 +29,26 @@ class CoopViewController: UIViewController {
     }
 
     func joinRoom(isHost: Bool, roomID: String) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(identifier: "CoopRoomVC")
-        viewController.modalPresentationStyle = .fullScreen
-        guard let roomVC = viewController as? CoopRoomViewController else {
-            return
+        usernameManager.setupUser { [self] in
+            guard let username = usernameManager.username else {
+                return
+            }
+
+            roomManager.joinRoom(username: username.username, roomCode: roomID) {
+
+                let viewController = UIStoryboard(name: "Main", bundle: nil)
+                    .instantiateViewController(identifier: "CoopRoomVC")
+                viewController.modalPresentationStyle = .fullScreen
+                guard let roomVC = viewController as? CoopRoomViewController else {
+                    return
+                }
+                roomVC.isHost = isHost
+                roomVC.roomID = roomID
+                roomVC.username = username.username
+                present(roomVC, animated: true, completion: nil)
+
+            }
         }
-        roomVC.isHost = isHost
-        roomVC.roomID = roomID
-        present(roomVC, animated: true, completion: nil)
     }
 
     /*
