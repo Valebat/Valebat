@@ -10,10 +10,9 @@ import SpriteKit
 import GameplayKit
 
 class CoopEntityManager: EntityManager {
-    var clientPlayers: [PlayerEntity] = []
-
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
+
         saveSprites()
     }
 

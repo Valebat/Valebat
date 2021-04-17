@@ -8,8 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-
+class GameScene: BaseGameScene {
     weak var viewController: GameViewController?
     var userConfig: UserConfig
 
@@ -17,19 +16,21 @@ class GameScene: SKScene {
     var gameSession: BaseGameSession!
     var persistenceManager: PersistenceManager!
 
-    var inputHUDDisplay: UserInputNode!
-    var playerHUDDisplay: PlayerHUD!
-    private var lastUpdateTime: TimeInterval = 0
-
-    var userInputInfo: UserInputInfo = UserInputInfo()
+    init(size: CGSize, userConfig: UserConfig) {
+        self.userConfig = userConfig
+        super.init(size: size)
+    }
 
     override func sceneDidLoad() {
-        self.lastUpdateTime = 0
+        var entityManager = EntityManager(scene: self)
 
-        let entityManager = EntityManager(scene: self)
+        if self.userConfig.isCoop {
+            entityManager = CoopEntityManager(scene: self)
+        }
+
         persistenceManager = PersistenceManager()
         gameSession = loadGameSession(entityManager: entityManager, userConfig: userConfig)
-        setUpScene()
+        super.sceneDidLoad()
     }
 
     func loadGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
@@ -41,7 +42,13 @@ class GameScene: SKScene {
     }
 
     func loadCoopGameSession(entityManager: EntityManager, userConfig: UserConfig) -> BaseGameSession {
-        let currentSession = CoopGameSession(entityManager: entityManager, userConfig: userConfig)
+        guard let coopEntityManager = entityManager as? CoopEntityManager else {
+            print("Failed to load co-op entity manager.")
+            fatalError()
+        }
+        let currentSession = CoopGameSession(coopEntityManager: coopEntityManager,
+                                             userConfig: userConfig,
+                                             roomManager: userConfig.roomManager!)
 
         currentSession.loadGame()
 
@@ -58,59 +65,14 @@ class GameScene: SKScene {
         return currentSession
     }
 
-    func touchDown(atPoint pos: CGPoint) {
-
-    }
-
-    func touchMoved(toPoint pos: CGPoint) {
-
-    }
-
-    func touchUp(atPoint pos: CGPoint) {
-
-    }
-
-    private func setUpScene() {
-        setUpUserInputHUD()
-        setUpPlayerHUD()
+    override func setUpScene() {
+        super.setUpScene()
         gameSession.entityManager.addPlayer()
     }
 
-    private func setUpPlayerHUD() {
-        guard let refNode = SKReferenceNode(fileNamed: "PlayerHUD") else {
-            return
-        }
-        addChild(refNode)
-        refNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        guard let baseNode = refNode.childNode(withName: "//baseHUD") as? PlayerHUD else {
-            return
-        }
-        playerHUDDisplay = baseNode
-        baseNode.xScale = size.width / baseNode.frame.width
-        baseNode.yScale = size.height / baseNode.frame.height
-    }
-
-    private func setUpUserInputHUD() {
-        inputHUDDisplay = UserInputNode(screenSize: self.size)
-        addChild(inputHUDDisplay)
-        inputHUDDisplay.userInputInfo = userInputInfo
+    override func setUpUserInputHUD() {
+        super.setUpUserInputHUD()
         inputHUDDisplay.assignInputDelegate(delegate: gameSession.entityManager)
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
-    }
-
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchMoved(toPoint: touch.location(in: self)) }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchUp(atPoint: touch.location(in: self)) }
-    }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchUp(atPoint: touch.location(in: self)) }
     }
 
     override func update(_ currentTime: TimeInterval) {
@@ -129,11 +91,6 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = currentTime
 
-    }
-
-    init(size: CGSize, userConfig: UserConfig) {
-        self.userConfig = userConfig
-        super.init(size: size)
     }
 
     required init?(coder aDecoder: NSCoder) {

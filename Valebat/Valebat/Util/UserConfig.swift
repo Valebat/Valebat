@@ -9,6 +9,22 @@ struct UserConfig {
     var isCoop: Bool
     var isNewGame: Bool
     var diffLevel: LevelListTypeEnum
+    var isHost: Bool?
+    var roomManager: RoomManager?
+
+    init(isCoop: Bool, isNewGame: Bool, diffLevel: LevelListTypeEnum) {
+        self.isCoop = isCoop
+        self.isNewGame = isNewGame
+        self.diffLevel = diffLevel
+    }
+
+    init(isCoop: Bool, isNewGame: Bool, diffLevel: LevelListTypeEnum, isHost: Bool, roomManager: RoomManager) {
+        self.isCoop = isCoop
+        self.isNewGame = isNewGame
+        self.diffLevel = diffLevel
+        self.isHost = isHost
+        self.roomManager = roomManager
+    }
 
     static func coopGame(diffLevel: LevelListTypeEnum) -> UserConfig {
         self.init(isCoop: true, isNewGame: false, diffLevel: diffLevel)

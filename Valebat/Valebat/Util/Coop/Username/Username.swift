@@ -8,10 +8,12 @@
 import FirebaseFirestoreSwift
 
 class Username: Identifiable, Codable {
-    @DocumentID var idx: String? = UUID().uuidString
+    @DocumentID var idx: String?
     let username: String
 
-    init(_ username: String) {
+    init() {
+        let username: String = UsernameGenerator.randomUsername(length: 6)
+        self.idx = username
         self.username = username
     }
 }

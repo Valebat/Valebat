@@ -11,6 +11,8 @@ class Room: Identifiable, Codable {
     @DocumentID var idx: String?
     let code: String
     var started: Bool
+    var players: [String] = []
+    var sprites: [SpriteData] = []
 
     init() {
         let roomCode: String = RoomCodeGenerator.randomString(length: 6)

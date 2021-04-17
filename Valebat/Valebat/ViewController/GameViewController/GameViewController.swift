@@ -1,27 +1,33 @@
 //
-//  ClientViewController.swift
+//  GameViewController.swift
 //  Valebat
 //
-//  Created by Sreyans Sipani on 17/4/21.
+//  Created by Aloysius Lim on 13/3/21.
 //
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
-class ClientViewController: UIViewController {
+class GameViewController: BaseViewController {
 
-    var currentScene: ClientScene?
+    var currentScene: GameScene?
+    var userConfig: UserConfig?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
+        guard let userConfig = self.userConfig else {
+            return
+        }
+
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
         ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
-        let gameScene = ClientScene(size: CGSize(width: ViewConstants.sceneWidth,
-                                                 height: ViewConstants.sceneHeight))
+        let gameScene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
+                                           height: ViewConstants.sceneHeight),
+                                  userConfig: userConfig)
         self.currentScene = gameScene
         currentScene?.viewController = self
 
@@ -35,18 +41,6 @@ class ClientViewController: UIViewController {
 
         skView.presentScene(gameScene)
 
-    }
-
-    override var shouldAutorotate: Bool {
-        return false
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
     }
 
 }
