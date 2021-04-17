@@ -14,6 +14,7 @@ class CoopEntityManager: EntityManager {
         super.update(deltaTime)
 
         saveSprites()
+        // currentSession?.coopManager?.loadSprites()
     }
 
     private func saveSprites() {

@@ -14,6 +14,7 @@ struct SpriteData: Codable, Hashable {
     var height: Float
     var xPos: Float
     var yPos: Float
+    var zPos: Float
     var orientation: Float
 
     static func initialise(spNode: SKSpriteNode, idx: UUID) -> SpriteData? {
@@ -22,22 +23,24 @@ struct SpriteData: Codable, Hashable {
             return nil
         }
 
-        let size = texture.size()
+        let size = spNode.size
         let pos = spNode.position
         let orientation = spNode.zRotation
 
         return SpriteData(idx: idx, name: textureName, width: Float(size.width), height: Float(size.height),
-                          xPos: Float(pos.x), yPos: Float(pos.y), orientation: Float(orientation))
+                          xPos: Float(pos.x), yPos: Float(pos.y), zPos: Float(spNode.zPosition),
+                          orientation: Float(orientation))
     }
 
     init(idx: UUID, name: String, width: Float, height: Float,
-         xPos: Float, yPos: Float, orientation: Float) {
+         xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
         self.idx = idx
         self.name = name
         self.width = width
         self.height = height
         self.xPos = xPos
         self.yPos = yPos
+        self.zPos = zPos
         self.orientation = orientation
     }
 
@@ -48,6 +51,7 @@ struct SpriteData: Codable, Hashable {
               let height = data["height"] as? Float,
               let xPos = data["xPos"] as? Float,
               let yPos = data["yPos"] as? Float,
+              let zPos = data["zPos"] as? Float,
               let orientation = data["orientation"] as? Float else {
             return nil
         }
@@ -60,6 +64,7 @@ struct SpriteData: Codable, Hashable {
         self.height = height
         self.xPos = xPos
         self.yPos = yPos
+        self.zPos = zPos
         self.orientation = orientation
     }
 }

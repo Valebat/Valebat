@@ -32,6 +32,7 @@ extension RoomManager {
     }
 
     func loadSprites() {
+        print("load sprites called")
         guard let guaranteedRoom = self.room else {
             return
         }

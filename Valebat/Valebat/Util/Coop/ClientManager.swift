@@ -31,6 +31,8 @@ class ClientManager {
     }
     */
     func getSpriteData() {
+        print("sprite data called")
+        print(roomManager)
         self.roomManager?.loadSprites()
         spritesData = Set(self.roomManager?.room?.sprites ?? [])
     }

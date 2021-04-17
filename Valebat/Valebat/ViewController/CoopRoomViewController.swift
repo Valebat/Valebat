@@ -51,7 +51,7 @@ class CoopRoomViewController: UIViewController {
         guard let clientVC = viewController as? ClientViewController else {
             return
         }
-        clientVC.currentScene?.clientManager.roomManager = roomManager
+        clientVC.roomManager = roomManager
         present(clientVC, animated: true, completion: nil)
     }
 

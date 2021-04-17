@@ -20,6 +20,7 @@ class ClientScene: BaseGameScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        print("update call")
 
         // Initialize _lastUpdateTime if it has not already been
         if self.lastUpdateTime == 0 {
@@ -29,6 +30,7 @@ class ClientScene: BaseGameScene {
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)
 
+        clientManager.getSpriteData()
         renderSprites(sprites: clientManager.spritesData)
 
         self.lastUpdateTime = currentTime
@@ -36,6 +38,7 @@ class ClientScene: BaseGameScene {
     }
 
     func renderSprites(sprites: Set<SpriteData>) {
+        print(sprites.count)
         spriteNodes.forEach({ $0.removeFromParent() })
         spriteNodes = [SKSpriteNode]()
         for sprite in sprites {
@@ -44,6 +47,7 @@ class ClientScene: BaseGameScene {
                                           size: CGSize(width: CGFloat(sprite.width),
                                                        height: CGFloat(sprite.height)))
             spriteNode.position = CGPoint(x: CGFloat(sprite.xPos), y: CGFloat(sprite.yPos))
+            spriteNode.zPosition = CGFloat(sprite.zPos)
             spriteNode.zRotation = CGFloat(sprite.orientation)
             addChild(spriteNode)
             spriteNodes.append(spriteNode)

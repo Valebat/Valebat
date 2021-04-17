@@ -12,6 +12,7 @@ import GameplayKit
 class ClientViewController: BaseViewController {
 
     var currentScene: ClientScene?
+    var roomManager: RoomManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class ClientViewController: BaseViewController {
                                                  height: ViewConstants.sceneHeight))
         self.currentScene = gameScene
         currentScene?.viewController = self
+        currentScene?.clientManager.roomManager = roomManager
 
         gameScene.scaleMode = .aspectFill
 

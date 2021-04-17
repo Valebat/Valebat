@@ -26,7 +26,7 @@ class GameViewController: BaseViewController {
         let aspectRatio = view.bounds.size.width / view.bounds.size.height
         ViewConstants.sceneWidth = ViewConstants.sceneHeight * aspectRatio
         let gameScene = GameScene(size: CGSize(width: ViewConstants.sceneWidth,
-                                           height: ViewConstants.sceneHeight),
+                                               height: ViewConstants.sceneHeight),
                                   userConfig: userConfig)
         self.currentScene = gameScene
         currentScene?.viewController = self
