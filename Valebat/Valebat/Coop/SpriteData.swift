@@ -29,4 +29,37 @@ struct SpriteData: Codable, Hashable {
         return SpriteData(idx: idx, name: textureName, width: Float(size.width), height: Float(size.height),
                           xPos: Float(pos.x), yPos: Float(pos.y), orientation: Float(orientation))
     }
+
+    init(idx: UUID, name: String, width: Float, height: Float,
+         xPos: Float, yPos: Float, orientation: Float) {
+        self.idx = idx
+        self.name = name
+        self.width = width
+        self.height = height
+        self.xPos = xPos
+        self.yPos = yPos
+        self.orientation = orientation
+    }
+
+    init?(data: [String: Any]) {
+        guard let idx = data["idx"] as? String,
+              let name = data["name"] as? String,
+              let width = data["width"] as? Float,
+              let height = data["height"] as? Float,
+              let xPos = data["xPos"] as? Float,
+              let yPos = data["yPos"] as? Float,
+              let orientation = data["orientation"] as? Float else {
+            return nil
+        }
+        guard let uid = UUID(uuidString: idx) else {
+            return nil
+        }
+        self.idx = uid
+        self.name = name
+        self.width = width
+        self.height = height
+        self.xPos = xPos
+        self.yPos = yPos
+        self.orientation = orientation
+    }
 }

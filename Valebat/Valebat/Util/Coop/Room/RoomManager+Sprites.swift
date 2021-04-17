@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 extension RoomManager {
     func updateSprites(_ sprites: Set<SpriteData>) {
@@ -37,33 +38,30 @@ extension RoomManager {
 
         let roomRef = fdb.collection("rooms").document(guaranteedRoom.idx!)
 
-        roomRef.getDocument { (document, error) in
-            if let err = error {
-                print("[Load Sprites] Database error: \(err)")
-            } else {
-                do {
-                    guard let data = document?.data()?["sprites"] else {
-                        print("[Load Sprites] Data not found.")
-                        return
-                    }
+        roomRef.getDocument { (document, _) in
+            guard let data = document?.data()?["sprites"] else {
+                print("[Load Sprites] Data not found.")
+                return
+            }
 
-                    do {
-                        let deserialisedData = try JSONSerialization.data(withJSONObject: data, options: [])
-                    } catch {
-                        print("Failed to decode sprites.")
-                    }
+            guard let dataArr = data as? [Any] else {
+                print("conversion failed")
+                return
+            }
 
-                    let decoder = JSONDecoder()
-                    // let decodedSprites = try? decoder.decode([SpriteData].self, from: data) {
-//                    data.forEach { sprite in
-//                        print("asdafe")
-//                        print(sprite)
-//                        // let spriteData = Data(from: sprite)
-//                        // decoder.decode(SpriteData.self, from: spriteData)
-//                    }
-                    // print(document?.data())
+            var spriteDataSet = Set<SpriteData>()
+
+            for rawData in dataArr {
+                guard let rawSpriteData = rawData as? [String: Any] else {
+                    print("convert to string failed")
+                    continue
+                }
+                if let spData = SpriteData(data: rawSpriteData) {
+                    spriteDataSet.insert(spData)
                 }
             }
+
+            print(spriteDataSet)
         }
     }
 }
