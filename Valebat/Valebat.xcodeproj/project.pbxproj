@@ -14,6 +14,8 @@
 		C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
 		C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */; };
 		C652DCE72624174600349576 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE62624174600349576 /* GameConstants.swift */; };
+		C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */; };
+		C68570BF262AF6B4009FEB78 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68570BE262AF6B4009FEB78 /* BaseViewController.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -256,6 +258,8 @@
 		C652DCD22620717300349576 /* ObjectiveObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveObserver.swift; sourceTree = "<group>"; };
 		C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystickSubscriber.swift; sourceTree = "<group>"; };
 		C652DCE62624174600349576 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
+		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -515,6 +519,26 @@
 				C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */,
 			);
 			path = JoystickUtil;
+			sourceTree = "<group>";
+		};
+		C68570B1262AF2B7009FEB78 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */,
+				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
+				EF5C4787262AC25B00A46C4E /* ClientScene.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		C68570C3262AF6BD009FEB78 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
+				EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */,
+				C68570BE262AF6B4009FEB78 /* BaseViewController.swift */,
+			);
+			path = GameViewController;
 			sourceTree = "<group>";
 		};
 		C6A942C225FCE7EA00087256 /* Entities */ = {
@@ -918,9 +942,8 @@
 				C6A942D025FCE7EA00087256 /* Util */,
 				DDAADB702629864800263AFA /* ViewController */,
 				C6ACE6D42629926F0000A2E6 /* GameSession */,
+				C68570B1262AF2B7009FEB78 /* GameScene */,
 				CBC777F925FCE1C000581E20 /* AppDelegate.swift */,
-				CBC777FF25FCE1C000581E20 /* GameScene.swift */,
-				EF5C4787262AC25B00A46C4E /* ClientScene.swift */,
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
@@ -1067,12 +1090,11 @@
 		DDAADB702629864800263AFA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C68570C3262AF6BD009FEB78 /* GameViewController */,
 				C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */,
 				C6ED82952629D16A0074CE07 /* CoopViewController.swift */,
-				CBC7780125FCE1C000581E20 /* GameViewController.swift */,
 				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				DDAADB742629878E00263AFA /* DifficultyViewController.swift */,
-				EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1406,6 +1428,7 @@
 				C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				CB9E9E7B261C5C840016B046 /* BaseComponent.swift in Sources */,
+				C68570BF262AF6B4009FEB78 /* BaseViewController.swift in Sources */,
 				C6A9451C261DC19400087256 /* BaseEnemyEntity.swift in Sources */,
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
 				C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */,
@@ -1519,6 +1542,7 @@
 				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
 				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
+				C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */,
 				EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */,
 				CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */,
 				C6ACE74C2629B55D0000A2E6 /* Room.swift in Sources */,
@@ -1765,7 +1789,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KX34RGBV44;
+				DEVELOPMENT_TEAM = F7K7KGXMG2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1785,7 +1809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KX34RGBV44;
+				DEVELOPMENT_TEAM = F7K7KGXMG2;
 				INFOPLIST_FILE = Valebat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

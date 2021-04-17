@@ -54,6 +54,16 @@ class CoopViewController: UIViewController {
 //    }
 
     func joinRoom(isHost: Bool, roomID: String) {
+//        print("just for testing client VC")
+//        if !isHost {
+//            let viewController = UIStoryboard(name: "Main", bundle: nil)
+//                .instantiateViewController(identifier: "ClientVC")
+//            viewController.modalPresentationStyle = .fullScreen
+//            guard let clientVC = viewController as? ClientViewController else {
+//                return
+//            }
+//            present(clientVC, animated: true, completion: nil)
+//        }
         usernameManager.setupUser { [self] in
             guard let username = usernameManager.username else {
                 return
