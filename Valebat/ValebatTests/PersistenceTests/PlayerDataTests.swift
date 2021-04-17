@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 
 class PlayerDataTests: XCTestCase {
-    
+
     var entityManager: EntityManager?
     var gameSession: GameSession?
     var samplePlayerData: PlayerData?
@@ -19,9 +19,9 @@ class PlayerDataTests: XCTestCase {
     override func setUpWithError() throws {
         entityManager = EntityManagerFactory.createEmptyEntityManager()
         gameSession = GameSessionFactory.createEmptyGameSession(entityManager: entityManager)
-        defaultPlayerData = PlayerData(level: 0, elementType: BasicType.allCases.map( { $0.rawValue } ),
-                                       elementLevels: BasicType.allCases.map( { _ in 1.0 } ),
-                                       elementMultipliers: BasicType.allCases.map( { _ in 1 } ))
+        defaultPlayerData = PlayerData(level: 0, elementType: BasicType.allCases.map({ $0.rawValue }),
+                                       elementLevels: BasicType.allCases.map({ _ in 1.0 }),
+                                       elementMultipliers: BasicType.allCases.map({ _ in 1 }))
         samplePlayerData = PlayerData(level: 3, elementType: ["water", "fire"],
                                       elementLevels: [1.0, 2.5], elementMultipliers: [0.7, 2.3])
     }
@@ -46,13 +46,19 @@ class PlayerDataTests: XCTestCase {
             XCTAssertEqual(sessionMultiplier, sampleMultiplier)
         }
     }
-    
+
     func test_convert() {
         let session = gameSession ?? GameSessionFactory.createEmptyGameSession(entityManager: entityManager)
         let convertedData = PlayerData.convertToPlayerData(gameSession: session)
-        XCTAssertEqual(convertedData.elementType, defaultPlayerData?.elementType)
-        XCTAssertEqual(convertedData.elementLevels, defaultPlayerData?.elementLevels)
-        XCTAssertEqual(convertedData.elementMultipliers, defaultPlayerData?.elementMultipliers)
+        for (idx, type) in convertedData.elementType.enumerated() {
+            XCTAssert(defaultPlayerData?.elementType.contains(type) ?? false)
+            guard let defIdx = defaultPlayerData?.elementType.firstIndex(of: type) else {
+                XCTFail("Type not in both")
+                return
+            }
+            XCTAssertEqual(convertedData.elementLevels[idx], defaultPlayerData?.elementLevels[defIdx])
+            XCTAssertEqual(convertedData.elementMultipliers[idx], defaultPlayerData?.elementMultipliers[defIdx])
+        }
         XCTAssertEqual(convertedData.level, defaultPlayerData?.level)
     }
 
@@ -64,4 +70,3 @@ class PlayerDataTests: XCTestCase {
     }
 
 }
-
