@@ -191,6 +191,9 @@
                                             <constraint firstAttribute="width" secondItem="Nof-tz-KR3" secondAttribute="height" multiplier="2:1" id="fzt-UV-S93"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="join-room"/>
+                                        <connections>
+                                            <action selector="joinRoomButton:" destination="g9a-LH-yqa" eventType="touchUpInside" id="EWU-fN-PEL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-XJ-q2W">
                                         <rect key="frame" x="0.0" y="245" width="410" height="205"/>
@@ -240,8 +243,16 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ROOM ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-V2-Tgr">
                                 <rect key="frame" x="445" y="80" width="290" height="88"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="List of Players" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78m-F9-Sdp">
+                                <rect key="frame" x="483" y="188" width="214" height="46.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -254,6 +265,8 @@
                             <constraint firstItem="Pfm-V2-Tgr" firstAttribute="top" secondItem="Ca4-2h-BEh" secondAttribute="top" constant="80" id="C7E-Lb-kJe"/>
                             <constraint firstItem="giM-ba-n3O" firstAttribute="top" secondItem="Uzp-ku-xef" secondAttribute="top" id="MMw-Ue-tbK"/>
                             <constraint firstItem="Pfm-V2-Tgr" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="PgF-I6-OQX"/>
+                            <constraint firstItem="78m-F9-Sdp" firstAttribute="centerX" secondItem="Uzp-ku-xef" secondAttribute="centerX" id="Pho-Mc-35v"/>
+                            <constraint firstItem="78m-F9-Sdp" firstAttribute="top" secondItem="Pfm-V2-Tgr" secondAttribute="bottom" constant="20" id="Pya-PB-QNm"/>
                             <constraint firstItem="S55-5s-NKH" firstAttribute="leading" secondItem="Ca4-2h-BEh" secondAttribute="leading" constant="856" id="Yke-Ij-Xi1"/>
                             <constraint firstItem="Ca4-2h-BEh" firstAttribute="trailing" secondItem="S55-5s-NKH" secondAttribute="trailing" constant="45" id="cvk-Kt-9qY"/>
                             <constraint firstItem="giM-ba-n3O" firstAttribute="leading" secondItem="Uzp-ku-xef" secondAttribute="leading" id="jzC-XZ-XF6"/>
@@ -261,6 +274,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playerText" destination="78m-F9-Sdp" id="eV2-U2-zJD"/>
                         <outlet property="roomIDText" destination="Pfm-V2-Tgr" id="7YY-hG-41j"/>
                     </connections>
                 </viewController>

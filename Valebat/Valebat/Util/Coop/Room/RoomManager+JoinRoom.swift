@@ -8,8 +8,12 @@
 extension RoomManager {
     func joinRoom(username: String, roomCode: String, completed: @escaping () -> Void) {
         fetchRoom(roomCode: roomCode) { [self] in
-            addUserToRoom(username: username, room: self.room!)
-            setRoom(self.room!) {
+            guard let room = self.room else {
+                print("Invalid")
+                return
+            }
+            addUserToRoom(username: username, room: room)
+            setRoom(room) {
                 completed()
             }
         }
