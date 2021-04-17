@@ -75,10 +75,10 @@ class CoopRoomViewController: UIViewController {
         gameVC.userConfig = UserConfig(isCoop: true, isNewGame: true, diffLevel: difficulty,
                                        isHost: isHost, roomManager: roomManager)
         if isHost {
-            roomManager.startRoom {
-                locallyStarted = true
-                present(gameVC, animated: true, completion: nil)
-            }
+            present(gameVC, animated: true, completion: {
+                self.roomManager.startRoom {
+                }
+            })
         }
     }
 

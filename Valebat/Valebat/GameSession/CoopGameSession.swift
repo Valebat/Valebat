@@ -17,4 +17,10 @@ class CoopGameSession: BaseGameSession {
 
         self.coopManager = CoopManager(coopEntityManager: coopEntityManager)
     }
+
+    func addClientPlayers() {
+        print("called")
+        print(roomManager.room?.players)
+        roomManager.room?.players.forEach({ coopManager?.entityManager.addClientPlayer(playerID: $0) })
+    }
 }

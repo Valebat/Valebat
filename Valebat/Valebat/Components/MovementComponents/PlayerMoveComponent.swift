@@ -28,11 +28,11 @@ class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
         guard let userInput = baseEntity?.entityManager?.scene.userInputInfo else {
             return
         }
-        movePlayer(velocity: userInput.movementJoystickVelocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
-                   angular: userInput.movementJoystickAngular)
+       /* movePlayer(velocity: userInput.movementJoystickVelocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
+                   angular: userInput.movementJoystickAngular)*/
     }
 
-    private func movePlayer(velocity: CGPoint, angular: CGFloat) {
+    func movePlayer(velocity: CGPoint, angular: CGFloat) {
         guard let playerSprite = player?.component(ofType: SpriteComponent.self),
               let graph = baseEntity?.entityManager?.obstacleGraph else {
             return

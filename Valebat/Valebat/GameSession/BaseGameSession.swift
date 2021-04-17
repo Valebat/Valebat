@@ -12,7 +12,6 @@ class BaseGameSession {
     var currentLevel: Int
     var entityManager: EntityManager
     var userConfig: UserConfig
-
     let spellManager: SpellManager
     let objectiveManager: ObjectiveManager
     var mapManager: MapManager!
