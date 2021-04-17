@@ -11,6 +11,9 @@ import GameplayKit
 class ClientScene: BaseGameScene {
     weak var viewController: ClientViewController?
 
+    var spriteNodes = [SKSpriteNode]()
+    var clientManager = ClientManager()
+
     override init(size: CGSize) {
         super.init(size: size)
     }
@@ -26,25 +29,15 @@ class ClientScene: BaseGameScene {
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)
 
-        renderSprites(sprites: loadSpriteData())
+        renderSprites(sprites: clientManager.spritesData)
 
         self.lastUpdateTime = currentTime
 
     }
 
-    // Gives sprites which have changed
-    func loadSpriteData() -> Set<SpriteData> {
-        // TODO: Fetch from coop manager
-        let sampleSprite = SpriteData(idx: UUID(), name: "character",
-                                      width: Float(ViewConstants.playerWidth),
-                                      height: Float(ViewConstants.playerHeight),
-                                      xPos: 100.0, yPos: 100.0, orientation: 0.0)
-        return [sampleSprite]
-    }
-
     func renderSprites(sprites: Set<SpriteData>) {
-        self.removeAllChildren()
-        super.setUpScene()
+        spriteNodes.forEach({ $0.removeFromParent() })
+        spriteNodes = [SKSpriteNode]()
         for sprite in sprites {
             let spriteNode = SKSpriteNode(texture: CustomTexture.initialise(imageNamed: sprite.name),
                                           color: SKColor.white,
@@ -53,6 +46,7 @@ class ClientScene: BaseGameScene {
             spriteNode.position = CGPoint(x: CGFloat(sprite.xPos), y: CGFloat(sprite.yPos))
             spriteNode.zRotation = CGFloat(sprite.orientation)
             addChild(spriteNode)
+            spriteNodes.append(spriteNode)
         }
     }
 

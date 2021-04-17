@@ -37,12 +37,24 @@ class CoopRoomViewController: UIViewController {
             if self.roomManager.room?.started ?? false {
                 if !self.locallyStarted {
                     self.locallyStarted  = true
-                    print("TRIGGERED!")
+                    loadClientGame()
+                    // CREATE THE GAME SCENE
                 }
             }
         }
 
     }
+    func loadClientGame() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(identifier: "ClientVC")
+        viewController.modalPresentationStyle = .fullScreen
+        guard let clientVC = viewController as? ClientViewController else {
+            return
+        }
+        clientVC.currentScene?.clientManager.roomManager = roomManager
+        present(clientVC, animated: true, completion: nil)
+    }
+
     @objc func fireTimer() {
         loadRoomData()
     }

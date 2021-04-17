@@ -61,6 +61,8 @@ extension RoomManager {
                 }
             }
 
+            guaranteedRoom.sprites = Array(spriteDataSet)
+
             print(spriteDataSet)
         }
     }

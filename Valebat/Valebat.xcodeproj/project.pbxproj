@@ -100,6 +100,7 @@
 		CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
 		CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB744DD026261C3400DF2188 /* LaserDamage.wav */; };
 		CB744DD626261CB400DF2188 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DD526261CB400DF2188 /* SoundEffects.swift */; };
+		CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB917FA6262AFFC4004A6F3C /* ClientManager.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
 		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
@@ -342,6 +343,7 @@
 		CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossBorderOfWaveAndParticle.swift; sourceTree = "<group>"; };
 		CB744DD026261C3400DF2188 /* LaserDamage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LaserDamage.wav; sourceTree = "<group>"; };
 		CB744DD526261CB400DF2188 /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		CB917FA6262AFFC4004A6F3C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
 		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
@@ -800,6 +802,7 @@
 			children = (
 				C6ACE7562629BCAA0000A2E6 /* Username */,
 				C6ACE74A2629B5540000A2E6 /* Room */,
+				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1573,6 +1576,7 @@
 				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */,
 				CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */,
+				CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */,
 				C6A9433125FF566600087256 /* MoveComponent.swift in Sources */,
 				C6AA3A082625A16B0058003C /* SpellMovementComponent.swift in Sources */,
 				EF61C5112619DE1F0076BB3A /* PlayerMoveComponent.swift in Sources */,
