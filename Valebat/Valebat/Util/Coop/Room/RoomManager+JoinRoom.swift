@@ -6,15 +6,21 @@
 //
 
 extension RoomManager {
-    func joinRoom(username: String, roomCode: String, completed: @escaping () -> Void) {
+    func joinRoom(username: String, isHost: Bool, roomCode: String, completed: @escaping () -> Void) {
         fetchRoom(roomCode: roomCode) { [self] in
             guard let room = self.room else {
                 print("Invalid")
                 return
             }
             addUserToRoom(username: username, room: room)
-            setRoomPlayer(room) {
-                completed()
+            if isHost {
+                setHostPlayer(room, with: username) {
+                    completed()
+                }
+            } else {
+                setRoomPlayer(room) {
+                    completed()
+                }
             }
         }
     }
@@ -43,6 +49,14 @@ extension RoomManager {
         fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
         completed()
     }
+
+    private func setHostPlayer(_ room: Room, with username: String, completed: () -> Void) {
+        room.hostId = username
+        fdb.collection("rooms").document(room.idx!).setData([ "hostId": username ], merge: true)
+        fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
+        completed()
+    }
+
     func startRoom(completed: () -> Void) {
         guard let room = self.room else {
             return

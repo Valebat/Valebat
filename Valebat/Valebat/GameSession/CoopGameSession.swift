@@ -19,8 +19,13 @@ class CoopGameSession: BaseGameSession {
     }
 
     func addClientPlayers() {
-        print("called")
-        print(roomManager.room?.players)
-        roomManager.room?.players.forEach({ coopManager?.entityManager.addClientPlayer(playerID: $0) })
+        guard let room = roomManager.room else {
+            return
+        }
+        roomManager.room?.players.forEach({
+            if $0 != room.hostId {
+                coopManager?.entityManager.addClientPlayer(playerID: $0)
+            }
+        })
     }
 }
