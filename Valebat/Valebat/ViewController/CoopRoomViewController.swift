@@ -14,7 +14,8 @@ class CoopRoomViewController: UIViewController {
     var roomManager: RoomManager!
     var roomID = ""
     var username = ""
-    @IBOutlet var playerText: UITextField!
+
+    @IBOutlet var playerText: UITextView!
     var refreshTimer: Timer?
     var locallyStarted = false
 
