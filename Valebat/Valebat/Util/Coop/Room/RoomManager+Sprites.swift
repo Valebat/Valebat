@@ -45,13 +45,11 @@ extension RoomManager {
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
-                print("Got data \(snapshot.value!)")
                 let roomData = snapshot.value as? [String: Any] ?? [:]
                 let spriteDataSet = self.processRoom(roomData: roomData)
                 guaranteedRoom.sprites = Array(spriteDataSet)
                 print("spriteDataSet")
                 print(spriteDataSet.count)
-                print(spriteDataSet)
             } else {
                 print("No data available")
             }
