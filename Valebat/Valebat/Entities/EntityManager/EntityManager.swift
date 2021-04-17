@@ -248,6 +248,7 @@ class EntityManager {
             }
             // entities.forEach({ $0.update(deltaTime: deltaTime )})
             updateLastKnownPlayerPosition()
+            updateShoot()
         }
         for curRemove in toRemove {
             for componentSystem in componentSystems {
@@ -262,8 +263,6 @@ class EntityManager {
         }
         toAdd.removeAll()
         toRemove.removeAll()
-
-        updateShoot()
     }
 
     private func updateShoot() {
