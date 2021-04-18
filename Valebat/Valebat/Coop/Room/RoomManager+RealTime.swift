@@ -16,7 +16,7 @@ extension RoomManager {
             return
         }
         self.ref.child("sprites/\(guaranteedRoom.idx!)").removeValue()
-        
+
         realTimeData.sprites = Array(sprites)
 
         var allUpdates = [String: Any]()
@@ -34,7 +34,7 @@ extension RoomManager {
 
             allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
         }
-        
+
         self.ref.updateChildValues(allUpdates)
     }
 
