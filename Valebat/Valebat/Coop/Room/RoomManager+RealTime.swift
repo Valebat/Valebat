@@ -36,7 +36,13 @@ extension RoomManager {
         self.ref.updateChildValues(allUpdates)
     }
 
-    func loadSprites() {
+    func loadSpritesCycle() {
+        loadSprites { [self] in
+            loadSpritesCycle()
+        }
+    }
+
+    func loadSprites(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room else {
             return
         }
@@ -44,12 +50,15 @@ extension RoomManager {
         self.ref.child("sprites/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
+                completed()
             } else if snapshot.exists() {
                 let spritesData = snapshot.value as? [String: Any] ?? [:]
                 let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
                 self.realTimeData.sprites = Array(spriteDataSet)
+                completed()
             } else {
                 print("No data available")
+                completed()
             }
         }
     }
@@ -57,7 +66,7 @@ extension RoomManager {
     func saveUserInfo(playerId: String) {
         guard let guaranteedRoom = self.room,
               let idx = guaranteedRoom.idx,
-              let userInfo = realTimeData.userInputInfo[idx] else {
+              let userInfo = realTimeData.userInputInfo[playerId] else {
             return
         }
         let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
@@ -74,7 +83,6 @@ extension RoomManager {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
                 let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
-
             } else {
                 print("No data available")
             }
