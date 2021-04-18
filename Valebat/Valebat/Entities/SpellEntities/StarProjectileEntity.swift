@@ -7,11 +7,12 @@
 
 import Foundation
 import GameplayKit
-class StarProjectile: BaseProjectileEntity {
+
+class StarProjectileEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
 
-        let spriteTexture = CustomTexture.initialise(imageNamed: StarProjectile.getImage(type: damageType))
+        let spriteTexture = CustomTexture.initialise(imageNamed: StarProjectileEntity.getImage(type: damageType))
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize * 0.5,
                                 height: ViewConstants.gridSize * 0.5 / widthHeightRatio)

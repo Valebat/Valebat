@@ -62,7 +62,7 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
         for index in 0 ..< linesOfBullets {
             let currentAngle = angle + CGFloat(Double.pi) * 2 * CGFloat(index) / CGFloat(linesOfBullets)
             let launchVelocity = CGVector(angle: currentAngle) * bulletSpeed
-            let fireBall = StarProjectile(velocity: launchVelocity,
+            let fireBall = StarProjectileEntity(velocity: launchVelocity,
                                           position: position,
                                           damageType: currentType,
                                           damageValue: CGFloat(bulletDamage))

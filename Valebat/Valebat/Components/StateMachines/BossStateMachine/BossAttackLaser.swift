@@ -15,7 +15,7 @@ class BossAttackLaser: BossAttackSubComponent {
     let laserTimer = 4.0
     let laserRotationSpeed = 25.0 * CGFloat(Double.pi) / 180.0
     var activated = false
-    var laserEntity: LaserSpell?
+    var laserEntity: LaserSpellEntity?
     var currentTimer: TimeInterval = 0.0
     var coolDown: TimeInterval = 6.0
     init(attachedAttackComponent: BossAttackComponent) {
@@ -77,7 +77,7 @@ class BossAttackLaser: BossAttackSubComponent {
         currentTimer = 0.0
         activated = false
         isCurrentlyCasting = true
-        let laser = LaserSpell()
+        let laser = LaserSpellEntity()
         laserEntity = laser
         attachedAttackComponent?.baseEntity?.entityManager?.add(laser)
         laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: getAngle())
