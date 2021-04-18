@@ -92,20 +92,6 @@ class BiomeTests: XCTestCase {
                        "Global default spawn time cannot be below minimum spawn time.")
     }
 
-    func test_set_withDefaultStairsTimer() {
-        biomeData = biomeData
-            .withDefaultStairsTimer(120.0)
-        XCTAssertEqual(biomeData.defaultStairsTimer, 120,
-                       "Failed to set global stairs timer.")
-    }
-
-    func test_set_withDefaultStairsTimer_belowZero_isZero() {
-        biomeData = biomeData
-            .withDefaultStairsTimer(-1)
-        XCTAssertEqual(biomeData.defaultStairsTimer, 0,
-                       "Global stairs timer cannot be below 0.")
-    }
-
     func test_set_withProtectedSpawn() {
         biomeData = biomeData
             .withProtectedSpawn(.crate)

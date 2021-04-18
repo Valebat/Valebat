@@ -25,7 +25,6 @@ class BiomeData {
                                                         .bossSpawner: 0]
 
     var defaultSpawnTime: Double = 6.0
-    var defaultStairsTimer: Double = 35.0
 
     var objectiveTypes: [ObjectiveEnum] = [.kills]
     var objectiveQuantity: Int = 25
@@ -56,11 +55,6 @@ class BiomeData {
 
     func withDefaultSpawnTime(_ spawnTime: Double) -> BiomeData {
         self.defaultSpawnTime = max(spawnTime, BiomeData.minimumSpawnTime)
-        return self
-    }
-
-    func withDefaultStairsTimer(_ timer: Double) -> BiomeData {
-        self.defaultStairsTimer = max(timer, 0)
         return self
     }
 
