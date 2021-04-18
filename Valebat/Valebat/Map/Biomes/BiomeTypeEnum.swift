@@ -21,6 +21,7 @@ extension BiomeTypeEnum {
                 .withDefaultSpawnTime(10.0)
                 .withGuaranteedSpawns(object: .spawner, count: 1)
                 .withGlobalObjectSpawnChance(0)
+                .withObjectiveQuantity(1)
         case .normal:
             return BiomeData()
                 .withPossibleObjectiveTypes([.kills, .powerupscollected])
