@@ -16,7 +16,7 @@ class BossAttackLaser: BossAttackSubComponent {
     let laserTimer = 4.0
     let laserRotationSpeed = 25.0 * CGFloat(Double.pi) / 180.0
     var activated = false
-    var laserEntity: LaserSpellEntity?
+    weak var laserEntity: LaserSpellEntity?
     var currentTimer: TimeInterval = 0.0
     var coolDown: TimeInterval = 6.0
 

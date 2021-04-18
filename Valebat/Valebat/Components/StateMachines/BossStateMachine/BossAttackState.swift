@@ -18,6 +18,6 @@ class BossAttackState: BaseBossState {
     }
 
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent.entity?.component(ofType: BossAttackComponent.self)?.launchAttack()
+        stateMachineComponent?.entity?.component(ofType: BossAttackComponent.self)?.launchAttack()
     }
 }

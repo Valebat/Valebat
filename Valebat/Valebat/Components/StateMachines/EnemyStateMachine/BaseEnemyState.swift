@@ -8,7 +8,7 @@
 import GameplayKit
 
 class BaseEnemyState: GKState {
-    var stateMachineComponent: EnemyStateMachineComponent
+    weak var stateMachineComponent: EnemyStateMachineComponent?
 
     init(stateMachineComponent: EnemyStateMachineComponent) {
         self.stateMachineComponent = stateMachineComponent
