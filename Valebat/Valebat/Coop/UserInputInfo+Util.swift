@@ -33,9 +33,10 @@ extension UserInputInfo {
         }
 
         var elementsArray = [BasicType]()
-        if let elements = data["elements"] as? [String: String] {
+        if let elements = data["elements"] as? [String: Any] {
             for (_, elem) in elements {
-                guard let elemType = BasicType(rawValue: elem) else {
+                guard let elem = elem as? String,
+                      let elemType = BasicType(rawValue: elem) else {
                     continue
                 }
                 elementsArray.append(elemType)
