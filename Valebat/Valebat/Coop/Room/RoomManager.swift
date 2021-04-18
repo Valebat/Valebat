@@ -14,6 +14,7 @@ class RoomManager {
     var fdb = Firestore.firestore()
     var roomCodes: [String] = []
     var room: Room?
+    var realTimeData = RealTimeData()
 
     func fetchRooms(completed: @escaping () -> Void) {
         fdb.collection("rooms").getDocuments { (querySnapshot, error) in

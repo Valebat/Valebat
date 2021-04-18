@@ -961,7 +961,6 @@
 				C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */,
 				C6ED82C3262AC4D60074CE07 /* RoomManager+Sprites.swift */,
 				C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */,
-				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -1146,6 +1145,7 @@
 				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
 				DD85F34C2625DD4200838B0F /* CoopManager.swift */,
 				DD85F3512625DD7700838B0F /* SpriteData.swift */,
+				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";

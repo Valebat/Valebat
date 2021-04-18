@@ -37,6 +37,6 @@ class CoopManager {
 
     func loadSprites() {
         coopGameSession.roomManager.loadSprites()
-        spritesData = Set(coopGameSession.roomManager.room?.sprites ?? [])
+        spritesData = Set(coopGameSession.roomManager.realTimeData.sprites)
     }
 }

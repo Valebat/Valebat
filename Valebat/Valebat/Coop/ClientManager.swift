@@ -32,7 +32,7 @@ class ClientManager {
     */
     func getSpriteData() {
         self.roomManager?.loadSprites()
-        if let sprites = self.roomManager?.room?.sprites {
+        if let sprites = self.roomManager?.realTimeData.sprites {
             if sprites.count > 0 {
                 spritesData = Set(sprites)
             }

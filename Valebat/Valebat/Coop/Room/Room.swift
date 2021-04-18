@@ -13,7 +13,6 @@ class Room: Identifiable, Codable {
     let code: String
     var started: Bool
     var players: [String] = []
-    var sprites: [SpriteData] = []
 
     init() {
         let roomCode: String = RoomCodeGenerator.randomString(length: 6)

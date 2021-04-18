@@ -10,23 +10,24 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 extension RoomManager {
+
     func updateSprites(_ sprites: Set<SpriteData>) {
         guard let guaranteedRoom = self.room else {
             return
         }
-        guaranteedRoom.sprites = Array(sprites)
+        realTimeData.sprites = Array(sprites)
 
         var allUpdates = [String: Any]()
 
-        for sprite in guaranteedRoom.sprites {
+        for sprite in realTimeData.sprites {
             let updates = [
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/name": sprite.name,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/width": sprite.width,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/height": sprite.height,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/xPos": sprite.xPos,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/yPos": sprite.yPos,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/zPos": sprite.zPos,
-                "rooms/\(guaranteedRoom.idx!)/\(sprite.idx)/orientation": sprite.orientation
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/name": sprite.name,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/width": sprite.width,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/height": sprite.height,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/xPos": sprite.xPos,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/yPos": sprite.yPos,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/zPos": sprite.zPos,
+                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/orientation": sprite.orientation
               ] as [String: Any]
 
             allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
@@ -36,27 +37,26 @@ extension RoomManager {
     }
 
     func loadSprites() {
-        print("load sprites called")
         guard let guaranteedRoom = self.room else {
             return
         }
 
-        self.ref.child("rooms/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
+        self.ref.child("sprites/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
-                let roomData = snapshot.value as? [String: Any] ?? [:]
-                let spriteDataSet = self.processRoom(roomData: roomData)
-                guaranteedRoom.sprites = Array(spriteDataSet)
+                let spritesData = snapshot.value as? [String: Any] ?? [:]
+                let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
+                self.realTimeData.sprites = Array(spriteDataSet)
             } else {
                 print("No data available")
             }
         }
     }
 
-    private func processRoom(roomData: [String: Any]) -> Set<SpriteData> {
+    private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
         var spriteDataSet = Set<SpriteData>()
-        for (idx, data) in roomData {
+        for (idx, data) in spritesData {
             var rawSpriteData = data as? [String: Any] ?? [:]
             rawSpriteData["idx"] = idx
             if let spData = SpriteData(data: rawSpriteData) {
