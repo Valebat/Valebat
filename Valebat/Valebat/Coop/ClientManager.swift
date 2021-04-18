@@ -27,5 +27,8 @@ class ClientManager {
                 spritesData = Set(sprites)
             }
         }
+        if let coopHUD = self.roomManager?.realTimeData.playerHUDData {
+            coopHUDData = coopHUD
+        }
     }
 }

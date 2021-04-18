@@ -19,6 +19,7 @@ extension RoomManager {
         self.ref.child("sprites/\(roomIdx)").removeValue()
 
         realTimeData.sprites = Array(sprites)
+        realTimeData.playerHUDData = playerHUDData
         var allUpdates = [String: Any]()
 
         var updates = [String: Any]()
@@ -58,7 +59,9 @@ extension RoomManager {
 
     func loadSpritesCycle() {
         loadSprites { [self] in
-            loadSpritesCycle()
+            loadPlayerHUD {
+                loadSpritesCycle()
+            }
         }
     }
 
@@ -81,6 +84,26 @@ extension RoomManager {
                 let spritesData = snapshot.value as? [String: Any] ?? [:]
                 let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
                 self.realTimeData.sprites = Array(spriteDataSet)
+            }
+            completed()
+        }
+    }
+
+    func loadPlayerHUD(completed: @escaping () -> Void) {
+        guard let guaranteedRoom = self.room,
+              let roomIdx = guaranteedRoom.idx else {
+            return
+        }
+
+        self.ref.child("playerHUD/\(roomIdx)").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            } else if snapshot.exists() {
+                let hudData = snapshot.value as? [String: Any] ?? [:]
+                guard let playerHUD = CoopHUDData(data: hudData) else {
+                    return
+                }
+                self.realTimeData.playerHUDData = playerHUD
             }
             completed()
         }
