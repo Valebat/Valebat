@@ -77,7 +77,7 @@ class CoopEntityManager: EntityManager {
         super.advanceLevel()
         clientPlayers.values.forEach({ self.add($0) })
     }
-    
+
     override func restart() {
         super.restart()
         clientPlayers.values.forEach({ self.add($0) })
