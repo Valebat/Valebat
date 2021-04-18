@@ -73,7 +73,6 @@
 		C69D3633262B2A1E00EDE2AC /* ObjectiveUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */; };
 		C69D3634262B2A1E00EDE2AC /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9453B261F5AA100087256 /* Objective.swift */; };
 		C69D3635262B2A1E00EDE2AC /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
-		C69D3636262B2A1E00EDE2AC /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		C69D3637262B2A1E00EDE2AC /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
 		C69D3638262B2A1E00EDE2AC /* BiomeTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */; };
 		C69D3639262B2A1E00EDE2AC /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
@@ -233,7 +232,6 @@
 		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
 		C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */; };
 		C6A943EE260B007500087256 /* BiomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943ED260B007500087256 /* BiomeData.swift */; };
-		C6A94401260B4D1000087256 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94400260B4D1000087256 /* Runtime.swift */; };
 		C6A9440C261373F700087256 /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
 		C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */; };
 		C6A9441C26138DC700087256 /* AdvanceLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */; };
@@ -462,7 +460,6 @@
 		C6A943BE2605EBCC00087256 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		C6A943D6260AFF8C00087256 /* BiomeTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeTypeEnum.swift; sourceTree = "<group>"; };
 		C6A943ED260B007500087256 /* BiomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeData.swift; sourceTree = "<group>"; };
-		C6A94400260B4D1000087256 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		C6A9440B261373F700087256 /* StairsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StairsEntity.swift; sourceTree = "<group>"; };
 		C6A9441026138D3E00087256 /* ObjectiveDetectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDetectionComponent.swift; sourceTree = "<group>"; };
 		C6A9441B26138DC700087256 /* AdvanceLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceLevelComponent.swift; sourceTree = "<group>"; };
@@ -763,7 +760,6 @@
 			children = (
 				C6A942CA25FCE7EA00087256 /* MapManager.swift */,
 				C6A9452B261F593D00087256 /* Objectives */,
-				C6A944912616D41500087256 /* Util */,
 				C6A9442D2615B3F500087256 /* LevelList */,
 				C6A943D5260AFF6600087256 /* Biomes */,
 				C6A944292615B3B200087256 /* SpawnUtil */,
@@ -899,14 +895,6 @@
 				C6A94516261D80A200087256 /* EnemyTypeEnum.swift */,
 			);
 			path = EntityUtil;
-			sourceTree = "<group>";
-		};
-		C6A944912616D41500087256 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				C6A94400260B4D1000087256 /* Runtime.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		C6A944AD2619B49E00087256 /* AttackComponents */ = {
@@ -1747,7 +1735,6 @@
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
-				C6A94401260B4D1000087256 /* Runtime.swift in Sources */,
 				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
 				C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */,
@@ -1868,7 +1855,6 @@
 				C69D3633262B2A1E00EDE2AC /* ObjectiveUtil.swift in Sources */,
 				C69D3634262B2A1E00EDE2AC /* Objective.swift in Sources */,
 				C69D3635262B2A1E00EDE2AC /* ObjectiveObserver.swift in Sources */,
-				C69D3636262B2A1E00EDE2AC /* Runtime.swift in Sources */,
 				EF6E5AE9262B5FBE00CBCEAE /* LevelDataTests.swift in Sources */,
 				C69D3637262B2A1E00EDE2AC /* LevelListTypeEnum.swift in Sources */,
 				C69D3638262B2A1E00EDE2AC /* BiomeTypeEnum.swift in Sources */,
