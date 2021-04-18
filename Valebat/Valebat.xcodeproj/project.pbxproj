@@ -730,6 +730,15 @@
 			path = GameViewController;
 			sourceTree = "<group>";
 		};
+		C69D378A262C182E00EDE2AC /* StateMachines */ = {
+			isa = PBXGroup;
+			children = (
+				CB744D692625A58800DF2188 /* BossStateMachine */,
+				CB9E9DD9261095500016B046 /* EnemyStateMachine */,
+			);
+			path = StateMachines;
+			sourceTree = "<group>";
+		};
 		C6A942C225FCE7EA00087256 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,18 +818,16 @@
 		C6A942D225FCE7EA00087256 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C69D378A262C182E00EDE2AC /* StateMachines */,
 				DD98498B26256842006B741E /* TextureUtil */,
 				C6A944BB2619B4FD00087256 /* MapComponents */,
 				C6A944BA2619B4CF00087256 /* UtilityComponents */,
 				C6A944AD2619B49E00087256 /* AttackComponents */,
 				CB9E9E4526174F2A0016B046 /* MovementComponents */,
 				CB9E9E4426174EED0016B046 /* DamageHealthComponents */,
-				CB744D692625A58800DF2188 /* BossStateMachine */,
-				CB9E9DD9261095500016B046 /* EnemyStates */,
 				C6A942F825FCFD5B00087256 /* SpriteComponent.swift */,
 				CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */,
 				CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */,
-				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CB9E9E7A261C5C840016B046 /* BaseComponent.swift */,
 			);
 			path = Components;
@@ -999,7 +1006,7 @@
 			path = BossStateMachine;
 			sourceTree = "<group>";
 		};
-		CB9E9DD9261095500016B046 /* EnemyStates */ = {
+		CB9E9DD9261095500016B046 /* EnemyStateMachine */ = {
 			isa = PBXGroup;
 			children = (
 				CB9E9DD4261095410016B046 /* DefaultState.swift */,
@@ -1008,7 +1015,7 @@
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
 				CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */,
 			);
-			path = EnemyStates;
+			path = EnemyStateMachine;
 			sourceTree = "<group>";
 		};
 		CB9E9E3326174A7E0016B046 /* Player */ = {
@@ -1027,8 +1034,9 @@
 				CBFC49E025FFF28C00C5DDD2 /* DamageComponent.swift */,
 				CB9E9E3F26174EB90016B046 /* DamageTakerComponent.swift */,
 				CBFC4A042600A18600C5DDD2 /* InstantDamageComponent.swift */,
-				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
 				CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */,
+				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
+				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
 				EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */,
 				C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */,
