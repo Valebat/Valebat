@@ -278,7 +278,8 @@ class EntityManager {
                                player: player)
         } else if userInput.spellJoystickEnd {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
-                               elementQueue: userInput.elementQueueArray)
+                               elementQueue: userInput.elementQueueArray,
+                               player: player)
             userInput.spellJoystickEnd = false
         }
     }

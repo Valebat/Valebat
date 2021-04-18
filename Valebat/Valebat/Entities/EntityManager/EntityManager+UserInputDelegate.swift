@@ -12,7 +12,7 @@ extension EntityManager: UserInputDelegate {
     static let movementToIndicator: [String: AimIndicatorComponent.Type] =
         ["straight_line": AimIndicatorComponent.self, "projectile": LobIndicatorComponent.self]
 
-    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?) {
+    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
         guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
             return
         }
