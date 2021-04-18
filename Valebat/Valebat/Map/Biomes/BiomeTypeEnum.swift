@@ -10,11 +10,17 @@ enum BiomeTypeEnum: String, CaseIterable {
     case dungeon
     case crazyhouse
     case boss
+    case easy
 }
 
 extension BiomeTypeEnum {
     static func getBiomeDataFromType(_ type: BiomeTypeEnum) -> BiomeData {
         switch type {
+        case .easy:
+            return BiomeData()
+                .withDefaultSpawnTime(10.0)
+                .withGlobalObjectSpawnChance(0)
+                .withIntangibleObjectSpawns(object: .spawner, count: 1)
         case .normal:
             return BiomeData()
                 .withPossibleObjectiveTypes([.kills, .powerupscollected])

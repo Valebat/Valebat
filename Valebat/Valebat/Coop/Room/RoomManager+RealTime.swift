@@ -37,6 +37,9 @@ extension RoomManager {
 
         self.ref.updateChildValues(allUpdates)
     }
+    func updateHUD() {
+
+    }
 
     func loadSpritesCycle() {
         loadSprites { [self] in
@@ -88,7 +91,6 @@ extension RoomManager {
             } else if snapshot.exists() {
                 let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
                 self.processUserInputInfos(info: groupUserInfo)
-                print(self.realTimeData.userInputInfo)
             }
             completed()
         }
