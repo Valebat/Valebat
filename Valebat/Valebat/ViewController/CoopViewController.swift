@@ -51,7 +51,6 @@ class CoopViewController: UIViewController {
             }
 
             roomManager.joinRoom(username: username.username, isHost: isHost, roomCode: roomID) {
-
                 let viewController = UIStoryboard(name: "Main", bundle: nil)
                     .instantiateViewController(identifier: "CoopRoomVC")
                 viewController.modalPresentationStyle = .fullScreen
@@ -63,9 +62,7 @@ class CoopViewController: UIViewController {
                 roomVC.roomManager = roomManager
                 roomVC.username = username.username
                 present(roomVC, animated: true, completion: nil)
-
             }
         }
     }
-
 }

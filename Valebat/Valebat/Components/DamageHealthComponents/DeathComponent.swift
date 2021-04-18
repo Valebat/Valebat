@@ -13,6 +13,7 @@ protocol OnDeathObservers {
 
 class DeathComponent: BaseComponent {
     var onDeathObservers = [ObjectIdentifier: OnDeathObservers]()
+    
     func onDeath() {
         onDeathObservers.values.forEach({ $0.onDeath() })
         if let entity = self.baseEntity {

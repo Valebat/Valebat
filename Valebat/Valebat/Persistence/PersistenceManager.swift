@@ -105,5 +105,4 @@ class PersistenceManager {
         assignLevelDataToStorage()
         save()
     }
-
 }

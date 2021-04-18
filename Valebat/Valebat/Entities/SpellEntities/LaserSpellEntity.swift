@@ -29,6 +29,7 @@ class LaserSpellEntity: BaseInteractableEntity {
     func resize(widthRatio: CGFloat, lengthRatio: CGFloat) {
         cachedSpriteNode?.scale(to: CGSize(width: baseWidth * widthRatio, height: baseLength * lengthRatio))
     }
+    
     func changeOpacity(opacity: CGFloat) {
         cachedSpriteNode?.alpha = opacity
     }

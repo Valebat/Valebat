@@ -1,13 +1,3 @@
-//
-//  This file is adapted from:
-//
-//  EntityManager.swift
-//  MonsterWars
-//
-//  Created by Main Account on 11/3/15.
-//  Copyright © 2015 Razeware LLC. All rights reserved.
-//
-
 import Foundation
 import SpriteKit
 import GameplayKit

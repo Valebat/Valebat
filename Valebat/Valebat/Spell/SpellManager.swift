@@ -7,7 +7,6 @@
 import Foundation
 
 class SpellManager {
-
     private static var combinationTable = [String: CompositeSpell.Type]()
 
     init() {
@@ -77,5 +76,4 @@ class SpellManager {
             }
         }
     }
-
 }

@@ -7,8 +7,10 @@
 
 import Foundation
 import GameplayKit
+
 class BaseBossState: GKState {
     var stateMachineComponent: BossStateMachineComponent
+    
     init(stateMachineComponent: BossStateMachineComponent) {
         self.stateMachineComponent = stateMachineComponent
     }

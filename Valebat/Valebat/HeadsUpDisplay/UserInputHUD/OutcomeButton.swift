@@ -8,7 +8,6 @@
 import SpriteKit
 
 class OutcomeButton: SKSpriteNode, UserInputNodeProtocol {
-
     weak var userInputDelegate: UserInputDelegate?
     let restartButton: RestartButton = RestartButton()
 

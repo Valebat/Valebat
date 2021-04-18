@@ -11,7 +11,6 @@ import GameplayKit
 class StarProjectileEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
-
         let spriteTexture = CustomTexture.initialise(imageNamed: StarProjectileEntity.getImage(type: damageType))
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize * 0.5,
@@ -35,6 +34,7 @@ class StarProjectileEntity: BaseProjectileEntity {
             return "purestar"
         }
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

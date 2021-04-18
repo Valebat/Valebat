@@ -64,5 +64,4 @@ class LevelData: Codable {
         }
         return stringList
     }
-
 }

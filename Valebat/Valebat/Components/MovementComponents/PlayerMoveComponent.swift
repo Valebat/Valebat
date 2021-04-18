@@ -51,5 +51,4 @@ class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
         currentPosition = CGPoint(x: nextX, y: nextY)
         orientation = angular
     }
-
 }

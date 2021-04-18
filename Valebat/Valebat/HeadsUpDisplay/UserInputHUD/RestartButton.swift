@@ -8,7 +8,6 @@
 import SpriteKit
 
 class RestartButton: SKSpriteNode {
-
     weak var userInputDelegate: UserInputDelegate?
 
     init() {
@@ -25,5 +24,4 @@ class RestartButton: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

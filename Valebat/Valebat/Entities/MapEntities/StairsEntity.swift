@@ -8,7 +8,6 @@
 import GameplayKit
 
 class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserver, ResettableEntity {
-
     let objectType: MapObjectEnum = .stairs
     let pos: CGPoint
     let size: CGSize

@@ -10,7 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class ClientViewController: BaseViewController {
-
     var currentScene: ClientScene?
     var roomManager: RoomManager?
     var clientId: String?
@@ -38,6 +37,5 @@ class ClientViewController: BaseViewController {
         skView.showsFPS = true
 
         skView.presentScene(gameScene)
-
     }
 }

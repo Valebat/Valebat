@@ -8,12 +8,10 @@
 import SpriteKit
 
 protocol UserInputNodeProtocol: AnyObject {
-
     var userInputDelegate: UserInputDelegate? { get set }
 }
 
 class UserInputNode: SKNode {
-
     weak var userInputInfo: UserInputInfo?
 
     private(set) var movementJoystick: MovementJoystick?
@@ -86,5 +84,4 @@ class UserInputNode: SKNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

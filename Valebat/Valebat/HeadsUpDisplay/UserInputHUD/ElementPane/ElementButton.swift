@@ -8,7 +8,6 @@
 import SpriteKit
 
 class ElementButton: SKSpriteNode {
-
     var elementType: BasicType
     weak var elementSelection: ElementSelection?
 

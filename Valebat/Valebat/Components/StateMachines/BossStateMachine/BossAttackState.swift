@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 class BossAttackState: BaseBossState {
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -15,6 +16,7 @@ class BossAttackState: BaseBossState {
         }
         return true
     }
+    
     override func update(deltaTime: TimeInterval) {
         stateMachineComponent.entity?.component(ofType: BossAttackComponent.self)?.launchAttack()
     }

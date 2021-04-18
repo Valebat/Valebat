@@ -8,7 +8,6 @@
 import SpriteKit
 
 class MovementJoystick: TLAnalogJoystick {
-
     weak var userInputNode: UserInputNode?
 
     convenience init() {

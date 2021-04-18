@@ -7,7 +7,9 @@
 
 import Foundation
 import GameplayKit
+
 class BossAttackRingOfBullets: BossAttackSubComponent {
+    
     func deathCleanUp() {
         return
     }
@@ -22,6 +24,7 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
     let spread: CGFloat = 85.0 * CGFloat(Double.pi) / 180.0
     var startAngle: CGFloat = 0.0
     var currentType = BasicType.pure
+    
     init(attachedAttackComponent: BossAttackComponent) {
         self.attachedAttackComponent = attachedAttackComponent
     }
@@ -57,6 +60,7 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
             isCurrentlyCasting = false
         }
     }
+    
     func launchFireBall(angle: CGFloat, type: BasicType) {
         guard let entityManager = attachedAttackComponent?.baseEntity?.entityManager,
               let position = attachedAttackComponent?.getCurrentPosition() else {

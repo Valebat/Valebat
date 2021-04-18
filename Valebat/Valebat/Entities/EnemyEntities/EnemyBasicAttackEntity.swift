@@ -10,7 +10,6 @@ import GameplayKit
 class EnemyBasicAttackEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
-
         let spriteTextures = TextureUtilities
             .generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
         let widthHeightRatio = spriteTextures[0].size().width / spriteTextures[0].size().height
@@ -36,6 +35,7 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
             return "GB00"
         }
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

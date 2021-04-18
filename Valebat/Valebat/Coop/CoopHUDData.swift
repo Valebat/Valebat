@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 struct CoopHUDData {
     var playerLevel: Int
     var currentLevel: Int
@@ -14,6 +15,7 @@ struct CoopHUDData {
     var objective: String
     var playercurrentHP = [String: CGFloat]()
     var maxHP: CGFloat
+    
     init(session: BaseGameSession) {
         playerLevel = session.playerStats.currentPlayerLevel
         currentLevel = session.currentLevel

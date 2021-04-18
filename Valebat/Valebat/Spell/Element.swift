@@ -6,7 +6,6 @@
 //
 
 class Element: Equatable {
-
     let type: BasicType
     let level: Double
 

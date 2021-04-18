@@ -82,6 +82,5 @@ extension EntityManager: UserInputDelegate {
             return []
         }
         return elementQueue.compactMap({ playerStats.getElement(type: $0) })
-
     }
 }

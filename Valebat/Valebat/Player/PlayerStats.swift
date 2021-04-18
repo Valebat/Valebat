@@ -12,7 +12,6 @@ protocol LevelUPObserver {
 }
 
 class PlayerStats {
-
     var levelUPObservers = [ObjectIdentifier: LevelUPObserver]()
     var maxHP: CGFloat
     var currentEXP: Int

@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 class BossAttackLaser: BossAttackSubComponent {
     weak var attachedAttackComponent: BossAttackComponent?
     let damage: CGFloat = 15.0
@@ -18,6 +19,7 @@ class BossAttackLaser: BossAttackSubComponent {
     var laserEntity: LaserSpellEntity?
     var currentTimer: TimeInterval = 0.0
     var coolDown: TimeInterval = 6.0
+    
     init(attachedAttackComponent: BossAttackComponent) {
         self.attachedAttackComponent = attachedAttackComponent
     }
@@ -60,6 +62,7 @@ class BossAttackLaser: BossAttackSubComponent {
     func getPosition() -> CGPoint {
         return attachedAttackComponent?.getCurrentPosition() ?? CGPoint(x: 0, y: 0)
     }
+    
     func finishLaser() {
         isCurrentlyCasting = false
         guard let laser = laserEntity else {
@@ -68,6 +71,7 @@ class BossAttackLaser: BossAttackSubComponent {
         attachedAttackComponent?.baseEntity?.entityManager?.remove(laser)
         laserEntity = nil
     }
+    
     var isCurrentlyCasting: Bool = false
 
     func triggerAttack() {
@@ -84,6 +88,7 @@ class BossAttackLaser: BossAttackSubComponent {
         laserEntity?.changeOpacity(opacity: 0.0)
 
     }
+    
     func deathCleanUp() {
         if let entity = laserEntity {
             attachedAttackComponent?.baseEntity?.entityManager?.remove(entity)

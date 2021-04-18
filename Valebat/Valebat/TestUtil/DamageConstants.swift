@@ -7,6 +7,6 @@
 
 import SpriteKit
 
-class TestConstants {
+class DamageConstants {
     static let damageValue: CGFloat = 5.0
 }

@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+
 class Spell {
     var level: Double = 1.0
     var effects: [SpellEffectComponent.Type] = []

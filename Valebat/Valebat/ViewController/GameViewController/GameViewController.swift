@@ -10,7 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: BaseViewController {
-
     var currentScene: GameScene?
     var userConfig: UserConfig?
 
@@ -40,7 +39,5 @@ class GameViewController: BaseViewController {
         skView.showsFPS = true
 
         skView.presentScene(gameScene)
-
     }
-
 }

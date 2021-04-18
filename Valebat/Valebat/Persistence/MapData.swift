@@ -6,7 +6,6 @@
 //
 
 struct MapData: Codable {
-
     var mapObjects: [MapObjectData] = []
     var objective: ObjectiveData
 

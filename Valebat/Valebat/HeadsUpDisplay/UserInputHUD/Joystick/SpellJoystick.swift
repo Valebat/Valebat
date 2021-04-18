@@ -8,7 +8,6 @@
 import SpriteKit
 
 class SpellJoystick: TLAnalogJoystick {
-
     weak var userInputNode: UserInputNode?
 
     override func didJoystickEnd() {

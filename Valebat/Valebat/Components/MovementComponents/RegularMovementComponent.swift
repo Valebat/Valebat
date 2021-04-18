@@ -12,7 +12,6 @@ import SpriteKit
 import GameplayKit
 
 class RegularMovementComponent: BaseComponent, SpellMovementComponent {
-
     static var identifier: String = "straight_line"
 
     var velocity: CGVector

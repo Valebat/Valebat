@@ -4,7 +4,9 @@
 //
 //  Created by Zhang Yifan on 2/4/21.
 //
+
 import GameplayKit
+
 struct PlayerData: Codable {
     var level: Int = 0
     var elementType = [String]()

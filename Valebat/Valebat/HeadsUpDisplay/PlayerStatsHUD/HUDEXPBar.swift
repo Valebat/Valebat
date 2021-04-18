@@ -7,9 +7,10 @@
 
 import Foundation
 import GameplayKit
-class HUDEXPBar: SKSpriteNode {
 
+class HUDEXPBar: SKSpriteNode {
     var originalScale: CGFloat = 0.0
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         if let scale =  childNode(withName: "//expFillBar")?.xScale {
