@@ -209,6 +209,7 @@
 		C69D36C6262B2A1F00EDE2AC /* Valebat.app in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F625FCE1C000581E20 /* Valebat.app */; };
 		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
 		C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
+		C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -435,6 +436,7 @@
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
 		C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMapEntity.swift; sourceTree = "<group>"; };
+		C69D3775262C0D8900EDE2AC /* CoopConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopConstants.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -1149,6 +1151,7 @@
 				DD85F3512625DD7700838B0F /* SpriteData.swift */,
 				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
+				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1654,6 +1657,7 @@
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
+				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
