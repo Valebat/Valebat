@@ -37,6 +37,6 @@ class CoopManager {
     }
 
     private func initialiseLoadInputCycle() {
-        coopGameSession.roomManager.loadSpritesCycle()
+        coopGameSession.roomManager.loadUserInputCycle()
     }
 }
