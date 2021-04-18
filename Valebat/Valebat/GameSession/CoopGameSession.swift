@@ -25,7 +25,6 @@ class CoopGameSession: BaseGameSession {
         roomManager.room?.players.forEach({
             if $0 != room.hostId {
                 coopManager?.entityManager.addClientPlayer(playerID: $0)
-//                roomManager.realTimeData.userInputInfo[$0] = UserInputInfo()
             }
         })
     }
