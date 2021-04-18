@@ -13,14 +13,14 @@ class ClientManager {
     var roomManager: RoomManager?
     var loadingIsInitialised: Bool = false
 
-    private func initialiseLoadingSpritesCycle() {
+    private func initialiseLoadingCycle() {
         roomManager!.loadSpritesCycle()
         loadingIsInitialised = true
     }
 
-    func getSpriteData() {
+    func getData() {
         if !loadingIsInitialised {
-            initialiseLoadingSpritesCycle()
+            initialiseLoadingCycle()
         }
         if let sprites = self.roomManager?.realTimeData.sprites {
             if sprites.count > 0 {
