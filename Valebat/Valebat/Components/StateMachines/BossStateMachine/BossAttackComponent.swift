@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BossAttackComponent: BaseComponent, OnDeathObservers {
+class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
     func onDeath() {
         attachedSubComponent.forEach({ $0.deathCleanUp() })
     }
@@ -25,7 +25,7 @@ class BossAttackComponent: BaseComponent, OnDeathObservers {
     var currentAttackingComponent: BossAttackSubComponent?
     var coolDown = 0.0
     private var cachedSpriteComponent: SpriteComponent?
-    private var cachedMoveComponent: MoveComponent?
+    internal var cachedMoveComponent: MoveComponent?
     override init() {
         super.init()
         attachedSubComponent.append(BossBorderOfWaveAndParticle(attachedAttackComponent: self))
@@ -35,19 +35,12 @@ class BossAttackComponent: BaseComponent, OnDeathObservers {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func getSpriteComponent() -> SpriteComponent? {
+   /*func getSpriteComponent() -> SpriteComponent? {
         if cachedSpriteComponent == nil {
             cachedSpriteComponent = entity?.component(ofType: SpriteComponent.self)
         }
         return cachedSpriteComponent
-    }
-
-    func getMovementComponent() -> MoveComponent? {
-        if cachedMoveComponent == nil {
-            cachedMoveComponent = entity?.component(conformingTo: MoveComponent.self)
-        }
-        return cachedMoveComponent
-    }
+    }*/
     override func update(deltaTime seconds: TimeInterval) {
         attachedSubComponent.forEach({ $0.update(deltaTime: seconds) })
         coolDown -= seconds

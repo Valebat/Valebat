@@ -11,7 +11,7 @@
 import SpriteKit
 import GameplayKit
 
-class SpriteComponent: GKSKNodeComponent {
+class SpriteComponent: GKSKNodeComponent, MovementCachable {
 
     private(set) var idx: UUID
 
@@ -24,13 +24,6 @@ class SpriteComponent: GKSKNodeComponent {
         node = SKSpriteNode(texture: texture, color: SKColor.white, size: size)
         node.position = position
         node.zPosition = zPosition
-    }
-
-    func getMoveComponent() -> MoveComponent? {
-        if cachedMoveComponent == nil {
-            cachedMoveComponent = entity?.component(conformingTo: MoveComponent.self)
-        }
-        return cachedMoveComponent
     }
 
     init(animatedTextures: [SKTexture], size: CGSize, position: CGPoint, isStatic: Bool = true,
@@ -55,10 +48,10 @@ class SpriteComponent: GKSKNodeComponent {
 
     override func update(deltaTime seconds: TimeInterval) {
         if !isStatic {
-            if let position = getMoveComponent()?.currentPosition {
+            if let position = getCurrentPosition() {
                 node.position = position
             }
-            if let orientation = getMoveComponent()?.orientation {
+            if let orientation = getMovementComponent()?.orientation {
                 node.zRotation = orientation
             }
         }

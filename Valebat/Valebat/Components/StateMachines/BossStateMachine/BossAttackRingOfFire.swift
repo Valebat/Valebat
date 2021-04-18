@@ -31,7 +31,7 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
             return
         }
         guard let playerPosition = attachedAttackComponent?.baseEntity?.entityManager?.lastKnownPlayerPosition,
-              let currentPosition = attachedAttackComponent?.getSpriteComponent()?.node.position else {
+              let currentPosition = attachedAttackComponent?.getCurrentPosition() else {
             return
         }
         isCurrentlyCasting = true
@@ -59,7 +59,7 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
     }
     func launchFireBall(angle: CGFloat, type: BasicType) {
         guard let entityManager = attachedAttackComponent?.baseEntity?.entityManager,
-              let position = attachedAttackComponent?.getSpriteComponent()?.node.position else {
+              let position = attachedAttackComponent?.getCurrentPosition() else {
             return
         }
         let launchVelocity = CGVector(angle: angle) * 4.0

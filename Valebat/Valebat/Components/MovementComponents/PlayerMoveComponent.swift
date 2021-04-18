@@ -8,11 +8,11 @@
 import GameplayKit
 
 class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
+    var player: PlayerEntity?
 
     var orientation: CGFloat?
 
     var currentPosition: CGPoint
-    var player: PlayerEntity?
 
     init(initialPosition: CGPoint) {
         self.currentPosition = initialPosition
@@ -23,28 +23,18 @@ class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func update(deltaTime seconds: TimeInterval) {
-        super.update(deltaTime: seconds)
-        guard let userInput = baseEntity?.entityManager?.scene.userInputInfo else {
-            return
-        }
-       /* movePlayer(velocity: userInput.movementJoystickVelocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
-                   angular: userInput.movementJoystickAngular)*/
-    }
-
     func movePlayer(velocity: CGPoint, angular: CGFloat) {
-        guard let playerSprite = player?.component(ofType: SpriteComponent.self),
-              let graph = baseEntity?.entityManager?.obstacleGraph else {
+        guard let graph = baseEntity?.entityManager?.obstacleGraph else {
             return
         }
 
         let adjustedVelocity = velocity * PlayerModifierUtil.playerSpeedMultiplier
 
-        let newPosition = CGPoint(x: playerSprite.node.position.x + adjustedVelocity.x,
-                                  y: playerSprite.node.position.y + adjustedVelocity.y)
+        let newPosition = CGPoint(x: currentPosition.x + adjustedVelocity.x,
+                                  y: currentPosition.y + adjustedVelocity.y)
 
-        let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(playerSprite.node.position.x),
-                                                                          Float(playerSprite.node.position.y)))
+        let startNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(currentPosition.x),
+                                                                          Float(currentPosition.y)))
         let endNode: GKGraphNode2D = GKGraphNode2D(point: vector_float2(Float(newPosition.x),
                                                                         Float(newPosition.y)))
 
@@ -56,12 +46,10 @@ class PlayerMoveComponent: BaseComponent, PlayerComponent, MoveComponent {
         if !path.isEmpty { path.remove(at: 0) }
 
         let nextPositionInPath: GKGraphNode2D? = path.last
-        let nextX: CGFloat = CGFloat(nextPositionInPath?.position.x ?? Float(playerSprite.node.position.x))
-        let nextY: CGFloat = CGFloat(nextPositionInPath?.position.y ?? Float(playerSprite.node.position.y))
-        let nextPosition: CGPoint = CGPoint(x: nextX, y: nextY)
-
-        currentPosition = nextPosition
-        playerSprite.node.zRotation = angular
+        let nextX = CGFloat(nextPositionInPath?.position.x ?? Float(currentPosition.x))
+        let nextY = CGFloat(nextPositionInPath?.position.y ?? Float(currentPosition.y))
+        currentPosition = CGPoint(x: nextX, y: nextY)
+        orientation = angular
     }
 
 }

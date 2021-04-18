@@ -45,9 +45,8 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
         guard let graph = baseEntity?.entityManager?.obstacleGraph else {
             return
         }
-        let position = currentPosition
-        var startNode = GKGraphNode2D(point: vector_float2(Float(position.x),
-                                                          Float(position.y)))
+        var startNode = GKGraphNode2D(point: vector_float2(Float(currentPosition.x),
+                                                          Float(currentPosition.y)))
         let endNode =  GKGraphNode2D(point: vector_float2(Float(targetLocation.x),
                                                           Float(targetLocation.y)))
         graph.connectUsingObstacles(node: startNode)
@@ -59,9 +58,9 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
             let directions: [CGPoint] = [CGPoint(x: 1, y: 1), CGPoint(x: -1, y: -1),
                                          CGPoint(x: -1, y: 1), CGPoint(x: 1, y: -1)]
             for idx in 0..<directions.count {
-                let newPosition = CGPoint(x: CGFloat(position.x) +
+                let newPosition = CGPoint(x: currentPosition.x +
                                             directions[idx].x * ViewConstants.baseEnemyEscapeDistance,
-                                          y: CGFloat(position.y) +
+                                          y: currentPosition.y +
                                             directions[idx].y * ViewConstants.baseEnemyEscapeDistance)
 
                 startNode = GKGraphNode2D(point: vector_float2(Float(newPosition.x),

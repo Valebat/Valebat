@@ -20,7 +20,7 @@ class SpellSpawnOnShootComponent: SpellEffectComponent {
         guard let pos = baseEntity?.component(ofType: SpriteComponent.self)?.node.position else {
             return super.createEffect()
         }
-        guard let orientation = baseEntity?.component(ofType: RegularMovementComponent.self)?.orientation else {
+        guard (baseEntity?.component(ofType: RegularMovementComponent.self)?.orientation) != nil else {
             return super.createEffect()
         }
         guard let entityManager = baseEntity?.entityManager else {
