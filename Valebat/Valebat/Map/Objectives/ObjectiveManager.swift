@@ -11,6 +11,15 @@ class ObjectiveManager {
 
     var counters: [ObjectiveEnum: Int] = [:]
 
+    func createObjectiveFromBiomeType(_ biomeType: BiomeTypeEnum) -> Objective {
+        let biomeData: BiomeData = BiomeTypeEnum.getBiomeDataFromType(biomeType)
+        return createObjectiveFromBiomeData(biomeData)
+    }
+
+    func createObjectiveFromBiomeData(_ biomeData: BiomeData) -> Objective {
+        return Objective(possibleTypes: biomeData.objectiveTypes, quantity: biomeData.objectiveQuantity)
+    }
+
     func setCurrentObjective(_ objective: Objective) {
         self.currentObjective = objective
         resetCounters()
