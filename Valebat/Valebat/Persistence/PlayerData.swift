@@ -11,6 +11,7 @@ struct PlayerData: Codable {
     var level: Int = 0
     var currentEXP: Int = 0
     var currentPlayerLevel: Int = 0
+    var maxHP: Float = 0.0
     var elementType = [String]()
     var elementLevels = [Double]()
     var elementMultipliers = [Double]()
@@ -24,6 +25,7 @@ struct PlayerData: Codable {
                 playerStats.elementalMultipliers[type] = CGFloat(elementMultipliers[index])
                 playerStats.currentEXP = currentEXP
                 playerStats.currentPlayerLevel = currentPlayerLevel
+                playerStats.maxHP = CGFloat(maxHP)
             }
         }
     }
@@ -47,6 +49,7 @@ struct PlayerData: Codable {
         playerData.elementMultipliers = elementalMultipliers
         playerData.currentEXP = playerStats.currentEXP
         playerData.currentPlayerLevel = playerStats.currentPlayerLevel
+        playerData.maxHP = Float(playerStats.maxHP)
         return playerData
     }
 
