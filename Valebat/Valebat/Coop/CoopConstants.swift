@@ -7,5 +7,5 @@
 
 struct CoopConstants {
     /// This is for proof of concept. Ideally, we update every update loop.
-    static let updateTimer: Double = 0.2
+    static let updateTimer: Double = 0.5
 }
