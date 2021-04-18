@@ -12,10 +12,11 @@ import FirebaseDatabase
 extension RoomManager {
 
     func updateData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
-        guard let guaranteedRoom = self.room else {
+        guard let guaranteedRoom = self.room,
+              let roomIdx = guaranteedRoom.idx else {
             return
         }
-        self.ref.child("sprites/\(guaranteedRoom.idx!)").removeValue()
+        self.ref.child("sprites/\(roomIdx)").removeValue()
 
         realTimeData.sprites = Array(sprites)
         var allUpdates = [String: Any]()
@@ -23,24 +24,36 @@ extension RoomManager {
         var updates = [String: Any]()
         for sprite in realTimeData.sprites {
             let update = [
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/name": sprite.name,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/width": sprite.width,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/height": sprite.height,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/xPos": sprite.xPos,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/yPos": sprite.yPos,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/zPos": sprite.zPos,
-                "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/orientation": sprite.orientation
+                "sprites/\(roomIdx)/\(sprite.idx)/name": sprite.name,
+                "sprites/\(roomIdx)/\(sprite.idx)/width": sprite.width,
+                "sprites/\(roomIdx)/\(sprite.idx)/height": sprite.height,
+                "sprites/\(roomIdx)/\(sprite.idx)/xPos": sprite.xPos,
+                "sprites/\(roomIdx)/\(sprite.idx)/yPos": sprite.yPos,
+                "sprites/\(roomIdx)/\(sprite.idx)/zPos": sprite.zPos,
+                "sprites/\(roomIdx)/\(sprite.idx)/orientation": sprite.orientation
               ] as [String: Any]
             update.forEach { updates[$0] = $1 }
-            // allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
         }
+
+        if let playerHUD = playerHUDData {
+            let update = [
+                "playerHUD/\(roomIdx)/playerLevel": playerHUD.playerLevel,
+                "playerHUD/\(roomIdx)/currentLevel": playerHUD.currentLevel,
+                "playerHUD/\(roomIdx)/currentEXP": playerHUD.currentEXP,
+                "playerHUD/\(roomIdx)/objective": playerHUD.objective,
+                "playerHUD/\(roomIdx)/maxHP": Float(playerHUD.maxHP)
+              ] as [String: Any]
+            update.forEach { updates[$0] = $1 }
+            
+            for (idx, hpLevel) in playerHUD.playercurrentHP {
+                let key = "playerHUD/\(roomIdx)/playercurrentHP/\(idx)"
+                updates[key] = Float(hpLevel)
+            }
+        }
+
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
-        // TODO : write data
 
         self.ref.updateChildValues(allUpdates)
-    }
-    func updateHUD() {
-
     }
 
     func loadSpritesCycle() {
@@ -56,11 +69,12 @@ extension RoomManager {
     }
 
     func loadSprites(completed: @escaping () -> Void) {
-        guard let guaranteedRoom = self.room else {
+        guard let guaranteedRoom = self.room,
+              let roomIdx = guaranteedRoom.idx else {
             return
         }
 
-        self.ref.child("sprites/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
+        self.ref.child("sprites/\(roomIdx)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
@@ -84,10 +98,12 @@ extension RoomManager {
     }
 
     func loadUserInfo(completed: @escaping () -> Void) {
-        guard let guaranteedRoom = self.room else {
+        guard let guaranteedRoom = self.room,
+              let roomIdx = guaranteedRoom.idx else {
             return
         }
-        self.ref.child("playerInput/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
+
+        self.ref.child("playerInput/\(roomIdx)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
