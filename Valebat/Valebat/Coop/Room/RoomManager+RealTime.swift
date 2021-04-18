@@ -73,7 +73,7 @@ extension RoomManager {
               let userInfo = realTimeData.userInputInfo[playerId] else {
             return
         }
-        
+
         let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
         self.ref.updateChildValues(request)
     }

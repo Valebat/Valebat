@@ -62,7 +62,8 @@ extension EntityManager: UserInputDelegate {
                 return
             }
             indicatorComp.onJoystickMoved(shootAngle: angular,
-                                          playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation, playerPosition: playerPos)
+                                          playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation,
+                                          playerPosition: playerPos)
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given")
         } catch SpellErrors.wrongBasicTypeError {
