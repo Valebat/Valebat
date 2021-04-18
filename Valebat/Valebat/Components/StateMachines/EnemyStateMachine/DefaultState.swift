@@ -17,10 +17,10 @@ class DefaultState: BaseEnemyState {
     }
 
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent.getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime)
+        stateMachineComponent?.getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime)
     }
 
     override func willExit(to nextState: GKState) {
-        stateMachineComponent.getMoveComponent()?.reset()
+        stateMachineComponent?.getMoveComponent()?.reset()
     }
 }
