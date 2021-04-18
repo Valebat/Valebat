@@ -22,8 +22,7 @@ class CoopEntityManager: EntityManager {
         timer += Double(deltaTime)
 
         if timer > CoopConstants.updateTimer {
-            saveSprites()
-            saveplayerHUD()
+            saveData()
             timer -= CoopConstants.updateTimer
         }
         updateClientPlayers(deltaTime)
@@ -41,12 +40,9 @@ class CoopEntityManager: EntityManager {
         clientPlayers[playerID] = character
     }
 
-    private func saveSprites() {
+    private func saveData() {
         let spriteComponents = spriteSystem.components
-        currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
-    }
-    private func saveplayerHUD() {
-
+        currentSession?.coopManager?.saveData(spriteComponents: spriteComponents)
     }
 
     private func updateClientPlayers(_ seconds: CFTimeInterval) {

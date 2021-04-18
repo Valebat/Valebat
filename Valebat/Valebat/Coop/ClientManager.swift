@@ -9,6 +9,7 @@ import Foundation
 
 class ClientManager {
     var spritesData: Set<SpriteData> = Set()
+    var coopHUDData: CoopHUDData?
     var roomManager: RoomManager?
     var loadingIsInitialised: Bool = false
 

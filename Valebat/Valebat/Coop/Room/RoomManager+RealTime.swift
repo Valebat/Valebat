@@ -11,18 +11,18 @@ import FirebaseDatabase
 
 extension RoomManager {
 
-    func updateSprites(_ sprites: Set<SpriteData>) {
+    func updateData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
         guard let guaranteedRoom = self.room else {
             return
         }
         self.ref.child("sprites/\(guaranteedRoom.idx!)").removeValue()
 
         realTimeData.sprites = Array(sprites)
-
         var allUpdates = [String: Any]()
 
+        var updates = [String: Any]()
         for sprite in realTimeData.sprites {
-            let updates = [
+            let update = [
                 "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/name": sprite.name,
                 "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/width": sprite.width,
                 "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/height": sprite.height,
@@ -31,9 +31,11 @@ extension RoomManager {
                 "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/zPos": sprite.zPos,
                 "sprites/\(guaranteedRoom.idx!)/\(sprite.idx)/orientation": sprite.orientation
               ] as [String: Any]
-
-            allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
+            update.forEach { updates[$0] = $1 }
+            // allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
         }
+        allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
+        // TODO : write data
 
         self.ref.updateChildValues(allUpdates)
     }

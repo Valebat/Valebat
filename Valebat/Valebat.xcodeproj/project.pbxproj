@@ -272,6 +272,7 @@
 		C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */; };
 		C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */; };
 		C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */; };
+		CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
 		CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB669992262B2098000FD16D /* ClientPlayerEntity.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
@@ -500,6 +501,7 @@
 		C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+JoinRoom.swift"; sourceTree = "<group>"; };
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
 		C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+RealTime.swift"; sourceTree = "<group>"; };
+		CB0183AB262C69C700375D30 /* CoopHUDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopHUDData.swift; sourceTree = "<group>"; };
 		CB669992262B2098000FD16D /* ClientPlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerEntity.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
@@ -1154,6 +1156,7 @@
 				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
+				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1688,6 +1691,7 @@
 				EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */,
 				C6A944962616D5FA00087256 /* IntangibleMapObject.swift in Sources */,
 				EF19416225FFC71900341BF5 /* SteamSpell.swift in Sources */,
+				CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */,
 				DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */,
 				C6A94524261DC29A00087256 /* SpawnEnemyUtil.swift in Sources */,
 				C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */,
