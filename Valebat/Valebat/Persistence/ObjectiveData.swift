@@ -20,6 +20,6 @@ struct ObjectiveData: Codable {
         guard let typeEnum = ObjectiveEnum(rawValue: objectiveType) else {
             return nil
         }
-        return Objective(type: typeEnum, quantity: objectiveQuantity)
+        return Objective(possibleTypes: [typeEnum], quantity: objectiveQuantity)
     }
 }

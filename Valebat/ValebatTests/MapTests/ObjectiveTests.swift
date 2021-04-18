@@ -11,14 +11,14 @@ import XCTest
 class ObjectiveTests: XCTestCase {
 
     func test_initialiseObjective() {
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
 
         XCTAssertEqual(objective.objectiveType, .kills, "Objective initialised incorrectly.")
         XCTAssertEqual(objective.objectiveQuantity, 10, "Objective initialised incorrectly.")
     }
 
     func test_initialiseObjective_quantityBelowZero() {
-        let objective = Objective(type: .kills, quantity: -1)
+        let objective = Objective(possibleTypes: [.kills], quantity: -1)
 
         XCTAssertEqual(objective.objectiveType, .kills, "Objective initialised incorrectly.")
         XCTAssertEqual(objective.objectiveQuantity, 0, "Objective initialised incorrectly.")
@@ -48,7 +48,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_setObjective() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
 
         XCTAssertEqual(objectiveManager.currentObjective.objectiveType, .kills,
@@ -59,7 +59,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_setObjective_increment_objectiveNotCompleted() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...9 {
             objectiveManager.incrementCounter(.kills)
@@ -71,7 +71,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_setObjective_increment_otherCounter_doesNothing() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...20 {
             objectiveManager.incrementCounter(.powerupscollected)
@@ -83,7 +83,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_setObjective_increment_objectiveCompleted() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...10 {
             objectiveManager.incrementCounter(.kills)
@@ -95,7 +95,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_setNewObjective_resetsCounters() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...9 {
             objectiveManager.incrementCounter(.kills)
@@ -111,7 +111,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_remainingQuantity1() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
 
         XCTAssertEqual(objectiveManager.remainingQuantity(), 10,
@@ -120,7 +120,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_remainingQuantity2() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...9 {
             objectiveManager.incrementCounter(.kills)
@@ -132,7 +132,7 @@ class ObjectiveTests: XCTestCase {
 
     func test_remainingQuantity3() {
         let objectiveManager = ObjectiveManager()
-        let objective = Objective(type: .kills, quantity: 10)
+        let objective = Objective(possibleTypes: [.kills], quantity: 10)
         objectiveManager.setCurrentObjective(objective)
         for _ in 1...10 {
             objectiveManager.incrementCounter(.kills)

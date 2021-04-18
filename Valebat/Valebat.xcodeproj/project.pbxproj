@@ -210,6 +210,10 @@
 		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
 		C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
 		C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
+		C69D377D262C142000EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
+		C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
+		C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */; };
+		C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -1788,6 +1792,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69D377D262C142000EDE2AC /* GenericMapEntity.swift in Sources */,
+				C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */,
+				C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */,
+				C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */,
 				C69D35FD262B2A1E00EDE2AC /* LaserDamage.wav in Sources */,
 				C69D35FE262B2A1E00EDE2AC /* Hit.wav in Sources */,
 				C69D35FF262B2A1E00EDE2AC /* SoundEffects.swift in Sources */,

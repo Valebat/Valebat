@@ -5,12 +5,15 @@
 //  Created by Jing Lin Shi on 8/4/21.
 //
 
+import GameplayKit
+
 class Objective {
     let objectiveType: ObjectiveEnum
     let objectiveQuantity: Int
 
-    init(type: ObjectiveEnum, quantity: Int) {
-        self.objectiveType = type
+    init(possibleTypes: [ObjectiveEnum], quantity: Int) {
+        let objectiveIndex = Int(arc4random()) % possibleTypes.count
+        self.objectiveType = possibleTypes[objectiveIndex]
         self.objectiveQuantity = quantity > 0 ? quantity : 0
     }
 

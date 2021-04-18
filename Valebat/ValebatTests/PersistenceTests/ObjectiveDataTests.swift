@@ -14,7 +14,7 @@ class ObjectiveDataTests: XCTestCase {
 
     override func setUpWithError() throws {
         for type in ObjectiveEnum.allCases {
-            objectives.append(Objective(type: type, quantity: 1))
+            objectives.append(Objective(possibleTypes: [type], quantity: 1))
         }
     }
 
@@ -31,7 +31,7 @@ class ObjectiveDataTests: XCTestCase {
     }
 
     func test_negativeQuantity() {
-        let objective = Objective(type: .kills, quantity: -1) // With +ve quantity
+        let objective = Objective(possibleTypes: [.kills], quantity: -1) // With +ve quantity
         let objData = ObjectiveData(objective: objective)
         XCTAssert(objData.objectiveQuantity == 0)
     }
@@ -53,7 +53,7 @@ class ObjectiveDataTests: XCTestCase {
     }
 
     func test_generateNegativeObjective() {
-        let objective = Objective(type: .kills, quantity: -25) // With +ve quantity
+        let objective = Objective(possibleTypes: [.kills], quantity: -25) // With +ve quantity
         let objData = ObjectiveData(objective: objective)
         let retrievedObjective = objData.generateObjective()
         XCTAssert(retrievedObjective?.objectiveQuantity == 0)

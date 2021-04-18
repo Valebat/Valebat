@@ -27,7 +27,7 @@ class BiomeData {
     var defaultSpawnTime: Double = 6.0
     var defaultStairsTimer: Double = 35.0
 
-    var objectiveType: ObjectiveEnum = .kills
+    var objectiveTypes: [ObjectiveEnum] = [.kills]
     var objectiveQuantity: Int = 25
 
     init() {
@@ -70,8 +70,8 @@ class BiomeData {
         return self
     }
 
-    func withObjectiveType(_ objectiveType: ObjectiveEnum) -> BiomeData {
-        self.objectiveType = objectiveType
+    func withPossibleObjectiveTypes(_ objectiveTypes: [ObjectiveEnum]) -> BiomeData {
+        self.objectiveTypes = objectiveTypes
         return self
     }
 

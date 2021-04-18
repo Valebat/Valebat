@@ -12,6 +12,6 @@ class ObjectiveUtil {
     }
 
     static func createObjectiveFromBiomeData(_ biomeData: BiomeData) -> Objective {
-        return Objective(type: biomeData.objectiveType, quantity: biomeData.objectiveQuantity)
+        return Objective(possibleTypes: biomeData.objectiveTypes, quantity: biomeData.objectiveQuantity)
     }
 }
