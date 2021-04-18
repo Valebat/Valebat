@@ -16,8 +16,6 @@ class MoveState: BaseEnemyState {
         }
         return true
     }
-    override func didEnter(from previousState: GKState?) {
-    }
     override func update(deltaTime: TimeInterval) {
         stateMachineComponent.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
     }

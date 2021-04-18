@@ -15,12 +15,7 @@ class BossAttackState: BaseBossState {
         }
         return true
     }
-    override func didEnter(from previousState: GKState?) {
-        // print(String(describing: type(of: previousState)))
-    }
     override func update(deltaTime: TimeInterval) {
         stateMachineComponent.entity?.component(ofType: BossAttackComponent.self)?.launchAttack()
-    }
-    override func willExit(to nextState: GKState) {
     }
 }

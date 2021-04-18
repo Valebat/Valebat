@@ -11,6 +11,7 @@ class BossStateMachineComponent: BaseComponent {
 
     var cachedEnemyMoveComponent: EnemyMoveComponent?
     var stateMachine: GKStateMachine!
+    let attackRange: CGFloat = 600.0
     override init() {
         super.init()
         let attackState = BossAttackState(stateMachineComponent: self)
@@ -30,7 +31,7 @@ class BossStateMachineComponent: BaseComponent {
             return
         }
         let distance = (origin - playerOrigin).length()
-        if distance > 600.0 {
+        if distance > attackRange {
             stateMachine.enter(BossMoveState.self)
         } else {
             stateMachine.enter(BossAttackState.self)

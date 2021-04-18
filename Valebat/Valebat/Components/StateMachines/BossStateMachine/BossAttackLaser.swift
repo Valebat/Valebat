@@ -38,8 +38,7 @@ class BossAttackLaser: BossAttackSubComponent {
                 laserEntity?.component(ofType: DPSDamageComponent.self)?.damageValues[.pure] = damage
                 activated = true
             }
-            let angle = getAngle() ?? 0
-            let offset = (angle - currentAngle +
+            let offset = (getAngle() - currentAngle +
                             2 * CGFloat(Double.pi)).truncatingRemainder(dividingBy: 2 * CGFloat(Double.pi))
             if offset > CGFloat(Double.pi) {
                 currentAngle -= CGFloat(deltaTime) * laserRotationSpeed
@@ -50,10 +49,10 @@ class BossAttackLaser: BossAttackSubComponent {
         laserEntity?.reposition(origin: getPosition(), currentSizeRatio: ratio, currentAngle: currentAngle)
     }
 
-    func getAngle() -> CGFloat? {
+    func getAngle() -> CGFloat {
         guard let currentPosition = attachedAttackComponent?.getCurrentPosition(),
               let playerPosition = attachedAttackComponent?.baseEntity?.entityManager?.lastKnownPlayerPosition else {
-            return nil
+            return 0.0
         }
         return (playerPosition - currentPosition).calculateAngle()
     }
@@ -62,8 +61,11 @@ class BossAttackLaser: BossAttackSubComponent {
         return attachedAttackComponent?.getCurrentPosition() ?? CGPoint(x: 0, y: 0)
     }
     func finishLaser() {
-        attachedAttackComponent?.baseEntity?.entityManager?.remove(laserEntity!)
         isCurrentlyCasting = false
+        guard let laser = laserEntity else {
+            return
+        }
+        attachedAttackComponent?.baseEntity?.entityManager?.remove(laser)
         laserEntity = nil
     }
     var isCurrentlyCasting: Bool = false
@@ -72,13 +74,13 @@ class BossAttackLaser: BossAttackSubComponent {
         if isCurrentlyCasting {
             return
         }
-        currentAngle = getAngle() ?? 0.0
         currentTimer = 0.0
         activated = false
         isCurrentlyCasting = true
-        laserEntity = LaserSpell()
-        attachedAttackComponent?.baseEntity?.entityManager?.add(laserEntity!)
-        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: currentAngle)
+        let laser = LaserSpell()
+        laserEntity = laser
+        attachedAttackComponent?.baseEntity?.entityManager?.add(laser)
+        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: getAngle())
         laserEntity?.changeOpacity(opacity: 0.0)
 
     }
