@@ -35,7 +35,6 @@
 		C69D360D262B2A1E00EDE2AC /* HUDHPBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */; };
 		C69D360E262B2A1E00EDE2AC /* HPBar.sks in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E20261738A60016B046 /* HPBar.sks */; };
 		C69D360F262B2A1E00EDE2AC /* PlayerHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E25261744060016B046 /* PlayerHUD.swift */; };
-		C69D3610262B2A1E00EDE2AC /* PlayerHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7035632619C24200D3602B /* PlayerHUDNode.swift */; };
 		C69D3611262B2A1E00EDE2AC /* PlayerLevel.sks in Sources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
 		C69D3612262B2A1E00EDE2AC /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
 		C69D3613262B2A1E00EDE2AC /* EXPBar.sks in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9ED2261E4BC80016B046 /* EXPBar.sks */; };
@@ -355,7 +354,6 @@
 		DD70350D26176D6C00D3602B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70350C26176D6C00D3602B /* GameData.swift */; };
 		DD70352C2618317500D3602B /* MapObjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70352B2618317500D3602B /* MapObjectData.swift */; };
 		DD70353126183FF400D3602B /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70353026183FF400D3602B /* MapData.swift */; };
-		DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7035632619C24200D3602B /* PlayerHUDNode.swift */; };
 		DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
 		DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
 		DD703591261AED5200D3602B /* PositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703590261AED5200D3602B /* PositionData.swift */; };
@@ -592,7 +590,6 @@
 		DD70350C26176D6C00D3602B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		DD70352B2618317500D3602B /* MapObjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectData.swift; sourceTree = "<group>"; };
 		DD70353026183FF400D3602B /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
-		DD7035632619C24200D3602B /* PlayerHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHUDNode.swift; sourceTree = "<group>"; };
 		DD7035682619C5D700D3602B /* PlayerLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerLevel.sks; sourceTree = "<group>"; };
 		DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerLevel.swift; sourceTree = "<group>"; };
 		DD703590261AED5200D3602B /* PositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionData.swift; sourceTree = "<group>"; };
@@ -1247,7 +1244,6 @@
 				CB9E9E1B2617377C0016B046 /* HUDHPBar.swift */,
 				CB9E9E20261738A60016B046 /* HPBar.sks */,
 				CB9E9E25261744060016B046 /* PlayerHUD.swift */,
-				DD7035632619C24200D3602B /* PlayerHUDNode.swift */,
 				DD7035682619C5D700D3602B /* PlayerLevel.sks */,
 				DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */,
 				CB9E9ED2261E4BC80016B046 /* EXPBar.sks */,
@@ -1684,7 +1680,6 @@
 				CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */,
 				C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
-				DD7035642619C24200D3602B /* PlayerHUDNode.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStats.swift in Sources */,
 				C6ACE6E9262993490000A2E6 /* BaseGameSession.swift in Sources */,
 				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,
@@ -1826,7 +1821,6 @@
 				C69D360D262B2A1E00EDE2AC /* HUDHPBar.swift in Sources */,
 				C69D360E262B2A1E00EDE2AC /* HPBar.sks in Sources */,
 				C69D360F262B2A1E00EDE2AC /* PlayerHUD.swift in Sources */,
-				C69D3610262B2A1E00EDE2AC /* PlayerHUDNode.swift in Sources */,
 				C69D3611262B2A1E00EDE2AC /* PlayerLevel.sks in Sources */,
 				C69D3612262B2A1E00EDE2AC /* HUDPlayerLevel.swift in Sources */,
 				C69D3613262B2A1E00EDE2AC /* EXPBar.sks in Sources */,

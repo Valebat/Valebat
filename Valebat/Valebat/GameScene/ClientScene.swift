@@ -34,9 +34,13 @@ class ClientScene: BaseGameScene {
         clientManager.getSpriteData()
         renderSprites()
         updateInputInfo()
-
+        updateClientHUD()
         self.lastUpdateTime = currentTime
 
+    }
+
+    func updateClientHUD() {
+       /*playerHUDDisplay.updateHUD(currentHP: <#T##CGFloat#>, maxHP: <#T##CGFloat#>, playerLevel: <#T##Int#>, currentEXP: <#T##Int#>, floorLevel: <#T##Int#>, objectiveDescription: <#T##String#>)*/
     }
 
     func renderSprites() {

@@ -22,7 +22,7 @@ extension LevelListTypeEnum {
         case .hard:
             return [.normal, .dungeon, .crazyhouse, .dungeon, .boss, .crazyhouse, .crazyhouse, .crazyhouse, .boss]
         case .coop:
-            return [.normal, .dungeon]
+            return [.boss]
         }
     }
 }

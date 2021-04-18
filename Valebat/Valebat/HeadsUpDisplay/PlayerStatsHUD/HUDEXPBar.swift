@@ -7,7 +7,7 @@
 
 import Foundation
 import GameplayKit
-class HUDEXPBar: SKSpriteNode, PlayerHUDNode {
+class HUDEXPBar: SKSpriteNode {
 
     var originalScale: CGFloat = 0.0
     required init?(coder aDecoder: NSCoder) {
@@ -17,13 +17,10 @@ class HUDEXPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update(gameSession: BaseGameSession) {
-        let exp = gameSession.playerStats.currentEXP
-        let currentLevel = gameSession.playerStats.currentPlayerLevel
-        let fullEXP = PlayerStats.getEXPPerLevel(level: currentLevel)
+    func update(currentLevel: Int, currentEXP: Int, fullEXP: Int) {
         (childNode(withName: "//LevelLabel") as? SKLabelNode)?.text =
             "Level \(currentLevel)"
-        (childNode(withName: "//expFillBar") as? SKSpriteNode)?.xScale = originalScale * CGFloat(exp) / CGFloat(fullEXP)
+        (childNode(withName: "//expFillBar") as? SKSpriteNode)?.xScale = originalScale * CGFloat(currentEXP) / CGFloat(fullEXP)
     }
 
 }

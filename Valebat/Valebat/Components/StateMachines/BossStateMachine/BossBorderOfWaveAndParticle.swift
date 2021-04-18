@@ -22,6 +22,11 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
     let linesOfBullets = 3
     let bulletDamage = 3.0
     var currentType = BasicType.pure
+    let bulletSpeed: CGFloat = 4.5
+    var attachedAttackComponent: BossAttackComponent?
+    var coolDown: TimeInterval = 14
+    var isCurrentlyCasting: Bool = false
+
     init(attachedAttackComponent: BossAttackComponent) {
         self.attachedAttackComponent = attachedAttackComponent
     }
@@ -41,8 +46,6 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
         }
     }
 
-    var isCurrentlyCasting: Bool = false
-
     func triggerAttack() {
         if !isCurrentlyCasting {
             isCurrentlyCasting = true
@@ -52,17 +55,13 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
         }
     }
 
-    var attachedAttackComponent: BossAttackComponent?
-
-    var coolDown: TimeInterval = 14
-
     func shootBullets(angle: CGFloat) {
         guard let position = attachedAttackComponent?.getCurrentPosition() else {
            return
         }
         for index in 0 ..< linesOfBullets {
             let currentAngle = angle + CGFloat(Double.pi) * 2 * CGFloat(index) / CGFloat(linesOfBullets)
-            let launchVelocity = CGVector(angle: currentAngle) * 4.5
+            let launchVelocity = CGVector(angle: currentAngle) * bulletSpeed
             let fireBall = StarProjectile(velocity: launchVelocity,
                                           position: position,
                                           damageType: currentType,

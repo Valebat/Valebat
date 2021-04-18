@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class HUDHPBar: SKSpriteNode, PlayerHUDNode {
+class HUDHPBar: SKSpriteNode {
 
     var originalScale: CGFloat = 0.0
 
@@ -18,10 +18,7 @@ class HUDHPBar: SKSpriteNode, PlayerHUDNode {
         }
     }
 
-    func update(gameSession: BaseGameSession) {
-        let maxHP = gameSession.playerStats.maxHP
-        let currentHP = gameSession.entityManager
-            .player?.component(ofType: HealthComponent.self)?.currentHealth ?? 0
+    func update(currentHP: CGFloat, maxHP: CGFloat) {
 
         (childNode(withName: "//HP Label") as? SKLabelNode)?.text =
             "\(Int(ceil(currentHP))) / \(Int(maxHP))"
