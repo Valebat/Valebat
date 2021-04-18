@@ -11,6 +11,7 @@ import GameplayKit
 protocol SpellMovementComponent: MoveComponent {
     var currentPosition: CGPoint { get set }
     var orientation: CGFloat? { get set }
+    static var identifier: String { get }
 
     init(velocity: CGVector, initialPosition: CGPoint)
 }

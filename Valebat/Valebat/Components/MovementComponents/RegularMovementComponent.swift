@@ -13,6 +13,8 @@ import GameplayKit
 
 class RegularMovementComponent: BaseComponent, SpellMovementComponent {
 
+    static var identifier: String = "straight_line"
+
     var velocity: CGVector
     var currentPosition: CGPoint
     var orientation: CGFloat?

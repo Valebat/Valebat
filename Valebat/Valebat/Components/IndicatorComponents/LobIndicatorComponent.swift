@@ -7,16 +7,20 @@
 
 import GameplayKit
 
-class LobIndicatorComponent: GKSKNodeComponent {
+class LobIndicatorComponent: AimIndicatorComponent {
 
-    init(initialPosition: CGPoint) {
-        super.init()
+    override init(size: CGSize) {
+        super.init(size: size)
         node = SKShapeNode()
         node.isHidden = true
         node.zPosition = 3
     }
 
-    func getPath(initialPosition: CGPoint, targetPosition: CGPoint, duration: CGFloat) -> CGPath {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func getPath(initialPosition: CGPoint, targetPosition: CGPoint, duration: CGFloat) -> CGPath {
         let path = CGMutablePath()
         path.move(to: .zero)
         let controlPoint = (targetPosition + initialPosition) / 2 +
@@ -25,37 +29,20 @@ class LobIndicatorComponent: GKSKNodeComponent {
         return path
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func didAddToEntity() {
-        entity?.component(ofType: SpriteComponent.self)?.node.addChild(self.node)
-        super.didAddToEntity()
-    }
-
-    override func willRemoveFromEntity() {
-        super.willRemoveFromEntity()
-    }
-
-    func onJoystickEnded() -> Bool {
-        let lastState = node.isHidden
-        node.isHidden = true
-        return !lastState
-    }
-
-    func isLobbingOutside(target: CGPoint) -> Bool {
+    private func isLobbingOutside(target: CGPoint) -> Bool {
         let wallWidth: CGFloat = CGFloat(MapObjectConstants.globalDefaultWidths[.wall] ?? 0.0)
         let wallHeight: CGFloat = CGFloat(MapObjectConstants.globalDefaultHeights[.wall] ?? 0.0)
         return !(target.x > wallWidth && target.x < (ViewConstants.sceneWidth - wallWidth)
                     && target.y > wallHeight && target.y < (ViewConstants.sceneHeight - wallHeight))
     }
 
-    func onJoystickMoved(angle: CGFloat, playerAngle: CGFloat?, direction: CGVector, initialPosition: CGPoint) {
-        let targetPosition = initialPosition + (direction * ProjectileMotionComponent.defaultRadius).convertToPoint()
+    override func onJoystickMoved(shootAngle: CGFloat, playerAngle: CGFloat?, playerPosition: CGPoint) {
+        let direction = CGVector(dx: -sin(shootAngle), dy: cos(shootAngle))
+        let targetPosition = playerPosition + (direction * ProjectileMotionComponent.defaultRadius).convertToPoint()
         if !isLobbingOutside(target: targetPosition) {
-            (node as? SKShapeNode)?.path = getPath(initialPosition: initialPosition, targetPosition: targetPosition ,
-                                duration: ProjectileMotionComponent.defaultDuration)
+            (node as? SKShapeNode)?.path = getPath(initialPosition: playerPosition,
+                                                   targetPosition: targetPosition,
+                                                   duration: ProjectileMotionComponent.defaultDuration)
             (node as? SKShapeNode)?.lineWidth = 1.5
             node.isHidden = false
             node.zRotation = -(playerAngle ?? 0)

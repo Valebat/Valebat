@@ -9,7 +9,10 @@ import CoreGraphics
 import GameplayKit
 
 extension EntityManager: UserInputDelegate {
-    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
+    static let movementToIndicator: [String: AimIndicatorComponent.Type] =
+        ["straight_line": AimIndicatorComponent.self, "projectile": LobIndicatorComponent.self]
+
+    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?) {
         guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
             return
         }
@@ -46,28 +49,20 @@ extension EntityManager: UserInputDelegate {
 
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
-        let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         do {
             guard let currentSpell = try self.currentSession?.spellManager.combine(elements: elementQueue) else {
                 return
             }
-            if currentSpell.movement == ProjectileMotionComponent.self {
-                guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
-                    return
-                }
-                guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
-                    return
-                }
-                lobIndicatorComp.onJoystickMoved(angle: angular,
-                                                 playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation,
-                                                 direction: direction, initialPosition: playerPos)
-            } else {
-                guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
-                    return
-                }
-                aimIndicatorComp.onJoystickMoved(angle: angular,
-                                                 playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation)
+            let indicatorType = EntityManager.movementToIndicator[currentSpell.movement.identifier]
+                ?? AimIndicatorComponent.self
+            guard let indicatorComp = player?.component(ofType: indicatorType) else {
+                return
             }
+            guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
+                return
+            }
+            indicatorComp.onJoystickMoved(shootAngle: angular,
+                                          playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation, playerPosition: playerPos)
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given")
         } catch SpellErrors.wrongBasicTypeError {

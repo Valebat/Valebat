@@ -14,6 +14,7 @@ class LaserSpell: BaseInteractableEntity {
     let baseWidth = ViewConstants.gridSize * 30
     var baseSize = CGSize(width: ViewConstants.gridSize * 40, height: ViewConstants.gridSize * 5)
     var cachedSpriteNode: SKSpriteNode?
+
     init() {
         super.init(texture: laserTexture, size: baseSize, physicsType: .enemyAttack, position: CGPoint(x: 0, y: 0))
         cachedSpriteNode = component(ofType: SpriteComponent.self)?.node as? SKSpriteNode
