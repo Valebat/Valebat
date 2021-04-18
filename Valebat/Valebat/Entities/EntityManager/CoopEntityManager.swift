@@ -14,7 +14,7 @@ class CoopEntityManager: EntityManager {
 
     var clientPlayers = [String: ClientPlayerEntity]()
 
-    var spellShoot: Bool = false
+    var spellShoot = [String: Bool]()
 
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
@@ -53,22 +53,23 @@ class CoopEntityManager: EntityManager {
         for (playerId, info) in inputInfos {
             let player = clientPlayers[playerId]
             updatePlayerPosition(seconds: seconds, player: player, userInput: info)
-            updateShoot(userInput: info, player: player)
+            updateClientShoot(userInput: info, player: player, playerId: playerId)
         }
     }
 
-    override func updateShoot(userInput: UserInputInfo, player: PlayerEntity?) {
+    private func updateClientShoot(userInput: UserInputInfo, player: PlayerEntity?,
+                                   playerId: String) {
         if userInput.spellJoystickMoved {
             spellJoystickMoved(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-            spellShoot = false
-        } else if userInput.spellJoystickEnd && !spellShoot {
+            spellShoot[playerId] = false
+        } else if userInput.spellJoystickEnd && !(spellShoot[playerId] ?? false) {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-            spellShoot = true
+            userInput.spellJoystickEnd = false
+            spellShoot[playerId] = true
         }
     }
-
 }

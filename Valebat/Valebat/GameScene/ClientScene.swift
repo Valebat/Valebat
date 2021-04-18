@@ -48,7 +48,7 @@ class ClientScene: BaseGameScene {
                                    maxHP: playerHUDData.maxHP,
                                    playerLevel: playerHUDData.playerLevel,
                                    currentEXP: playerHUDData.currentEXP,
-                                   floorLevel: playerHUDData.currentLevel,
+                                   floorLevel: playerHUDData.currentLevel + 1,
                                    objectiveDescription: playerHUDData.objective)
     }
 
