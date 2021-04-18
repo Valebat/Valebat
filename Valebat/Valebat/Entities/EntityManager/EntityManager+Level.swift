@@ -44,6 +44,7 @@ extension EntityManager {
         playing = true
     }
 
+    @objc
     func advanceLevel() {
         guard let currentSession = self.currentSession else {
             return

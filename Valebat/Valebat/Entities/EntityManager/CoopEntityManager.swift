@@ -72,4 +72,10 @@ class CoopEntityManager: EntityManager {
             spellShoot[playerId] = true
         }
     }
+
+    override func advanceLevel() {
+        super.advanceLevel()
+        clientPlayers.values.forEach({ self.add($0) })
+        print("Sdfsdf")
+    }
 }
