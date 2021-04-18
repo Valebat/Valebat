@@ -15,7 +15,7 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
     let damageValue: CGFloat
     var currentAttackCooldown: TimeInterval = 0.0
     let attackVelocity: CGFloat
-    
+
     init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat, attackVelocity: CGFloat) {
         self.attackVelocity = attackVelocity
         self.attackCooldown = attackCooldown
@@ -31,7 +31,7 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
     override func update(deltaTime seconds: TimeInterval) {
         currentAttackCooldown -= seconds
     }
-    
+
     func attack() {
         guard let entityManager = baseEntity?.entityManager else {
             return

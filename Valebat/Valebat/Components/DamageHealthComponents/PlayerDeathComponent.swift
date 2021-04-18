@@ -8,7 +8,7 @@
 import GameplayKit
 
 class PlayerDeathComponent: DeathComponent {
-    
+
     override func onDeath() {
         super.onDeath()
         baseEntity?.entityManager?.playerDied()

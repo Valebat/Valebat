@@ -11,7 +11,7 @@ class BossStateMachineComponent: BaseComponent {
     var cachedEnemyMoveComponent: EnemyMoveComponent?
     var stateMachine: GKStateMachine!
     let attackRange: CGFloat = 600.0
-    
+
     override init() {
         super.init()
         let attackState = BossAttackState(stateMachineComponent: self)
@@ -19,14 +19,14 @@ class BossStateMachineComponent: BaseComponent {
         stateMachine = GKStateMachine(states: [attackState, moveState])
         stateMachine.enter(BossMoveState.self)
     }
-    
+
     func getMoveComponent() -> EnemyMoveComponent? {
         if cachedEnemyMoveComponent == nil {
             cachedEnemyMoveComponent = entity?.component(conformingTo: EnemyMoveComponent.self)
         }
         return cachedEnemyMoveComponent
     }
-    
+
     override func update(deltaTime seconds: TimeInterval) {
         guard let origin = getMoveComponent()?.currentPosition,
               let playerOrigin = baseEntity?.entityManager?.lastKnownPlayerPosition else {
@@ -41,7 +41,7 @@ class BossStateMachineComponent: BaseComponent {
         stateMachine.update(deltaTime: seconds)
 
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

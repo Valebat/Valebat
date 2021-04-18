@@ -28,14 +28,14 @@ class HealthBarComponent: BaseComponent, DamageTakenObserver {
         entity?.component(ofType: HealthComponent.self)?.damageTakenObservers[ObjectIdentifier(self)] = self
         super.didAddToEntity()
     }
-    
+
     override func willRemoveFromEntity() {
         entity?.component(ofType: HealthComponent.self)?
             .damageTakenObservers.removeValue(forKey: ObjectIdentifier(self))
         healthBar.removeFromParent()
         super.willRemoveFromEntity()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

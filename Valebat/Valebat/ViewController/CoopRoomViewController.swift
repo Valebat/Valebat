@@ -80,7 +80,7 @@ class CoopRoomViewController: UIViewController {
             })
         }
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         refreshTimer?.invalidate()
     }

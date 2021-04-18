@@ -13,7 +13,7 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
     func deathCleanUp() {
         return
     }
-    
+
     static let conversion = CGFloat(Double.pi / 180.0)
     let duration: CGFloat = 10
     var timer: TimeInterval = 0.0
@@ -31,7 +31,7 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
     init(attachedAttackComponent: BossAttackComponent) {
         self.attachedAttackComponent = attachedAttackComponent
     }
-    
+
     func update(deltaTime: TimeInterval) {
         timer += deltaTime
         if !isCurrentlyCasting {

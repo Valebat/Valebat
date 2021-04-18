@@ -44,7 +44,7 @@ extension RoomManager {
                 "playerHUD/\(roomIdx)/maxHP": Float(playerHUD.maxHP)
               ] as [String: Any]
             update.forEach { updates[$0] = $1 }
-            
+
             for (idx, hpLevel) in playerHUD.playercurrentHP {
                 let key = "playerHUD/\(roomIdx)/playercurrentHP/\(idx)"
                 updates[key] = Float(hpLevel)

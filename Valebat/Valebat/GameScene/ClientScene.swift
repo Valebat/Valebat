@@ -44,7 +44,12 @@ class ClientScene: BaseGameScene {
               let currentHP = playerHUDData.playercurrentHP[clientId ?? ""] else {
             return
         }
-        playerHUDDisplay.updateHUD(currentHP: currentHP, maxHP: playerHUDData.maxHP, playerLevel: playerHUDData.playerLevel, currentEXP: playerHUDData.currentEXP, floorLevel: playerHUDData.currentLevel, objectiveDescription: playerHUDData.objective)
+        playerHUDDisplay.updateHUD(currentHP: currentHP,
+                                   maxHP: playerHUDData.maxHP,
+                                   playerLevel: playerHUDData.playerLevel,
+                                   currentEXP: playerHUDData.currentEXP,
+                                   floorLevel: playerHUDData.currentLevel,
+                                   objectiveDescription: playerHUDData.objective)
     }
 
     func renderSprites() {

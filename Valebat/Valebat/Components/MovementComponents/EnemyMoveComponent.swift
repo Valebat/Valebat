@@ -17,7 +17,7 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
     let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
-    
+
     init(chaseSpeed: CGFloat, normalSpeed: CGFloat, initialPosition: CGPoint) {
         self.chaseSpeed = chaseSpeed
         self.currentPosition = initialPosition
@@ -130,7 +130,7 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
         }
         computeNewPosition(deltaTime: deltaTime, speed: normalSpeed)
     }
-    
+
     func moveTowardsPlayer(deltaTime: TimeInterval) {
         currentPathTimerCooldown -= deltaTime
         if currentPathTimerCooldown < 0 {

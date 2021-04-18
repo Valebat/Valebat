@@ -8,7 +8,7 @@
 import GameplayKit
 
 class PlayerEntity: BaseInteractableEntity {
-    
+
     init(position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
         let texture = CustomTexture.initialise(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)

@@ -25,7 +25,6 @@ class CoopViewController: UIViewController {
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             if let roomID = alert?.textFields?[0].text {
-                print(roomID)
                 self.joinRoom(isHost: false, roomID: roomID)
             }
 

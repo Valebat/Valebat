@@ -15,7 +15,7 @@ protocol ContactObserver {
 class PhysicsComponent: BaseComponent {
     let physicsBody: SKPhysicsBody
     var contactObservers = [ObjectIdentifier: ContactObserver]()
-    
+
     init(physicsBody: SKPhysicsBody, collisionType: CollisionType) {
         self.physicsBody = physicsBody
         physicsBody.categoryBitMask = collisionType.rawValue

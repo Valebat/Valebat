@@ -47,7 +47,6 @@ class CoopEntityManager: EntityManager {
 
     private func updateClientPlayers(_ seconds: CFTimeInterval) {
         guard let session = currentSession as? CoopGameSession else {
-            print("not coop game")
             return
         }
         let inputInfos = session.roomManager.realTimeData.userInputInfo

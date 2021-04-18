@@ -13,7 +13,7 @@ class InstantDamageComponent: DamageComponent {
         if let damageTaker = entity.component(ofType: DamageTakerComponent.self) {
             damageTaker.takeDamage(damages: damageValues, soundEffect: .hit)
         }
-        
+
         if let entity = self.entity {
             entity.component(conformingTo: SpellExplodeOnHitComponent.self)?.createEffect()
         }

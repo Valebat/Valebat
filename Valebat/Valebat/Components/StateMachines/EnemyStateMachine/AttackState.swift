@@ -15,7 +15,7 @@ class AttackState: BaseEnemyState {
         }
         return true
     }
-    
+
     override func update(deltaTime: TimeInterval) {
         stateMachineComponent.entity?.component(ofType: EnemyAttackComponent.self)?.attack()
     }

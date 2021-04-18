@@ -8,7 +8,7 @@
 import GameplayKit
 
 extension EntityManager {
-    
+
     func initialiseLevel() {
         immediateAddMapEntities()
         addPlayer()

@@ -21,14 +21,14 @@ protocol MovementCachable: GKComponent {
 }
 
 extension MovementCachable {
-    
+
     func getMovementComponent() -> MoveComponent? {
         if cachedMoveComponent == nil {
             cachedMoveComponent = entity?.component(conformingTo: MoveComponent.self)
         }
         return cachedMoveComponent
     }
-    
+
     func getCurrentPosition() -> CGPoint? {
         getMovementComponent()?.currentPosition
     }

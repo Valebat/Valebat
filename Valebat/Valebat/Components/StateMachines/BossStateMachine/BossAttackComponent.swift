@@ -21,25 +21,25 @@ class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
         entity?.component(conformingTo: EnemyDeathComponent.self)?.onDeathObservers[ObjectIdentifier(self)] = nil
         super.willRemoveFromEntity()
     }
-    
+
     var attachedSubComponent = [BossAttackSubComponent]()
     var currentAttackingComponent: BossAttackSubComponent?
     var coolDown = 0.0
-    
+
     private var cachedSpriteComponent: SpriteComponent?
     internal var cachedMoveComponent: MoveComponent?
-    
+
     override init() {
         super.init()
         attachedSubComponent.append(BossBorderOfWaveAndParticle(attachedAttackComponent: self))
         attachedSubComponent.append(BossAttackLaser(attachedAttackComponent: self))
         attachedSubComponent.append(BossAttackRingOfBullets(attachedAttackComponent: self))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func update(deltaTime seconds: TimeInterval) {
         attachedSubComponent.forEach({ $0.update(deltaTime: seconds) })
         coolDown -= seconds
