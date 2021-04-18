@@ -42,12 +42,11 @@ class EntityManager {
         let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        let playerMovementSystem = GKComponentSystem(componentClass: PlayerMoveComponent.self)
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
 
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
                 enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem,
-                advanceLevelSystem, powerupSpawnSystem, autoDestructSystem, playerMovementSystem]
+                advanceLevelSystem, powerupSpawnSystem, autoDestructSystem]
     }()
 
     init(scene: GameScene) {
