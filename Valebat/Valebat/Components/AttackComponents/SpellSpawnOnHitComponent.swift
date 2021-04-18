@@ -17,7 +17,7 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
     }
 
     override func createEffect() {
-        guard let pos = self.entity?.component(ofType: SpriteComponent.self)?.node.position else {
+        guard let pos = self.entity?.component(conformingTo: MoveComponent.self)?.currentPosition else {
             return super.createEffect()
         }
         guard let entityManager = baseEntity?.entityManager else {

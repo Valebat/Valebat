@@ -51,7 +51,7 @@ class BossAttackLaser: BossAttackSubComponent {
     }
 
     func getAngle() -> CGFloat? {
-        guard let currentPosition = attachedAttackComponent?.getMovementComponent()?.currentPosition,
+        guard let currentPosition = attachedAttackComponent?.getCurrentPosition(),
               let playerPosition = attachedAttackComponent?.baseEntity?.entityManager?.lastKnownPlayerPosition else {
             return nil
         }
@@ -59,7 +59,7 @@ class BossAttackLaser: BossAttackSubComponent {
     }
 
     func getPosition() -> CGPoint {
-        return attachedAttackComponent?.getMovementComponent()?.currentPosition ?? CGPoint(x: 0, y: 0)
+        return attachedAttackComponent?.getCurrentPosition() ?? CGPoint(x: 0, y: 0)
     }
     func finishLaser() {
         attachedAttackComponent?.baseEntity?.entityManager?.remove(laserEntity!)

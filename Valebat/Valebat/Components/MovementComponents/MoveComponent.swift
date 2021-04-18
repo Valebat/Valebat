@@ -15,3 +15,18 @@ protocol MoveComponent: GKComponent {
     var currentPosition: CGPoint { get set }
     var orientation: CGFloat? { get set }
 }
+
+protocol MovementCachable: GKComponent {
+    var cachedMoveComponent: MoveComponent? { get set }
+}
+extension MovementCachable {
+    func getMovementComponent() -> MoveComponent? {
+        if cachedMoveComponent == nil {
+            cachedMoveComponent = entity?.component(conformingTo: MoveComponent.self)
+        }
+        return cachedMoveComponent
+    }
+    func getCurrentPosition() -> CGPoint? {
+        getMovementComponent()?.currentPosition
+    }
+}

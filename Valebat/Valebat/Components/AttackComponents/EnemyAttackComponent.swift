@@ -7,7 +7,9 @@
 
 import GameplayKit
 
-class EnemyAttackComponent: BaseComponent {
+class EnemyAttackComponent: BaseComponent, MovementCachable {
+    var cachedMoveComponent: MoveComponent?
+
     let attackCooldown: TimeInterval
     let damageType: BasicType
     let damageValue: CGFloat
@@ -33,7 +35,7 @@ class EnemyAttackComponent: BaseComponent {
             return
         }
         if currentAttackCooldown <= 0 {
-            guard let currentPosition = entity?.component(ofType: SpriteComponent.self)?.node.position,
+            guard let currentPosition = getCurrentPosition(),
                   let playerPosition = entityManager.lastKnownPlayerPosition else {
                 return
             }

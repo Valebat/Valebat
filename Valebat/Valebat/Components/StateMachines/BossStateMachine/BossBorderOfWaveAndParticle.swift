@@ -57,7 +57,7 @@ class BossBorderOfWaveAndParticle: BossAttackSubComponent {
     var coolDown: TimeInterval = 14
 
     func shootBullets(angle: CGFloat) {
-        guard let position = attachedAttackComponent?.getSpriteComponent()?.node.position else {
+        guard let position = attachedAttackComponent?.getCurrentPosition() else {
            return
         }
         for index in 0 ..< linesOfBullets {
