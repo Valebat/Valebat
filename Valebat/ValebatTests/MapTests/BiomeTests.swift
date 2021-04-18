@@ -108,7 +108,6 @@ class BiomeTests: XCTestCase {
             .withGuaranteedSpawns(object: .crate, count: 6)
             .withGuaranteedSpawns(object: .rock, count: 10)
             .withDefaultSpawnTime(20.0)
-            .withDefaultStairsTimer(180.0)
         XCTAssertEqual(biomeData.globalObjectSpawnChance, 15,
                        "Failed to set global object spawn chance.")
         XCTAssertEqual(biomeData.globalSpawnChances[.wall], 20,
@@ -123,8 +122,6 @@ class BiomeTests: XCTestCase {
                        "Failed to set global guaranteed spawns.")
         XCTAssertEqual(biomeData.defaultSpawnTime, 20,
                        "Failed to set global default spawn time.")
-        XCTAssertEqual(biomeData.defaultStairsTimer, 180,
-                       "Failed to set global stairs timer.")
 
     }
 
