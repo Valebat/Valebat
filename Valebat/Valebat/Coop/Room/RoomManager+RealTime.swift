@@ -73,10 +73,9 @@ extension RoomManager {
               let userInfo = realTimeData.userInputInfo[playerId] else {
             return
         }
-        if userInfo.shouldSend() {
-            let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
-            self.ref.updateChildValues(request)
-        }
+        
+        let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
+        self.ref.updateChildValues(request)
     }
 
     func loadUserInfo(completed: @escaping () -> Void) {

@@ -22,13 +22,6 @@ extension UserInputInfo {
         return updates
     }
 
-    func shouldSend() -> Bool {
-        return abs(movementJoystickAngular) > 0
-            || abs(spellJoystickAngular) > 0
-            || spellJoystickEnd
-            || spellJoystickMoved
-    }
-
     convenience init?(data: [String: Any]) {
         guard let mvmtAngular = data["mvmtAngular"] as? Float,
               let mvmtVelocityX = data["mvmtVelocityX"] as? Float,
