@@ -30,6 +30,7 @@ extension EntityManager {
         }
     }
 
+    @objc
     func restart() {
         guard let currentSession = self.currentSession else {
             return

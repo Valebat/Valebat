@@ -20,19 +20,19 @@ extension BiomeTypeEnum {
             return BiomeData()
                 .withDefaultSpawnTime(10.0)
                 .withGuaranteedSpawns(object: .spawner, count: 1)
-                .withGlobalObjectSpawnChance(0)
-                .withObjectiveQuantity(1)
+                .withGlobalObjectSpawnChance(4)
+                .withObjectiveQuantity(10)
         case .normal:
             return BiomeData()
                 .withPossibleObjectiveTypes([.kills, .powerupscollected])
-                .withObjectiveQuantity(3)
+                .withObjectiveQuantity(10)
         case .dungeon:
             return BiomeData()
                 .withGlobalObjectSpawnChance(20)
                 .withGuaranteedSpawns(object: .spawner, count: 4)
                 .withDefaultSpawnTime(4.0)
                 .withPossibleObjectiveTypes([.powerupscollected])
-                .withObjectiveQuantity(5)
+                .withObjectiveQuantity(15)
         case .crazyhouse:
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
