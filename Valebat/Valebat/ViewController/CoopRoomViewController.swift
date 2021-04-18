@@ -22,9 +22,6 @@ class CoopRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         roomIDText.text = "ROOM ID: \(roomID)"
-        // Do any additional setup after loading the view.
-        print(roomID)
-        print(username)
         loadRoomData()
         refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
@@ -38,12 +35,11 @@ class CoopRoomViewController: UIViewController {
                 if !self.locallyStarted {
                     self.locallyStarted  = true
                     loadClientGame()
-                    // CREATE THE GAME SCENE
                 }
             }
         }
-
     }
+
     func loadClientGame() {
         let viewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(identifier: "ClientVC")
@@ -52,12 +48,14 @@ class CoopRoomViewController: UIViewController {
             return
         }
         clientVC.roomManager = roomManager
+        clientVC.clientId = username
         present(clientVC, animated: true, completion: nil)
     }
 
     @objc func fireTimer() {
         loadRoomData()
     }
+
     @IBAction func loadNewGame(_ sender: Any) {
         if isHost {
             loadGame(difficulty: .coop)
@@ -81,19 +79,5 @@ class CoopRoomViewController: UIViewController {
             })
         }
     }
-
-//    @IBAction func gameStarted(_ sender: UIButton) {
-//        hasStarted = true
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

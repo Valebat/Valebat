@@ -242,9 +242,12 @@ class EntityManager {
 
     func updatePlayerPosition(seconds: CFTimeInterval) {
         let userInput = scene.userInputInfo
-        player?.component(ofType: PlayerMoveComponent.self)?.movePlayer(velocity: userInput.movementJoystickVelocity * CGFloat(seconds) * GameConstants.playerMoveSpeed,
-                   angular: userInput.movementJoystickAngular)
+        player?.component(ofType: PlayerMoveComponent.self)?
+               .movePlayer(velocity: userInput.movementJoystickVelocity
+                            * CGFloat(seconds) * GameConstants.playerMoveSpeed,
+                           angular: userInput.movementJoystickAngular)
     }
+
     func update(_ deltaTime: CFTimeInterval) {
        // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {

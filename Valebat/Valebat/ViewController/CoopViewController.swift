@@ -49,21 +49,7 @@ class CoopViewController: UIViewController {
         }
     }
 
-//    @IBAction func joinRoom(_ sender: Any) {
-//        joinRoom(isHost: false, roomID: "just for testing clientVC")
-//    }
-
     func joinRoom(isHost: Bool, roomID: String) {
-//        print("just for testing client VC")
-//        if !isHost {
-//            let viewController = UIStoryboard(name: "Main", bundle: nil)
-//                .instantiateViewController(identifier: "ClientVC")
-//            viewController.modalPresentationStyle = .fullScreen
-//            guard let clientVC = viewController as? ClientViewController else {
-//                return
-//            }
-//            present(clientVC, animated: true, completion: nil)
-//        }
         usernameManager.setupUser { [self] in
             guard let username = usernameManager.username else {
                 return
@@ -86,15 +72,5 @@ class CoopViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

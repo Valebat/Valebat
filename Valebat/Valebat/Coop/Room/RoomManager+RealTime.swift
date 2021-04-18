@@ -54,6 +54,37 @@ extension RoomManager {
         }
     }
 
+    func saveUserInfo(playerId: String) {
+        guard let guaranteedRoom = self.room,
+              let idx = guaranteedRoom.idx,
+              let userInfo = realTimeData.userInputInfo[idx] else {
+            return
+        }
+        let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
+        self.ref.updateChildValues(request)
+    }
+
+    func loadUserInfo() {
+        guard let guaranteedRoom = self.room else {
+            return
+        }
+
+        self.ref.child("playerInput/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            } else if snapshot.exists() {
+                let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
+
+            } else {
+                print("No data available")
+            }
+        }
+    }
+
+    private func processUserInputInfos(info: [String: Any]) {
+
+    }
+
     private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
         var spriteDataSet = Set<SpriteData>()
         for (idx, data) in spritesData {

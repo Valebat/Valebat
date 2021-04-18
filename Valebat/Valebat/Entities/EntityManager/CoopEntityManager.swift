@@ -15,6 +15,8 @@ class CoopEntityManager: EntityManager {
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
         saveSprites()
+
+        // TODO: update clientPlayers here
         // currentSession?.coopManager?.loadSprites()
     }
 

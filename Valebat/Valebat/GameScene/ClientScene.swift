@@ -1,5 +1,5 @@
 //
-//  ClientScnee.swift
+//  ClientScene.swift
 //  Valebat
 //
 //  Created by Sreyans Sipani on 17/4/21.
@@ -13,6 +13,8 @@ class ClientScene: BaseGameScene {
 
     var spriteNodes = [SKSpriteNode]()
     var clientManager = ClientManager()
+
+    var clientId: String?
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -32,6 +34,7 @@ class ClientScene: BaseGameScene {
 
         clientManager.getSpriteData()
         renderSprites()
+        updateInputInfo()
 
         self.lastUpdateTime = currentTime
 
@@ -52,6 +55,15 @@ class ClientScene: BaseGameScene {
             addChild(spriteNode)
             spriteNodes.append(spriteNode)
         }
+    }
+
+    func updateInputInfo() {
+        guard let idx = clientId else {
+            return
+        }
+        print("clientId: \(idx)")
+        clientManager.roomManager?.realTimeData.userInputInfo[idx] = self.userInputInfo
+        clientManager.roomManager?.saveUserInfo(playerId: idx)
     }
 
     required init?(coder aDecoder: NSCoder) {

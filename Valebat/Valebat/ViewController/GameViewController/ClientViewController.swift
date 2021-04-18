@@ -13,6 +13,7 @@ class ClientViewController: BaseViewController {
 
     var currentScene: ClientScene?
     var roomManager: RoomManager?
+    var clientId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class ClientViewController: BaseViewController {
         self.currentScene = gameScene
         currentScene?.viewController = self
         currentScene?.clientManager.roomManager = roomManager
+        currentScene?.clientId = clientId
 
         gameScene.scaleMode = .aspectFill
 

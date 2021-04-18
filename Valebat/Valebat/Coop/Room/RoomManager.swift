@@ -47,11 +47,9 @@ class RoomManager {
 
     private func createRoom() {
         var room = Room()
-
         while roomCodes.contains(room.code) {
             room = Room()
         }
-
         addRoomToDatabase(room)
         roomCodes.append(room.code)
 
