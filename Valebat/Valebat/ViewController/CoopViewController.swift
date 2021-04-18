@@ -20,21 +20,16 @@ class CoopViewController: UIViewController {
     @IBAction func joinRoomButton(_ sender: Any) {
         let alert = UIAlertController(title: "Join Room", message: "Enter a room ID", preferredStyle: .alert)
 
-        // 2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
             textField.text = ""
         }
-
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             if let roomID = alert?.textFields?[0].text {
                 print(roomID)
                 self.joinRoom(isHost: false, roomID: roomID)
-            } // Force unwrapping because we know it exists.
+            }
 
         }))
-
-        // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
 

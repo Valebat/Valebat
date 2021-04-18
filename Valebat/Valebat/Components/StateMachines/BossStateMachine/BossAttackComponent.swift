@@ -35,12 +35,6 @@ class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   /*func getSpriteComponent() -> SpriteComponent? {
-        if cachedSpriteComponent == nil {
-            cachedSpriteComponent = entity?.component(ofType: SpriteComponent.self)
-        }
-        return cachedSpriteComponent
-    }*/
     override func update(deltaTime seconds: TimeInterval) {
         attachedSubComponent.forEach({ $0.update(deltaTime: seconds) })
         coolDown -= seconds

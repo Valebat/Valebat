@@ -18,9 +18,6 @@ class MenuViewController: UIViewController {
         loadGame(config: UserConfig.resumeGame())
     }
 
-   /* @IBAction func coopGame(_ sender: Any) {
-        loadGame(config: UserConfig(isCoop: true, isNewGame: true, diffLevel: .medium))
-    }*/
     func loadGame(config: UserConfig) {
         let viewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(identifier: "GameVC")

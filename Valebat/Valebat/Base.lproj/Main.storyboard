@@ -161,11 +161,6 @@
                             <constraint firstItem="gEP-eM-l40" firstAttribute="centerX" secondItem="qTt-sf-rHg" secondAttribute="centerX" id="hdb-KV-syx"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="easyButton" destination="6lb-C0-Qt8" id="di9-c1-rFp"/>
-                        <outlet property="hardButton" destination="SPM-sK-qkt" id="OQC-dn-elK"/>
-                        <outlet property="normalButton" destination="Wze-Ob-M6Q" id="YIv-xR-GUc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30Y-zn-Qcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

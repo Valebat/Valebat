@@ -22,9 +22,12 @@ class CoopEntityManager: EntityManager {
             saveSprites()
             timer -= CoopConstants.updateTimer
         }
+        clientPlayers.keys.forEach({ self.handleClientPlayerUpdate(clientID: $0) })
+    }
+
+    private func handleClientPlayerUpdate(clientID: String) {
 
         // TODO: update clientPlayers here
-        // currentSession?.coopManager?.loadSprites()
     }
 
     func addClientPlayer(playerID: String) {
