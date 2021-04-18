@@ -9,6 +9,8 @@ import GameplayKit
 
 struct PlayerData: Codable {
     var level: Int = 0
+    var currentEXP: Int = 0
+    var currentPlayerLevel: Int = 0
     var elementType = [String]()
     var elementLevels = [Double]()
     var elementMultipliers = [Double]()
@@ -20,6 +22,8 @@ struct PlayerData: Codable {
             if let type = BasicType.init(rawValue: elementType[index]) {
                 playerStats.elementalLevels[type] = elementLevels[index]
                 playerStats.elementalMultipliers[type] = CGFloat(elementMultipliers[index])
+                playerStats.currentEXP = currentEXP
+                playerStats.currentPlayerLevel = currentPlayerLevel
             }
         }
     }
@@ -41,6 +45,8 @@ struct PlayerData: Codable {
         playerData.elementType = elementType
         playerData.elementLevels = elementLevels
         playerData.elementMultipliers = elementalMultipliers
+        playerData.currentEXP = playerStats.currentEXP
+        playerData.currentPlayerLevel = playerStats.currentPlayerLevel
         return playerData
     }
 
