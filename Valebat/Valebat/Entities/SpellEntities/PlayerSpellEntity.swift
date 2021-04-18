@@ -68,7 +68,7 @@ class PlayerSpellEntity: BaseProjectileEntity {
     }
 
     static func buildEndAnimation(for spell: Spell) -> [SKTexture] {
-        return TextureUtilities.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
+        return TextureUtilities.generateTextures(assetName: "explosion")
     }
 
     static func getAnimatedSpell(for spell: Spell) -> [SKTexture] {

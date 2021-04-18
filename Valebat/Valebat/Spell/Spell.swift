@@ -14,6 +14,6 @@ class Spell {
     var movement: SpellMovementComponent.Type = RegularMovementComponent.self
 
     static func buildEndAnimation() -> [SKTexture] {
-        return TextureUtilities.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
+        return TextureUtilities.generateTextures(assetName: "explosion")
     }
 }

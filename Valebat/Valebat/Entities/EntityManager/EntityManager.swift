@@ -237,7 +237,6 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-       // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {
             for componentSystem in componentSystems {
                 componentSystem.update(deltaTime: deltaTime)

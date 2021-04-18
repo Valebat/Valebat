@@ -6,11 +6,11 @@
 //
 
 enum BiomeTypeEnum: String, CaseIterable {
+    case easy
     case normal
     case dungeon
     case crazyhouse
     case boss
-    case easy
 }
 
 extension BiomeTypeEnum {
@@ -19,8 +19,8 @@ extension BiomeTypeEnum {
         case .easy:
             return BiomeData()
                 .withDefaultSpawnTime(10.0)
+                .withGuaranteedSpawns(object: .spawner, count: 1)
                 .withGlobalObjectSpawnChance(0)
-                .withIntangibleObjectSpawns(object: .spawner, count: 1)
         case .normal:
             return BiomeData()
                 .withPossibleObjectiveTypes([.kills, .powerupscollected])
