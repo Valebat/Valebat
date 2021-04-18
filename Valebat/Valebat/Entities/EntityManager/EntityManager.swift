@@ -266,7 +266,8 @@ class EntityManager {
             spellJoystickMoved(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-        } else if userInput.spellJoystickEnd {
+        }
+        if userInput.spellJoystickEnd {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
