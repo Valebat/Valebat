@@ -344,6 +344,7 @@
 		DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
 		DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
 		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
+		DD62844D262BE97C00F3C5D1 /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
 		DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BF2615EDF600D3602B /* MovementJoystick.swift */; };
 		DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034C42615F73A00D3602B /* SpellJoystick.swift */; };
 		DD7034F22616E37200D3602B /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034F12616E37200D3602B /* PlayerData.swift */; };
@@ -579,6 +580,7 @@
 		DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+UserInputDelegate.swift"; sourceTree = "<group>"; };
 		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
 		DD5784172605F35100E15493 /* ElementPaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPaneTests.swift; sourceTree = "<group>"; };
+		DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeData.swift; sourceTree = "<group>"; };
 		DD7034BF2615EDF600D3602B /* MovementJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystick.swift; sourceTree = "<group>"; };
 		DD7034C42615F73A00D3602B /* SpellJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellJoystick.swift; sourceTree = "<group>"; };
 		DD7034F12616E37200D3602B /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
@@ -786,7 +788,6 @@
 		C6A942D025FCE7EA00087256 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C6ACE7552629BC9F0000A2E6 /* Coop */,
 				EF61C4BE2618590F0076BB3A /* ClassInfo.swift */,
 				DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */,
 				DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */,
@@ -960,18 +961,9 @@
 				C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */,
 				C6ED82C3262AC4D60074CE07 /* RoomManager+Sprites.swift */,
 				C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */,
+				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 			);
 			path = Room;
-			sourceTree = "<group>";
-		};
-		C6ACE7552629BC9F0000A2E6 /* Coop */ = {
-			isa = PBXGroup;
-			children = (
-				C6ACE7562629BCAA0000A2E6 /* Username */,
-				C6ACE74A2629B5540000A2E6 /* Room */,
-				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
-			);
-			path = Coop;
 			sourceTree = "<group>";
 		};
 		C6ACE7562629BCAA0000A2E6 /* Username */ = {
@@ -1149,6 +1141,9 @@
 		DD4A22AE26257BD000D98A7A /* Coop */ = {
 			isa = PBXGroup;
 			children = (
+				C6ACE7562629BCAA0000A2E6 /* Username */,
+				C6ACE74A2629B5540000A2E6 /* Room */,
+				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
 				DD85F34C2625DD4200838B0F /* CoopManager.swift */,
 				DD85F3512625DD7700838B0F /* SpriteData.swift */,
 			);
@@ -1687,6 +1682,7 @@
 				CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */,
 				DD70353126183FF400D3602B /* MapData.swift in Sources */,
 				DD7034FA2616E9CD00D3602B /* PersistenceManager.swift in Sources */,
+				DD62844D262BE97C00F3C5D1 /* RealTimeData.swift in Sources */,
 				EF5C4788262AC25B00A46C4E /* ClientScene.swift in Sources */,
 				EF19416025FFC71900341BF5 /* SpellManager.swift in Sources */,
 				C6A9441126138D3E00087256 /* ObjectiveDetectionComponent.swift in Sources */,
