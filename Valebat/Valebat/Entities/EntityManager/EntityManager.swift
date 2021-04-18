@@ -239,8 +239,7 @@ class EntityManager {
         }
     }
 
-    func updatePlayerPosition(seconds: CFTimeInterval) {
-        let userInput = scene.userInputInfo
+    func updatePlayerPosition(seconds: CFTimeInterval, player: PlayerEntity?, userInput: UserInputInfo) {
         player?.component(ofType: PlayerMoveComponent.self)?
                .movePlayer(velocity: userInput.movementJoystickVelocity
                             * CGFloat(seconds) * GameConstants.playerMoveSpeed,
@@ -253,10 +252,9 @@ class EntityManager {
             for componentSystem in componentSystems {
                 componentSystem.update(deltaTime: deltaTime)
             }
-            // entities.forEach({ $0.update(deltaTime: deltaTime )})
-            updatePlayerPosition(seconds: deltaTime)
+            updatePlayerPosition(seconds: deltaTime, player: self.player, userInput: scene.userInputInfo)
             updateLastKnownPlayerPosition()
-            updateShoot()
+            updateShoot(userInput: scene.userInputInfo, player: self.player)
         }
         for curRemove in toRemove {
             for componentSystem in componentSystems {
@@ -273,14 +271,16 @@ class EntityManager {
         toRemove.removeAll()
     }
 
-    private func updateShoot() {
-        if scene.userInputInfo.spellJoystickMoved {
-            spellJoystickMoved(angular: scene.userInputInfo.spellJoystickAngular,
-                               elementQueue: scene.userInputInfo.elementQueueArray)
-        } else if scene.userInputInfo.spellJoystickEnd {
-            spellJoystickEnded(angular: scene.userInputInfo.spellJoystickAngular,
-                               elementQueue: scene.userInputInfo.elementQueueArray)
-            scene.userInputInfo.spellJoystickEnd = false
+    func updateShoot(userInput: UserInputInfo, player: PlayerEntity?) {
+        if userInput.spellJoystickMoved {
+            spellJoystickMoved(angular: userInput.spellJoystickAngular,
+                               elementQueue: userInput.elementQueueArray,
+                               player: player)
+        } else if userInput.spellJoystickEnd {
+            spellJoystickEnded(angular: userInput.spellJoystickAngular,
+                               elementQueue: userInput.elementQueueArray,
+                               player: player)
+            userInput.spellJoystickEnd = false
         }
     }
 }

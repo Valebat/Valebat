@@ -9,7 +9,7 @@ import CoreGraphics
 import GameplayKit
 
 extension EntityManager: UserInputDelegate {
-    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?) {
+    func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
         guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
             return
         }
@@ -42,7 +42,7 @@ extension EntityManager: UserInputDelegate {
         }
     }
 
-    func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?) {
+    func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
 
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)

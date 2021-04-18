@@ -62,6 +62,7 @@ class ClientScene: BaseGameScene {
         }
         clientManager.roomManager?.realTimeData.userInputInfo[idx] = self.userInputInfo
         clientManager.roomManager?.saveUserInfo(playerId: idx)
+        self.userInputInfo.spellJoystickEnd = false
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -13,6 +13,7 @@ class CoopEntityManager: EntityManager {
     var timer: Double = 0.0
 
     var clientPlayers = [String: ClientPlayerEntity]()
+
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
 
@@ -22,12 +23,7 @@ class CoopEntityManager: EntityManager {
             saveSprites()
             timer -= CoopConstants.updateTimer
         }
-        clientPlayers.keys.forEach({ self.handleClientPlayerUpdate(clientID: $0) })
-    }
-
-    private func handleClientPlayerUpdate(clientID: String) {
-
-        // TODO: update clientPlayers here
+        updateClientPlayers(deltaTime)
     }
 
     func addClientPlayer(playerID: String) {
@@ -36,7 +32,8 @@ class CoopEntityManager: EntityManager {
         guard let playerStats = currentSession?.playerStats else {
             return
         }
-        let character = ClientPlayerEntity(playerId: playerID, position: spawnLocation, playerStats: playerStats, entityManager: self)
+        let character = ClientPlayerEntity(playerId: playerID, position: spawnLocation,
+                                           playerStats: playerStats, entityManager: self)
         add(character)
         clientPlayers[playerID] = character
     }
@@ -45,4 +42,18 @@ class CoopEntityManager: EntityManager {
         let spriteComponents = spriteSystem.components
         currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
     }
+
+    private func updateClientPlayers(_ seconds: CFTimeInterval) {
+        guard let session = currentSession as? CoopGameSession else {
+            print("not coop game")
+            return
+        }
+        let inputInfos = session.roomManager.realTimeData.userInputInfo
+        for (playerId, info) in inputInfos {
+            let player = clientPlayers[playerId]
+            updatePlayerPosition(seconds: seconds, player: player, userInput: info)
+            updateShoot(userInput: info, player: player)
+        }
+    }
+
 }

@@ -12,7 +12,7 @@ class ClientManager {
     var roomManager: RoomManager?
     var loadingIsInitialised: Bool = false
 
-    func initialiseLoadingSpritesCycle() {
+    private func initialiseLoadingSpritesCycle() {
         roomManager!.loadSpritesCycle()
         loadingIsInitialised = true
     }

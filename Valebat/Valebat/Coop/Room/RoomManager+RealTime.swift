@@ -42,6 +42,12 @@ extension RoomManager {
         }
     }
 
+    func loadUserInputCycle() {
+        loadUserInfo { [self] in
+            loadUserInputCycle()
+        }
+    }
+
     func loadSprites(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room else {
             return
@@ -71,7 +77,7 @@ extension RoomManager {
         }
     }
 
-    func loadUserInfo() {
+    func loadUserInfo(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room else {
             return
         }
@@ -83,6 +89,7 @@ extension RoomManager {
                 self.processUserInputInfos(info: groupUserInfo)
                 print(self.realTimeData.userInputInfo)
             }
+            completed()
         }
     }
 

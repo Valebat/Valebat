@@ -15,6 +15,7 @@ class CoopManager {
     init(coopEntityManager: CoopEntityManager) {
         self.entityManager = coopEntityManager
         self.coopGameSession = coopEntityManager.currentSession as? CoopGameSession
+        initialiseLoadInputCycle()
     }
 
     func saveSprites(spriteComponents: [GKComponent]) {
@@ -33,5 +34,9 @@ class CoopManager {
 
     func updateDatabase() {
         coopGameSession.roomManager.updateSprites(spritesData)
+    }
+
+    private func initialiseLoadInputCycle() {
+        coopGameSession.roomManager.loadSpritesCycle()
     }
 }
