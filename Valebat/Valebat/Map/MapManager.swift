@@ -159,14 +159,14 @@ class MapManager {
             let point = CGPoint(x: object.position.x, y: object.position.y)
             switch object.type {
             case .wall:
-                entity = WallEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                    position: point)
+                entity = GenericMapEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                          position: point, type: .wall)
             case .rock:
-                entity = RockEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                    position: point)
+                entity = GenericMapEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                          position: point, type: .rock)
             case .crate:
-                entity = CrateEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                     position: point)
+                entity = GenericMapEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
+                                          position: point, type: .crate)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
                                        defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,

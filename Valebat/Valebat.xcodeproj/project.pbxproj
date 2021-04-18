@@ -147,9 +147,6 @@
 		C69D367E262B2A1F00EDE2AC /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		C69D367F262B2A1F00EDE2AC /* BaseMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9450E261CD6D800087256 /* BaseMapEntity.swift */; };
 		C69D3680262B2A1F00EDE2AC /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
-		C69D3681262B2A1F00EDE2AC /* RockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431525FE494100087256 /* RockEntity.swift */; };
-		C69D3682262B2A1F00EDE2AC /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
-		C69D3683262B2A1F00EDE2AC /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C69D3684262B2A1F00EDE2AC /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C69D3685262B2A1F00EDE2AC /* StairsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9440B261373F700087256 /* StairsEntity.swift */; };
 		C69D3686262B2A1F00EDE2AC /* BaseEnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9451B261DC19400087256 /* BaseEnemyEntity.swift */; };
@@ -211,6 +208,7 @@
 		C69D36C1262B2A1F00EDE2AC /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
 		C69D36C6262B2A1F00EDE2AC /* Valebat.app in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F625FCE1C000581E20 /* Valebat.app */; };
 		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
+		C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
 		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -222,11 +220,8 @@
 		C6A942E225FCE7EA00087256 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942D525FCE7EA00087256 /* ViewConstants.swift */; };
 		C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F325FCFC4A00087256 /* EntityManager.swift */; };
 		C6A942F925FCFD5B00087256 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
-		C6A9431625FE494100087256 /* RockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431525FE494100087256 /* RockEntity.swift */; };
-		C6A9432025FE50E000087256 /* WallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9431F25FE50E000087256 /* WallEntity.swift */; };
 		C6A9433125FF566600087256 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9433025FF566600087256 /* MoveComponent.swift */; };
 		C6A943642603437A00087256 /* SpawnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943632603437A00087256 /* SpawnManager.swift */; };
-		C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9436B26034E8900087256 /* CrateEntity.swift */; };
 		C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943982605CF7E00087256 /* SpawnerEntity.swift */; };
 		C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
 		C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A82605D20F00087256 /* SpawnComponent.swift */; };
@@ -437,6 +432,7 @@
 		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
+		C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMapEntity.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -448,11 +444,8 @@
 		C6A942D525FCE7EA00087256 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		C6A942F325FCFC4A00087256 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		C6A942F825FCFD5B00087256 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
-		C6A9431525FE494100087256 /* RockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockEntity.swift; sourceTree = "<group>"; };
-		C6A9431F25FE50E000087256 /* WallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallEntity.swift; sourceTree = "<group>"; };
 		C6A9433025FF566600087256 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		C6A943632603437A00087256 /* SpawnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnManager.swift; sourceTree = "<group>"; };
-		C6A9436B26034E8900087256 /* CrateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateEntity.swift; sourceTree = "<group>"; };
 		C6A943982605CF7E00087256 /* SpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapObjectEntity.swift; sourceTree = "<group>"; };
 		C6A943A82605D20F00087256 /* SpawnComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnComponent.swift; sourceTree = "<group>"; };
@@ -829,9 +822,7 @@
 			children = (
 				C6A9450E261CD6D800087256 /* BaseMapEntity.swift */,
 				C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */,
-				C6A9431525FE494100087256 /* RockEntity.swift */,
-				C6A9436B26034E8900087256 /* CrateEntity.swift */,
-				C6A9431F25FE50E000087256 /* WallEntity.swift */,
+				C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */,
 				C6A943982605CF7E00087256 /* SpawnerEntity.swift */,
 				C6A9440B261373F700087256 /* StairsEntity.swift */,
 			);
@@ -1618,6 +1609,7 @@
 				CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				CB9E9E95261DEB140016B046 /* GameSession.swift in Sources */,
+				C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */,
 				C6ACE7602629BCF40000A2E6 /* UsernameManager.swift in Sources */,
 				CB9E9EB8261E2E7A0016B046 /* BasicEnemyData.swift in Sources */,
 				EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */,
@@ -1654,7 +1646,6 @@
 				CBA495142604B54D003A05F7 /* EnemyDeathComponent.swift in Sources */,
 				EF19415F25FFC71900341BF5 /* SingleElementSpell.swift in Sources */,
 				DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */,
-				C6A9436C26034E8900087256 /* CrateEntity.swift in Sources */,
 				EF61C4B32618576F0076BB3A /* CompositeSpell.swift in Sources */,
 				C6A943EE260B007500087256 /* BiomeData.swift in Sources */,
 				C6ACE6DF262992B60000A2E6 /* CoopEntityManager.swift in Sources */,
@@ -1670,7 +1661,6 @@
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
 				C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */,
-				C6A9431625FE494100087256 /* RockEntity.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
@@ -1766,7 +1756,6 @@
 				EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */,
 				DD703591261AED5200D3602B /* PositionData.swift in Sources */,
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
-				C6A9432025FE50E000087256 /* WallEntity.swift in Sources */,
 				EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */,
 				CB9E9E4A261759250016B046 /* AudioManager.swift in Sources */,
 				CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */,
@@ -1934,9 +1923,6 @@
 				C69D367E262B2A1F00EDE2AC /* PlayerEntity.swift in Sources */,
 				C69D367F262B2A1F00EDE2AC /* BaseMapEntity.swift in Sources */,
 				C69D3680262B2A1F00EDE2AC /* BaseMapObjectEntity.swift in Sources */,
-				C69D3681262B2A1F00EDE2AC /* RockEntity.swift in Sources */,
-				C69D3682262B2A1F00EDE2AC /* CrateEntity.swift in Sources */,
-				C69D3683262B2A1F00EDE2AC /* WallEntity.swift in Sources */,
 				C69D3684262B2A1F00EDE2AC /* SpawnerEntity.swift in Sources */,
 				C69D3685262B2A1F00EDE2AC /* StairsEntity.swift in Sources */,
 				C69D3686262B2A1F00EDE2AC /* BaseEnemyEntity.swift in Sources */,
