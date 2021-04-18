@@ -70,7 +70,6 @@
 		C69D3630262B2A1E00EDE2AC /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapManager.swift */; };
 		C69D3631262B2A1E00EDE2AC /* ObjectiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9452C261F598100087256 /* ObjectiveManager.swift */; };
 		C69D3632262B2A1E00EDE2AC /* ObjectiveEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94531261F59CA00087256 /* ObjectiveEnum.swift */; };
-		C69D3633262B2A1E00EDE2AC /* ObjectiveUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */; };
 		C69D3634262B2A1E00EDE2AC /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9453B261F5AA100087256 /* Objective.swift */; };
 		C69D3635262B2A1E00EDE2AC /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
 		C69D3637262B2A1E00EDE2AC /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
@@ -251,7 +250,6 @@
 		C6A94524261DC29A00087256 /* SpawnEnemyUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */; };
 		C6A9452D261F598100087256 /* ObjectiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9452C261F598100087256 /* ObjectiveManager.swift */; };
 		C6A94532261F59CA00087256 /* ObjectiveEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94531261F59CA00087256 /* ObjectiveEnum.swift */; };
-		C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */; };
 		C6A9453C261F5AA100087256 /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9453B261F5AA100087256 /* Objective.swift */; };
 		C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94555261F617F00087256 /* HUDPlayerObjective.swift */; };
 		C6AA39F62625A0630058003C /* SpellExplodeOnHitComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */; };
@@ -481,7 +479,6 @@
 		C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnEnemyUtil.swift; sourceTree = "<group>"; };
 		C6A9452C261F598100087256 /* ObjectiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveManager.swift; sourceTree = "<group>"; };
 		C6A94531261F59CA00087256 /* ObjectiveEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveEnum.swift; sourceTree = "<group>"; };
-		C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveUtil.swift; sourceTree = "<group>"; };
 		C6A9453B261F5AA100087256 /* Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
 		C6A94555261F617F00087256 /* HUDPlayerObjective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerObjective.swift; sourceTree = "<group>"; };
 		C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellExplodeOnHitComponent.swift; sourceTree = "<group>"; };
@@ -940,7 +937,6 @@
 			children = (
 				C6A9452C261F598100087256 /* ObjectiveManager.swift */,
 				C6A94531261F59CA00087256 /* ObjectiveEnum.swift */,
-				C6A94536261F5A3E00087256 /* ObjectiveUtil.swift */,
 				C6A9453B261F5AA100087256 /* Objective.swift */,
 				C652DCD22620717300349576 /* ObjectiveObserver.swift */,
 			);
@@ -1673,7 +1669,6 @@
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
-				C6A94537261F5A3E00087256 /* ObjectiveUtil.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
@@ -1861,7 +1856,6 @@
 				C69D3630262B2A1E00EDE2AC /* MapManager.swift in Sources */,
 				C69D3631262B2A1E00EDE2AC /* ObjectiveManager.swift in Sources */,
 				C69D3632262B2A1E00EDE2AC /* ObjectiveEnum.swift in Sources */,
-				C69D3633262B2A1E00EDE2AC /* ObjectiveUtil.swift in Sources */,
 				C69D3634262B2A1E00EDE2AC /* Objective.swift in Sources */,
 				C69D3635262B2A1E00EDE2AC /* ObjectiveObserver.swift in Sources */,
 				EF6E5AE9262B5FBE00CBCEAE /* LevelDataTests.swift in Sources */,
