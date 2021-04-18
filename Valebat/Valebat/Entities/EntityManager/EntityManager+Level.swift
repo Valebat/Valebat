@@ -37,6 +37,7 @@ extension EntityManager {
             userInputNode.outcomeButton?.goBackDown()
         }
         cleanupLevel()
+        currentSession.playerStats.reset()
         mapManager?.goToMap(level: 0, gameSession: currentSession)
         initialiseLevel()
         playing = true
