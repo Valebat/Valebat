@@ -50,16 +50,12 @@ extension RoomManager {
         self.ref.child("sprites/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
-                completed()
             } else if snapshot.exists() {
                 let spritesData = snapshot.value as? [String: Any] ?? [:]
                 let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
                 self.realTimeData.sprites = Array(spriteDataSet)
-                completed()
-            } else {
-                print("No data available")
-                completed()
             }
+            completed()
         }
     }
 
@@ -69,28 +65,34 @@ extension RoomManager {
               let userInfo = realTimeData.userInputInfo[playerId] else {
             return
         }
-        let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
-        self.ref.updateChildValues(request)
+        if userInfo.shouldSend() {
+            let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
+            self.ref.updateChildValues(request)
+        }
     }
 
     func loadUserInfo() {
         guard let guaranteedRoom = self.room else {
             return
         }
-
         self.ref.child("playerInput/\(guaranteedRoom.idx!)").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
                 let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
-            } else {
-                print("No data available")
+                self.processUserInputInfos(info: groupUserInfo)
+                print(self.realTimeData.userInputInfo)
             }
         }
     }
 
     private func processUserInputInfos(info: [String: Any]) {
-
+        for (idx, data) in info {
+            let playerInputInfo = data as? [String: Any] ?? [:]
+            if let userinfo = UserInputInfo(data: playerInputInfo) {
+                realTimeData.userInputInfo[idx] = userinfo
+            }
+        }
     }
 
     private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
