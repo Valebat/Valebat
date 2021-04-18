@@ -22,7 +22,6 @@ class ClientScene: BaseGameScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        print("update call")
 
         // Initialize _lastUpdateTime if it has not already been
         if self.lastUpdateTime == 0 {
@@ -61,7 +60,6 @@ class ClientScene: BaseGameScene {
         guard let idx = clientId else {
             return
         }
-        print("clientId: \(idx)")
         clientManager.roomManager?.realTimeData.userInputInfo[idx] = self.userInputInfo
         clientManager.roomManager?.saveUserInfo(playerId: idx)
     }

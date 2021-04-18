@@ -34,9 +34,4 @@ class CoopManager {
     func updateDatabase() {
         coopGameSession.roomManager.updateSprites(spritesData)
     }
-
-    func loadSprites() {
-        coopGameSession.roomManager.loadSprites()
-        spritesData = Set(coopGameSession.roomManager.realTimeData.sprites)
-    }
 }
