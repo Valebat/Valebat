@@ -109,8 +109,6 @@
 		C69D3659262B2A1F00EDE2AC /* DeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494E62603847A003A05F7 /* DeathComponent.swift */; };
 		C69D365A262B2A1F00EDE2AC /* DPSDamageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC4A092600A3E800C5DDD2 /* DPSDamageComponent.swift */; };
 		C69D365B262B2A1F00EDE2AC /* EnemyDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */; };
-		C69D365C262B2A1F00EDE2AC /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */; };
-		C69D365D262B2A1F00EDE2AC /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
 		C69D365E262B2A1F00EDE2AC /* AutoDestructComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */; };
 		C69D365F262B2A1F00EDE2AC /* BossAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EEE262590330016B046 /* BossAttackComponent.swift */; };
 		C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
@@ -400,7 +398,7 @@
 		EF6E5AE4262B5B1100CBCEAE /* GameSessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AE3262B5B1100CBCEAE /* GameSessionFactory.swift */; };
 		EF6E5AE9262B5FBE00CBCEAE /* LevelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AE8262B5FBE00CBCEAE /* LevelDataTests.swift */; };
 		EF6E5AEE262B670200CBCEAE /* PlayerDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */; };
-		EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */; };
+		EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -636,7 +634,7 @@
 		EF6E5AE3262B5B1100CBCEAE /* GameSessionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionFactory.swift; sourceTree = "<group>"; };
 		EF6E5AE8262B5FBE00CBCEAE /* LevelDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataTests.swift; sourceTree = "<group>"; };
 		EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataTests.swift; sourceTree = "<group>"; };
-		EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AimIndicatorComponent.swift; sourceTree = "<group>"; };
+		EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AimIndicatorComponent.swift; sourceTree = "<group>"; };
 		EF8087522606785000923494 /* GenericSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSpellTests.swift; sourceTree = "<group>"; };
 		EF80879D2606820700923494 /* SingleElementSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleElementSpellTests.swift; sourceTree = "<group>"; };
 		EF8087A2260683E900923494 /* MagmaSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagmaSpellTests.swift; sourceTree = "<group>"; };
@@ -816,6 +814,7 @@
 			isa = PBXGroup;
 			children = (
 				C69D378A262C182E00EDE2AC /* StateMachines */,
+				EF6E5AF5262C2C9900CBCEAE /* IndicatorComponents */,
 				DD98498B26256842006B741E /* TextureUtil */,
 				C6A944BB2619B4FD00087256 /* MapComponents */,
 				C6A944BA2619B4CF00087256 /* UtilityComponents */,
@@ -1034,8 +1033,6 @@
 				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
 				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
-				EF71E9FF26204F170007CE32 /* AimIndicatorComponent.swift */,
-				C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */,
 				C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */,
 			);
 			path = DamageHealthComponents;
@@ -1322,6 +1319,15 @@
 				EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */,
 			);
 			path = PersistenceTests;
+			sourceTree = "<group>";
+		};
+		EF6E5AF5262C2C9900CBCEAE /* IndicatorComponents */ = {
+			isa = PBXGroup;
+			children = (
+				C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */,
+				EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */,
+			);
+			path = IndicatorComponents;
 			sourceTree = "<group>";
 		};
 		EF8087512606783000923494 /* SpellTests */ = {
@@ -1646,7 +1652,6 @@
 				DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */,
 				C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
-				EF71EA0026204F170007CE32 /* AimIndicatorComponent.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
 				CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */,
 				C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */,
@@ -1666,6 +1671,7 @@
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
+				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
@@ -1897,8 +1903,6 @@
 				C69D3659262B2A1F00EDE2AC /* DeathComponent.swift in Sources */,
 				C69D365A262B2A1F00EDE2AC /* DPSDamageComponent.swift in Sources */,
 				C69D365B262B2A1F00EDE2AC /* EnemyDeathComponent.swift in Sources */,
-				C69D365C262B2A1F00EDE2AC /* AimIndicatorComponent.swift in Sources */,
-				C69D365D262B2A1F00EDE2AC /* LobIndicatorComponent.swift in Sources */,
 				EF6E5ADF262B5A7400CBCEAE /* EntityManagerFactory.swift in Sources */,
 				C69D365E262B2A1F00EDE2AC /* AutoDestructComponent.swift in Sources */,
 				C69D365F262B2A1F00EDE2AC /* BossAttackComponent.swift in Sources */,

@@ -10,6 +10,7 @@ import GameplayKit
 
 class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
 
+    static var identifier: String = "projectile"
     static let defaultDuration: CGFloat = 1
     static let defaultRadius: CGFloat = 200
     static let defaultHeight: CGFloat = 100

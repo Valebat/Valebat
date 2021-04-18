@@ -1,19 +1,18 @@
 //
-//  AimIndicatorComponent.swift
+//  BaseIndicatorComponent.swift
 //  Valebat
 //
-//  Created by Sreyans Sipani on 9/4/21.
+//  Created by Sreyans Sipani on 18/4/21.
 //
 
-import GameplayKit
+import SpriteKit
 
 class AimIndicatorComponent: SpriteComponent {
 
-    let playerSize: CGFloat
+    static let textureImage: String = "aim_indicator" // Default value
 
-    init(size: CGSize, playerSize: CGFloat) {
-        self.playerSize = playerSize
-        let texture  = CustomTexture.initialise(imageNamed: "aim_indicator")
+    init(size: CGSize) {
+        let texture  = CustomTexture.initialise(imageNamed: AimIndicatorComponent.textureImage)
         super.init(texture: texture, size: size, position: CGPoint(x: 0, y: 0))
         self.node.isHidden = true
     }
@@ -38,12 +37,11 @@ class AimIndicatorComponent: SpriteComponent {
         return !lastState
     }
 
-    func onJoystickMoved(angle: CGFloat, playerAngle: CGFloat?) {
+    func onJoystickMoved(shootAngle: CGFloat, playerAngle: CGFloat?, playerPosition: CGPoint) {
         self.node.isHidden = false
-        let shootAngle = angle - (playerAngle ?? 0)
-        self.node.zRotation = shootAngle
-        self.node.position = CGPoint(x: self.playerSize / 2 * cos(shootAngle + CGFloat(Double.pi/2)),
-                                     y: self.playerSize / 2 * sin(shootAngle + CGFloat(Double.pi/2)))
-
+        let angle = shootAngle - (playerAngle ?? 0)
+        self.node.zRotation = angle
+        self.node.position = CGPoint(x: ViewConstants.playerHeight / 2 * cos(shootAngle + CGFloat(Double.pi/2)),
+                                     y: ViewConstants.playerHeight / 2 * sin(shootAngle + CGFloat(Double.pi/2)))
     }
 }
