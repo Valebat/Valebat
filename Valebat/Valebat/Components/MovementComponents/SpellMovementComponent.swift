@@ -8,10 +8,21 @@
 import SpriteKit
 import GameplayKit
 
-protocol SpellMovementComponent: MoveComponent {
-    var currentPosition: CGPoint { get set }
-    var orientation: CGFloat? { get set }
-    static var identifier: String { get }
+class SpellMovementComponent: MoveComponent {
 
-    init(velocity: CGVector, initialPosition: CGPoint)
+    class var identifier: String {
+        "spell_movement"
+    }
+
+    required init(velocity: CGVector, initialPosition: CGPoint) {
+        super.init(position: initialPosition, angle: atan2(velocity.dy, velocity.dx))
+    }
+
+    init(initialPosition: CGPoint, shootAngle: CGFloat) {
+        super.init(position: initialPosition, angle: shootAngle)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

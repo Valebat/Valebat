@@ -7,9 +7,7 @@
 
 import GameplayKit
 
-class EnemyMoveComponent: BaseComponent, MoveComponent {
-    var orientation: CGFloat?
-    var currentPosition: CGPoint
+class EnemyMoveComponent: MoveComponent {
     var chaseSpeed: CGFloat
     var normalSpeed: CGFloat
     var nextPositions = [CGPoint]()
@@ -19,9 +17,8 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
     var currentPathTimerCooldown = 0.0
     init(chaseSpeed: CGFloat, normalSpeed: CGFloat, initialPosition: CGPoint) {
         self.chaseSpeed = chaseSpeed
-        self.currentPosition = initialPosition
         self.normalSpeed = normalSpeed
-        super.init()
+        super.init(position: initialPosition)
     }
 
     func reset() {

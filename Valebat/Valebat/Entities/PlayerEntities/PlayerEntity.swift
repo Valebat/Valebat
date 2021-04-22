@@ -18,7 +18,7 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
-        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
+        addComponent(PlayerMoveComponent(initialPosition: position))
         let indicatorSize = CGSize(width: 10, height: texture.size().height/2)
         addComponent(AimIndicatorComponent(size: indicatorSize))
         addComponent(LobIndicatorComponent(size: indicatorSize))

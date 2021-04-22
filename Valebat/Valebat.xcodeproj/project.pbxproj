@@ -912,6 +912,7 @@
 		C6A944BA2619B4CF00087256 /* UtilityComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */,
 				CBA494F026038AB1003A05F7 /* CollectingComponent.swift */,
 				C6A943A82605D20F00087256 /* SpawnComponent.swift */,
 			);
@@ -1030,7 +1031,6 @@
 				CBA494E62603847A003A05F7 /* DeathComponent.swift */,
 				EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */,
 				CBA495132604B54D003A05F7 /* EnemyDeathComponent.swift */,
-				C6AA3A1E2625A2330058003C /* AutoDestructComponent.swift */,
 			);
 			path = DamageHealthComponents;
 			sourceTree = "<group>";
@@ -2186,7 +2186,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS3217.ValebatT;
+				PRODUCT_BUNDLE_IDENTIFIER = CS3217.Valebat3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

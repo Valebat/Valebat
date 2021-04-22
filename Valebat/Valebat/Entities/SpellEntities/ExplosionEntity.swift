@@ -7,6 +7,7 @@
 
 import GameplayKit
 
+// TODO: Refactor to BaseInteractableEntity
 class ExplosionEntity: BaseEntity {
 
     init(position: CGPoint, scale: Int) {
