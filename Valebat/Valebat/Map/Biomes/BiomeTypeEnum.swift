@@ -49,4 +49,8 @@ extension BiomeTypeEnum {
                 .withObjectiveQuantity(1)
         }
     }
+
+    static func getBiomeDataFromTypes(_ types: [BiomeTypeEnum]) -> [BiomeData] {
+        return types.map { getBiomeDataFromType($0) }
+    }
 }

@@ -13,16 +13,25 @@ enum LevelListTypeEnum: String {
 }
 
 extension LevelListTypeEnum {
-    static func getLevelListFromType(_ type: LevelListTypeEnum) -> [BiomeTypeEnum] {
+    static func getLevelListFromType(_ type: LevelListTypeEnum) -> [BiomeData] {
         switch type {
         case .easy:
-            return [.normal, .normal, .normal, .dungeon, .crazyhouse, .boss]
+            return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .normal, .normal,
+                                                       .dungeon, .crazyhouse, .boss])
         case .medium:
-            return [.normal, .dungeon, .crazyhouse, .boss, .normal, .boss]
+            return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .dungeon, .crazyhouse,
+                                                        .boss, .normal, .boss])
         case .hard:
-            return [.normal, .dungeon, .crazyhouse, .dungeon, .boss, .crazyhouse, .crazyhouse, .crazyhouse, .boss]
+            var list: [BiomeData] = []
+            for spawners in 1...9 {
+                list.append(BiomeData()
+                                .withGuaranteedSpawns(object: .spawner, count: spawners)
+                                .withPossibleObjectiveTypes([.kills])
+                                .withObjectiveQuantity(1))
+            }
+            return list
         case .coop:
-            return [.easy, .normal, .boss]
+            return BiomeTypeEnum.getBiomeDataFromTypes([.easy, .normal, .boss])
         }
     }
 }
