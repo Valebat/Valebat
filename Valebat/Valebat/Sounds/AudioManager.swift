@@ -10,10 +10,8 @@ import AVFoundation
 
 class AudioManager {
     private static var instance: AudioManager?
-    static private var audioPlayer = [Int: AVAudioPlayer]()
+    static private var audioPlayers = [String: AVAudioPlayer]()
     static private var soundCoolDowns = [String: Double]()
-    private static let numberOfAudio = 30
-    static private var currentCounter = 0
 
     static func update(seconds: TimeInterval) {
         for sound in soundCoolDowns.keys {
@@ -25,22 +23,24 @@ class AudioManager {
         }
     }
 
+    private static func getAudioPlayer(soundName: String) -> AVAudioPlayer? {
+        if audioPlayers[soundName] == nil {
+            guard let pathToSound = Bundle.main.path(forResource: soundName, ofType: "wav") else {
+                return nil
+            }
+            guard let newPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: pathToSound)) else {
+                return nil
+            }
+            audioPlayers[soundName] = newPlayer
+        }
+        return audioPlayers[soundName]
+    }
     static func playSound(soundEffect: SoundEffect) {
         let soundData = soundEffect.getSoundEffectData()
         if soundCoolDowns[soundData.soundName] != nil {
             return
         }
-
-        currentCounter += 1
-        currentCounter %= numberOfAudio
-
-        guard let pathToSound = Bundle.main.path(forResource: soundData.soundName, ofType: "wav") else {
-           return
-        }
-
-        let url = URL(fileURLWithPath: pathToSound)
-        audioPlayer[currentCounter] = try? AVAudioPlayer(contentsOf: url)
-        audioPlayer[currentCounter]?.play()
+        getAudioPlayer(soundName: soundData.soundName)?.play()
         soundCoolDowns[soundData.soundName] = soundData.coolDown
     }
 }

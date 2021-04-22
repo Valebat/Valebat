@@ -1045,6 +1045,7 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CB9E9E49261759250016B046 /* AudioManager.swift */,
 				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
 				CB9E9E4E26175AA40016B046 /* Hit.wav */,
 				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
@@ -1108,7 +1109,6 @@
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
-				CB9E9E49261759250016B046 /* AudioManager.swift */,
 			);
 			path = Valebat;
 			sourceTree = "<group>";
