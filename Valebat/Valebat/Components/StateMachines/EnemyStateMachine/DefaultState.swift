@@ -8,7 +8,6 @@
 import Foundation
 import GameplayKit
 
-// TODO: Functions can be refactored better
 class DefaultState: GKState {
     let enemyEntity: BaseEnemyEntity
     let aggroRange: CGFloat
