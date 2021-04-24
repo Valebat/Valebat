@@ -20,8 +20,7 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
         addComponent(HealthComponent(health: enemyData.startingHP))
         addComponent(HealthBarComponent(barWidth: size.width, barOffset: size.height / 2))
         addComponent(DamageTakerComponent.getDamageTaker(type: enemyData.enemyType))
-        addComponent(EnemyMoveComponent(chaseSpeed: enemyData.enemyChaseSpeed,
-                                        normalSpeed: enemyData.enemyMoveSpeed, initialPosition: position))
+        addComponent(EnemyMoveComponent(initialPosition: position))
         addComponent(EnemyAttackComponent(attackCooldown: enemyData.enemyAttackCooldown,
                                           damageType: enemyData.enemyType,
                                           damageValue: enemyData.attackDamage,
@@ -38,5 +37,10 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        self.stateMachine?.update(deltaTime: seconds)
     }
 }

@@ -31,7 +31,7 @@ class SpawnerEntity: BaseEntity, BaseMapObjectEntity, ResettableEntity {
         }
         switch enemyType {
         case .enemy:
-            spawnComponent = SpawnComponent(spawnTime: spawnTime, limit: 1,
+            spawnComponent = SpawnComponent(spawnTime: spawnTime, limit: nil,
                                                 at: spriteComponent, enemyType: .enemy)
         case .boss:
             spawnComponent = SpawnComponent(spawnTime: spawnTime, limit: 1,

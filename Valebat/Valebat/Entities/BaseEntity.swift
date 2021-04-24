@@ -15,4 +15,10 @@ class BaseEntity: GKEntity {
         addComponent(component as GKComponent)
         component.baseEntity = self
     }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        for component in self.components {
+            component.update(deltaTime: seconds)
+        }
+    }
 }

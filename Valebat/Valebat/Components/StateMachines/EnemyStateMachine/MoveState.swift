@@ -30,8 +30,14 @@ class MoveState: GKState {
         if distance < attackRange {
             stateMachine?.enter(AttackState.self)
         } else if distance < aggroRange {
+            setPathTowardsPlayer(deltaTime: deltaTime)
         } else {
             stateMachine?.enter(DefaultState.self)
         }
+    }
+
+    private func setPathTowardsPlayer(deltaTime: TimeInterval) {
+        enemyEntity.component(ofType: EnemyMoveComponent.self)?.moveTowardsPlayer(deltaTime: deltaTime,
+                                                                                  with: speed)
     }
 }

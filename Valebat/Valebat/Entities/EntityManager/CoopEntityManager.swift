@@ -57,7 +57,6 @@ class CoopEntityManager: EntityManager {
         let inputInfos = session.roomManager.realTimeData.userInputInfo
         for (playerId, info) in inputInfos {
             let player = clientPlayers[playerId]
-            updatePlayerPosition(seconds: seconds, player: player, userInput: info)
             updateShoot(userInput: info, player: player)
         }
     }

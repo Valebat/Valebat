@@ -15,6 +15,7 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
     let damageValue: CGFloat
     var currentAttackCooldown: TimeInterval = 0.0
     let attackVelocity: CGFloat
+    var isAttacking: Bool = false
     init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat, attackVelocity: CGFloat) {
         self.attackVelocity = attackVelocity
         self.attackCooldown = attackCooldown
@@ -27,27 +28,26 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func isAttacking() -> Bool {
-        if let enemyEntity = baseEntity as? BaseEnemyEntity {
-            return enemyEntity.stateMachine?.currentState is AttackState
-        }
-        return false
+    func attack() {
+        isAttacking = true
+    }
+
+    func stopAttack() {
+        isAttacking = false
     }
 
     override func update(deltaTime seconds: TimeInterval) {
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        if isAttacking() && currentAttackCooldown <= 0 {
+        if isAttacking && currentAttackCooldown <= 0 {
             guard let currentPosition = getCurrentPosition(),
                   let playerPosition = entityManager.lastKnownPlayerPosition else {
                 return
             }
             let velocity = (playerPosition - currentPosition).convertToVector().normalized() * attackVelocity
-            entityManager.add(EnemyBasicAttackEntity(velocity: velocity,
-                                                              position: currentPosition,
-                                                              damageType: damageType,
-                                                              damageValue: damageValue))
+            entityManager.add(EnemyBasicAttackEntity(velocity: velocity, position: currentPosition,
+                                                     damageType: damageType, damageValue: damageValue))
             currentAttackCooldown = attackCooldown
         } else {
             currentAttackCooldown -= seconds

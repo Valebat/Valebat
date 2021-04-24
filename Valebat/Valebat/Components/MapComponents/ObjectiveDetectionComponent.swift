@@ -34,8 +34,8 @@ class ObjectiveDetectionComponent: BaseComponent {
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        entityManager.removeComponentOfEntity(parent, component: self)
-        entityManager.addComponentToEntity(parent, component: spawnedComponent)
+        parent.removeComponent(ofType: Self.self)
+        parent.addComponent(spawnedComponent)
         if self.replacementSpriteComponent != nil {
             entityManager.replaceSprite(parent, component: self.replacementSpriteComponent!)
         }

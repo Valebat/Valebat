@@ -24,30 +24,14 @@ class EntityManager {
 
     var spriteSystem: GKComponentSystem<GKComponent>
 
-    var lastKnownPlayerPosition: CGPoint?
+    var lastKnownPlayerPosition: CGPoint? {
+        player?.component(ofType: SpriteComponent.self)?.node.position
+    }
     var obstacles: [GKPolygonObstacle] = []
     let gkScene: GKScene
     var obstacleGraph: GKObstacleGraph<GKGraphNode2D>?
 
     var playing: Bool = true
-
-    lazy var componentSystems: [GKComponentSystem] = {
-        let physicsSystem = GKComponentSystem(componentClass: PhysicsComponent.self)
-        let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
-        let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
-        let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
-        let enemyMovementSystem = GKComponentSystem(componentClass: EnemyMoveComponent.self)
-        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
-        let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
-        let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
-        let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
-        let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
-        let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
-
-        return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem,
-                bossStateMachineSystem, bossAttackSystem, spriteSystem, enemyMovementSystem,
-                enemyAttackSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem]
-    }()
 
     init(scene: GameScene) {
         self.scene = scene
@@ -140,9 +124,6 @@ class EntityManager {
             scene.addChild(spriteNode)
         }
         entities.insert(entity)
-        for componentSystem in componentSystems {
-            componentSystem.addComponent(foundIn: entity)
-        }
     }
 
     private func immediateAdd(_ entity: BaseEntity) {
@@ -153,9 +134,6 @@ class EntityManager {
     func immediateRemove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
-        }
-        for componentSystem in componentSystems {
-            componentSystem.removeComponent(foundIn: entity)
         }
         entities.remove(entity)
     }
@@ -169,39 +147,14 @@ class EntityManager {
             spriteNode.removeFromParent()
         }
         toRemove.insert(entity)
-        entities.remove(entity)
     }
 
     func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
-        for componentSystem in componentSystems {
-            componentSystem.removeComponent(foundIn: entity)
-        }
-
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
         }
-
         entity.addComponent(component)
-
-        for componentSystem in componentSystems {
-            componentSystem.addComponent(foundIn: entity)
-        }
-
         scene.addChild(component.node)
-    }
-
-    func removeComponentOfEntity(_ entity: BaseEntity, component: BaseComponent) {
-        for componentSystem in componentSystems {
-            componentSystem.removeComponent(component)
-        }
-    }
-
-    func addComponentToEntity(_ entity: BaseEntity, component: BaseComponent) {
-        entity.addComponent(component)
-
-        for componentSystem in componentSystems {
-            componentSystem.addComponent(foundIn: entity)
-        }
     }
 
     func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {
@@ -233,44 +186,23 @@ class EntityManager {
         spell.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
     }
 
-    func updateLastKnownPlayerPosition() {
-        if let position = player?.component(ofType: SpriteComponent.self)?.node.position {
-            lastKnownPlayerPosition = position
-        }
-    }
-
-    func updatePlayerPosition(seconds: CFTimeInterval, player: PlayerEntity?, userInput: UserInputInfo) {
-        player?.component(ofType: PlayerMoveComponent.self)?.update(deltaTime: seconds)
-    }
-
     func update(_ deltaTime: CFTimeInterval) {
        // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {
-            for componentSystem in componentSystems {
-                componentSystem.update(deltaTime: deltaTime)
+            for entity in entities {
+                entity.update(deltaTime: deltaTime)
             }
-            updatePlayerPosition(seconds: deltaTime, player: self.player, userInput: scene.userInputInfo)
-            updateLastKnownPlayerPosition()
             updateShoot(userInput: scene.userInputInfo, player: self.player)
         }
 
-        for entity in entities {
-            if let enemyEntity = entity as? BaseEnemyEntity {
-                enemyEntity.stateMachine?.update(deltaTime: deltaTime)
-            }
+        for curAdd in toAdd {
+            entities.insert(curAdd)
         }
 
         for curRemove in toRemove {
-            for componentSystem in componentSystems {
-                componentSystem.removeComponent(foundIn: curRemove)
-            }
+            entities.remove(curRemove)
         }
-        for curAdd in toAdd {
-            entities.insert(curAdd)
-              for componentSystem in componentSystems {
-                  componentSystem.addComponent(foundIn: curAdd)
-              }
-        }
+
         toAdd.removeAll()
         toRemove.removeAll()
     }

@@ -8,16 +8,13 @@
 import GameplayKit
 
 class EnemyMoveComponent: MoveComponent {
-    var chaseSpeed: CGFloat
-    var normalSpeed: CGFloat
+    var speed: CGFloat = 200 // For boss
     var nextPositions = [CGPoint]()
     var currentRandomPathCoolDown = 3.0
     let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
-    init(chaseSpeed: CGFloat, normalSpeed: CGFloat, initialPosition: CGPoint) {
-        self.chaseSpeed = chaseSpeed
-        self.normalSpeed = normalSpeed
+    init(initialPosition: CGPoint) {
         super.init(position: initialPosition)
     }
 
@@ -34,27 +31,8 @@ class EnemyMoveComponent: MoveComponent {
         nextPositions.removeFirst()
     }
 
-    private func isMovingRandomly() -> Bool {
-        if let enemyEntity = baseEntity as? BaseEnemyEntity {
-            return enemyEntity.stateMachine?.currentState is DefaultState
-        }
-        return false
-    }
-
-    private func isMovingTowardsPlayer() -> Bool {
-        if let enemyEntity = baseEntity as? BaseEnemyEntity {
-            return enemyEntity.stateMachine?.currentState is MoveState
-        }
-        return false
-    }
-
     override func update(deltaTime seconds: TimeInterval) {
-        if isMovingRandomly() {
-            moveToRandomLocationInRadius(deltaTime: seconds)
-        }
-        if isMovingTowardsPlayer() {
-            moveTowardsPlayer(deltaTime: seconds)
-        }
+        computeNewPosition(deltaTime: seconds, speed: speed)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -141,16 +119,16 @@ class EnemyMoveComponent: MoveComponent {
         }
     }
 
-    private func moveToRandomLocationInRadius(deltaTime: TimeInterval) {
+    func moveToRandomLocationInRadius(deltaTime: TimeInterval, with speed: CGFloat) {
         currentRandomPathCoolDown -= deltaTime
         if currentRandomPathCoolDown < 0 {
             getRandomPathinRadius(origin: currentPosition, radius: 100)
             currentRandomPathCoolDown = randomPathCoolDown
         }
-        computeNewPosition(deltaTime: deltaTime, speed: normalSpeed)
+        self.speed = speed
     }
 
-    private func moveTowardsPlayer(deltaTime: TimeInterval) {
+    func moveTowardsPlayer(deltaTime: TimeInterval, with speed: CGFloat) {
         currentPathTimerCooldown -= deltaTime
         if currentPathTimerCooldown < 0 {
             if let targetLocation = baseEntity?.entityManager?.lastKnownPlayerPosition {
@@ -158,7 +136,7 @@ class EnemyMoveComponent: MoveComponent {
             }
             currentPathTimerCooldown = pathTimerCooldown
         }
-        computeNewPosition(deltaTime: deltaTime, speed: chaseSpeed)
+        self.speed = speed
     }
 
 }

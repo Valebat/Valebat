@@ -35,7 +35,14 @@ class DefaultState: GKState {
         let distance = (origin - playerOrigin).length()
         if distance < aggroRange {
             stateMachine?.enter(MoveState.self)
+        } else {
+            setPathToRandomPosition(deltaTime: deltaTime)
         }
+    }
+
+    private func setPathToRandomPosition(deltaTime: TimeInterval) {
+        enemyEntity.component(ofType: EnemyMoveComponent.self)?
+            .moveToRandomLocationInRadius(deltaTime: deltaTime, with: speed)
     }
 
 }
