@@ -8,7 +8,8 @@
 import GameplayKit
 
 class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
-    var image: String
+    let image: String
+    var stateMachine: GKStateMachine?
 
     init(enemyData: BasicEnemyData, position: CGPoint) {
         let size = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
@@ -25,9 +26,14 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
                                           damageType: enemyData.enemyType,
                                           damageValue: enemyData.attackDamage,
                                           attackVelocity: enemyData.attackVelocity))
-        addComponent(EnemyStateMachineComponent(attackRange: enemyData.enemyAttackRange,
-                                                aggroRange: enemyData.enemyAggroRange))
         addComponent(EnemyDeathComponent(exp: enemyData.deathEXP))
+        let defaultState = DefaultState(for: self, aggroRange: enemyData.enemyAggroRange,
+                                        speed: enemyData.enemyChaseSpeed)
+        let moveState = MoveState(for: self, attackRange: enemyData.enemyAttackRange,
+                                  aggroRange: enemyData.enemyAggroRange, speed: enemyData.enemyMoveSpeed)
+        let attackState = AttackState(for: self, attackRange: enemyData.enemyAttackRange)
+        self.stateMachine = GKStateMachine(states: [defaultState, moveState, attackState])
+        self.stateMachine?.enter(DefaultState.self)
     }
 
     required init?(coder: NSCoder) {

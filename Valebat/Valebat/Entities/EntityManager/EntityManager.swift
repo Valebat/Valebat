@@ -36,16 +36,14 @@ class EntityManager {
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
         let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
-        let enemyStateSystem = GKComponentSystem(componentClass: EnemyStateMachineComponent.self)
-        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
         let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
         let powerupSpawnSystem = GKComponentSystem(componentClass: PowerupSpawnerComponent.self)
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
 
-        return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem, enemyStateSystem,
-                enemyAttackSystem, bossStateMachineSystem, bossAttackSystem, spriteSystem,
+        return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem,
+                bossStateMachineSystem, bossAttackSystem, spriteSystem,
                 advanceLevelSystem, powerupSpawnSystem, autoDestructSystem]
     }()
 
@@ -240,10 +238,7 @@ class EntityManager {
     }
 
     func updatePlayerPosition(seconds: CFTimeInterval, player: PlayerEntity?, userInput: UserInputInfo) {
-        player?.component(ofType: PlayerMoveComponent.self)?
-               .movePlayer(velocity: userInput.movementJoystickVelocity
-                            * CGFloat(seconds) * GameConstants.playerMoveSpeed,
-                           angular: userInput.movementJoystickAngular)
+        player?.component(ofType: PlayerMoveComponent.self)?.update(deltaTime: seconds)
     }
 
     func update(_ deltaTime: CFTimeInterval) {
@@ -256,6 +251,13 @@ class EntityManager {
             updateLastKnownPlayerPosition()
             updateShoot(userInput: scene.userInputInfo, player: self.player)
         }
+
+        for entity in entities {
+            if let enemyEntity = entity as? BaseEnemyEntity {
+                enemyEntity.stateMachine?.update(deltaTime: deltaTime)
+            }
+        }
+
         for curRemove in toRemove {
             for componentSystem in componentSystems {
                 componentSystem.removeComponent(foundIn: curRemove)

@@ -7,15 +7,28 @@
 
 import GameplayKit
 
-class AttackState: BaseEnemyState {
+class AttackState: GKState {
+    let enemyEntity: BaseEnemyEntity
+    let attackRange: CGFloat
+
+    init(for entity: BaseEnemyEntity, attackRange: CGFloat) {
+        enemyEntity = entity
+        self.attackRange = attackRange
+    }
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        if stateClass == AttackState.self {
-            return false
-        }
-        return true
+        return stateClass == MoveState.self
     }
+
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent.entity?.component(ofType: EnemyAttackComponent.self)?.attack()
+        print("in attack state")
+        guard let origin = enemyEntity.getPosition(),
+              let playerOrigin = enemyEntity.entityManager?.lastKnownPlayerPosition else {
+            return
+        }
+        let distance = (origin - playerOrigin).length()
+        if distance > attackRange {
+            stateMachine?.enter(MoveState.self)
+        }
     }
 }

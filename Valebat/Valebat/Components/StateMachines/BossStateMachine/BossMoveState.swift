@@ -15,7 +15,7 @@ class BossMoveState: BaseBossState {
         return true
     }
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
+//        stateMachineComponent.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
     }
     override func willExit(to nextState: GKState) {
         stateMachineComponent.getMoveComponent()?.reset()

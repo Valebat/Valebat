@@ -27,14 +27,18 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func update(deltaTime seconds: TimeInterval) {
-        currentAttackCooldown -= seconds
+    private func isAttacking() -> Bool {
+        if let enemyEntity = baseEntity as? BaseEnemyEntity {
+            return enemyEntity.stateMachine?.currentState is AttackState
+        }
+        return false
     }
-    func attack() {
+
+    override func update(deltaTime seconds: TimeInterval) {
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        if currentAttackCooldown <= 0 {
+        if isAttacking() && currentAttackCooldown <= 0 {
             guard let currentPosition = getCurrentPosition(),
                   let playerPosition = entityManager.lastKnownPlayerPosition else {
                 return
@@ -45,6 +49,8 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
                                                               damageType: damageType,
                                                               damageValue: damageValue))
             currentAttackCooldown = attackCooldown
+        } else {
+            currentAttackCooldown -= seconds
         }
     }
 }

@@ -120,9 +120,7 @@
 		C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
 		C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
 		C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
-		C69D366A262B2A1F00EDE2AC /* BaseEnemyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DE72610A1170016B046 /* BaseEnemyState.swift */; };
 		C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
-		C69D366C262B2A1F00EDE2AC /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
 		C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
 		C69D366E262B2A1F00EDE2AC /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC49F725FFF94900C5DDD2 /* PhysicsComponent.swift */; };
 		C69D366F262B2A1F00EDE2AC /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
@@ -288,10 +286,8 @@
 		CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB917FA6262AFFC4004A6F3C /* ClientManager.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
-		CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */; };
 		CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
 		CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
-		CB9E9DE82610A1170016B046 /* BaseEnemyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DE72610A1170016B046 /* BaseEnemyState.swift */; };
 		CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
 		CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */; };
 		CB9E9E17261727190016B046 /* PlayerHUD.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9E16261727190016B046 /* PlayerHUD.sks */; };
@@ -516,10 +512,8 @@
 		CB917FA6262AFFC4004A6F3C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
-		CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachineComponent.swift; sourceTree = "<group>"; };
 		CB9E9DD4261095410016B046 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
 		CB9E9DDA261095CC0016B046 /* MoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveState.swift; sourceTree = "<group>"; };
-		CB9E9DE72610A1170016B046 /* BaseEnemyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnemyState.swift; sourceTree = "<group>"; };
 		CB9E9DEC2610A7CE0016B046 /* AttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackState.swift; sourceTree = "<group>"; };
 		CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyBasicAttackEntity.swift; sourceTree = "<group>"; };
 		CB9E9E16261727190016B046 /* PlayerHUD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerHUD.sks; sourceTree = "<group>"; };
@@ -1004,9 +998,7 @@
 			children = (
 				CB9E9DD4261095410016B046 /* DefaultState.swift */,
 				CB9E9DDA261095CC0016B046 /* MoveState.swift */,
-				CB9E9DE72610A1170016B046 /* BaseEnemyState.swift */,
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
-				CB9E9DCF261094C00016B046 /* EnemyStateMachineComponent.swift */,
 			);
 			path = EnemyStateMachine;
 			sourceTree = "<group>";
@@ -1675,7 +1667,6 @@
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
-				CB9E9DD0261094C00016B046 /* EnemyStateMachineComponent.swift in Sources */,
 				C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */,
 				CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */,
 				C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */,
@@ -1788,7 +1779,6 @@
 				C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */,
 				C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */,
 				C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */,
-				CB9E9DE82610A1170016B046 /* BaseEnemyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1911,9 +1901,7 @@
 				C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */,
 				C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */,
 				C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */,
-				C69D366A262B2A1F00EDE2AC /* BaseEnemyState.swift in Sources */,
 				C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */,
-				C69D366C262B2A1F00EDE2AC /* EnemyStateMachineComponent.swift in Sources */,
 				C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */,
 				C69D366E262B2A1F00EDE2AC /* PhysicsComponent.swift in Sources */,
 				C69D366F262B2A1F00EDE2AC /* PlayerComponent.swift in Sources */,

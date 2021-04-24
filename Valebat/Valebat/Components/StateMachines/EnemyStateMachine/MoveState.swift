@@ -8,18 +8,31 @@
 import Foundation
 import GameplayKit
 
-class MoveState: BaseEnemyState {
+class MoveState: GKState {
+    let enemyEntity: BaseEnemyEntity
+    let aggroRange: CGFloat
+    let attackRange: CGFloat
+    let speed: CGFloat
 
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        if stateClass == MoveState.self {
-            return false
-        }
-        return true
+    init(for entity: BaseEnemyEntity, attackRange: CGFloat, aggroRange: CGFloat, speed: CGFloat) {
+        enemyEntity = entity
+        self.attackRange = attackRange
+        self.aggroRange = aggroRange
+        self.speed = speed
     }
+
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
-    }
-    override func willExit(to nextState: GKState) {
-        stateMachineComponent.getMoveComponent()?.reset()
+        print("in move state")
+        guard let origin = enemyEntity.getPosition(),
+              let playerOrigin = enemyEntity.entityManager?.lastKnownPlayerPosition else {
+            return
+        }
+        let distance = (origin - playerOrigin).length()
+        if distance < attackRange {
+            stateMachine?.enter(AttackState.self)
+        } else if distance < aggroRange {
+        } else {
+            stateMachine?.enter(DefaultState.self)
+        }
     }
 }

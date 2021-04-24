@@ -32,7 +32,12 @@ class BaseInteractableEntity: BaseEntity {
                                           collisionType: type))
         }
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func getPosition() -> CGPoint? {
+        return self.component(ofType: SpriteComponent.self)?.node.position
     }
 }
