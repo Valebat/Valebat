@@ -22,7 +22,6 @@ class MoveState: GKState {
     }
 
     override func update(deltaTime: TimeInterval) {
-        print("in move state")
         guard let origin = enemyEntity.getPosition(),
               let playerOrigin = enemyEntity.entityManager?.lastKnownPlayerPosition else {
             return

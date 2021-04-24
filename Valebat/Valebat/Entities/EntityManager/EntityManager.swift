@@ -36,6 +36,8 @@ class EntityManager {
         let regularMovementSystem = GKComponentSystem(componentClass: RegularMovementComponent.self)
         let projectileMovementSystem = GKComponentSystem(componentClass: ProjectileMotionComponent.self)
         let spawnSystem = GKComponentSystem(componentClass: SpawnComponent.self)
+        let enemyMovementSystem = GKComponentSystem(componentClass: EnemyMoveComponent.self)
+        let enemyAttackSystem = GKComponentSystem(componentClass: EnemyAttackComponent.self)
         let bossStateMachineSystem = GKComponentSystem(componentClass: BossStateMachineComponent.self)
         let bossAttackSystem = GKComponentSystem(componentClass: BossAttackComponent.self)
         let advanceLevelSystem = GKComponentSystem(componentClass: AdvanceLevelComponent.self)
@@ -43,8 +45,8 @@ class EntityManager {
         let autoDestructSystem = GKComponentSystem(componentClass: AutoDestructComponent.self)
 
         return [physicsSystem, regularMovementSystem, projectileMovementSystem, spawnSystem,
-                bossStateMachineSystem, bossAttackSystem, spriteSystem,
-                advanceLevelSystem, powerupSpawnSystem, autoDestructSystem]
+                bossStateMachineSystem, bossAttackSystem, spriteSystem, enemyMovementSystem,
+                enemyAttackSystem, advanceLevelSystem, powerupSpawnSystem, autoDestructSystem]
     }()
 
     init(scene: GameScene) {
