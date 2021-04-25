@@ -16,11 +16,12 @@ class ExplosionEntity: BaseInteractableEntity {
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
             .applying(CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale)))
-        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTexture,
-                   physicsType: .playerAttack, position: position)
+        super.init(texture: spriteTexture, size: spriteSize, physicsType: .playerAttack,
+                   position: position)
         let damage = PlayerModifierUtil.playerDamageMultiplier * TestConstants.damageValue // Some constant
         addComponent(InstantDamageComponent(damage: damage, type: .pure))
         addComponent(AutoDestructComponent(timer: Double(spriteTextures.count) * 0.1))
+        self.component(ofType: SpriteComponent.self)?.animate(with: spriteTextures, runForever: false)
     }
 
     required init?(coder: NSCoder) {

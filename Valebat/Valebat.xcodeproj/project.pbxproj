@@ -836,6 +836,8 @@
 			isa = PBXGroup;
 			children = (
 				C6A9451B261DC19400087256 /* BaseEnemyEntity.swift */,
+				CB744D962625BA2C00DF2188 /* LaserSpell.swift */,
+				CB744DC32625F66F00DF2188 /* StarProjectiles.swift */,
 				CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */,
 				C6A944FA261CCDBA00087256 /* BossEntity.swift */,
 				C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */,
@@ -1290,8 +1292,6 @@
 				EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */,
 				CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */,
 				C6AA3A262625A26E0058003C /* ExplosionEntity.swift */,
-				CB744D962625BA2C00DF2188 /* LaserSpell.swift */,
-				CB744DC32625F66F00DF2188 /* StarProjectiles.swift */,
 			);
 			path = SpellEntities;
 			sourceTree = "<group>";

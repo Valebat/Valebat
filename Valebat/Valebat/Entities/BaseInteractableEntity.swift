@@ -20,19 +20,6 @@ class BaseInteractableEntity: BaseEntity {
         }
     }
 
-    init(textures: [SKTexture], size: CGSize, physicsTexture: SKTexture?,
-         physicsType: CollisionType?, position: CGPoint, isStatic: Bool = true) {
-        super.init()
-        let spriteComponent = SpriteComponent(animatedTextures: textures, size: size,
-                                              position: position, isStatic: false)
-        addComponent(spriteComponent)
-        if let type = physicsType,
-           let texture = physicsTexture {
-            addComponent(PhysicsComponent(physicsBody: SKPhysicsBody(texture: texture, size: size),
-                                          collisionType: type))
-        }
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
