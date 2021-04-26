@@ -372,6 +372,7 @@
 		EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */; };
 		EF515A2626368A1800391FB2 /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2426368A1800391FB2 /* StarProjectiles.swift */; };
 		EF515A2726368A1800391FB2 /* LaserSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2526368A1800391FB2 /* LaserSpell.swift */; };
+		EF515A2F2636D28400391FB2 /* EnemyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2E2636D28400391FB2 /* EnemyState.swift */; };
 		EF5C4788262AC25B00A46C4E /* ClientScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C4787262AC25B00A46C4E /* ClientScene.swift */; };
 		EF5C47AA262AD5C000A46C4E /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */; };
 		EF5C47BC262B3EE200A46C4E /* ObjectiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47BB262B3EE200A46C4E /* ObjectiveDataTests.swift */; };
@@ -606,6 +607,7 @@
 		EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularMovementComponent.swift; sourceTree = "<group>"; };
 		EF515A2426368A1800391FB2 /* StarProjectiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarProjectiles.swift; sourceTree = "<group>"; };
 		EF515A2526368A1800391FB2 /* LaserSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserSpell.swift; sourceTree = "<group>"; };
+		EF515A2E2636D28400391FB2 /* EnemyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyState.swift; sourceTree = "<group>"; };
 		EF5C4787262AC25B00A46C4E /* ClientScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientScene.swift; sourceTree = "<group>"; };
 		EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		EF5C47BB262B3EE200A46C4E /* ObjectiveDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDataTests.swift; sourceTree = "<group>"; };
@@ -993,6 +995,7 @@
 				CB9E9DD4261095410016B046 /* DefaultState.swift */,
 				CB9E9DDA261095CC0016B046 /* MoveState.swift */,
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
+				EF515A2E2636D28400391FB2 /* EnemyState.swift */,
 			);
 			path = EnemyStateMachine;
 			sourceTree = "<group>";
@@ -1663,6 +1666,7 @@
 				CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */,
 				C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
+				EF515A2F2636D28400391FB2 /* EnemyState.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStats.swift in Sources */,
 				C6ACE6E9262993490000A2E6 /* BaseGameSession.swift in Sources */,
 				C6A943A92605D20F00087256 /* SpawnComponent.swift in Sources */,

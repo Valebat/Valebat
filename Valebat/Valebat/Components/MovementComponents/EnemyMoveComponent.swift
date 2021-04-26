@@ -140,4 +140,8 @@ class EnemyMoveComponent: MoveComponent {
         self.speed = speed
     }
 
+    func stopMoving() {
+        nextPositions.removeAll()
+    }
+
 }

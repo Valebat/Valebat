@@ -8,8 +8,7 @@
 import Foundation
 import GameplayKit
 
-class DefaultState: GKState {
-    let enemyEntity: BaseEnemyEntity
+class DefaultState: EnemyState {
     let aggroRange: CGFloat
     let speed: CGFloat
 
@@ -17,9 +16,9 @@ class DefaultState: GKState {
     var nextPositions = [CGPoint]()
 
     init(for entity: BaseEnemyEntity, aggroRange: CGFloat, speed: CGFloat) {
-        enemyEntity = entity
         self.aggroRange = aggroRange
         self.speed = speed
+        super.init(entity: entity)
     }
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -27,8 +26,8 @@ class DefaultState: GKState {
     }
 
     override func update(deltaTime: TimeInterval) {
-        guard let origin = enemyEntity.getPosition(),
-              let playerOrigin = enemyEntity.entityManager?.lastKnownPlayerPosition else {
+        guard let origin = enemyEntity?.getPosition(),
+              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
             return
         }
         let distance = (origin - playerOrigin).length()
@@ -40,8 +39,7 @@ class DefaultState: GKState {
     }
 
     private func setPathToRandomPosition(deltaTime: TimeInterval) {
-        enemyEntity.component(ofType: EnemyMoveComponent.self)?
-            .moveToRandomLocationInRadius(deltaTime: deltaTime, with: speed)
+        getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime, with: speed)
     }
 
 }

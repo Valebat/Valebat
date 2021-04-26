@@ -8,22 +8,22 @@
 import Foundation
 import GameplayKit
 
-class MoveState: GKState {
-    let enemyEntity: BaseEnemyEntity
+class MoveState: EnemyState {
+
     let aggroRange: CGFloat
     let attackRange: CGFloat
     let speed: CGFloat
 
     init(for entity: BaseEnemyEntity, attackRange: CGFloat, aggroRange: CGFloat, speed: CGFloat) {
-        enemyEntity = entity
         self.attackRange = attackRange
         self.aggroRange = aggroRange
         self.speed = speed
+        super.init(entity: entity)
     }
 
     override func update(deltaTime: TimeInterval) {
-        guard let origin = enemyEntity.getPosition(),
-              let playerOrigin = enemyEntity.entityManager?.lastKnownPlayerPosition else {
+        guard let origin = enemyEntity?.getPosition(),
+              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
             return
         }
         let distance = (origin - playerOrigin).length()
@@ -37,7 +37,7 @@ class MoveState: GKState {
     }
 
     private func setPathTowardsPlayer(deltaTime: TimeInterval) {
-        enemyEntity.component(ofType: EnemyMoveComponent.self)?.moveTowardsPlayer(deltaTime: deltaTime,
-                                                                                  with: speed)
+        getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: speed)
     }
+
 }
