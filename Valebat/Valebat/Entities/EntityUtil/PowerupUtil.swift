@@ -6,6 +6,7 @@
 //
 
 class PowerupUtil {
+
     static func collectedPowerup(_ powerup: PowerupEnum, player: PlayerEntity) {
         switch powerup {
         case .heal:

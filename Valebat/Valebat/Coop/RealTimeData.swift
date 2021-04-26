@@ -8,4 +8,5 @@
 class RealTimeData {
     var userInputInfo: [String: UserInputInfo] = [:]
     var sprites: [SpriteData] = []
+    var playerHUDData: CoopHUDData?
 }

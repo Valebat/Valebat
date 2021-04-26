@@ -17,5 +17,4 @@ class HUDPlayerObjective: SKSpriteNode {
         // let objective = gameSession.objectiveManager.getDescription()
         (childNode(withName: "//Objective Label") as? SKLabelNode)?.text = objectiveDescription
     }
-
 }

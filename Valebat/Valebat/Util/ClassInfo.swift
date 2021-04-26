@@ -6,6 +6,7 @@
 //
 
 // Many thanks to Code Different: http://stackoverflow.com/a/42749141/3440266
+
 import Foundation
 
 struct ClassInfo: CustomStringConvertible, Equatable {

@@ -8,22 +8,15 @@
 import SpriteKit
 
 class SpellJoystick: TLAnalogJoystick {
-
     weak var userInputNode: UserInputNode?
 
     override func didJoystickEnd() {
-        if self.velocity.length() < 0.2 {
-            return
-        }
         userInputNode?.userInputInfo?.spellJoystickAngular = self.angular
         userInputNode?.userInputInfo?.spellJoystickEnd = true
         userInputNode?.userInputInfo?.spellJoystickMoved = false
     }
 
     override func didJoystickMove() {
-        if self.velocity.length() < 0.2 {
-            return
-        }
         userInputNode?.userInputInfo?.spellJoystickAngular = self.angular
         userInputNode?.userInputInfo?.spellJoystickEnd = false
         userInputNode?.userInputInfo?.spellJoystickMoved = true

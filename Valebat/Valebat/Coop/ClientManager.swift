@@ -9,22 +9,26 @@ import Foundation
 
 class ClientManager {
     var spritesData: Set<SpriteData> = Set()
+    var coopHUDData: CoopHUDData?
     var roomManager: RoomManager?
     var loadingIsInitialised: Bool = false
 
-    private func initialiseLoadingSpritesCycle() {
+    private func initialiseLoadingCycle() {
         roomManager!.loadSpritesCycle()
         loadingIsInitialised = true
     }
 
-    func getSpriteData() {
+    func getData() {
         if !loadingIsInitialised {
-            initialiseLoadingSpritesCycle()
+            initialiseLoadingCycle()
         }
         if let sprites = self.roomManager?.realTimeData.sprites {
             if sprites.count > 0 {
                 spritesData = Set(sprites)
             }
+        }
+        if let coopHUD = self.roomManager?.realTimeData.playerHUDData {
+            coopHUDData = coopHUD
         }
     }
 }

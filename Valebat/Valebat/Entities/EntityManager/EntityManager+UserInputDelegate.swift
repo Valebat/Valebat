@@ -37,11 +37,11 @@ extension EntityManager: UserInputDelegate {
         do {
             try shootSpell(from: playerPos, with: direction, using: elementQueue)
         } catch SpellErrors.invalidLevelError {
-            print("Wrong level was given")
+            print("Wrong level was given.")
         } catch SpellErrors.wrongBasicTypeError {
-            print("Wrong element type was given")
+            print("Wrong element type was given.")
         } catch {
-            print("Unexpected error")
+            print("Unexpected error.")
         }
     }
 
@@ -65,11 +65,11 @@ extension EntityManager: UserInputDelegate {
                                           playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation,
                                           playerPosition: playerPos)
         } catch SpellErrors.invalidLevelError {
-            print("Wrong level was given")
+            print("Wrong level was given.")
         } catch SpellErrors.wrongBasicTypeError {
-            print("Wrong element type was given")
+            print("Wrong element type was given.")
         } catch {
-            print("Unexpected error")
+            print("Unexpected error.")
         }
     }
 
@@ -82,6 +82,5 @@ extension EntityManager: UserInputDelegate {
             return []
         }
         return elementQueue.compactMap({ playerStats.getElement(type: $0) })
-
     }
 }

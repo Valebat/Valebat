@@ -8,6 +8,7 @@
 import SpriteKit
 
 class StaticMapObject: MapObject {
+
     init(type: MapObjectEnum, position: CGPoint, scale: Double, collidable: Bool) {
         let xDimension = (MapObjectConstants.globalDefaultWidths[type]
                             ?? MapObjectConstants.objectDefaultWidth) * scale

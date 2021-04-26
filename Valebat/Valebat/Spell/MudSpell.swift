@@ -20,5 +20,4 @@ class MudSpell: CompositeSpell {
     override class var description: String {
         "earth water"
     }
-
 }

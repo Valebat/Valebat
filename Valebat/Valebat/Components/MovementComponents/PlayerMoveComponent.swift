@@ -53,5 +53,4 @@ class PlayerMoveComponent: MoveComponent {
         }
         orientation = userInput?.movementJoystickAngular
     }
-
 }

@@ -8,7 +8,6 @@
 import GameplayKit
 
 class DamageComponent: BaseComponent, ContactObserver {
-
     var damageValues = [BasicType: CGFloat]()
 
     init(water: CGFloat, earth: CGFloat, fire: CGFloat, pure: CGFloat) {

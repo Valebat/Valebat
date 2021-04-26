@@ -25,7 +25,6 @@ class CoopViewController: UIViewController {
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             if let roomID = alert?.textFields?[0].text {
-                print(roomID)
                 self.joinRoom(isHost: false, roomID: roomID)
             }
 
@@ -51,7 +50,6 @@ class CoopViewController: UIViewController {
             }
 
             roomManager.joinRoom(username: username.username, isHost: isHost, roomCode: roomID) {
-
                 let viewController = UIStoryboard(name: "Main", bundle: nil)
                     .instantiateViewController(identifier: "CoopRoomVC")
                 viewController.modalPresentationStyle = .fullScreen
@@ -63,9 +61,7 @@ class CoopViewController: UIViewController {
                 roomVC.roomManager = roomManager
                 roomVC.username = username.username
                 present(roomVC, animated: true, completion: nil)
-
             }
         }
     }
-
 }

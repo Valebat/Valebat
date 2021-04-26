@@ -14,6 +14,7 @@ class EnemyMoveComponent: MoveComponent {
     let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
+
     init(initialPosition: CGPoint) {
         super.init(position: initialPosition)
     }

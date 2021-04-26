@@ -14,5 +14,7 @@ struct GameConstants {
 
     static var timeBeforeBossSpawns: Double = 1.0
 
-    static var randomPathCooldown: Double = 3.0
+    static let randomPathCooldown: Double = 3.0
+
+    static let damageValue: CGFloat = 5.0
 }

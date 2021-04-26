@@ -8,7 +8,6 @@
 import SpriteKit
 
 class ElementQueue: SKNode {
-
     var elements: SKNode?
 
     override init() {

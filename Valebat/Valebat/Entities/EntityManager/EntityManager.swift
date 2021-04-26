@@ -1,13 +1,3 @@
-//
-//  This file is adapted from:
-//
-//  EntityManager.swift
-//  MonsterWars
-//
-//  Created by Main Account on 11/3/15.
-//  Copyright © 2015 Razeware LLC. All rights reserved.
-//
-
 import Foundation
 import SpriteKit
 import GameplayKit
@@ -187,7 +177,6 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-       // entities.forEach({ $0.update(deltaTime: deltaTime )})
         if playing {
             for entity in entities {
                 entity.update(deltaTime: deltaTime)
@@ -212,7 +201,8 @@ class EntityManager {
             spellJoystickMoved(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-        } else if userInput.spellJoystickEnd {
+        }
+        if userInput.spellJoystickEnd {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)

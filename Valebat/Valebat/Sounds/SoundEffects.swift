@@ -18,7 +18,7 @@ enum SoundEffect {
     func getSoundEffectData() -> SoundEffectData {
         switch self {
         case .hit:
-            return SoundEffectData(soundName: "Hit", coolDown: 0.08)
+            return SoundEffectData(soundName: "Hit", coolDown: 0.1)
         case .laser:
             return SoundEffectData(soundName: "LaserDamage", coolDown: 0.01)
         }

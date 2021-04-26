@@ -14,7 +14,7 @@ class CoopEntityManager: EntityManager {
 
     var clientPlayers = [String: ClientPlayerEntity]()
 
-    var spellShoot: Bool = false
+    var spellShoot = [String: Bool]()
 
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
@@ -22,8 +22,7 @@ class CoopEntityManager: EntityManager {
         timer += Double(deltaTime)
 
         if timer > CoopConstants.updateTimer {
-            saveSprites()
-            saveplayerHUD()
+            saveData()
             timer -= CoopConstants.updateTimer
         }
         updateClientPlayers(deltaTime)
@@ -41,38 +40,46 @@ class CoopEntityManager: EntityManager {
         clientPlayers[playerID] = character
     }
 
-    private func saveSprites() {
+    private func saveData() {
         let spriteComponents = spriteSystem.components
-        currentSession?.coopManager?.saveSprites(spriteComponents: spriteComponents)
-    }
-    private func saveplayerHUD() {
-
+        currentSession?.coopManager?.saveData(spriteComponents: spriteComponents)
     }
 
     private func updateClientPlayers(_ seconds: CFTimeInterval) {
         guard let session = currentSession as? CoopGameSession else {
-            print("not coop game")
             return
         }
         let inputInfos = session.roomManager.realTimeData.userInputInfo
         for (playerId, info) in inputInfos {
             let player = clientPlayers[playerId]
             updateShoot(userInput: info, player: player)
+            updateClientShoot(userInput: info, player: player, playerId: playerId)
         }
     }
 
-    override func updateShoot(userInput: UserInputInfo, player: PlayerEntity?) {
+    private func updateClientShoot(userInput: UserInputInfo, player: PlayerEntity?,
+                                   playerId: String) {
         if userInput.spellJoystickMoved {
             spellJoystickMoved(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-            spellShoot = false
-        } else if userInput.spellJoystickEnd && !spellShoot {
+            spellShoot[playerId] = false
+        } else if userInput.spellJoystickEnd && !(spellShoot[playerId] ?? false) {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
-            spellShoot = true
+            userInput.spellJoystickEnd = false
+            spellShoot[playerId] = true
         }
     }
 
+    override func advanceLevel() {
+        super.advanceLevel()
+        clientPlayers.values.forEach({ self.add($0) })
+    }
+
+    override func restart() {
+        super.restart()
+        clientPlayers.values.forEach({ self.add($0) })
+    }
 }

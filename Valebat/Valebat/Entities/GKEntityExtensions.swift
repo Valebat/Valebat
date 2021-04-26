@@ -8,6 +8,7 @@
 import GameplayKit
 
 extension GKEntity {
+
     func component<P>(conformingTo protocol: P.Type) -> P? {
         for component in components {
             if let wantedComponent = component as? P {

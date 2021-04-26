@@ -8,6 +8,7 @@
 import GameplayKit
 
 extension EntityManager {
+
     func initialiseLevel() {
         immediateAddMapEntities()
         addPlayer()
@@ -29,6 +30,7 @@ extension EntityManager {
         }
     }
 
+    @objc
     func restart() {
         guard let currentSession = self.currentSession else {
             return
@@ -43,6 +45,7 @@ extension EntityManager {
         playing = true
     }
 
+    @objc
     func advanceLevel() {
         guard let currentSession = self.currentSession else {
             return

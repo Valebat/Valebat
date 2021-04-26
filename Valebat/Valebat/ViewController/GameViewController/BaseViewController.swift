@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class BaseViewController: UIViewController {
+
     override var shouldAutorotate: Bool {
         return false
     }

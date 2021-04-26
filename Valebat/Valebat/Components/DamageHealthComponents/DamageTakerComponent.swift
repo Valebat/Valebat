@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class DamageTakerComponent: BaseComponent {
-
     var multiplierValues = [BasicType: CGFloat]()
 
     override init() {
@@ -48,12 +47,15 @@ class DamageTakerComponent: BaseComponent {
             return DamageTakerComponent()
         }
     }
+
     static func defaultWaterResist() -> DamageTakerComponent {
         DamageTakerComponent(water: 1.0, earth: 1.5, fire: 0.75, pure: 1)
     }
+
     static func defaultFireResist() -> DamageTakerComponent {
         DamageTakerComponent(water: 1.5, earth: 0.75, fire: 1.0, pure: 1)
     }
+
     static func defaultEarthResist() -> DamageTakerComponent {
         DamageTakerComponent(water: 0.75, earth: 1.0, fire: 1.5, pure: 1)
     }

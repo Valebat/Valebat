@@ -8,7 +8,6 @@
 import GameplayKit
 
 class SpawnerEntity: BaseEntity, BaseMapObjectEntity, ResettableEntity {
-
     let objectType: MapObjectEnum = .spawner
     let spawnTime: Double
     let enemyType: EnemyTypeEnum

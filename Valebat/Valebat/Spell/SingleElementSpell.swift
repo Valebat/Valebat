@@ -6,7 +6,6 @@
 //
 
 class SingleElementSpell: Spell {
-
     let damageType: BasicType
 
     init(with element: Element) {

@@ -8,7 +8,6 @@
 import UIKit
 
 class CoopRoomViewController: UIViewController {
-
     @IBOutlet var roomIDText: UITextField!
     var isHost = false
     var roomManager: RoomManager!
@@ -23,7 +22,9 @@ class CoopRoomViewController: UIViewController {
         super.viewDidLoad()
         roomIDText.text = "ROOM ID: \(roomID)"
         loadRoomData()
-        refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self,
+                                            selector: #selector(fireTimer),
+                                            userInfo: nil, repeats: true)
     }
 
     func loadRoomData() {
@@ -80,4 +81,7 @@ class CoopRoomViewController: UIViewController {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        refreshTimer?.invalidate()
+    }
 }

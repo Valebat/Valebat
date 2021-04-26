@@ -14,7 +14,7 @@ class MapManager {
     var maps: [Map] = []
     var mapEntities: [BaseMapEntity] = []
     var allMapEntities: [[BaseMapEntity]] = []
-    var currentBiome: BiomeTypeEnum = .normal
+    var currentBiomeData: BiomeData = BiomeData()
     let entityManager: EntityManager
     let spawnManager: SpawnManager
     let objectiveManager: ObjectiveManager
@@ -29,14 +29,14 @@ class MapManager {
         self.map = Map()
         self.maps = []
 
-        let biomeTypes: [BiomeTypeEnum] = LevelListTypeEnum.getLevelListFromType(levelType)
-        self.maxLevel = biomeTypes.count
+        let biomeDatas: [BiomeData] = LevelListTypeEnum.getLevelListFromType(levelType)
+        self.maxLevel = biomeDatas.count
 
         let borderedMap = addBordersToMap(Map())
 
-        for biomeType in biomeTypes {
-            let levelMap = addSpawnsToMap(borderedMap, withBiomeType: biomeType)
-            levelMap.setObjective(objectiveManager.createObjectiveFromBiomeType(biomeType))
+        for biomeData in biomeDatas {
+            let levelMap = addSpawnsToMap(borderedMap, withBiomeData: biomeData)
+            levelMap.setObjective(objectiveManager.createObjectiveFromBiomeData(biomeData))
             maps.append(levelMap)
             allMapEntities.append(getMapEntities(levelMap))
         }
@@ -84,8 +84,8 @@ class MapManager {
         objectiveManager.setCurrentObjective(map.objective)
     }
 
-    private func addSpawnsToMap(_ map: Map, withBiomeType biomeType: BiomeTypeEnum) -> Map {
-        currentBiome = biomeType
+    private func addSpawnsToMap(_ map: Map, withBiomeData biomeData: BiomeData) -> Map {
+        currentBiomeData = biomeData
         var mapObjects: [MapObject] = []
 
         guard let wallWidth = MapObjectConstants.globalDefaultWidths[.wall],
@@ -112,7 +112,8 @@ class MapManager {
             }
         }
 
-        let spawnedObjects: [MapObject] = spawnManager.spawnObjects(positions: spawnLocations, withBiomeType: biomeType)
+        let spawnedObjects: [MapObject] = spawnManager.spawnObjects(positions: spawnLocations,
+                                                                    withBiomeData: biomeData)
 
         mapObjects.append(contentsOf: spawnedObjects)
 
@@ -169,7 +170,7 @@ class MapManager {
                                           position: point, type: .crate)
             case .spawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),
-                                       defaultSpawnTime: BiomeTypeEnum.getBiomeDataFromType(currentBiome).defaultSpawnTime,
+                                       defaultSpawnTime: currentBiomeData.defaultSpawnTime,
                                        position: point, enemyType: .enemy)
             case .bossSpawner:
                 entity = SpawnerEntity(size: CGSize(width: object.xDimension, height: object.xDimension),

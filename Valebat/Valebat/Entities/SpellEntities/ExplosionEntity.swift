@@ -18,7 +18,7 @@ class ExplosionEntity: BaseInteractableEntity {
             .applying(CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale)))
         super.init(texture: spriteTexture, size: spriteSize, physicsType: .playerAttack,
                    position: position)
-        let damage = PlayerModifierUtil.playerDamageMultiplier * TestConstants.damageValue // Some constant
+        let damage = PlayerModifierUtil.playerDamageMultiplier * GameConstants.damageValue // Some constant
         addComponent(InstantDamageComponent(damage: damage, type: .pure))
         addComponent(AutoDestructComponent(timer: Double(spriteTextures.count) * 0.1))
         self.component(ofType: SpriteComponent.self)?.animate(with: spriteTextures, runForever: false)
@@ -27,5 +27,4 @@ class ExplosionEntity: BaseInteractableEntity {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

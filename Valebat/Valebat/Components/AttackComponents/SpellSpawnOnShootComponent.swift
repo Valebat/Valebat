@@ -36,11 +36,11 @@ class SpellSpawnOnShootComponent: SpellEffectComponent {
                 try entityManager.shootSpell(from: pos, with: CGVector(dx: -sin(angle), dy: cos(angle)),
                                              using: [Element(with: spawnType, at: spawnLevel)])
             } catch SpellErrors.invalidLevelError {
-                print("Wrong level was given")
+                print("Wrong level was given.")
             } catch SpellErrors.wrongBasicTypeError {
-                print("Wrong element type was given")
+                print("Wrong element type was given.")
             } catch {
-                print("Unexpected error")
+                print("Unexpected error.")
             }
         }
         super.createEffect()

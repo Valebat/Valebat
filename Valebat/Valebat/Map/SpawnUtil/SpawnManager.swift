@@ -12,9 +12,9 @@ class SpawnManager {
     private(set) var biomeData: BiomeData = BiomeData()
     var freePositions: [CGPoint] = []
 
-    func spawnObjects(positions: [CGPoint], withBiomeType biomeType: BiomeTypeEnum) -> [MapObject] {
+    func spawnObjects(positions: [CGPoint], withBiomeData biomeData: BiomeData) -> [MapObject] {
         var mapObjects: [MapObject] = []
-        self.biomeData = BiomeTypeEnum.getBiomeDataFromType(biomeType)
+        self.biomeData = biomeData
 
         calculateTotalSpawnChance(biomeData: biomeData)
 

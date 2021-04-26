@@ -45,32 +45,4 @@ class BaseGameScene: SKScene {
         addChild(inputHUDDisplay)
         inputHUDDisplay.userInputInfo = userInputInfo
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
-    }
-
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchMoved(toPoint: touch.location(in: self)) }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchUp(atPoint: touch.location(in: self)) }
-    }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchUp(atPoint: touch.location(in: self)) }
-    }
-
-    func touchDown(atPoint pos: CGPoint) {
-
-    }
-
-    func touchMoved(toPoint pos: CGPoint) {
-
-    }
-
-    func touchUp(atPoint pos: CGPoint) {
-
-    }
 }

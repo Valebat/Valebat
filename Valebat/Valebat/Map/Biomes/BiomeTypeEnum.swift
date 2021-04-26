@@ -6,11 +6,11 @@
 //
 
 enum BiomeTypeEnum: String, CaseIterable {
+    case easy
     case normal
     case dungeon
     case crazyhouse
     case boss
-    case easy
 }
 
 extension BiomeTypeEnum {
@@ -19,19 +19,20 @@ extension BiomeTypeEnum {
         case .easy:
             return BiomeData()
                 .withDefaultSpawnTime(10.0)
-                .withGlobalObjectSpawnChance(0)
-                .withIntangibleObjectSpawns(object: .spawner, count: 1)
+                .withGuaranteedSpawns(object: .spawner, count: 1)
+                .withGlobalObjectSpawnChance(4)
+                .withObjectiveQuantity(10)
         case .normal:
             return BiomeData()
                 .withPossibleObjectiveTypes([.kills, .powerupscollected])
-                .withObjectiveQuantity(3)
+                .withObjectiveQuantity(10)
         case .dungeon:
             return BiomeData()
                 .withGlobalObjectSpawnChance(20)
                 .withGuaranteedSpawns(object: .spawner, count: 4)
                 .withDefaultSpawnTime(4.0)
                 .withPossibleObjectiveTypes([.powerupscollected])
-                .withObjectiveQuantity(5)
+                .withObjectiveQuantity(15)
         case .crazyhouse:
             return BiomeData()
                 .withGlobalObjectSpawnChance(0)
@@ -47,5 +48,9 @@ extension BiomeTypeEnum {
                 .withPossibleObjectiveTypes([.kills])
                 .withObjectiveQuantity(1)
         }
+    }
+
+    static func getBiomeDataFromTypes(_ types: [BiomeTypeEnum]) -> [BiomeData] {
+        return types.map { getBiomeDataFromType($0) }
     }
 }

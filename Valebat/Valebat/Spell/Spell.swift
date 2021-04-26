@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+
 class Spell {
     var level: Double = 1.0
     var effects: [SpellEffectComponent.Type] = []
@@ -13,6 +14,6 @@ class Spell {
     var movement: SpellMovementComponent.Type = RegularMovementComponent.self
 
     static func buildEndAnimation() -> [SKTexture] {
-        return TextureUtilities.generateTextures(assetName: "explosion") // getSpriteFolder(for: spell) +
+        return TextureUtilities.generateTextures(assetName: "explosion")
     }
 }

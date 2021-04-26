@@ -14,6 +14,7 @@ import GameplayKit
 protocol DamageTakenObserver {
     func onDamageTaken(damageAmount: CGFloat, currentHealth: CGFloat, maximumHealth: CGFloat)
 }
+
 class HealthComponent: BaseComponent {
 
     var damageTakenObservers = [ObjectIdentifier: DamageTakenObserver]()

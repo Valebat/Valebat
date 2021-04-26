@@ -7,6 +7,7 @@
 
 class CompositeSpell: Spell {
     var damageTypes: [BasicType]
+
     class var description: String {
         "composite"
     }

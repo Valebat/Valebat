@@ -12,7 +12,6 @@
 		623603E90AF8AAA6C1645568 /* Pods_Valebat_ValebatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CADD992F6294D871AB5E7B /* Pods_Valebat_ValebatUITests.framework */; };
 		C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */ = {isa = PBXBuildFile; fileRef = C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */; };
 		C652DCD32620717300349576 /* ObjectiveObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCD22620717300349576 /* ObjectiveObserver.swift */; };
-		C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */; };
 		C652DCE72624174600349576 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE62624174600349576 /* GameConstants.swift */; };
 		C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */; };
 		C68570BF262AF6B4009FEB78 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68570BE262AF6B4009FEB78 /* BaseViewController.swift */; };
@@ -41,7 +40,6 @@
 		C69D3614262B2A1E00EDE2AC /* HUDEXPBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */; };
 		C69D3615262B2A1E00EDE2AC /* PlayerObjective.sks in Sources */ = {isa = PBXBuildFile; fileRef = C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */; };
 		C69D3616262B2A1E00EDE2AC /* HUDPlayerObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94555261F617F00087256 /* HUDPlayerObjective.swift */; };
-		C69D3617262B2A1E00EDE2AC /* MovementJoystickSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */; };
 		C69D3618262B2A1E00EDE2AC /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
 		C69D3619262B2A1E00EDE2AC /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
 		C69D361A262B2A1E00EDE2AC /* MovementJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034BF2615EDF600D3602B /* MovementJoystick.swift */; };
@@ -112,7 +110,7 @@
 		C69D365F262B2A1F00EDE2AC /* BossAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EEE262590330016B046 /* BossAttackComponent.swift */; };
 		C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
-		C69D3662262B2A1F00EDE2AC /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
+		C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
 		C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
 		C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
@@ -136,8 +134,6 @@
 		C69D3679262B2A1F00EDE2AC /* PlayerSpellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */; };
 		C69D367A262B2A1F00EDE2AC /* BaseProjectileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */; };
 		C69D367B262B2A1F00EDE2AC /* ExplosionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A262625A26E0058003C /* ExplosionEntity.swift */; };
-		C69D367C262B2A1F00EDE2AC /* LaserSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D962625BA2C00DF2188 /* LaserSpell.swift */; };
-		C69D367D262B2A1F00EDE2AC /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC32625F66F00DF2188 /* StarProjectiles.swift */; };
 		C69D367E262B2A1F00EDE2AC /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		C69D367F262B2A1F00EDE2AC /* BaseMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9450E261CD6D800087256 /* BaseMapEntity.swift */; };
 		C69D3680262B2A1F00EDE2AC /* BaseMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */; };
@@ -158,7 +154,7 @@
 		C69D3692262B2A1F00EDE2AC /* BaseInteractableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E9C261E1B720016B046 /* BaseInteractableEntity.swift */; };
 		C69D3693262B2A1F00EDE2AC /* EnemyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */; };
 		C69D3694262B2A1F00EDE2AC /* ResettableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16228E2628C598003C2DE3 /* ResettableEntity.swift */; };
-		C69D3695262B2A1F00EDE2AC /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
+		C69D3695262B2A1F00EDE2AC /* DamageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* DamageConstants.swift */; };
 		C69D3696262B2A1F00EDE2AC /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7572629BCB70000A2E6 /* Username.swift */; };
 		C69D3697262B2A1F00EDE2AC /* UsernameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE75F2629BCF40000A2E6 /* UsernameManager.swift */; };
 		C69D3698262B2A1F00EDE2AC /* UsernameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */; };
@@ -208,7 +204,7 @@
 		C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
 		C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */; };
 		C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
-		C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* TestConstants.swift */; };
+		C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* DamageConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
 		C6A942DA25FCE7EA00087256 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942CA25FCE7EA00087256 /* MapManager.swift */; };
@@ -270,16 +266,18 @@
 		C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */; };
 		C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */; };
 		C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */; };
+		C6F797A2262C9D060013EDFE /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
+		C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
+		C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
+		CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
 		CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB669992262B2098000FD16D /* ClientPlayerEntity.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
-		CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */; };
+		CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
 		CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
 		CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
-		CB744D972625BA2C00DF2188 /* LaserSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D962625BA2C00DF2188 /* LaserSpell.swift */; };
 		CB744DA42625D56C00DF2188 /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
-		CB744DC42625F66F00DF2188 /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC32625F66F00DF2188 /* StarProjectiles.swift */; };
 		CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
 		CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB744DD026261C3400DF2188 /* LaserDamage.wav */; };
 		CB744DD626261CB400DF2188 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DD526261CB400DF2188 /* SoundEffects.swift */; };
@@ -372,6 +370,8 @@
 		EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19416725FFC76B00341BF5 /* SpellErrors.swift */; };
 		EF1941882600B15F00341BF5 /* PlayerSpellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */; };
 		EF1941902600FD2B00341BF5 /* RegularMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */; };
+		EF515A2626368A1800391FB2 /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2426368A1800391FB2 /* StarProjectiles.swift */; };
+		EF515A2726368A1800391FB2 /* LaserSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2526368A1800391FB2 /* LaserSpell.swift */; };
 		EF5C4788262AC25B00A46C4E /* ClientScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C4787262AC25B00A46C4E /* ClientScene.swift */; };
 		EF5C47AA262AD5C000A46C4E /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */; };
 		EF5C47BC262B3EE200A46C4E /* ObjectiveDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47BB262B3EE200A46C4E /* ObjectiveDataTests.swift */; };
@@ -424,14 +424,13 @@
 		B74EBFA68053CA08AE675A44 /* Pods-Valebat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valebat.debug.xcconfig"; path = "Target Support Files/Pods-Valebat/Pods-Valebat.debug.xcconfig"; sourceTree = "<group>"; };
 		C634C5E0261F64FC0021D2FA /* PlayerObjective.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerObjective.sks; sourceTree = "<group>"; };
 		C652DCD22620717300349576 /* ObjectiveObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveObserver.swift; sourceTree = "<group>"; };
-		C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementJoystickSubscriber.swift; sourceTree = "<group>"; };
 		C652DCE62624174600349576 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
 		C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMapEntity.swift; sourceTree = "<group>"; };
 		C69D3775262C0D8900EDE2AC /* CoopConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopConstants.swift; sourceTree = "<group>"; };
-		C6A942C525FCE7EA00087256 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		C6A942C525FCE7EA00087256 /* DamageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
 		C6A942CA25FCE7EA00087256 /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -496,16 +495,15 @@
 		C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+JoinRoom.swift"; sourceTree = "<group>"; };
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
 		C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+RealTime.swift"; sourceTree = "<group>"; };
+		CB0183AB262C69C700375D30 /* CoopHUDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopHUDData.swift; sourceTree = "<group>"; };
 		CB669992262B2098000FD16D /* ClientPlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerEntity.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
-		CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfFire.swift; sourceTree = "<group>"; };
+		CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfBullets.swift; sourceTree = "<group>"; };
 		CB744D872625AE8100DF2188 /* BossStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossStateMachine.swift; sourceTree = "<group>"; };
 		CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBossState.swift; sourceTree = "<group>"; };
 		CB744D912625B81C00DF2188 /* BossMoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossMoveState.swift; sourceTree = "<group>"; };
-		CB744D962625BA2C00DF2188 /* LaserSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserSpell.swift; sourceTree = "<group>"; };
 		CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackLaser.swift; sourceTree = "<group>"; };
-		CB744DC32625F66F00DF2188 /* StarProjectiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarProjectiles.swift; sourceTree = "<group>"; };
 		CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossBorderOfWaveAndParticle.swift; sourceTree = "<group>"; };
 		CB744DD026261C3400DF2188 /* LaserDamage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LaserDamage.wav; sourceTree = "<group>"; };
 		CB744DD526261CB400DF2188 /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
@@ -606,6 +604,8 @@
 		EF19416725FFC76B00341BF5 /* SpellErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellErrors.swift; sourceTree = "<group>"; };
 		EF1941872600B15F00341BF5 /* PlayerSpellEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSpellEntity.swift; sourceTree = "<group>"; };
 		EF19418F2600FD2B00341BF5 /* RegularMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularMovementComponent.swift; sourceTree = "<group>"; };
+		EF515A2426368A1800391FB2 /* StarProjectiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarProjectiles.swift; sourceTree = "<group>"; };
+		EF515A2526368A1800391FB2 /* LaserSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserSpell.swift; sourceTree = "<group>"; };
 		EF5C4787262AC25B00A46C4E /* ClientScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientScene.swift; sourceTree = "<group>"; };
 		EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		EF5C47BB262B3EE200A46C4E /* ObjectiveDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveDataTests.swift; sourceTree = "<group>"; };
@@ -688,14 +688,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C652DCE026240A0E00349576 /* JoystickUtil */ = {
-			isa = PBXGroup;
-			children = (
-				C652DCE126240A2500349576 /* MovementJoystickSubscriber.swift */,
-			);
-			path = JoystickUtil;
-			sourceTree = "<group>";
-		};
 		C68570B1262AF2B7009FEB78 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,7 +740,7 @@
 		C6A942C425FCE7EA00087256 /* TestUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A942C525FCE7EA00087256 /* TestConstants.swift */,
+				C6A942C525FCE7EA00087256 /* DamageConstants.swift */,
 			);
 			path = TestUtil;
 			sourceTree = "<group>";
@@ -835,9 +827,9 @@
 		C6A9430E25FD050600087256 /* EnemyEntities */ = {
 			isa = PBXGroup;
 			children = (
+				EF515A2526368A1800391FB2 /* LaserSpell.swift */,
+				EF515A2426368A1800391FB2 /* StarProjectiles.swift */,
 				C6A9451B261DC19400087256 /* BaseEnemyEntity.swift */,
-				CB744D962625BA2C00DF2188 /* LaserSpell.swift */,
-				CB744DC32625F66F00DF2188 /* StarProjectiles.swift */,
 				CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */,
 				C6A944FA261CCDBA00087256 /* BossEntity.swift */,
 				C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */,
@@ -985,7 +977,7 @@
 				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
 				CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */,
 				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
-				CB744D822625A7B300DF2188 /* BossAttackRingOfFire.swift */,
+				CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */,
 				CB744D872625AE8100DF2188 /* BossStateMachine.swift */,
 				CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */,
 				CB744D912625B81C00DF2188 /* BossMoveState.swift */,
@@ -1045,6 +1037,7 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CB9E9E49261759250016B046 /* AudioManager.swift */,
 				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
 				CB9E9E4E26175AA40016B046 /* Hit.wav */,
 				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
@@ -1108,7 +1101,6 @@
 				CBC7780325FCE1C000581E20 /* Main.storyboard */,
 				CBC7780625FCE1C100581E20 /* Assets.xcassets */,
 				CBC7780825FCE1C100581E20 /* Info.plist */,
-				CB9E9E49261759250016B046 /* AudioManager.swift */,
 			);
 			path = Valebat;
 			sourceTree = "<group>";
@@ -1148,6 +1140,7 @@
 				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
 				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
+				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1219,7 +1212,6 @@
 		DD70354F26199FCF00D3602B /* UserInputHUD */ = {
 			isa = PBXGroup;
 			children = (
-				C652DCE026240A0E00349576 /* JoystickUtil */,
 				DD5783EF2605D13100E15493 /* Joystick */,
 				DD4E015425FF52A7002C5556 /* ElementPane */,
 				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
@@ -1662,8 +1654,8 @@
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
 				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
-				C6A942D725FCE7EA00087256 /* TestConstants.swift in Sources */,
-				CB744D832625A7B300DF2188 /* BossAttackRingOfFire.swift in Sources */,
+				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
+				CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
 				CB9E9E4026174EB90016B046 /* DamageTakerComponent.swift in Sources */,
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
@@ -1679,6 +1671,7 @@
 				EF61C4F52619BF590076BB3A /* PlayerDeathComponent.swift in Sources */,
 				C6A944962616D5FA00087256 /* IntangibleMapObject.swift in Sources */,
 				EF19416225FFC71900341BF5 /* SteamSpell.swift in Sources */,
+				CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */,
 				DD7034C52615F73A00D3602B /* SpellJoystick.swift in Sources */,
 				C6A94524261DC29A00087256 /* SpawnEnemyUtil.swift in Sources */,
 				C6A943A12605D02B00087256 /* BaseMapObjectEntity.swift in Sources */,
@@ -1724,15 +1717,16 @@
 				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
 				CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */,
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
-				CB744D972625BA2C00DF2188 /* LaserSpell.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
+				EF515A2626368A1800391FB2 /* StarProjectiles.swift in Sources */,
 				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
 				C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */,
 				EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */,
 				CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */,
+				EF515A2726368A1800391FB2 /* LaserSpell.swift in Sources */,
 				C6ACE74C2629B55D0000A2E6 /* Room.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
 				C6A94532261F59CA00087256 /* ObjectiveEnum.swift in Sources */,
@@ -1752,7 +1746,6 @@
 				DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */,
 				C6ACE7512629B6600000A2E6 /* RoomCodeGenerator.swift in Sources */,
 				C6ED82972629D16A0074CE07 /* CoopViewController.swift in Sources */,
-				CB744DC42625F66F00DF2188 /* StarProjectiles.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
@@ -1776,7 +1769,6 @@
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,
 				C6ED82982629D16A0074CE07 /* CoopRoomViewController.swift in Sources */,
-				C652DCE226240A2500349576 /* MovementJoystickSubscriber.swift in Sources */,
 				C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */,
 				C6AA3A1F2625A2330058003C /* AutoDestructComponent.swift in Sources */,
 			);
@@ -1786,6 +1778,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F797A2262C9D060013EDFE /* LobIndicatorComponent.swift in Sources */,
+				C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */,
+				C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */,
 				C69D377D262C142000EDE2AC /* GenericMapEntity.swift in Sources */,
 				C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */,
 				C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */,
@@ -1817,7 +1812,6 @@
 				C69D3614262B2A1E00EDE2AC /* HUDEXPBar.swift in Sources */,
 				C69D3615262B2A1E00EDE2AC /* PlayerObjective.sks in Sources */,
 				C69D3616262B2A1E00EDE2AC /* HUDPlayerObjective.swift in Sources */,
-				C69D3617262B2A1E00EDE2AC /* MovementJoystickSubscriber.swift in Sources */,
 				EF6E5AEE262B670200CBCEAE /* PlayerDataTests.swift in Sources */,
 				C69D3618262B2A1E00EDE2AC /* TLAnalogJoystick.swift in Sources */,
 				C69D3619262B2A1E00EDE2AC /* TLAnalogJoystickHiddenArea.swift in Sources */,
@@ -1892,7 +1886,7 @@
 				C69D365F262B2A1F00EDE2AC /* BossAttackComponent.swift in Sources */,
 				C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */,
 				C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */,
-				C69D3662262B2A1F00EDE2AC /* BossAttackRingOfFire.swift in Sources */,
+				C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */,
 				C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */,
 				EF6E5ACB262B479700CBCEAE /* ClientPlayerEntity.swift in Sources */,
 				C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */,
@@ -1918,8 +1912,6 @@
 				C69D3679262B2A1F00EDE2AC /* PlayerSpellEntity.swift in Sources */,
 				C69D367A262B2A1F00EDE2AC /* BaseProjectileEntity.swift in Sources */,
 				C69D367B262B2A1F00EDE2AC /* ExplosionEntity.swift in Sources */,
-				C69D367C262B2A1F00EDE2AC /* LaserSpell.swift in Sources */,
-				C69D367D262B2A1F00EDE2AC /* StarProjectiles.swift in Sources */,
 				C69D367E262B2A1F00EDE2AC /* PlayerEntity.swift in Sources */,
 				C69D367F262B2A1F00EDE2AC /* BaseMapEntity.swift in Sources */,
 				C69D3680262B2A1F00EDE2AC /* BaseMapObjectEntity.swift in Sources */,
@@ -1940,7 +1932,7 @@
 				C69D3692262B2A1F00EDE2AC /* BaseInteractableEntity.swift in Sources */,
 				C69D3693262B2A1F00EDE2AC /* EnemyProtocol.swift in Sources */,
 				C69D3694262B2A1F00EDE2AC /* ResettableEntity.swift in Sources */,
-				C69D3695262B2A1F00EDE2AC /* TestConstants.swift in Sources */,
+				C69D3695262B2A1F00EDE2AC /* DamageConstants.swift in Sources */,
 				C69D3696262B2A1F00EDE2AC /* Username.swift in Sources */,
 				C69D3697262B2A1F00EDE2AC /* UsernameManager.swift in Sources */,
 				C69D3698262B2A1F00EDE2AC /* UsernameGenerator.swift in Sources */,

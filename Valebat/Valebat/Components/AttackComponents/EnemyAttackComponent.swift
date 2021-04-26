@@ -16,6 +16,7 @@ class EnemyAttackComponent: BaseComponent, MovementCachable {
     var currentAttackCooldown: TimeInterval = 0.0
     let attackVelocity: CGFloat
     var isAttacking: Bool = false
+
     init(attackCooldown: TimeInterval, damageType: BasicType, damageValue: CGFloat, attackVelocity: CGFloat) {
         self.attackVelocity = attackVelocity
         self.attackCooldown = attackCooldown

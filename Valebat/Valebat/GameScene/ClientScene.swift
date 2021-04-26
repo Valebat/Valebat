@@ -31,7 +31,7 @@ class ClientScene: BaseGameScene {
         let deltaTime = currentTime - self.lastUpdateTime
         AudioManager.update(seconds: deltaTime)
 
-        clientManager.getSpriteData()
+        clientManager.getData()
         renderSprites()
         updateInputInfo()
         updateClientHUD()
@@ -40,7 +40,16 @@ class ClientScene: BaseGameScene {
     }
 
     func updateClientHUD() {
-       /*playerHUDDisplay.updateHUD(currentHP: <#T##CGFloat#>, maxHP: <#T##CGFloat#>, playerLevel: <#T##Int#>, currentEXP: <#T##Int#>, floorLevel: <#T##Int#>, objectiveDescription: <#T##String#>)*/
+        guard let playerHUDData = clientManager.coopHUDData,
+              let currentHP = playerHUDData.playercurrentHP[clientId ?? ""] else {
+            return
+        }
+        playerHUDDisplay.updateHUD(currentHP: currentHP,
+                                   maxHP: playerHUDData.maxHP,
+                                   playerLevel: playerHUDData.playerLevel,
+                                   currentEXP: playerHUDData.currentEXP,
+                                   floorLevel: playerHUDData.currentLevel + 1,
+                                   objectiveDescription: playerHUDData.objective)
     }
 
     func renderSprites() {

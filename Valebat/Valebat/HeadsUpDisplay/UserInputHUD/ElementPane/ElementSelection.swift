@@ -8,7 +8,6 @@
 import SpriteKit
 
 class ElementSelection: SKNode {
-
     weak var elementPane: ElementPane?
 
     override init() {

@@ -7,7 +7,9 @@
 
 import Foundation
 import GameplayKit
+
 class BossAttackRingOfBullets: BossAttackSubComponent {
+
     func deathCleanUp() {
         return
     }
@@ -15,13 +17,14 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
     weak var attachedAttackComponent: BossAttackComponent?
     let totalCastTime = 1.0
     var coolDown: TimeInterval = 2.5
-    let totalFireBall = 30
+    let totalBulletCount = 30
     let fireBallDamage = 5
-    var currentFireBall = 0
+    var currentBulletCount = 0
     var currentTimer: TimeInterval = 0.0
     let spread: CGFloat = 85.0 * CGFloat(Double.pi) / 180.0
     var startAngle: CGFloat = 0.0
     var currentType = BasicType.pure
+
     init(attachedAttackComponent: BossAttackComponent) {
         self.attachedAttackComponent = attachedAttackComponent
     }
@@ -35,7 +38,7 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
             return
         }
         isCurrentlyCasting = true
-        currentFireBall = 0
+        currentBulletCount = 0
         currentTimer = 0
         currentType = BasicType.getRandomType()
         startAngle = (playerPosition - currentPosition).calculateAngle()
@@ -48,16 +51,17 @@ class BossAttackRingOfBullets: BossAttackSubComponent {
             return
         }
         currentTimer += deltaTime
-        if currentTimer > Double(currentFireBall) * totalCastTime / Double(totalFireBall) {
-            let offsetAngle = spread / CGFloat(totalFireBall) * CGFloat(currentFireBall) - spread / 2
-            launchFireBall(angle: startAngle + offsetAngle, type: currentType)
-            currentFireBall += 1
+        if currentTimer > Double(currentBulletCount) * totalCastTime / Double(totalBulletCount) {
+            let offsetAngle = spread / CGFloat(totalBulletCount) * CGFloat(currentBulletCount) - spread / 2
+            launchBullet(angle: startAngle + offsetAngle, type: currentType)
+            currentBulletCount += 1
         }
-        if currentFireBall == totalFireBall {
+        if currentBulletCount == totalBulletCount {
             isCurrentlyCasting = false
         }
     }
-    func launchFireBall(angle: CGFloat, type: BasicType) {
+
+    func launchBullet(angle: CGFloat, type: BasicType) {
         guard let entityManager = attachedAttackComponent?.baseEntity?.entityManager,
               let position = attachedAttackComponent?.getCurrentPosition() else {
             return

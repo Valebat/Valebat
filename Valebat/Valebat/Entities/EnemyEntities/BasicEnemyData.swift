@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 struct BasicEnemyData {
     var spriteImage: String = "enemy"
     var startingHP: CGFloat = 10
@@ -22,7 +23,6 @@ struct BasicEnemyData {
 }
 
 enum BasicEnemyType: Int {
-
     case defaultEnemy, waterEnemy, earthEnemy, fireEnemy
 
     func getEnemyData() -> BasicEnemyData {

@@ -7,17 +7,22 @@
 
 import Foundation
 import GameplayKit
+
 class BossMoveState: BaseBossState {
+
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if stateClass == BossMoveState.self {
             return false
         }
         return true
     }
+
     override func update(deltaTime: TimeInterval) {
-//        stateMachineComponent.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
+        stateMachineComponent?.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: 200.0)
+        // speed)
     }
+
     override func willExit(to nextState: GKState) {
-        stateMachineComponent.getMoveComponent()?.reset()
+        stateMachineComponent?.getMoveComponent()?.reset()
     }
 }

@@ -7,7 +7,6 @@
 import Foundation
 
 class SpellManager {
-
     private static var combinationTable = [String: CompositeSpell.Type]()
 
     init() {
@@ -26,7 +25,7 @@ class SpellManager {
                                                 count: Int(count)).map(ClassInfo.init)
 
         for classInfo in classInfoList {
-            // skip native Swift and Foundation classes, to do not crash
+            // skip native Swift and Foundation classes, so it does not crash
             if classInfo?.classNameFull.components(separatedBy: ".").count == 1 {
                 continue
             }
@@ -77,5 +76,4 @@ class SpellManager {
             }
         }
     }
-
 }
