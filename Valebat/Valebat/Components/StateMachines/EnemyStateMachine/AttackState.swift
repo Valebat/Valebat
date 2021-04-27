@@ -24,7 +24,10 @@ class AttackState: EnemyState {
     }
 
     override func didEnter(from: GKState?) {
-        getMoveComponent()?.stopMoving()
+        // should be handled by the exit in move states
+        // getMoveComponent()?.stopMoving()
+        // since attack is a toggle you can just toggle it on upon enter instead of update
+        enemyEntity?.component(ofType: EnemyAttackComponent.self)?.attack()
     }
 
     override func update(deltaTime: TimeInterval) {
@@ -36,7 +39,8 @@ class AttackState: EnemyState {
         if distance > attackRange {
             stateMachine?.enter(MoveState.self)
         } else {
-            enemyEntity?.component(ofType: EnemyAttackComponent.self)?.attack()
+            // do not need to call every update
+           // enemyEntity?.component(ofType: EnemyAttackComponent.self)?.attack()
         }
     }
 }

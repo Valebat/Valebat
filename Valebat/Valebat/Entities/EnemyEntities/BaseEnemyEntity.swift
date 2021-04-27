@@ -26,10 +26,11 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
                                           damageValue: enemyData.attackDamage,
                                           attackVelocity: enemyData.attackVelocity))
         addComponent(EnemyDeathComponent(exp: enemyData.deathEXP))
+        // You swapped the movespeed/chasespeed here
         let defaultState = DefaultState(for: self, aggroRange: enemyData.enemyAggroRange,
-                                        speed: enemyData.enemyChaseSpeed)
+                                        speed: enemyData.enemyMoveSpeed)
         let moveState = MoveState(for: self, attackRange: enemyData.enemyAttackRange,
-                                  aggroRange: enemyData.enemyAggroRange, speed: enemyData.enemyMoveSpeed)
+                                  aggroRange: enemyData.enemyAggroRange, speed: enemyData.enemyChaseSpeed)
         let attackState = AttackState(for: self, attackRange: enemyData.enemyAttackRange)
         self.stateMachine = GKStateMachine(states: [defaultState, moveState, attackState])
         self.stateMachine?.enter(DefaultState.self)

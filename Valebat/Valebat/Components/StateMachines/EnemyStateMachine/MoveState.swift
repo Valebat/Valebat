@@ -21,6 +21,10 @@ class MoveState: EnemyState {
         super.init(entity: entity)
     }
 
+    // reset the movement when you exit
+    override func willExit(to nextState: GKState) {
+        getMoveComponent()?.reset()
+    }
     override func update(deltaTime: TimeInterval) {
         guard let origin = enemyEntity?.getPosition(),
               let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
