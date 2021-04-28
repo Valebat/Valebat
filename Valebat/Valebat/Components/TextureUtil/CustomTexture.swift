@@ -9,9 +9,17 @@ import SpriteKit
 
 class CustomTexture: SKTexture {
     var imageName: String?
+
+    static var cachedTextures = [String: CustomTexture]()
+
     static func initialise(imageNamed: String) -> CustomTexture {
-        let texture = self.init(imageNamed: imageNamed)
-        texture.imageName = imageNamed
-        return texture
+        if let cachedTexture = cachedTextures[imageNamed] {
+            return cachedTexture
+        } else {
+            let texture = self.init(imageNamed: imageNamed)
+            texture.imageName = imageNamed
+            cachedTextures[imageNamed] = texture
+            return texture
+        }
     }
 }
