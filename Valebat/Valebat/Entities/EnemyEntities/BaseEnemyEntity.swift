@@ -8,7 +8,8 @@
 import GameplayKit
 
 class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
-    var image: String
+    let image: String
+    var stateMachine: GKStateMachine?
 
     init(enemyData: BasicEnemyData, position: CGPoint) {
         let size = CGSize(width: ViewConstants.enemyToGridRatio * ViewConstants.gridSize,
@@ -19,18 +20,28 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
         addComponent(HealthComponent(health: enemyData.startingHP))
         addComponent(HealthBarComponent(barWidth: size.width, barOffset: size.height / 2))
         addComponent(DamageTakerComponent.getDamageTaker(type: enemyData.enemyType))
-        addComponent(EnemyMoveComponent(chaseSpeed: enemyData.enemyChaseSpeed,
-                                        normalSpeed: enemyData.enemyMoveSpeed, initialPosition: position))
+        addComponent(EnemyMoveComponent(initialPosition: position))
         addComponent(EnemyAttackComponent(attackCooldown: enemyData.enemyAttackCooldown,
                                           damageType: enemyData.enemyType,
                                           damageValue: enemyData.attackDamage,
                                           attackVelocity: enemyData.attackVelocity))
-        addComponent(EnemyStateMachineComponent(attackRange: enemyData.enemyAttackRange,
-                                                aggroRange: enemyData.enemyAggroRange))
         addComponent(EnemyDeathComponent(exp: enemyData.deathEXP))
+        // You swapped the movespeed/chasespeed here
+        let defaultState = DefaultState(for: self, aggroRange: enemyData.enemyAggroRange,
+                                        speed: enemyData.enemyMoveSpeed)
+        let moveState = MoveState(for: self, attackRange: enemyData.enemyAttackRange,
+                                  aggroRange: enemyData.enemyAggroRange, speed: enemyData.enemyChaseSpeed)
+        let attackState = AttackState(for: self, attackRange: enemyData.enemyAttackRange)
+        self.stateMachine = GKStateMachine(states: [defaultState, moveState, attackState])
+        self.stateMachine?.enter(DefaultState.self)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        self.stateMachine?.update(deltaTime: seconds)
     }
 }

@@ -8,19 +8,42 @@
 import Foundation
 import GameplayKit
 
-class DefaultState: BaseEnemyState {
+class DefaultState: EnemyState {
+    let aggroRange: CGFloat
+    let speed: CGFloat
+
+    var currentRandomPathCoolDown = GameConstants.randomPathCooldown
+    var nextPositions = [CGPoint]()
+
+    init(for entity: BaseEnemyEntity, aggroRange: CGFloat, speed: CGFloat) {
+        self.aggroRange = aggroRange
+        self.speed = speed
+        super.init(entity: entity)
+    }
+
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        if stateClass == DefaultState.self {
-            return false
-        }
-        return true
+        return stateClass == MoveState.self
     }
 
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent?.getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime)
+        guard let origin = enemyEntity?.getPosition(),
+              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
+            return
+        }
+        let distance = (origin - playerOrigin).length()
+        if distance < aggroRange {
+            stateMachine?.enter(MoveState.self)
+        } else {
+            setPathToRandomPosition(deltaTime: deltaTime)
+        }
     }
 
+    // reset your movement when you exit
     override func willExit(to nextState: GKState) {
-        stateMachineComponent?.getMoveComponent()?.reset()
+        getMoveComponent()?.reset()
     }
+    private func setPathToRandomPosition(deltaTime: TimeInterval) {
+        getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime, with: speed)
+    }
+
 }

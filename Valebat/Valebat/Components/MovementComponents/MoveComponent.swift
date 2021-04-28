@@ -11,9 +11,28 @@
 import SpriteKit
 import GameplayKit
 
-protocol MoveComponent: GKComponent {
-    var currentPosition: CGPoint { get set }
-    var orientation: CGFloat? { get set }
+class MoveComponent: BaseComponent {
+    var currentPosition: CGPoint
+    var orientation: CGFloat?
+
+    init(position: CGPoint) {
+        self.currentPosition = position
+        super.init()
+    }
+
+    init(position: CGPoint, angle: CGFloat) {
+        self.currentPosition = position
+        self.orientation = angle
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+    }
 }
 
 protocol MovementCachable: GKComponent {

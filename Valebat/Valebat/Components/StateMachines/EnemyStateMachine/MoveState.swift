@@ -8,20 +8,40 @@
 import Foundation
 import GameplayKit
 
-class MoveState: BaseEnemyState {
+class MoveState: EnemyState {
 
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        if stateClass == MoveState.self {
-            return false
-        }
-        return true
+    let aggroRange: CGFloat
+    let attackRange: CGFloat
+    let speed: CGFloat
+
+    init(for entity: BaseEnemyEntity, attackRange: CGFloat, aggroRange: CGFloat, speed: CGFloat) {
+        self.attackRange = attackRange
+        self.aggroRange = aggroRange
+        self.speed = speed
+        super.init(entity: entity)
     }
 
-    override func update(deltaTime: TimeInterval) {
-        stateMachineComponent?.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime)
-    }
-
+    // reset the movement when you exit
     override func willExit(to nextState: GKState) {
-        stateMachineComponent?.getMoveComponent()?.reset()
+        getMoveComponent()?.reset()
     }
+    override func update(deltaTime: TimeInterval) {
+        guard let origin = enemyEntity?.getPosition(),
+              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
+            return
+        }
+        let distance = (origin - playerOrigin).length()
+        if distance < attackRange {
+            stateMachine?.enter(AttackState.self)
+        } else if distance < aggroRange {
+            setPathTowardsPlayer(deltaTime: deltaTime)
+        } else {
+            stateMachine?.enter(DefaultState.self)
+        }
+    }
+
+    private func setPathTowardsPlayer(deltaTime: TimeInterval) {
+        getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: speed)
+    }
+
 }

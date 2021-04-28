@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
+class BossEntity: BaseInteractableEntity, EnemyProtocol {
 
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
@@ -21,7 +21,7 @@ class BossEntity: BaseInteractableEntity, BaseMapEntity, EnemyProtocol {
         addComponent(HealthComponent(health: startingHP))
         addComponent(HealthBarComponent(barWidth: texture.size().width, barOffset: texture.size().height / 2))
         addComponent(DamageTakerComponent.getDamageTaker(type: .pure))
-        addComponent(EnemyMoveComponent(chaseSpeed: 300, normalSpeed: 200, initialPosition: position))
+        addComponent(EnemyMoveComponent(initialPosition: position))
         addComponent(EnemyDeathComponent(exp: 200))
         addComponent(BossAttackComponent())
         addComponent(BossStateMachineComponent())

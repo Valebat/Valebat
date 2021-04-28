@@ -8,9 +8,11 @@
 import SpriteKit
 import GameplayKit
 
-class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
+class ProjectileMotionComponent: SpellMovementComponent {
 
-    static var identifier: String = "projectile"
+    override class var identifier: String {
+        "projectile"
+    }
     static let defaultDuration: CGFloat = 1
     static let defaultRadius: CGFloat = 200
     static let defaultHeight: CGFloat = 100
@@ -18,32 +20,27 @@ class ProjectileMotionComponent: BaseComponent, SpellMovementComponent {
     let targetPosition: CGPoint
     let initialPosition: CGPoint
     let duration: CGFloat
-    var currentPosition: CGPoint
     var time: CGFloat = 0
-    var orientation: CGFloat?
     var stop: Bool = false
 
     required init(velocity: CGVector, initialPosition: CGPoint) {
         self.initialPosition = initialPosition
-        self.targetPosition = initialPosition +
+        let targetPosition = initialPosition +
             (velocity.normalized() * ProjectileMotionComponent.defaultRadius).convertToPoint()
         self.duration = ProjectileMotionComponent.defaultDuration
-        currentPosition = initialPosition
-        orientation = atan2(self.targetPosition.y - currentPosition.y,
-                            self.targetPosition.x - currentPosition.x)
-        super.init()
+        self.targetPosition = targetPosition
+        super.init(initialPosition: initialPosition,
+                   shootAngle: atan2(targetPosition.y - initialPosition.y,
+                                     targetPosition.x - initialPosition.x))
     }
 
     init(targetPosition: CGPoint, initialPosition: CGPoint, duration: CGFloat) {
         self.initialPosition = initialPosition
         self.targetPosition = targetPosition
         self.duration = duration
-        currentPosition = initialPosition
-        self.time = 0
-        orientation = atan2(self.targetPosition.y - currentPosition.y,
-                            self.targetPosition.x - currentPosition.x)
-        stop = false
-        super.init()
+        super.init(initialPosition: initialPosition,
+                   shootAngle: atan2(targetPosition.y - initialPosition.y,
+                                     targetPosition.x - initialPosition.x))
     }
 
     required init?(coder aDecoder: NSCoder) {

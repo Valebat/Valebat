@@ -10,16 +10,23 @@ import GameplayKit
 
 class TextureUtilities {
 
+    static var cachedTextures = [String: [SKTexture]]()
+
     static func generateTextures(assetName: String) -> [SKTexture] {
-        let atlas = SKTextureAtlas(named: assetName)
-        var textures: [SKTexture] = []
-        let count = atlas.textureNames.count
-        for index in 1...(count - 1) {
-            let textureName = assetName + String(index)
-            let texture = CustomTexture.initialise(imageNamed: textureName)
-            textures.append(texture)
+        if let textures = cachedTextures[assetName] {
+            return textures
+        } else {
+            let atlas = SKTextureAtlas(named: assetName)
+            var textures: [SKTexture] = []
+            let count = atlas.textureNames.count
+            for index in 1...(count - 1) {
+                let textureName = assetName + String(index)
+                let texture = CustomTexture.initialise(imageNamed: textureName)
+                textures.append(texture)
+            }
+            cachedTextures[assetName] = textures
+            return textures
         }
-        return textures
     }
 
     static func convertToStringName(texture: SKTexture) -> String {

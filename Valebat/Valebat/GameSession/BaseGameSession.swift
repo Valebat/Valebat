@@ -32,6 +32,7 @@ class BaseGameSession {
                                      objectiveManager: objectiveManager)
         entityManager.mapManager = mapManager
         entityManager.currentSession = self
+        self.persistenceManager = nil
     }
 
     func loadGame() {

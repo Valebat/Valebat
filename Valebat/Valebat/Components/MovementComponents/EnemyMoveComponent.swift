@@ -7,22 +7,16 @@
 
 import GameplayKit
 
-class EnemyMoveComponent: BaseComponent, MoveComponent {
-    var orientation: CGFloat?
-    var currentPosition: CGPoint
-    var chaseSpeed: CGFloat
-    var normalSpeed: CGFloat
+class EnemyMoveComponent: MoveComponent {
+    var speed: CGFloat = 200 // For boss
     var nextPositions = [CGPoint]()
     var currentRandomPathCoolDown = 3.0
     let randomPathCoolDown = 3.0
     let pathTimerCooldown = 0.5
     var currentPathTimerCooldown = 0.0
 
-    init(chaseSpeed: CGFloat, normalSpeed: CGFloat, initialPosition: CGPoint) {
-        self.chaseSpeed = chaseSpeed
-        self.currentPosition = initialPosition
-        self.normalSpeed = normalSpeed
-        super.init()
+    init(initialPosition: CGPoint) {
+        super.init(position: initialPosition)
     }
 
     func reset() {
@@ -36,6 +30,10 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
 
     func getNextPosition() -> CGPoint? {
         nextPositions.removeFirst()
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        computeNewPosition(deltaTime: seconds, speed: speed)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -91,7 +89,7 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
 
     }
 
-    func computeNewPosition(deltaTime: TimeInterval, speed: CGFloat) {
+    private func computeNewPosition(deltaTime: TimeInterval, speed: CGFloat) {
         var currentTime = CGFloat(deltaTime)
         while currentTime > 0 {
             guard let nextPosition = nextPositions.first else {
@@ -111,7 +109,7 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
         }
     }
 
-    func getRandomPathinRadius(origin: CGPoint, radius: CGFloat) {
+    private func getRandomPathinRadius(origin: CGPoint, radius: CGFloat) {
         for _ in 1 ... 5 {
             let randomLocation = CGPoint.getCGPoint(magnitude: CGFloat.random(in: 0 ... radius),
                                                     degrees: CGFloat.random(in: 0 ... 360)) + origin
@@ -122,16 +120,16 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
         }
     }
 
-    func moveToRandomLocationInRadius(deltaTime: TimeInterval) {
+    func moveToRandomLocationInRadius(deltaTime: TimeInterval, with speed: CGFloat) {
         currentRandomPathCoolDown -= deltaTime
         if currentRandomPathCoolDown < 0 {
             getRandomPathinRadius(origin: currentPosition, radius: 100)
             currentRandomPathCoolDown = randomPathCoolDown
         }
-        computeNewPosition(deltaTime: deltaTime, speed: normalSpeed)
+        self.speed = speed
     }
 
-    func moveTowardsPlayer(deltaTime: TimeInterval) {
+    func moveTowardsPlayer(deltaTime: TimeInterval, with speed: CGFloat) {
         currentPathTimerCooldown -= deltaTime
         if currentPathTimerCooldown < 0 {
             if let targetLocation = baseEntity?.entityManager?.lastKnownPlayerPosition {
@@ -139,7 +137,11 @@ class EnemyMoveComponent: BaseComponent, MoveComponent {
             }
             currentPathTimerCooldown = pathTimerCooldown
         }
-        computeNewPosition(deltaTime: deltaTime, speed: chaseSpeed)
+        self.speed = speed
+    }
+
+    func stopMoving() {
+        nextPositions.removeAll()
     }
 
 }

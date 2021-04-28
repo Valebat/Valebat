@@ -11,17 +11,16 @@
 import SpriteKit
 import GameplayKit
 
-class RegularMovementComponent: BaseComponent, SpellMovementComponent {
-    static var identifier: String = "straight_line"
+class RegularMovementComponent: SpellMovementComponent {
+
+    override class var identifier: String {
+        "straight_line"
+    }
 
     var velocity: CGVector
-    var currentPosition: CGPoint
-    var orientation: CGFloat?
     required init(velocity: CGVector, initialPosition: CGPoint) {
-        orientation = atan2(velocity.dy, velocity.dx)
         self.velocity = velocity
-        self.currentPosition = initialPosition
-        super.init()
+        super.init(velocity: velocity, initialPosition: initialPosition)
     }
 
     required init?(coder aDecoder: NSCoder) {

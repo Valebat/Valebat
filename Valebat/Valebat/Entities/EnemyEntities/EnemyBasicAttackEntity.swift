@@ -10,20 +10,29 @@ import GameplayKit
 class EnemyBasicAttackEntity: BaseProjectileEntity {
 
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
-        let spriteTextures = TextureUtilities
-            .generateTextures(assetName: EnemyBasicAttackEntity.getImage(type: damageType))
-        let widthHeightRatio = spriteTextures[0].size().width / spriteTextures[0].size().height
+        let spriteTexture = Self.getSpriteTexture(damageType: damageType)
+        let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
         let spriteSize = CGSize(width: ViewConstants.gridSize,
                                 height: ViewConstants.gridSize / widthHeightRatio)
-        super.init(textures: spriteTextures, size: spriteSize, physicsTexture: spriteTextures[0],
-                   physicsType: .enemyAttack,
+        super.init(texture: spriteTexture, size: spriteSize, physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
         let effectParams: [Any] = [TextureUtilities.generateTextures(assetName: "explosion"), 0.05]
         addComponent(SpellExplodeOnHitComponent(effectParams: effectParams))
+        self.addAnimation(damageType: damageType)
     }
 
-    static func getImage(type: BasicType) -> String {
+    class func getSpriteTexture(damageType: BasicType) -> SKTexture {
+        let spriteTextures = TextureUtilities.generateTextures(assetName: Self.getImage(type: damageType))
+        return spriteTextures[0]
+    }
+
+    func addAnimation(damageType: BasicType) {
+        let spriteTextures = TextureUtilities.generateTextures(assetName: Self.getImage(type: damageType))
+        self.component(ofType: SpriteComponent.self)?.animate(with: spriteTextures, runForever: true)
+    }
+
+    class func getImage(type: BasicType) -> String {
         switch type {
         case .water:
             return "WB00"
@@ -39,5 +48,4 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
