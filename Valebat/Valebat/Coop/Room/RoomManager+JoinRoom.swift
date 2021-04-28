@@ -30,30 +30,25 @@ extension RoomManager {
     }
 
     func fetchRoom(roomCode: String, completed: @escaping () -> Void) {
-        fdb.collection("rooms").whereField("code", isEqualTo: roomCode).getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("[Fetch Room] Database error: \(err)")
-            } else {
-                do {
-                    self.room = try querySnapshot!.documents.first?.data(as: Room.self)
-                } catch {
-                    print("Failed to fetch room.")
-                    self.room = nil
-                }
-                completed()
-            }
+        do {
+            try self.room = dbManager.fetchDocument(from: "rooms", where: "code", equals: roomCode)?
+                .data(as: Room.self)
+            completed()
+        } catch {
+            print("Failed to fetch room.")
+            self.room = nil
         }
     }
 
     private func setRoomPlayer(_ room: Room, completed: () -> Void) {
-        fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
+        dbManager.set(data: [ "players": room.players ], in: "rooms", for: room.idx!)
         completed()
     }
 
     private func setHostPlayer(_ room: Room, with username: String, completed: () -> Void) {
         room.hostId = username
-        fdb.collection("rooms").document(room.idx!).setData([ "hostId": username ], merge: true)
-        fdb.collection("rooms").document(room.idx!).setData([ "players": room.players ], merge: true)
+        dbManager.set(data: [ "hostId": username ], in: "rooms", for: room.idx!)
+        dbManager.set(data: [ "players": room.players ], in: "rooms", for: room.idx!)
         completed()
     }
 
@@ -61,7 +56,7 @@ extension RoomManager {
         guard let room = self.room else {
             return
         }
-        fdb.collection("rooms").document(room.idx!).setData([ "started": true ], merge: true)
+        dbManager.set(data: [ "started": true ], in: "rooms", for: room.idx!)
         completed()
     }
 }

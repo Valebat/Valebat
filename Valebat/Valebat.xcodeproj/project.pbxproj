@@ -394,6 +394,7 @@
 		EF6E5AE9262B5FBE00CBCEAE /* LevelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AE8262B5FBE00CBCEAE /* LevelDataTests.swift */; };
 		EF6E5AEE262B670200CBCEAE /* PlayerDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */; };
 		EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
+		EF8843322639625F00040E3A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8843312639625F00040E3A /* DatabaseManager.swift */; };
 		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -634,6 +635,7 @@
 		EF8087A72606843400923494 /* MudSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudSpellTests.swift; sourceTree = "<group>"; };
 		EF8087AC260684BE00923494 /* SteamSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpellTests.swift; sourceTree = "<group>"; };
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
+		EF8843312639625F00040E3A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
 		F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValebatTests.release.xcconfig"; path = "Target Support Files/Pods-ValebatTests/Pods-ValebatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1144,6 +1146,7 @@
 				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
 				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
+				EF8843312639625F00040E3A /* DatabaseManager.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1744,6 +1747,7 @@
 				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */,
+				EF8843322639625F00040E3A /* DatabaseManager.swift in Sources */,
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
 				EF61C4B42618576F0076BB3A /* BasicType.swift in Sources */,
 				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,

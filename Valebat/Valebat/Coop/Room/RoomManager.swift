@@ -5,34 +5,24 @@
 //  Created by Jing Lin Shi on 16/4/21.
 //
 
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-import FirebaseDatabase
-
 class RoomManager {
-    var ref: DatabaseReference = Database.database().reference()
-    var fdb = Firestore.firestore()
     var roomCodes: [String] = []
     var room: Room?
     var realTimeData = RealTimeData()
+    var dbManager = DatabaseManager()
 
     func fetchRooms(completed: @escaping () -> Void) {
-        fdb.collection("rooms").getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("[Fetch Rooms] Database error: \(err).")
-            } else {
-                self.roomCodes = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
-                    let data = queryDocumentSnapshot.data()
-                    return data["code"] as? String ?? ""
-                }
-                completed()
+        self.roomCodes = dbManager.fetchDocuments(from: "rooms")
+            .compactMap { (queryDocumentSnapshot) -> String? in
+                let data = queryDocumentSnapshot.data()
+                return data["code"] as? String ?? ""
             }
-        }
+        completed()
     }
 
     func addRoomToDatabase(_ room: Room) {
         do {
-            _ = try fdb.collection("rooms").addDocument(from: room)
+            _ = try dbManager.add(document: room, to: "rooms")
         } catch {
             print(error)
         }
