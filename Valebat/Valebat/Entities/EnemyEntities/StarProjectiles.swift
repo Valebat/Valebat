@@ -21,6 +21,9 @@ class StarProjectile: EnemyBasicAttackEntity {
             return "purestar"
         }
     }
+    override class func getSize() -> CGFloat {
+        return 0.5
+    }
 
     override class func getSpriteTexture(damageType: BasicType) -> SKTexture {
         return CustomTexture.initialise(imageNamed: Self.getImage(type: damageType))

@@ -111,8 +111,6 @@
 		C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
-		C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
-		C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
@@ -274,8 +272,6 @@
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
-		CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
-		CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		CB744DA42625D56C00DF2188 /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
@@ -501,8 +497,6 @@
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
 		CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfBullets.swift; sourceTree = "<group>"; };
-		CB744D872625AE8100DF2188 /* BossStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossStateMachine.swift; sourceTree = "<group>"; };
-		CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBossState.swift; sourceTree = "<group>"; };
 		CB744D912625B81C00DF2188 /* BossMoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossMoveState.swift; sourceTree = "<group>"; };
 		CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackLaser.swift; sourceTree = "<group>"; };
 		CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossBorderOfWaveAndParticle.swift; sourceTree = "<group>"; };
@@ -980,8 +974,6 @@
 				CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */,
 				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
 				CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */,
-				CB744D872625AE8100DF2188 /* BossStateMachine.swift */,
-				CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */,
 				CB744D912625B81C00DF2188 /* BossMoveState.swift */,
 				CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */,
 				CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */,
@@ -1656,7 +1648,6 @@
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
-				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
@@ -1716,7 +1707,6 @@
 				CB9E9E26261744060016B046 /* PlayerHUD.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
-				CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
 				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
 				CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */,
@@ -1891,9 +1881,7 @@
 				C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */,
 				C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */,
 				C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */,
-				C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */,
 				EF6E5ACB262B479700CBCEAE /* ClientPlayerEntity.swift in Sources */,
-				C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */,
 				C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */,
 				C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */,
 				C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */,

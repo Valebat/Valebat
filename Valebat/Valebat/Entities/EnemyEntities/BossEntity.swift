@@ -9,6 +9,9 @@ import GameplayKit
 
 class BossEntity: BaseInteractableEntity, EnemyProtocol {
 
+    var stateMachine: GKStateMachine?
+    let attackRange: CGFloat = 500.0
+    let moveSpeed: CGFloat = 100.0
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
                                         y: ViewConstants.sceneHeight * ViewConstants.bossSpawnOffset)
@@ -24,9 +27,20 @@ class BossEntity: BaseInteractableEntity, EnemyProtocol {
         addComponent(EnemyMoveComponent(initialPosition: position))
         addComponent(EnemyDeathComponent(exp: 200))
         addComponent(BossAttackComponent())
-        addComponent(BossStateMachineComponent())
+        setUpStateMachine()
     }
 
+    private func setUpStateMachine() {
+        let moveState = BossMoveState(for: self, attackRange: attackRange, speed: moveSpeed)
+        let attackState = BossAttackState(for: self, attackRange: attackRange)
+        self.stateMachine = GKStateMachine(states: [moveState, attackState])
+        self.stateMachine?.enter(BossMoveState.self)
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        self.stateMachine?.update(deltaTime: seconds)
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

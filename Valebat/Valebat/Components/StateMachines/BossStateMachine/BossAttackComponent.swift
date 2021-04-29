@@ -8,6 +8,7 @@
 import Foundation
 
 class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
+    var isAttacking = false
     func onDeath() {
         attachedSubComponent.forEach({ $0.deathCleanUp() })
     }
@@ -43,10 +44,17 @@ class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
     override func update(deltaTime seconds: TimeInterval) {
         attachedSubComponent.forEach({ $0.update(deltaTime: seconds) })
         coolDown -= seconds
+        if isAttacking {
+            launchAttack()
+        }
+    }
+
+    func isCurrentlyAttacking() -> Bool {
+        return currentAttackingComponent?.isCurrentlyCasting ?? false
     }
 
     func launchAttack() {
-        if !(currentAttackingComponent?.isCurrentlyCasting ?? false) && coolDown < 0 {
+        if !isCurrentlyAttacking() && coolDown < 0 {
             let randomedIndex = Int.random(in: 0 ... attachedSubComponent.count-1)
             currentAttackingComponent = attachedSubComponent[randomedIndex]
             currentAttackingComponent?.triggerAttack()

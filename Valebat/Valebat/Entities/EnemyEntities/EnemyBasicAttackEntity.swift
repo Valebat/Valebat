@@ -12,8 +12,8 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
     init(velocity: CGVector, position: CGPoint, damageType: BasicType, damageValue: CGFloat) {
         let spriteTexture = Self.getSpriteTexture(damageType: damageType)
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
-        let spriteSize = CGSize(width: ViewConstants.gridSize,
-                                height: ViewConstants.gridSize / widthHeightRatio)
+        let spriteSize = CGSize(width: ViewConstants.gridSize * Self.getSize(),
+                                height: ViewConstants.gridSize / widthHeightRatio * Self.getSize())
         super.init(texture: spriteTexture, size: spriteSize, physicsType: .enemyAttack,
                    position: position, velocity: velocity)
         addComponent(InstantDamageComponent(damage: damageValue, type: damageType))
@@ -22,6 +22,9 @@ class EnemyBasicAttackEntity: BaseProjectileEntity {
         self.addAnimation(damageType: damageType)
     }
 
+    class func getSize() -> CGFloat {
+        return 1.0
+    }
     class func getSpriteTexture(damageType: BasicType) -> SKTexture {
         let spriteTextures = TextureUtilities.generateTextures(assetName: Self.getImage(type: damageType))
         return spriteTextures[0]

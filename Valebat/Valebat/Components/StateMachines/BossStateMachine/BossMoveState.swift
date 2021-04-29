@@ -8,7 +8,16 @@
 import Foundation
 import GameplayKit
 
-class BossMoveState: BaseBossState {
+class BossMoveState: EnemyState {
+
+    let attackRange: CGFloat
+    let speed: CGFloat
+
+    init(for entity: BossEntity, attackRange: CGFloat, speed: CGFloat) {
+        self.attackRange = attackRange
+        self.speed = speed
+        super.init(entity: entity)
+    }
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if stateClass == BossMoveState.self {
@@ -17,12 +26,23 @@ class BossMoveState: BaseBossState {
         return true
     }
 
+    override func willExit(to nextState: GKState) {
+        getMoveComponent()?.reset()
+
+    }
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent?.getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: 200.0)
-        // speed)
+        guard let distance = getDistanceFromPlayer() else {
+            return
+        }
+        if distance < attackRange {
+            stateMachine?.enter(BossAttackState.self)
+        } else {
+            setPathTowardsPlayer(deltaTime: deltaTime)
+        }
     }
 
-    override func willExit(to nextState: GKState) {
-        stateMachineComponent?.getMoveComponent()?.reset()
+    private func setPathTowardsPlayer(deltaTime: TimeInterval) {
+        getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: speed)
     }
+
 }

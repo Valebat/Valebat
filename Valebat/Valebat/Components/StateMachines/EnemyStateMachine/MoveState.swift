@@ -26,11 +26,9 @@ class MoveState: EnemyState {
         getMoveComponent()?.reset()
     }
     override func update(deltaTime: TimeInterval) {
-        guard let origin = enemyEntity?.getPosition(),
-              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
+        guard let distance = getDistanceFromPlayer() else {
             return
         }
-        let distance = (origin - playerOrigin).length()
         if distance < attackRange {
             stateMachine?.enter(AttackState.self)
         } else if distance < aggroRange {
