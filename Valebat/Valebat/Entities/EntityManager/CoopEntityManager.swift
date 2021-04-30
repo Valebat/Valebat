@@ -53,24 +53,7 @@ class CoopEntityManager: EntityManager {
         let inputInfos = session.roomManager.realTimeData.userInputInfo
         for (playerId, info) in inputInfos {
             let player = clientPlayers[playerId]
-//            updateShoot(userInput: info, player: player)
-            updateClientShoot(userInput: info, player: player, playerId: playerId)
-        }
-    }
-
-    private func updateClientShoot(userInput: UserInputInfo, player: PlayerEntity?,
-                                   playerId: String) {
-        if userInput.spellJoystickMoved {
-            spellJoystickMoved(angular: userInput.spellJoystickAngular,
-                               elementQueue: userInput.elementQueueArray,
-                               player: player)
-            spellShoot[playerId] = false
-        } else if userInput.spellJoystickEnd && !(spellShoot[playerId] ?? false) {
-            spellJoystickEnded(angular: userInput.spellJoystickAngular,
-                               elementQueue: userInput.elementQueueArray,
-                               player: player)
-            userInput.spellJoystickEnd = false
-            spellShoot[playerId] = true
+            player?.userInputInfo = info
         }
     }
 
