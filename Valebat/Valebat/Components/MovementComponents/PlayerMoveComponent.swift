@@ -8,7 +8,9 @@
 import GameplayKit
 import CoreGraphics
 
-class PlayerMoveComponent: MoveComponent {
+class PlayerMoveComponent: MoveComponent, PlayerComponent {
+
+    var player: PlayerEntity?
 
     init(initialPosition: CGPoint) {
         super.init(position: initialPosition)
@@ -44,8 +46,9 @@ class PlayerMoveComponent: MoveComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        let userInput = baseEntity?.entityManager?.scene.userInputInfo
-        let adjustedVelocity =  (userInput?.movementJoystickVelocity ?? .zero) * CGFloat(seconds) * GameConstants.playerMoveSpeed * PlayerModifierUtil.playerSpeedMultiplier
+        let userInput = player?.userInputInfo
+        let adjustedVelocity =  (userInput?.movementJoystickVelocity ?? .zero) * CGFloat(seconds)
+            * GameConstants.playerMoveSpeed * PlayerModifierUtil.playerSpeedMultiplier
         let newPosition = CGPoint(x: currentPosition.x + adjustedVelocity.x,
                                   y: currentPosition.y + adjustedVelocity.y)
         if isValid(point: newPosition) {

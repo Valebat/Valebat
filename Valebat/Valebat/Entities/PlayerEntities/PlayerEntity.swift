@@ -9,7 +9,10 @@ import GameplayKit
 
 class PlayerEntity: BaseInteractableEntity {
 
-    init(position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
+    weak var userInputInfo: UserInputInfo?
+
+    init(position: CGPoint, playerStats: PlayerStats, playerSpellComp: PlayerAimAndShootComponent,
+         entityManager: EntityManager) {
         let texture = CustomTexture.initialise(imageNamed: "character")
         let size = CGSize(width: ViewConstants.playerWidth, height: ViewConstants.playerHeight)
         super.init(texture: texture, size: size, physicsType: .player, position: position, isStatic: false)
@@ -18,11 +21,18 @@ class PlayerEntity: BaseInteractableEntity {
         addComponent(HealthBarComponent(barWidth: texture.size().width,
                                         barOffset: texture.size().height/2))
         addPlayerComponent(playerComponent: CollectingComponent())
-        addComponent(PlayerMoveComponent(initialPosition: position))
+        addPlayerComponent(playerComponent: PlayerMoveComponent(initialPosition: position))
+        addPlayerComponent(playerComponent: playerSpellComp)
         let indicatorSize = CGSize(width: 10, height: texture.size().height/2)
         addComponent(AimIndicatorComponent(size: indicatorSize))
         addComponent(LobIndicatorComponent(size: indicatorSize))
         addComponent(PlayerDeathComponent())
+    }
+
+    convenience init(position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
+        let playerSpellComp = PlayerAimAndShootComponent()
+        self.init(position: position, playerStats: playerStats, playerSpellComp: playerSpellComp,
+                  entityManager: entityManager)
     }
 
     required init?(coder: NSCoder) {

@@ -17,7 +17,6 @@ class CoopEntityManager: EntityManager {
     var spellShoot = [String: Bool]()
 
     override func update(_ deltaTime: CFTimeInterval) {
-        super.update(deltaTime)
 
         timer += Double(deltaTime)
 
@@ -26,6 +25,8 @@ class CoopEntityManager: EntityManager {
             timer -= CoopConstants.updateTimer
         }
         updateClientPlayers(deltaTime)
+
+        super.update(deltaTime)
     }
 
     func addClientPlayer(playerID: String) {
@@ -52,7 +53,7 @@ class CoopEntityManager: EntityManager {
         let inputInfos = session.roomManager.realTimeData.userInputInfo
         for (playerId, info) in inputInfos {
             let player = clientPlayers[playerId]
-            updateShoot(userInput: info, player: player)
+//            updateShoot(userInput: info, player: player)
             updateClientShoot(userInput: info, player: player, playerId: playerId)
         }
     }
