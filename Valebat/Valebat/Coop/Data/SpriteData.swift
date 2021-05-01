@@ -8,6 +8,7 @@
 import SpriteKit
 
 struct SpriteData: Codable, Hashable {
+    static let numberOfFields = 8
     var idx: UUID
     var name: String
     var width: Float
@@ -32,7 +33,62 @@ struct SpriteData: Codable, Hashable {
                           orientation: Float(orientation))
     }
 
-    init(idx: UUID, name: String, width: Float, height: Float,
+    static func convertToString(spriteData: Set<SpriteData>) -> String {
+        spriteData.compactMap({ $0.convertToString() }).joined(separator: " ")
+    }
+
+    // Cannot allow empty space or commas in name field
+    func convertToString() -> String? {
+        var string = ""
+        string.append(idx.uuidString)
+        string.append(",")
+        string.append(name)
+        string.append(",")
+        if name.contains(",") || name.contains(" ") {
+            return nil
+        }
+        string.append(String(width))
+        string.append(",")
+        string.append(String(height))
+        string.append(",")
+        string.append(String(xPos))
+        string.append(",")
+        string.append(String(yPos))
+        string.append(",")
+        string.append(String(zPos))
+        string.append(",")
+        string.append(String(orientation))
+        return string
+    }
+
+    static func convertToSpriteData(dataString: String) -> [SpriteData] {
+        dataString.split(separator: " ").compactMap({ SpriteData(dataString: String($0)) })
+    }
+
+    init? (dataString: String) {
+        let fields = dataString.split(separator: ",").map({ String($0) })
+        if fields.count != SpriteData.numberOfFields {
+            return nil
+        }
+        guard let uid = UUID(uuidString: fields[0]),
+              let width = Float(fields[2]),
+              let height = Float(fields[3]),
+              let xPos = Float(fields[4]),
+              let yPos = Float(fields[5]),
+              let zPos = Float(fields[6]),
+              let orientation = Float(fields[7]) else {
+            return nil
+        }
+        self.idx = uid
+        self.name = fields[1]
+        self.width = width
+        self.height = height
+        self.xPos = xPos
+        self.yPos = yPos
+        self.zPos = zPos
+        self.orientation = orientation
+    }
+        init(idx: UUID, name: String, width: Float, height: Float,
          xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
         self.idx = idx
         self.name = name
@@ -44,7 +100,7 @@ struct SpriteData: Codable, Hashable {
         self.orientation = orientation
     }
 
-    init?(data: [String: Any]) {
+   /* init?(data: [String: Any]) {
         guard let idx = data["idx"] as? String,
               let name = data["name"] as? String,
               let width = data["width"] as? Float,
@@ -66,5 +122,5 @@ struct SpriteData: Codable, Hashable {
         self.yPos = yPos
         self.zPos = zPos
         self.orientation = orientation
-    }
+    }*/
 }
