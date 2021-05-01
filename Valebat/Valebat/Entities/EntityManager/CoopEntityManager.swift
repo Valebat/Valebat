@@ -42,6 +42,13 @@ class CoopEntityManager: EntityManager {
         currentSession?.coopManager?.saveData(spriteComponents: spriteComponents)
     }
 
+    override func cleanupLevel() {
+        clientPlayers.forEach { _, player in
+            player.powerupManager.resetPowerups()
+        }
+        super.cleanupLevel()
+    }
+
     override func advanceLevel() {
         super.advanceLevel()
         clientPlayers.values.forEach({ self.add($0) })

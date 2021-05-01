@@ -8,6 +8,10 @@
 import GameplayKit
 
 class PlayerEntity: BaseInteractableEntity {
+    let powerupManager = PowerupManager()
+    var playerModifiers: PlayerModifiers {
+        powerupManager.playerModifiers
+    }
 
     weak var userInputInfo: UserInputInfo?
 

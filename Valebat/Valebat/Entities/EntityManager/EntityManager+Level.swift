@@ -63,10 +63,11 @@ extension EntityManager {
         }
     }
 
+    @objc
     func cleanupLevel() {
         cleanupEntities()
         mapManager?.objectiveManager.clearObservers()
-        PowerupUtil.resetPowerups()
+        player?.powerupManager.resetPowerups()
         self.obstacles = []
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
