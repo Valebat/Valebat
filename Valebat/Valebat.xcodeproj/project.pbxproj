@@ -1159,14 +1159,11 @@
 			isa = PBXGroup;
 			children = (
 				C6ACE7562629BCAA0000A2E6 /* Username */,
+				DD949A46263DA7A50080A99B /* Data */,
 				C6ACE74A2629B5540000A2E6 /* Room */,
 				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
 				DD85F34C2625DD4200838B0F /* ServerManager.swift */,
-				DD85F3512625DD7700838B0F /* SpriteData.swift */,
-				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
-				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
-				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
 				DD9499B7263D75640080A99B /* GameNetworkManager.swift */,
 			);
 			path = Coop;
@@ -1265,6 +1262,17 @@
 				C6A94555261F617F00087256 /* HUDPlayerObjective.swift */,
 			);
 			path = PlayerStatsHUD;
+			sourceTree = "<group>";
+		};
+		DD949A46263DA7A50080A99B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD85F3512625DD7700838B0F /* SpriteData.swift */,
+				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
+				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
+				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		DD98498B26256842006B741E /* TextureUtil */ = {
