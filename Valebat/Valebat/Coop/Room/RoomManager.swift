@@ -12,12 +12,14 @@ class RoomManager {
     var dbManager = DatabaseManager()
 
     func fetchRooms(completed: @escaping () -> Void) {
-        self.roomCodes = dbManager.fetchDocuments(from: "rooms")
-            .compactMap { (queryDocumentSnapshot) -> String? in
+        dbManager.fetchDocuments(from: "rooms", completed: { (result) in
+            self.roomCodes = result.compactMap { (queryDocumentSnapshot) -> String? in
                 let data = queryDocumentSnapshot.data()
                 return data["code"] as? String ?? ""
             }
-        completed()
+            completed()
+        })
+
     }
 
     func addRoomToDatabase(_ room: Room) {

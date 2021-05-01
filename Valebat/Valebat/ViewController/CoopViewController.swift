@@ -38,7 +38,6 @@ class CoopViewController: UIViewController {
                 return
             }
             let roomID = hostedRoom.code
-
             joinRoom(isHost: true, roomID: roomID)
         }
     }

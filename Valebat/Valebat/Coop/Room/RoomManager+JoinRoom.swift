@@ -31,9 +31,15 @@ extension RoomManager {
 
     func fetchRoom(roomCode: String, completed: @escaping () -> Void) {
         do {
-            try self.room = dbManager.fetchDocument(from: "rooms", where: "code", equals: roomCode)?
-                .data(as: Room.self)
-            completed()
+            dbManager.fetchDocument(from: "rooms", where: "code", equals: roomCode,
+                                    completed: { (result) in
+                                        do {
+                                            self.room = try result?.data(as: Room.self)
+                                            completed()
+                                        } catch {
+                                            print("Error occured in completion handler")
+                                        }
+                                    })
         } catch {
             print("Failed to fetch room.")
             self.room = nil

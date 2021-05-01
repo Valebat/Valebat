@@ -16,7 +16,6 @@ extension RoomManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-        dbManager.removeValue(from: "sprites/\(roomIdx)")
 
         realTimeData.sprites = Array(sprites)
         realTimeData.playerHUDData = playerHUDData
@@ -54,7 +53,9 @@ extension RoomManager {
 
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
 
-        dbManager.updateValues(with: allUpdates)
+        dbManager.removeValue(from: "sprites/\(roomIdx)", completed: { () in
+            self.dbManager.updateValues(with: allUpdates)
+        })
     }
 
     func loadSpritesCycle() {
@@ -77,10 +78,12 @@ extension RoomManager {
             return
         }
 
-        let spritesData = dbManager.getValue(from: "sprites/\(roomIdx)")
-        let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
-        self.realTimeData.sprites = Array(spriteDataSet)
-        completed()
+        dbManager.getValue(from: "sprites/\(roomIdx)", completed: { (result) in
+            let spriteDataSet = self.processRoomSprites(spritesData: result)
+            self.realTimeData.sprites = Array(spriteDataSet)
+            completed()
+        })
+
     }
 
     func loadPlayerHUD(completed: @escaping () -> Void) {
@@ -89,12 +92,13 @@ extension RoomManager {
             return
         }
 
-        let hudData = dbManager.getValue(from: "playerHUD/\(roomIdx)")
-        guard let playerHUD = CoopHUDData(data: hudData) else {
-            return
-        }
-        self.realTimeData.playerHUDData = playerHUD
-        completed()
+        dbManager.getValue(from: "playerHUD/\(roomIdx)", completed: { (result) in
+            guard let playerHUD = CoopHUDData(data: result) else {
+                return
+            }
+            self.realTimeData.playerHUDData = playerHUD
+            completed()
+        })
     }
 
     func saveUserInfo(playerId: String) {
@@ -113,10 +117,11 @@ extension RoomManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-        
-        let groupUserInfo = dbManager.getValue(from: "playerInput/\(roomIdx)")
-        self.processUserInputInfos(info: groupUserInfo)
-        completed()
+
+        dbManager.getValue(from: "playerInput/\(roomIdx)", completed: { (result) in
+            self.processUserInputInfos(info: result)
+            completed()
+        })
     }
 
     private func processUserInputInfos(info: [String: Any]) {
