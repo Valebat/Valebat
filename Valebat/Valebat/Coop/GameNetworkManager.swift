@@ -9,12 +9,13 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import FirebaseDatabase
 
-protocol ServerGameNetworkManager {
+protocol ServerGameNetworkManager: class {
     func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?)
     func loadUserInputCycle()
+    func getUserInputInfo() -> [String: UserInputInfo]
 }
 
-protocol ClientGameNetworkManager {
+protocol ClientGameNetworkManager: class {
     func updateUserInfo(playerId: String, userInputInfo: UserInputInfo)
     func loadSpritesCycle()
     func getSpritesData() -> [SpriteData]
@@ -24,7 +25,7 @@ protocol ClientGameNetworkManager {
 class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
     var ref: DatabaseReference = Database.database().reference()
     var room: Room?
-    var realTimeData = RealTimeData()
+    private(set) var realTimeData = RealTimeData()
 
     func getSpritesData() -> [SpriteData] {
         return realTimeData.sprites
@@ -32,6 +33,10 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
 
     func getPlayerHUDData() -> CoopHUDData? {
         return realTimeData.playerHUDData
+    }
+
+    func getUserInputInfo() -> [String: UserInputInfo] {
+        return realTimeData.userInputInfo
     }
 
     func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
