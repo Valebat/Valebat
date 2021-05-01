@@ -23,7 +23,7 @@ protocol ClientGameNetworkManager: class {
 }
 
 class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
-    var ref: DatabaseReference = Database.database().reference()
+//    var ref: DatabaseReference = Database.database().reference()
     var room: Room?
     private(set) var realTimeData = RealTimeData()
     var dbManager = DatabaseManager()
@@ -45,7 +45,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-        self.ref.child("sprites/\(roomIdx)").removeValue()
+        dbManager.removeValue(from: "sprites/\(roomIdx)")
 
         realTimeData.sprites = Array(sprites)
         realTimeData.playerHUDData = playerHUDData
@@ -83,7 +83,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
 
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
 
-        self.ref.updateChildValues(allUpdates)
+        dbManager.updateValues(with: allUpdates)
     }
 
     func loadSpritesCycle() {
@@ -106,16 +106,22 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("sprites/\(roomIdx)").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                let spritesData = snapshot.value as? [String: Any] ?? [:]
-                let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
-                self.realTimeData.sprites = Array(spriteDataSet)
-            }
+        dbManager.getValue(from: "sprites/\(roomIdx)") { (spritesData) in
+            let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
+            self.realTimeData.sprites = Array(spriteDataSet)
             completed()
         }
+//
+//        self.ref.child("sprites/\(roomIdx)").getData { (error, snapshot) in
+//            if let error = error {
+//                print("Error getting data \(error)")
+//            } else if snapshot.exists() {
+//                let spritesData = snapshot.value as? [String: Any] ?? [:]
+//                let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
+//                self.realTimeData.sprites = Array(spriteDataSet)
+//            }
+//            completed()
+//        }
     }
 
     private func loadPlayerHUD(completed: @escaping () -> Void) {
@@ -124,18 +130,26 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("playerHUD/\(roomIdx)").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                let hudData = snapshot.value as? [String: Any] ?? [:]
-                guard let playerHUD = CoopHUDData(data: hudData) else {
-                    return
-                }
-                self.realTimeData.playerHUDData = playerHUD
+        dbManager.getValue(from: "playerHUD/\(roomIdx)") { (hudData) in
+            guard let playerHUD = CoopHUDData(data: hudData) else {
+                return
             }
+            self.realTimeData.playerHUDData = playerHUD
             completed()
         }
+
+//        self.ref.child("playerHUD/\(roomIdx)").getData { (error, snapshot) in
+//            if let error = error {
+//                print("Error getting data \(error)")
+//            } else if snapshot.exists() {
+//                let hudData = snapshot.value as? [String: Any] ?? [:]
+//                guard let playerHUD = CoopHUDData(data: hudData) else {
+//                    return
+//                }
+//                self.realTimeData.playerHUDData = playerHUD
+//            }
+//            completed()
+//        }
     }
 
     func updateUserInfo(playerId: String, userInputInfo: UserInputInfo) {
@@ -146,7 +160,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
 
         let request = userInputInfo.convertToDBRequest(playerId: playerId, roomId: idx)
-        self.ref.updateChildValues(request)
+        dbManager.updateValues(with: request)
     }
 
     private func loadUserInfo(completed: @escaping () -> Void) {
@@ -155,15 +169,20 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("playerInput/\(roomIdx)").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
-                self.processUserInputInfos(info: groupUserInfo)
-            }
+        dbManager.getValue(from: "playerInput/\(roomIdx)") { (groupUserInfo) in
+            self.processUserInputInfos(info: groupUserInfo)
             completed()
         }
+
+//        self.ref.child("playerInput/\(roomIdx)").getData { (error, snapshot) in
+//            if let error = error {
+//                print("Error getting data \(error)")
+//            } else if snapshot.exists() {
+//                let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
+//                self.processUserInputInfos(info: groupUserInfo)
+//            }
+//            completed()
+//        }
     }
 
     private func processUserInputInfos(info: [String: Any]) {
