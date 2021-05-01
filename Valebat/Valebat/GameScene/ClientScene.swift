@@ -73,8 +73,8 @@ class ClientScene: BaseGameScene {
         guard let idx = clientId else {
             return
         }
-        clientManager.roomManager?.realTimeData.userInputInfo[idx] = self.userInputInfo
-        clientManager.roomManager?.saveUserInfo(playerId: idx)
+        clientManager.gameNetworkManager?.updateUserInfo(playerId: idx,
+                                                         userInputInfo: self.userInputInfo)
     }
 
     required init?(coder aDecoder: NSCoder) {

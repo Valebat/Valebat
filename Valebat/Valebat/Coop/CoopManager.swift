@@ -38,7 +38,7 @@ class CoopManager {
     }
 
     func updateDatabase() {
-        coopGameSession.roomManager.updateData(sprites: spritesData, playerHUDData: coopHUDData)
+        coopGameSession.roomManager.updateGameData(sprites: spritesData, playerHUDData: coopHUDData)
     }
 
     private func initialiseLoadInputCycle() {

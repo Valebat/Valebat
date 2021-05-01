@@ -355,6 +355,7 @@
 		DD94996E263C75080080A99B /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94996D263C75080080A99B /* UserInputDelegate.swift */; };
 		DD949972263C76C80080A99B /* PlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */; };
 		DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */; };
+		DD9499B8263D75640080A99B /* GameNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9499B7263D75640080A99B /* GameNetworkManager.swift */; };
 		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
@@ -594,6 +595,7 @@
 		DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
 		DD94996D263C75080080A99B /* UserInputDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
 		DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
+		DD9499B7263D75640080A99B /* GameNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkManager.swift; sourceTree = "<group>"; };
 		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
@@ -1153,6 +1155,7 @@
 				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
 				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
+				DD9499B7263D75640080A99B /* GameNetworkManager.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1764,6 +1767,7 @@
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
+				DD9499B8263D75640080A99B /* GameNetworkManager.swift in Sources */,
 				EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */,
 				DD703591261AED5200D3602B /* PositionData.swift in Sources */,
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
