@@ -32,6 +32,7 @@ class MapManager {
         }
         MusicManager.playBGM(track: track)
     }
+
     func generateMaps(withLevelType levelType: LevelListTypeEnum) {
         self.map = Map()
         self.maps = []

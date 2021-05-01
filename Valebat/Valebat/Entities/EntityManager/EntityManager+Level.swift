@@ -58,14 +58,18 @@ extension EntityManager {
         initialiseLevel()
     }
 
-    func cleanupLevel() {
+    func cleanupEntities() {
         for entity in self.entities {
             immediateRemove(entity)
         }
+    }
+
+    func cleanupLevel() {
+        cleanupEntities()
+        PowerupUtil.resetPowerups()
         self.obstacles = []
         self.obstacleGraph = nil
         gkScene.removeGraph("obstacles")
-        PowerupUtil.resetPowerups()
     }
 
     func initialiseObservers() {

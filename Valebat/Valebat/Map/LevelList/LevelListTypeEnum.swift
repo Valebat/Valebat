@@ -16,8 +16,13 @@ extension LevelListTypeEnum {
     static func getLevelListFromType(_ type: LevelListTypeEnum) -> [BiomeData] {
         switch type {
         case .easy:
-            return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .boss, .normal,
-                                                       .dungeon, .crazyhouse, .boss])
+            var list: [BiomeData] = []
+            list.append(BiomeData()
+                            .withObjectiveQuantity(1))
+            list.append(BiomeData()
+                            .withGuaranteedSpawns(object: .spawner, count: 20))
+            list.append(BiomeTypeEnum.getBiomeDataFromType(.boss))
+            return list
         case .medium:
             var list: [BiomeData] = []
             for difficultyModifier in 1...9 {

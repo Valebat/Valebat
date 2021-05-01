@@ -110,6 +110,7 @@ class EntityManager {
 
     private func immediateAdd(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+            spriteNode.removeFromParent()
             scene.addChild(spriteNode)
             spriteSystem.addComponent(foundIn: entity)
         }
@@ -141,14 +142,18 @@ class EntityManager {
         toRemove.insert(entity)
     }
 
-    func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
+    func removeSpriteFromEntity(_ entity: BaseEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
             spriteSystem.removeComponent(foundIn: entity)
         }
+    }
+
+    func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
+        immediateRemove(entity)
+        entity.removeComponent(ofType: SpriteComponent.self)
         entity.addComponent(component)
-        spriteSystem.addComponent(foundIn: entity)
-        scene.addChild(component.node)
+        immediateAdd(entity)
     }
 
     func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {

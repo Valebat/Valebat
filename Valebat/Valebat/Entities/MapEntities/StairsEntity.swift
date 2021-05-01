@@ -35,8 +35,9 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserv
     }
 
     func reset() {
+        self.entityManager?.removeSpriteFromEntity(self)
+
         self.removeComponent(ofType: ObjectiveDetectionComponent.self)
-        self.removeComponent(ofType: SpriteComponent.self)
         self.removeComponent(ofType: AdvanceLevelComponent.self)
         let texture = CustomTexture.initialise(imageNamed: "stairs_closed")
         addComponent(SpriteComponent(texture: texture, size: size, position: self.pos))
