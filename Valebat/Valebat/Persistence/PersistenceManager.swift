@@ -50,9 +50,7 @@ class PersistenceManager {
         self.gameData = gameData
         gameData.playerData.assignPlayerStats(gameSession: gameSession)
         gameData.levelData.assignLevelData(gameSession: gameSession)
-        entityManager.immediateAddMapEntities()
-        entityManager.initialiseGraph()
-        entityManager.initialiseObservers()
+        entityManager.initialiseLevel()
     }
 
     func loadInitialData() {

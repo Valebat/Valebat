@@ -35,12 +35,18 @@ class AudioManager {
         }
         return audioPlayers[soundName]
     }
-    static func playSound(soundEffect: SoundEffect) {
-        let soundData = soundEffect.getSoundEffectData()
+
+    static func playSound(soundData: SoundEffectData) {
         if soundCoolDowns[soundData.soundName] != nil {
             return
         }
-        getAudioPlayer(soundName: soundData.soundName)?.play()
+        let player = getAudioPlayer(soundName: soundData.soundName)
+        player?.volume = soundData.volume
+        player?.play()
         soundCoolDowns[soundData.soundName] = soundData.coolDown
+    }
+
+    static func playSound(soundEffect: SoundEffect) {
+        playSound(soundData: soundEffect.getSoundEffectData())
     }
 }

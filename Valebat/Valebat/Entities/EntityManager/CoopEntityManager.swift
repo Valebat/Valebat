@@ -14,9 +14,8 @@ class CoopEntityManager: EntityManager {
 
     var clientPlayers = [String: ClientPlayerEntity]()
 
-    var spellShoot = [String: Bool]()
-
     override func update(_ deltaTime: CFTimeInterval) {
+        super.update(deltaTime)
 
         timer += Double(deltaTime)
 
@@ -24,9 +23,6 @@ class CoopEntityManager: EntityManager {
             saveData()
             timer -= CoopConstants.updateTimer
         }
-        updateClientPlayers(deltaTime)
-
-        super.update(deltaTime)
     }
 
     func addClientPlayer(playerID: String) {
@@ -44,17 +40,6 @@ class CoopEntityManager: EntityManager {
     private func saveData() {
         let spriteComponents = spriteSystem.components
         currentSession?.coopManager?.saveData(spriteComponents: spriteComponents)
-    }
-
-    private func updateClientPlayers(_ seconds: CFTimeInterval) {
-        guard let session = currentSession as? CoopGameSession else {
-            return
-        }
-        let inputInfos = session.roomManager.realTimeData.userInputInfo
-        for (playerId, info) in inputInfos {
-            let player = clientPlayers[playerId]
-            player?.userInputInfo = info
-        }
     }
 
     override func advanceLevel() {

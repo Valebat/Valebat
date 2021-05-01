@@ -6,10 +6,11 @@
 //
 
 import Foundation
-
+import GameplayKit
 struct SoundEffectData {
     var soundName: String
     var coolDown: TimeInterval
+    var volume: Float
 }
 
 enum SoundEffect {
@@ -18,9 +19,9 @@ enum SoundEffect {
     func getSoundEffectData() -> SoundEffectData {
         switch self {
         case .hit:
-            return SoundEffectData(soundName: "Hit", coolDown: 0.1)
+            return SoundEffectData(soundName: "Hit", coolDown: 0.1, volume: 1.0)
         case .laser:
-            return SoundEffectData(soundName: "LaserDamage", coolDown: 0.01)
+            return SoundEffectData(soundName: "LaserDamage", coolDown: 0.01, volume: 1.0)
         }
     }
 }

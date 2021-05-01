@@ -267,6 +267,9 @@
 		C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
 		CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
+		CB205182263D4B8A00B57812 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205181263D4B8A00B57812 /* MusicManager.swift */; };
+		CB20518A263D550D00B57812 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205189263D550D00B57812 /* TrackData.swift */; };
+		CB20518F263D577900B57812 /* mainMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB20518E263D577900B57812 /* mainMenu.mp3 */; };
 		CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB669992262B2098000FD16D /* ClientPlayerEntity.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
@@ -496,6 +499,9 @@
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
 		C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+RealTime.swift"; sourceTree = "<group>"; };
 		CB0183AB262C69C700375D30 /* CoopHUDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopHUDData.swift; sourceTree = "<group>"; };
+		CB205181263D4B8A00B57812 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		CB205189263D550D00B57812 /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
+		CB20518E263D577900B57812 /* mainMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainMenu.mp3; sourceTree = "<group>"; };
 		CB669992262B2098000FD16D /* ClientPlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerEntity.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
@@ -1040,10 +1046,13 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CB20518E263D577900B57812 /* mainMenu.mp3 */,
 				CB9E9E49261759250016B046 /* AudioManager.swift */,
 				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
 				CB9E9E4E26175AA40016B046 /* Hit.wav */,
 				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
+				CB205181263D4B8A00B57812 /* MusicManager.swift */,
+				CB205189263D550D00B57812 /* TrackData.swift */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -1454,6 +1463,7 @@
 				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
 				C6AA3A32262988250058003C /* GoogleService-Info.plist in Resources */,
+				CB20518F263D577900B57812 /* mainMenu.mp3 in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
 				CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */,
 				C6AA3A37262988F20058003C /* Podfile in Resources */,
@@ -1724,6 +1734,7 @@
 				CBFC4A052600A18600C5DDD2 /* InstantDamageComponent.swift in Sources */,
 				DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */,
 				CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */,
+				CB20518A263D550D00B57812 /* TrackData.swift in Sources */,
 				CBC777FA25FCE1C000581E20 /* AppDelegate.swift in Sources */,
 				EF515A2626368A1800391FB2 /* StarProjectiles.swift in Sources */,
 				C6A9453C261F5AA100087256 /* Objective.swift in Sources */,
@@ -1771,6 +1782,7 @@
 				DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6AA3A0D2625A1930058003C /* SpellSpawnOnShootComponent.swift in Sources */,
+				CB205182263D4B8A00B57812 /* MusicManager.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
 				DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */,
 				C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */,

@@ -17,6 +17,21 @@ class ClientPlayerEntity: PlayerEntity {
                    playerSpellComp: ClientPlayerAimAndShootComponent(), entityManager: entityManager)
     }
 
+    override func update(deltaTime seconds: TimeInterval) {
+        guard let entityManager = entityManager as? CoopEntityManager else {
+            return
+        }
+        guard let session = entityManager.currentSession as? CoopGameSession else {
+            return
+        }
+        let inputInfos = session.roomManager.realTimeData.userInputInfo
+        self.userInputInfo = inputInfos[playerId]
+
+        for component in self.components {
+            component.update(deltaTime: seconds)
+        }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

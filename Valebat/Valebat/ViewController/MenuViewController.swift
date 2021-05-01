@@ -12,6 +12,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
+        MusicManager.playBGM(track: .mainMenu)
     }
 
     @IBAction func resumeGame(_ sender: Any) {

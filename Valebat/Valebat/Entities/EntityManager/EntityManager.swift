@@ -34,13 +34,11 @@ class EntityManager {
     func setup() {
         self.currentSession?.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
         initialiseMaps()
-        initialiseGraph()
-        initialiseObservers()
+        initialiseLevel()
     }
 
     func initialiseMaps() {
         mapManager?.generateMaps(withLevelType: currentSession?.userConfig.diffLevel ?? .medium)
-        immediateAddMapEntities()
     }
 
     /// This function is to bypass toAdd on initialisation (as we don't have to accommodate the update loop).
@@ -100,6 +98,7 @@ class EntityManager {
     func add(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
+            spriteSystem.addComponent(foundIn: entity)
         }
         toAdd.insert(entity)
     }
@@ -112,6 +111,7 @@ class EntityManager {
     private func immediateAdd(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
+            spriteSystem.addComponent(foundIn: entity)
         }
         entities.insert(entity)
     }
@@ -124,6 +124,7 @@ class EntityManager {
     func immediateRemove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
+            spriteSystem.removeComponent(foundIn: entity)
         }
         entities.remove(entity)
     }
@@ -135,6 +136,7 @@ class EntityManager {
     func remove(_ entity: GKEntity) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
+            spriteSystem.removeComponent(foundIn: entity)
         }
         toRemove.insert(entity)
     }
@@ -142,8 +144,10 @@ class EntityManager {
     func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
+            spriteSystem.removeComponent(foundIn: entity)
         }
         entity.addComponent(component)
+        spriteSystem.addComponent(foundIn: entity)
         scene.addChild(component.node)
     }
 

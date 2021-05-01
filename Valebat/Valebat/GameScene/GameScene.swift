@@ -67,7 +67,6 @@ class GameScene: BaseGameScene {
 
     override func setUpScene() {
         super.setUpScene()
-        gameSession.entityManager.addPlayer()
         if userConfig.isCoop {
             (gameSession as? CoopGameSession)?.addClientPlayers()
         }
