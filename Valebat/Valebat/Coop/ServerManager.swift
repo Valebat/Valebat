@@ -22,6 +22,7 @@ class ServerManager {
         let gameNetworkManager = GameNetworkManager()
         gameNetworkManager.room = room
         self.gameNetworkManager = gameNetworkManager
+        coopEntityManager.serverManager = self
 
         initialiseLoadInputCycle()
     }

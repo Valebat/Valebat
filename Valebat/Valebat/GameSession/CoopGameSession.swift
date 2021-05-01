@@ -16,6 +16,7 @@ class CoopGameSession: BaseGameSession {
         self.room = room
         self.serverManager = ServerManager(coopEntityManager: coopEntityManager, room: room)
         super.init(entityManager: coopEntityManager, userConfig: userConfig)
+        self.serverManager.coopGameSession = self
         self.gameNetworkManager = serverManager.gameNetworkManager
     }
 
