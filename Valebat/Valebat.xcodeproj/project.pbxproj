@@ -358,6 +358,7 @@
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
 		DDAADBFD2629B17F00263AFA /* UserInputInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */; };
+		DDEB1F01263DAD3700247526 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEB1F00263DAD3700247526 /* DatabaseManager.swift */; };
 		EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16228E2628C598003C2DE3 /* ResettableEntity.swift */; };
 		EF19415C25FFC71900341BF5 /* GenericSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415325FFC71900341BF5 /* GenericSpell.swift */; };
 		EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19415425FFC71900341BF5 /* MagmaSpell.swift */; };
@@ -597,6 +598,7 @@
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputInfo.swift; sourceTree = "<group>"; };
+		DDEB1F00263DAD3700247526 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EF16228E2628C598003C2DE3 /* ResettableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResettableEntity.swift; sourceTree = "<group>"; };
 		EF19415325FFC71900341BF5 /* GenericSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSpell.swift; sourceTree = "<group>"; };
 		EF19415425FFC71900341BF5 /* MagmaSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagmaSpell.swift; sourceTree = "<group>"; };
@@ -1165,6 +1167,7 @@
 				DD85F34C2625DD4200838B0F /* ServerManager.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
 				DD9499B7263D75640080A99B /* GameNetworkManager.swift */,
+				DDEB1F00263DAD3700247526 /* DatabaseManager.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1691,6 +1694,7 @@
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
+				DDEB1F01263DAD3700247526 /* DatabaseManager.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* IdleState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
