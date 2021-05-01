@@ -160,6 +160,7 @@ class EntityManager {
                                 y: scene.size.height * ViewConstants.playerSpawnOffset)
         let character = PlayerEntity(position: spawnLocation, playerStats: currentSession.playerStats,
                                      entityManager: self)
+        character.userInputInfo = scene.userInputInfo
         add(character)
         self.player = character
     }
@@ -181,7 +182,6 @@ class EntityManager {
             for entity in entities {
                 entity.update(deltaTime: deltaTime)
             }
-            updateShoot(userInput: scene.userInputInfo, player: self.player)
         }
 
         for curAdd in toAdd {
@@ -194,20 +194,6 @@ class EntityManager {
 
         toAdd.removeAll()
         toRemove.removeAll()
-    }
-
-    func updateShoot(userInput: UserInputInfo, player: PlayerEntity?) {
-        if userInput.spellJoystickMoved {
-            spellJoystickMoved(angular: userInput.spellJoystickAngular,
-                               elementQueue: userInput.elementQueueArray,
-                               player: player)
-        }
-        if userInput.spellJoystickEnd {
-            spellJoystickEnded(angular: userInput.spellJoystickAngular,
-                               elementQueue: userInput.elementQueueArray,
-                               player: player)
-            userInput.spellJoystickEnd = false
-        }
     }
 }
 

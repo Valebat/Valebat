@@ -12,9 +12,9 @@ class EnemyState: GKState {
 
     var cachedMoveComponent: EnemyMoveComponent?
 
-    weak var enemyEntity: BaseEnemyEntity?
+    weak var enemyEntity: EnemyProtocol?
 
-    init(entity: BaseEnemyEntity) {
+    init(entity: EnemyProtocol) {
         enemyEntity = entity
     }
 
@@ -25,4 +25,11 @@ class EnemyState: GKState {
         return cachedMoveComponent
     }
 
+    func getDistanceFromPlayer() -> CGFloat? {
+        guard let origin = enemyEntity?.getPosition(),
+              let playerOrigin = enemyEntity?.entityManager?.lastKnownPlayerPosition else {
+            return nil
+        }
+        return (origin - playerOrigin).length()
+    }
 }

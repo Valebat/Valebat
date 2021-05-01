@@ -8,8 +8,14 @@
 import Foundation
 import GameplayKit
 
-class BossAttackState: BaseBossState {
+class BossAttackState: EnemyState {
 
+    var attackRange: CGFloat
+
+    init(for entity: BossEntity, attackRange: CGFloat) {
+        self.attackRange = attackRange
+        super.init(entity: entity)
+    }
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if stateClass == BossAttackState.self {
             return false
@@ -17,7 +23,22 @@ class BossAttackState: BaseBossState {
         return true
     }
 
+    override func didEnter(from previousState: GKState?) {
+        enemyEntity?.component(ofType: BossAttackComponent.self)?.isAttacking = true
+    }
+
+    override func willExit(to nextState: GKState) {
+        enemyEntity?.component(ofType: BossAttackComponent.self)?.isAttacking = false
+    }
+
     override func update(deltaTime: TimeInterval) {
-        stateMachineComponent?.entity?.component(ofType: BossAttackComponent.self)?.launchAttack()
+        guard let distance = getDistanceFromPlayer(),
+              let isAttacking = enemyEntity?.component(ofType: BossAttackComponent.self)?.isCurrentlyAttacking() else {
+            return
+        }
+        if distance > attackRange && !isAttacking {
+            stateMachine?.enter(BossMoveState.self)
+        }
+
     }
 }

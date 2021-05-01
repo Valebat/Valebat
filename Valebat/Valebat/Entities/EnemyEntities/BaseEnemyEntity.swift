@@ -26,7 +26,10 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
                                           damageValue: enemyData.attackDamage,
                                           attackVelocity: enemyData.attackVelocity))
         addComponent(EnemyDeathComponent(exp: enemyData.deathEXP))
-        // You swapped the movespeed/chasespeed here
+        setUpStateMachine(enemyData: enemyData)
+    }
+
+    private func setUpStateMachine(enemyData: BasicEnemyData) {
         let defaultState = DefaultState(for: self, aggroRange: enemyData.enemyAggroRange,
                                         speed: enemyData.enemyMoveSpeed)
         let moveState = MoveState(for: self, attackRange: enemyData.enemyAttackRange,

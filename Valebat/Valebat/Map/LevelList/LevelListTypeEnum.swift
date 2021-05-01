@@ -19,7 +19,7 @@ extension LevelListTypeEnum {
             return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .normal, .normal,
                                                        .dungeon, .crazyhouse, .boss])
         case .medium:
-            return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .dungeon, .crazyhouse,
+            return BiomeTypeEnum.getBiomeDataFromTypes([.boss, .dungeon, .crazyhouse,
                                                         .boss, .normal, .boss])
         case .hard:
             var list: [BiomeData] = []

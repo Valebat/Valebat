@@ -13,7 +13,8 @@ class ClientPlayerEntity: PlayerEntity {
 
     init(playerId: String, position: CGPoint, playerStats: PlayerStats, entityManager: EntityManager) {
         self.playerId = playerId
-        super.init(position: position, playerStats: playerStats, entityManager: entityManager)
+        super.init(position: position, playerStats: playerStats,
+                   playerSpellComp: ClientPlayerAimAndShootComponent(), entityManager: entityManager)
     }
 
     required init?(coder: NSCoder) {

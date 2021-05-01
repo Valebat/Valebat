@@ -84,7 +84,8 @@ class BossAttackLaser: BossAttackSubComponent {
         let laser = LaserSpellEntity()
         laserEntity = laser
         attachedAttackComponent?.baseEntity?.entityManager?.add(laser)
-        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: getAngle())
+        currentAngle = getAngle()
+        laserEntity?.reposition(origin: getPosition(), currentSizeRatio: 0.01, currentAngle: currentAngle)
         laserEntity?.changeOpacity(opacity: 0.0)
 
     }

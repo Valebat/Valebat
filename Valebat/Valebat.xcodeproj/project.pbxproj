@@ -48,7 +48,6 @@
 		C69D361D262B2A1E00EDE2AC /* ElementQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E015525FF52CB002C5556 /* ElementQueue.swift */; };
 		C69D361E262B2A1E00EDE2AC /* ElementSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01A92601B93F002C5556 /* ElementSelection.swift */; };
 		C69D361F262B2A1E00EDE2AC /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
-		C69D3620262B2A1E00EDE2AC /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
 		C69D3621262B2A1E00EDE2AC /* UserInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* UserInputNode.swift */; };
 		C69D3622262B2A1E00EDE2AC /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4FC2619C7F40076BB3A /* RestartButton.swift */; };
 		C69D3623262B2A1E00EDE2AC /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
@@ -111,8 +110,6 @@
 		C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
-		C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
-		C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
@@ -274,8 +271,6 @@
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
 		CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */; };
-		CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D872625AE8100DF2188 /* BossStateMachine.swift */; };
-		CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */; };
 		CB744D922625B81C00DF2188 /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		CB744DA42625D56C00DF2188 /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		CB744DC92625F76900DF2188 /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
@@ -327,7 +322,6 @@
 		DD34F1B92622B38C006EC95A /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34F1B82622B38C006EC95A /* UserConfig.swift */; };
 		DD4E010025FDBC4A002C5556 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */; };
 		DD4E010C25FDC9B0002C5556 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */; };
-		DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */; };
 		DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E011525FDCDCB002C5556 /* UserInputNode.swift */; };
 		DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */; };
 		DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */; };
@@ -354,6 +348,10 @@
 		DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* CoopManager.swift */; };
 		DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3512625DD7700838B0F /* SpriteData.swift */; };
 		DD85F3632625F84500838B0F /* ObjectiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3622625F84500838B0F /* ObjectiveData.swift */; };
+		DD949936263C659A0080A99B /* PlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */; };
+		DD94996E263C75080080A99B /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94996D263C75080080A99B /* UserInputDelegate.swift */; };
+		DD949972263C76C80080A99B /* PlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */; };
+		DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */; };
 		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
@@ -502,8 +500,6 @@
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
 		CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackRingOfBullets.swift; sourceTree = "<group>"; };
-		CB744D872625AE8100DF2188 /* BossStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossStateMachine.swift; sourceTree = "<group>"; };
-		CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBossState.swift; sourceTree = "<group>"; };
 		CB744D912625B81C00DF2188 /* BossMoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossMoveState.swift; sourceTree = "<group>"; };
 		CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackLaser.swift; sourceTree = "<group>"; };
 		CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossBorderOfWaveAndParticle.swift; sourceTree = "<group>"; };
@@ -562,7 +558,6 @@
 		DD34F1B82622B38C006EC95A /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		DD4E00FF25FDBC4A002C5556 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DD4E010B25FDC9B0002C5556 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
-		DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
 		DD4E011525FDCDCB002C5556 /* UserInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputNode.swift; sourceTree = "<group>"; };
 		DD4E013425FF3E8E002C5556 /* CGPoint+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
 		DD4E013525FF3E8E002C5556 /* CGVector+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+extension.swift"; sourceTree = "<group>"; };
@@ -590,6 +585,9 @@
 		DD85F34C2625DD4200838B0F /* CoopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopManager.swift; sourceTree = "<group>"; };
 		DD85F3512625DD7700838B0F /* SpriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteData.swift; sourceTree = "<group>"; };
 		DD85F3622625F84500838B0F /* ObjectiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveData.swift; sourceTree = "<group>"; };
+		DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
+		DD94996D263C75080080A99B /* UserInputDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
+		DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
 		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
@@ -897,6 +895,8 @@
 				C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */,
 				C6AA39FA2625A09A0058003C /* SpellEffectComponent.swift */,
 				C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */,
+				DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */,
+				DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -982,8 +982,6 @@
 				CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */,
 				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
 				CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */,
-				CB744D872625AE8100DF2188 /* BossStateMachine.swift */,
-				CB744D8C2625AF3A00DF2188 /* BaseBossState.swift */,
 				CB744D912625B81C00DF2188 /* BossMoveState.swift */,
 				CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */,
 				CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */,
@@ -1220,9 +1218,9 @@
 			children = (
 				DD5783EF2605D13100E15493 /* Joystick */,
 				DD4E015425FF52A7002C5556 /* ElementPane */,
-				DD4E011025FDCA90002C5556 /* UserInputDelegate.swift */,
 				DD4E011525FDCDCB002C5556 /* UserInputNode.swift */,
 				EF61C4FC2619C7F40076BB3A /* RestartButton.swift */,
+				DD94996D263C75080080A99B /* UserInputDelegate.swift */,
 				EF8BFF962625A74300647771 /* OutcomeButton.swift */,
 				DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */,
 			);
@@ -1614,6 +1612,7 @@
 				C6ACE7602629BCF40000A2E6 /* UsernameManager.swift in Sources */,
 				CB9E9EB8261E2E7A0016B046 /* BasicEnemyData.swift in Sources */,
 				EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */,
+				DD949936263C659A0080A99B /* PlayerAimAndShootComponent.swift in Sources */,
 				C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */,
 				C6A942DC25FCE7EA00087256 /* MapObject.swift in Sources */,
 				CB9E9E7B261C5C840016B046 /* BaseComponent.swift in Sources */,
@@ -1622,6 +1621,7 @@
 				EF19416825FFC76B00341BF5 /* SpellErrors.swift in Sources */,
 				C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */,
 				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
+				DD94996E263C75080080A99B /* UserInputDelegate.swift in Sources */,
 				C6ACE7582629BCB70000A2E6 /* Username.swift in Sources */,
 				C6A9446E2615FEA400087256 /* PlayerModifierUtil.swift in Sources */,
 				EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */,
@@ -1659,7 +1659,6 @@
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
-				CB744D882625AE8100DF2188 /* BossStateMachine.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
@@ -1719,7 +1718,6 @@
 				CB9E9E26261744060016B046 /* PlayerHUD.swift in Sources */,
 				CBC7780225FCE1C000581E20 /* GameViewController.swift in Sources */,
 				EF19415E25FFC71900341BF5 /* Element.swift in Sources */,
-				CB744D8D2625AF3A00DF2188 /* BaseBossState.swift in Sources */,
 				CBFC49E125FFF28C00C5DDD2 /* DamageComponent.swift in Sources */,
 				DD7034C02615EDF600D3602B /* MovementJoystick.swift in Sources */,
 				CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */,
@@ -1745,7 +1743,6 @@
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
-				DD4E011125FDCA90002C5556 /* UserInputDelegate.swift in Sources */,
 				EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */,
 				EF8843322639625F00040E3A /* DatabaseManager.swift in Sources */,
 				CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */,
@@ -1771,6 +1768,7 @@
 				C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */,
 				C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */,
 				C6A9447B2616001F00087256 /* PowerupUtil.swift in Sources */,
+				DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6AA3A0D2625A1930058003C /* SpellSpawnOnShootComponent.swift in Sources */,
 				C6A942DE25FCE7EA00087256 /* Map.swift in Sources */,
@@ -1813,6 +1811,7 @@
 				EF6E5ADA262B4D5300CBCEAE /* MapObjectFactory.swift in Sources */,
 				C69D360D262B2A1E00EDE2AC /* HUDHPBar.swift in Sources */,
 				C69D360E262B2A1E00EDE2AC /* HPBar.sks in Sources */,
+				DD949972263C76C80080A99B /* PlayerAimAndShootComponent.swift in Sources */,
 				C69D360F262B2A1E00EDE2AC /* PlayerHUD.swift in Sources */,
 				C69D3611262B2A1E00EDE2AC /* PlayerLevel.sks in Sources */,
 				C69D3612262B2A1E00EDE2AC /* HUDPlayerLevel.swift in Sources */,
@@ -1829,7 +1828,6 @@
 				C69D361D262B2A1E00EDE2AC /* ElementQueue.swift in Sources */,
 				C69D361E262B2A1E00EDE2AC /* ElementSelection.swift in Sources */,
 				C69D361F262B2A1E00EDE2AC /* ElementButton.swift in Sources */,
-				C69D3620262B2A1E00EDE2AC /* UserInputDelegate.swift in Sources */,
 				C69D3621262B2A1E00EDE2AC /* UserInputNode.swift in Sources */,
 				C69D3622262B2A1E00EDE2AC /* RestartButton.swift in Sources */,
 				C69D3623262B2A1E00EDE2AC /* OutcomeButton.swift in Sources */,
@@ -1895,9 +1893,7 @@
 				C69D3660262B2A1F00EDE2AC /* BossAttackState.swift in Sources */,
 				C69D3661262B2A1F00EDE2AC /* BossAttackSubComponent.swift in Sources */,
 				C69D3662262B2A1F00EDE2AC /* BossAttackRingOfBullets.swift in Sources */,
-				C69D3663262B2A1F00EDE2AC /* BossStateMachine.swift in Sources */,
 				EF6E5ACB262B479700CBCEAE /* ClientPlayerEntity.swift in Sources */,
-				C69D3664262B2A1F00EDE2AC /* BaseBossState.swift in Sources */,
 				C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */,
 				C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */,
 				C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */,
