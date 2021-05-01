@@ -11,7 +11,7 @@ import GameplayKit
 
 class CoopEntityManager: EntityManager {
     var timer: Double = 0.0
-
+    var smalltimer: Double = 0.0
     var clientPlayers = [String: ClientPlayerEntity]()
 
     weak var serverManager: ServerManager?
@@ -20,10 +20,16 @@ class CoopEntityManager: EntityManager {
         super.update(deltaTime)
 
         timer += Double(deltaTime)
-
+        smalltimer += Double(deltaTime)
+        // saveData()
         if timer > CoopConstants.updateTimer {
-            saveData()
+            saveData(resetAll: true)
             timer -= CoopConstants.updateTimer
+        } else {
+            if smalltimer > 0.15 {
+                saveData(resetAll: false)
+                smalltimer = 0.0
+            }
         }
     }
 
@@ -39,9 +45,9 @@ class CoopEntityManager: EntityManager {
         clientPlayers[playerID] = character
     }
 
-    private func saveData() {
-        let spriteComponents = spriteSystem.components
-        serverManager?.saveData(spriteComponents: spriteComponents)
+    private func saveData(resetAll: Bool) {
+        var spriteComponents = spriteSystem.components
+        serverManager?.saveData(spriteComponents: spriteComponents, resetAll: resetAll)
     }
 
     override func advanceLevel() {

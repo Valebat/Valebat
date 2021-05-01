@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseDatabase
 
 protocol ServerGameNetworkManager: class {
-    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?)
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?, resetAll: Bool)
     func loadUserInputCycle()
     func getUserInputInfo() -> [String: UserInputInfo]
 }
@@ -27,6 +27,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
     var room: Room?
     private(set) var realTimeData = RealTimeData()
 
+    var currentIDs = Set<UUID>()
     func getSpritesData() -> [SpriteData] {
         return realTimeData.sprites
     }
@@ -39,13 +40,41 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         return realTimeData.userInputInfo
     }
 
-    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
+    func updateSpriteDataSmall(sprites: Set<SpriteData>) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-        self.ref.child("sprites/\(roomIdx)").removeValue()
 
+       /* var updates = [String: Any]()
+        var nondeletedIDs = Set<UUID>()
+        sprites.forEach({ nondeletedIDs.insert($0.idx) })
+        currentIDs.forEach({
+            if !nondeletedIDs.contains($0) {
+                updates["deletedSprites/\(roomIdx)/\($0)"] = ""
+            }
+        })
+        */
+
+    }
+    var counter = 0
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?, resetAll: Bool) {
+        print(sprites.count)
+        guard let guaranteedRoom = self.room,
+              let roomIdx = guaranteedRoom.idx else {
+            return
+        }
+       /* counter += 1
+        if counter == 10 {
+            self.ref.child("sprites/\(roomIdx)").removeValue()
+            counter = 0
+        }*/
+        if resetAll {
+            print("reseted")
+            self.ref.child("sprites/\(roomIdx)").removeValue()
+        }
+        currentIDs = Set<UUID>()
+        sprites.forEach({ currentIDs.insert($0.idx) })
         realTimeData.sprites = Array(sprites)
         realTimeData.playerHUDData = playerHUDData
         var allUpdates = [String: Any]()

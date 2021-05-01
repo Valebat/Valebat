@@ -27,7 +27,7 @@ class ServerManager {
         initialiseLoadInputCycle()
     }
 
-    func saveData(spriteComponents: [GKComponent]) {
+    func saveData(spriteComponents: [GKComponent], resetAll: Bool) {
         guard let entityManager = self.entityManager,
               let coopGameSession = self.coopGameSession else {
             return
@@ -39,6 +39,9 @@ class ServerManager {
                   let spriteNode = spriteComp.node as? SKSpriteNode else {
                 continue
             }
+            if spriteComp.isStatic && !resetAll {
+                continue
+            }
             if let spData = SpriteData.initialise(spNode: spriteNode, idx: spriteComp.idx) {
                 spritesData.insert(spData)
             }
@@ -47,11 +50,11 @@ class ServerManager {
         for (string, player) in entityManager.clientPlayers {
             coopHUDData?.playercurrentHP[string] = player.component(conformingTo: HealthComponent.self)?.currentHealth
         }
-        updateDatabase()
+        updateDatabase(resetAll: resetAll)
     }
 
-    func updateDatabase() {
-        gameNetworkManager.updateGameData(sprites: spritesData, playerHUDData: coopHUDData)
+    func updateDatabase(resetAll: Bool) {
+        gameNetworkManager.updateGameData(sprites: spritesData, playerHUDData: coopHUDData, resetAll: resetAll)
     }
 
     private func initialiseLoadInputCycle() {
