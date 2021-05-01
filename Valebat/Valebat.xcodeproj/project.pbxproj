@@ -396,6 +396,7 @@
 		EF6E5AEE262B670200CBCEAE /* PlayerDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */; };
 		EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
+		EFA425C6263DDC860055370C /* SpellBombEffectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,6 +641,7 @@
 		EF8087AC260684BE00923494 /* SteamSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpellTests.swift; sourceTree = "<group>"; };
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
 		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
+		EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBombEffectComponent.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
 		F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValebatTests.release.xcconfig"; path = "Target Support Files/Pods-ValebatTests/Pods-ValebatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -902,6 +904,7 @@
 				C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */,
 				DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */,
 				DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */,
+				EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -1752,6 +1755,7 @@
 				CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */,
 				C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
+				EFA425C6263DDC860055370C /* SpellBombEffectComponent.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */,

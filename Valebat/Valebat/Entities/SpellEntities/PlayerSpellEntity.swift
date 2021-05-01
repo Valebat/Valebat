@@ -9,15 +9,14 @@ import GameplayKit
 
 class PlayerSpellEntity: BaseProjectileEntity {
 
-    init(velocity: CGVector, spell: Spell, position: CGPoint, damageMultiplier: Double = 1.0) {
+    init(velocity: CGVector, spell: Spell, position: CGPoint, damageMultiplier: CGFloat = 1.0) {
         let spriteTextures = PlayerSpellEntity.getAnimatedSpell(for: spell)
         super.init(texture: spriteTextures[0],
                    size: PlayerSpellEntity.getSpriteSize(spriteTexture: spriteTextures[0]),
                    physicsType: .playerAttack, position: position, velocity: velocity,
                    movementType: spell.movement)
 
-        let damage = CGFloat(spell.level) * CGFloat(damageMultiplier)
-            * DamageConstants.damageValue
+        let damage = CGFloat(spell.level) * damageMultiplier * DamageConstants.damageValue
         if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
                                                 type: basicSpell.damageType))
