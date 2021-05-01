@@ -28,7 +28,7 @@ class AdvanceLevelComponent: BaseComponent {
             return
         }
         isOpen = true
-        
+
         entityManager.replaceSprite(self.baseEntity!, component: self.replacementSpriteComponent)
     }
 

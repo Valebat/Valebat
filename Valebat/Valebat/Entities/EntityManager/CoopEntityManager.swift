@@ -14,6 +14,8 @@ class CoopEntityManager: EntityManager {
 
     var clientPlayers = [String: ClientPlayerEntity]()
 
+    weak var serverManager: ServerManager?
+
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
 
@@ -39,7 +41,7 @@ class CoopEntityManager: EntityManager {
 
     private func saveData() {
         let spriteComponents = spriteSystem.components
-        currentSession?.coopManager?.saveData(spriteComponents: spriteComponents)
+        serverManager?.saveData(spriteComponents: spriteComponents)
     }
 
     override func advanceLevel() {

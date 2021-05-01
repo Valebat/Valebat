@@ -8,23 +8,25 @@
 import Foundation
 
 class CoopGameSession: BaseGameSession {
-    let roomManager: RoomManager
+    var serverManager: ServerManager
+    var room: Room?
+    weak var gameNetworkManager: ServerGameNetworkManager?
 
-    init(coopEntityManager: CoopEntityManager, userConfig: UserConfig, roomManager: RoomManager) {
-        self.roomManager = roomManager
-
+    init(coopEntityManager: CoopEntityManager, userConfig: UserConfig, room: Room?) {
+        self.room = room
+        self.serverManager = ServerManager(coopEntityManager: coopEntityManager, room: room)
         super.init(entityManager: coopEntityManager, userConfig: userConfig)
-
-        self.coopManager = CoopManager(coopEntityManager: coopEntityManager)
+        self.serverManager.coopGameSession = self
+        self.gameNetworkManager = serverManager.gameNetworkManager
     }
 
     func addClientPlayers() {
-        guard let room = roomManager.room else {
+        guard let room = self.room else {
             return
         }
-        roomManager.room?.players.forEach({
+        self.room?.players.forEach({
             if $0 != room.hostId {
-                coopManager?.entityManager.addClientPlayer(playerID: $0)
+                serverManager.entityManager?.addClientPlayer(playerID: $0)
             }
         })
     }
