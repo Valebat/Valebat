@@ -17,7 +17,6 @@ class BaseGameSession {
     var mapManager: MapManager!
     let spawnManager: SpawnManager
     weak var persistenceManager: PersistenceManager?
-    var coopManager: CoopManager?
 
     init(entityManager: EntityManager, userConfig: UserConfig) {
         playerStats = PlayerStats()

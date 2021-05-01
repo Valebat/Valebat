@@ -10,8 +10,7 @@ import GameplayKit
 
 class ClientScene: BaseGameScene {
     weak var viewController: ClientViewController?
-
-    var spriteNodes = [SKSpriteNode]()
+    var spriteNodes = [UUID: SKSpriteNode]()
     var clientManager = ClientManager()
 
     var clientId: String?
@@ -54,18 +53,36 @@ class ClientScene: BaseGameScene {
 
     func renderSprites() {
         let sprites = clientManager.spritesData
-        spriteNodes.forEach({ $0.removeFromParent() })
-        spriteNodes = [SKSpriteNode]()
-        for sprite in sprites {
-            let spriteNode = SKSpriteNode(texture: CustomTexture.initialise(imageNamed: sprite.name),
-                                          color: SKColor.white,
-                                          size: CGSize(width: CGFloat(sprite.width),
-                                                       height: CGFloat(sprite.height)))
+        var newSpriteData = [UUID: SpriteData]()
+        sprites.forEach({
+            newSpriteData[$0.idx] = $0
+        })
+        var toRemove = [UUID]()
+        for (uid, spriteNode) in spriteNodes {
+            guard let sprite = newSpriteData[uid] else {
+                toRemove.append(uid)
+                continue
+            }
             spriteNode.position = CGPoint(x: CGFloat(sprite.xPos), y: CGFloat(sprite.yPos))
             spriteNode.zPosition = CGFloat(sprite.zPos)
             spriteNode.zRotation = CGFloat(sprite.orientation)
-            addChild(spriteNode)
-            spriteNodes.append(spriteNode)
+            spriteNode.texture = CustomTexture.initialise(imageNamed: sprite.name)
+            spriteNode.size = CGSize(width: CGFloat(sprite.width), height: CGFloat(sprite.height))
+        }
+        toRemove.forEach({
+            spriteNodes[$0]?.removeFromParent()
+            spriteNodes[$0] = nil
+        })
+        for (uid, sprite) in newSpriteData where spriteNodes[uid] == nil {
+            let spriteNode = SKSpriteNode(texture: CustomTexture.initialise(imageNamed: sprite.name),
+                                              color: SKColor.white,
+                                              size: CGSize(width: CGFloat(sprite.width),
+                                                           height: CGFloat(sprite.height)))
+                spriteNode.position = CGPoint(x: CGFloat(sprite.xPos), y: CGFloat(sprite.yPos))
+                spriteNode.zPosition = CGFloat(sprite.zPos)
+                spriteNode.zRotation = CGFloat(sprite.orientation)
+                addChild(spriteNode)
+                spriteNodes[uid] = spriteNode
         }
     }
 
@@ -73,8 +90,8 @@ class ClientScene: BaseGameScene {
         guard let idx = clientId else {
             return
         }
-        clientManager.roomManager?.realTimeData.userInputInfo[idx] = self.userInputInfo
-        clientManager.roomManager?.saveUserInfo(playerId: idx)
+        clientManager.gameNetworkManager?.updateUserInfo(playerId: idx,
+                                                         userInputInfo: self.userInputInfo)
     }
 
     required init?(coder aDecoder: NSCoder) {

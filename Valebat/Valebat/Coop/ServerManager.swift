@@ -1,5 +1,5 @@
 //
-//  CoopManager.swift
+//  ServerManager.swift
 //  Valebat
 //
 //  Created by Zhang Yifan on 13/4/21.
@@ -7,19 +7,32 @@
 
 import GameplayKit
 
-class CoopManager {
+class ServerManager {
     var spritesData: Set<SpriteData> = Set()
     var coopHUDData: CoopHUDData?
-    var entityManager: CoopEntityManager
-    var coopGameSession: CoopGameSession!
 
-    init(coopEntityManager: CoopEntityManager) {
+    var gameNetworkManager: ServerGameNetworkManager
+
+    weak var coopGameSession: CoopGameSession?
+    weak var entityManager: CoopEntityManager?
+
+    init(coopEntityManager: CoopEntityManager, room: Room?) {
         self.entityManager = coopEntityManager
         self.coopGameSession = coopEntityManager.currentSession as? CoopGameSession
+        let gameNetworkManager = GameNetworkManager()
+        gameNetworkManager.room = room
+        self.gameNetworkManager = gameNetworkManager
+        coopEntityManager.serverManager = self
+
         initialiseLoadInputCycle()
     }
 
     func saveData(spriteComponents: [GKComponent]) {
+        guard let entityManager = self.entityManager,
+              let coopGameSession = self.coopGameSession else {
+            return
+        }
+
         spritesData = Set()
         for spriteComp in spriteComponents {
             guard let spriteComp = spriteComp as? SpriteComponent,
@@ -38,10 +51,10 @@ class CoopManager {
     }
 
     func updateDatabase() {
-        coopGameSession.roomManager.updateData(sprites: spritesData, playerHUDData: coopHUDData)
+        gameNetworkManager.updateGameData(sprites: spritesData, playerHUDData: coopHUDData)
     }
 
     private func initialiseLoadInputCycle() {
-        coopGameSession.roomManager.loadUserInputCycle()
+        gameNetworkManager.loadUserInputCycle()
     }
 }

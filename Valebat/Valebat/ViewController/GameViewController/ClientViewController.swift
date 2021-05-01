@@ -11,7 +11,7 @@ import GameplayKit
 
 class ClientViewController: BaseViewController {
     var currentScene: ClientScene?
-    var roomManager: RoomManager?
+    var room: Room?
     var clientId: String?
 
     override func viewDidLoad() {
@@ -25,7 +25,10 @@ class ClientViewController: BaseViewController {
                                                  height: ViewConstants.sceneHeight))
         self.currentScene = gameScene
         currentScene?.viewController = self
-        currentScene?.clientManager.roomManager = roomManager
+
+        let gameNetworkManager = GameNetworkManager()
+        gameNetworkManager.room = room
+        currentScene?.clientManager.gameNetworkManager = gameNetworkManager
         currentScene?.clientId = clientId
 
         gameScene.scaleMode = .aspectFill

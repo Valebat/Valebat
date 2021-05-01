@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-class DefaultState: EnemyState {
+class IdleState: EnemyState {
     let aggroRange: CGFloat
     let speed: CGFloat
 

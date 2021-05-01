@@ -53,7 +53,7 @@
 		C69D3623262B2A1E00EDE2AC /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
 		C69D3624262B2A1E00EDE2AC /* UserInputInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADBFC2629B17F00263AFA /* UserInputInfo.swift */; };
 		C69D3625262B2A1E00EDE2AC /* HUDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E014125FF412A002C5556 /* HUDConstants.swift */; };
-		C69D3626262B2A1E00EDE2AC /* CoopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* CoopManager.swift */; };
+		C69D3626262B2A1E00EDE2AC /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* ServerManager.swift */; };
 		C69D3627262B2A1E00EDE2AC /* SpriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3512625DD7700838B0F /* SpriteData.swift */; };
 		C69D3628262B2A1E00EDE2AC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034F92616E9CD00D3602B /* PersistenceManager.swift */; };
 		C69D3629262B2A1E00EDE2AC /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7034F12616E37200D3602B /* PlayerData.swift */; };
@@ -112,7 +112,7 @@
 		C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
-		C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
+		C69D3668262B2A1F00EDE2AC /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* IdleState.swift */; };
 		C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
 		C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
 		C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
@@ -157,7 +157,6 @@
 		C69D3699262B2A1F00EDE2AC /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE74B2629B55D0000A2E6 /* Room.swift */; };
 		C69D369A262B2A1F00EDE2AC /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7282629B34F0000A2E6 /* RoomManager.swift */; };
 		C69D369B262B2A1F00EDE2AC /* RoomManager+JoinRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */; };
-		C69D369C262B2A1F00EDE2AC /* RoomManager+RealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */; };
 		C69D369D262B2A1F00EDE2AC /* RoomCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */; };
 		C69D369E262B2A1F00EDE2AC /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB917FA6262AFFC4004A6F3C /* ClientManager.swift */; };
 		C69D369F262B2A1F00EDE2AC /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4BE2618590F0076BB3A /* ClassInfo.swift */; };
@@ -260,7 +259,6 @@
 		C6ED82982629D16A0074CE07 /* CoopRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */; };
 		C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */; };
 		C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */; };
-		C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */; };
 		C6F797A2262C9D060013EDFE /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
 		C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
@@ -282,7 +280,7 @@
 		CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB917FA6262AFFC4004A6F3C /* ClientManager.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
-		CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
+		CB9E9DD5261095410016B046 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* IdleState.swift */; };
 		CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
 		CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
 		CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */; };
@@ -348,13 +346,14 @@
 		DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD7035682619C5D700D3602B /* PlayerLevel.sks */; };
 		DD70356E2619C7F100D3602B /* HUDPlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */; };
 		DD703591261AED5200D3602B /* PositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD703590261AED5200D3602B /* PositionData.swift */; };
-		DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* CoopManager.swift */; };
+		DD85F34D2625DD4200838B0F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F34C2625DD4200838B0F /* ServerManager.swift */; };
 		DD85F3522625DD7700838B0F /* SpriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3512625DD7700838B0F /* SpriteData.swift */; };
 		DD85F3632625F84500838B0F /* ObjectiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85F3622625F84500838B0F /* ObjectiveData.swift */; };
 		DD949936263C659A0080A99B /* PlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */; };
 		DD94996E263C75080080A99B /* UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94996D263C75080080A99B /* UserInputDelegate.swift */; };
 		DD949972263C76C80080A99B /* PlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */; };
 		DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */; };
+		DD9499B8263D75640080A99B /* GameNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9499B7263D75640080A99B /* GameNetworkManager.swift */; };
 		DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9849862624AB4A006B741E /* CustomTexture.swift */; };
 		DD9D6E16261F381500D20723 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		DDAADB752629878E00263AFA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
@@ -496,7 +495,6 @@
 		C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopRoomViewController.swift; sourceTree = "<group>"; };
 		C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+JoinRoom.swift"; sourceTree = "<group>"; };
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
-		C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+RealTime.swift"; sourceTree = "<group>"; };
 		CB0183AB262C69C700375D30 /* CoopHUDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopHUDData.swift; sourceTree = "<group>"; };
 		CB205181263D4B8A00B57812 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		CB205189263D550D00B57812 /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
@@ -515,7 +513,7 @@
 		CB917FA6262AFFC4004A6F3C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
-		CB9E9DD4261095410016B046 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
+		CB9E9DD4261095410016B046 /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		CB9E9DDA261095CC0016B046 /* MoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveState.swift; sourceTree = "<group>"; };
 		CB9E9DEC2610A7CE0016B046 /* AttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackState.swift; sourceTree = "<group>"; };
 		CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyBasicAttackEntity.swift; sourceTree = "<group>"; };
@@ -589,12 +587,13 @@
 		DD7035682619C5D700D3602B /* PlayerLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerLevel.sks; sourceTree = "<group>"; };
 		DD70356D2619C7F100D3602B /* HUDPlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPlayerLevel.swift; sourceTree = "<group>"; };
 		DD703590261AED5200D3602B /* PositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionData.swift; sourceTree = "<group>"; };
-		DD85F34C2625DD4200838B0F /* CoopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopManager.swift; sourceTree = "<group>"; };
+		DD85F34C2625DD4200838B0F /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		DD85F3512625DD7700838B0F /* SpriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteData.swift; sourceTree = "<group>"; };
 		DD85F3622625F84500838B0F /* ObjectiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveData.swift; sourceTree = "<group>"; };
 		DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
 		DD94996D263C75080080A99B /* UserInputDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputDelegate.swift; sourceTree = "<group>"; };
 		DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerAimAndShootComponent.swift; sourceTree = "<group>"; };
+		DD9499B7263D75640080A99B /* GameNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkManager.swift; sourceTree = "<group>"; };
 		DD9849862624AB4A006B741E /* CustomTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexture.swift; sourceTree = "<group>"; };
 		DD9D6E15261F381400D20723 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DDAADB742629878E00263AFA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
@@ -966,7 +965,6 @@
 				C6ACE74B2629B55D0000A2E6 /* Room.swift */,
 				C6ACE7282629B34F0000A2E6 /* RoomManager.swift */,
 				C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */,
-				C6ED82C3262AC4D60074CE07 /* RoomManager+RealTime.swift */,
 				C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */,
 			);
 			path = Room;
@@ -980,6 +978,25 @@
 				C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */,
 			);
 			path = Username;
+			sourceTree = "<group>";
+		};
+		CB2051A9263D7DFD00B57812 /* wav */ = {
+			isa = PBXGroup;
+			children = (
+				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
+				CB9E9E4E26175AA40016B046 /* Hit.wav */,
+			);
+			path = wav;
+			sourceTree = "<group>";
+		};
+		CB2051AA263D7E1600B57812 /* mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				CB20518E263D577900B57812 /* mainMenu.mp3 */,
+				CB205196263D594800B57812 /* boss.mp3 */,
+				CB20519B263D61FC00B57812 /* stage.mp3 */,
+			);
+			path = mp3;
 			sourceTree = "<group>";
 		};
 		CB744D692625A58800DF2188 /* BossStateMachine */ = {
@@ -999,7 +1016,7 @@
 		CB9E9DD9261095500016B046 /* EnemyStateMachine */ = {
 			isa = PBXGroup;
 			children = (
-				CB9E9DD4261095410016B046 /* DefaultState.swift */,
+				CB9E9DD4261095410016B046 /* IdleState.swift */,
 				CB9E9DDA261095CC0016B046 /* MoveState.swift */,
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
 				EF515A2E2636D28400391FB2 /* EnemyState.swift */,
@@ -1047,12 +1064,9 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				CB20518E263D577900B57812 /* mainMenu.mp3 */,
-				CB205196263D594800B57812 /* boss.mp3 */,
-				CB20519B263D61FC00B57812 /* stage.mp3 */,
+				CB2051AA263D7E1600B57812 /* mp3 */,
+				CB2051A9263D7DFD00B57812 /* wav */,
 				CB9E9E49261759250016B046 /* AudioManager.swift */,
-				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
-				CB9E9E4E26175AA40016B046 /* Hit.wav */,
 				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
 				CB205181263D4B8A00B57812 /* MusicManager.swift */,
 				CB205189263D550D00B57812 /* TrackData.swift */,
@@ -1148,14 +1162,12 @@
 			isa = PBXGroup;
 			children = (
 				C6ACE7562629BCAA0000A2E6 /* Username */,
+				DD949A46263DA7A50080A99B /* Data */,
 				C6ACE74A2629B5540000A2E6 /* Room */,
 				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
-				DD85F34C2625DD4200838B0F /* CoopManager.swift */,
-				DD85F3512625DD7700838B0F /* SpriteData.swift */,
-				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
-				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
+				DD85F34C2625DD4200838B0F /* ServerManager.swift */,
 				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
-				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
+				DD9499B7263D75640080A99B /* GameNetworkManager.swift */,
 			);
 			path = Coop;
 			sourceTree = "<group>";
@@ -1253,6 +1265,17 @@
 				C6A94555261F617F00087256 /* HUDPlayerObjective.swift */,
 			);
 			path = PlayerStatsHUD;
+			sourceTree = "<group>";
+		};
+		DD949A46263DA7A50080A99B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD85F3512625DD7700838B0F /* SpriteData.swift */,
+				DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */,
+				DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */,
+				CB0183AB262C69C700375D30 /* CoopHUDData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		DD98498B26256842006B741E /* TextureUtil */ = {
@@ -1649,7 +1672,7 @@
 				CBC7780025FCE1C000581E20 /* GameScene.swift in Sources */,
 				CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */,
 				C6A943D7260AFF8D00087256 /* BiomeTypeEnum.swift in Sources */,
-				DD85F34D2625DD4200838B0F /* CoopManager.swift in Sources */,
+				DD85F34D2625DD4200838B0F /* ServerManager.swift in Sources */,
 				C6A94556261F617F00087256 /* HUDPlayerObjective.swift in Sources */,
 				DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */,
 				DD4E013725FF3E8E002C5556 /* CGVector+extension.swift in Sources */,
@@ -1672,7 +1695,7 @@
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
-				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
+				CB9E9DD5261095410016B046 /* IdleState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
@@ -1680,7 +1703,6 @@
 				DD70352C2618317500D3602B /* MapObjectData.swift in Sources */,
 				C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */,
 				CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */,
-				C6ED82C4262AC4D60074CE07 /* RoomManager+RealTime.swift in Sources */,
 				C6A942F425FCFC4A00087256 /* EntityManager.swift in Sources */,
 				EF515A2F2636D28400391FB2 /* EnemyState.swift in Sources */,
 				CB9E9E3526174A8E0016B046 /* PlayerStats.swift in Sources */,
@@ -1768,6 +1790,7 @@
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
+				DD9499B8263D75640080A99B /* GameNetworkManager.swift in Sources */,
 				EF61C5092619DB300076BB3A /* EnemyAttackComponent.swift in Sources */,
 				DD703591261AED5200D3602B /* PositionData.swift in Sources */,
 				EF19416125FFC71900341BF5 /* MudSpell.swift in Sources */,
@@ -1848,7 +1871,7 @@
 				C69D3623262B2A1E00EDE2AC /* OutcomeButton.swift in Sources */,
 				C69D3624262B2A1E00EDE2AC /* UserInputInfo.swift in Sources */,
 				C69D3625262B2A1E00EDE2AC /* HUDConstants.swift in Sources */,
-				C69D3626262B2A1E00EDE2AC /* CoopManager.swift in Sources */,
+				C69D3626262B2A1E00EDE2AC /* ServerManager.swift in Sources */,
 				C69D3627262B2A1E00EDE2AC /* SpriteData.swift in Sources */,
 				C69D3628262B2A1E00EDE2AC /* PersistenceManager.swift in Sources */,
 				C69D3629262B2A1E00EDE2AC /* PlayerData.swift in Sources */,
@@ -1911,7 +1934,7 @@
 				C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */,
 				C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */,
 				C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */,
-				C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */,
+				C69D3668262B2A1F00EDE2AC /* IdleState.swift in Sources */,
 				C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */,
 				C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */,
 				C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */,
@@ -1957,7 +1980,6 @@
 				C69D3699262B2A1F00EDE2AC /* Room.swift in Sources */,
 				C69D369A262B2A1F00EDE2AC /* RoomManager.swift in Sources */,
 				C69D369B262B2A1F00EDE2AC /* RoomManager+JoinRoom.swift in Sources */,
-				C69D369C262B2A1F00EDE2AC /* RoomManager+RealTime.swift in Sources */,
 				C69D369D262B2A1F00EDE2AC /* RoomCodeGenerator.swift in Sources */,
 				C69D369E262B2A1F00EDE2AC /* ClientManager.swift in Sources */,
 				C69D369F262B2A1F00EDE2AC /* ClassInfo.swift in Sources */,

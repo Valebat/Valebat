@@ -34,7 +34,7 @@ class MoveState: EnemyState {
         } else if distance < aggroRange {
             setPathTowardsPlayer(deltaTime: deltaTime)
         } else {
-            stateMachine?.enter(DefaultState.self)
+            stateMachine?.enter(IdleState.self)
         }
     }
 

@@ -1,17 +1,45 @@
 //
-//  RoomManager+Sprites.swift
+//  ServerGameNetworkManager.swift
 //  Valebat
 //
-//  Created by Jing Lin Shi on 17/4/21.
+//  Created by Zhang Yifan on 1/5/21.
 //
 
-import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import FirebaseDatabase
 
-extension RoomManager {
+protocol ServerGameNetworkManager: class {
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?)
+    func loadUserInputCycle()
+    func getUserInputInfo() -> [String: UserInputInfo]
+}
 
-    func updateData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
+protocol ClientGameNetworkManager: class {
+    func updateUserInfo(playerId: String, userInputInfo: UserInputInfo)
+    func loadSpritesCycle()
+    func getSpritesData() -> [SpriteData]
+    func getPlayerHUDData() -> CoopHUDData?
+}
+
+class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
+    var ref: DatabaseReference = Database.database().reference()
+    var room: Room?
+    private(set) var realTimeData = RealTimeData()
+
+    func getSpritesData() -> [SpriteData] {
+        return realTimeData.sprites
+    }
+
+    func getPlayerHUDData() -> CoopHUDData? {
+        return realTimeData.playerHUDData
+    }
+
+    func getUserInputInfo() -> [String: UserInputInfo] {
+        return realTimeData.userInputInfo
+    }
+
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return
@@ -71,7 +99,7 @@ extension RoomManager {
         }
     }
 
-    func loadSprites(completed: @escaping () -> Void) {
+    private func loadSprites(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return
@@ -89,7 +117,7 @@ extension RoomManager {
         }
     }
 
-    func loadPlayerHUD(completed: @escaping () -> Void) {
+    private func loadPlayerHUD(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return
@@ -109,18 +137,18 @@ extension RoomManager {
         }
     }
 
-    func saveUserInfo(playerId: String) {
+    func updateUserInfo(playerId: String, userInputInfo: UserInputInfo) {
+        realTimeData.userInputInfo[playerId] = userInputInfo
         guard let guaranteedRoom = self.room,
-              let idx = guaranteedRoom.idx,
-              let userInfo = realTimeData.userInputInfo[playerId] else {
+              let idx = guaranteedRoom.idx else {
             return
         }
 
-        let request = userInfo.convertToDBRequest(playerId: playerId, roomId: idx)
+        let request = userInputInfo.convertToDBRequest(playerId: playerId, roomId: idx)
         self.ref.updateChildValues(request)
     }
 
-    func loadUserInfo(completed: @escaping () -> Void) {
+    private func loadUserInfo(completed: @escaping () -> Void) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return

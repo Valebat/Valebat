@@ -48,7 +48,7 @@ class GameScene: BaseGameScene {
         }
         let currentSession = CoopGameSession(coopEntityManager: coopEntityManager,
                                              userConfig: userConfig,
-                                             roomManager: userConfig.roomManager!)
+                                             room: userConfig.roomManager!.room)
 
         currentSession.loadGame()
 

@@ -48,7 +48,7 @@ class CoopRoomViewController: UIViewController {
         guard let clientVC = viewController as? ClientViewController else {
             return
         }
-        clientVC.roomManager = roomManager
+        clientVC.room = roomManager.room
         clientVC.clientId = username
         present(clientVC, animated: true, completion: nil)
     }

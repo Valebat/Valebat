@@ -18,13 +18,13 @@ class ClientPlayerEntity: PlayerEntity {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        guard let entityManager = entityManager as? CoopEntityManager else {
+        guard let entityManager = entityManager as? CoopEntityManager,
+              let session = entityManager.currentSession as? CoopGameSession else {
             return
         }
-        guard let session = entityManager.currentSession as? CoopGameSession else {
+        guard let inputInfos = session.gameNetworkManager?.getUserInputInfo() else {
             return
         }
-        let inputInfos = session.roomManager.realTimeData.userInputInfo
         self.userInputInfo = inputInfos[playerId]
 
         for component in self.components {

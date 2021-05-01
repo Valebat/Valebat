@@ -30,13 +30,13 @@ class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
     }
 
     private func setUpStateMachine(enemyData: BasicEnemyData) {
-        let defaultState = DefaultState(for: self, aggroRange: enemyData.enemyAggroRange,
+        let defaultState = IdleState(for: self, aggroRange: enemyData.enemyAggroRange,
                                         speed: enemyData.enemyMoveSpeed)
         let moveState = MoveState(for: self, attackRange: enemyData.enemyAttackRange,
                                   aggroRange: enemyData.enemyAggroRange, speed: enemyData.enemyChaseSpeed)
         let attackState = AttackState(for: self, attackRange: enemyData.enemyAttackRange)
         self.stateMachine = GKStateMachine(states: [defaultState, moveState, attackState])
-        self.stateMachine?.enter(DefaultState.self)
+        self.stateMachine?.enter(IdleState.self)
     }
 
     required init?(coder: NSCoder) {
