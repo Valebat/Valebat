@@ -9,20 +9,23 @@ import GameplayKit
 
 class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserver, ResettableEntity {
     let objectType: MapObjectEnum = .stairs
-    let pos: CGPoint
+    let position: CGPoint
     let size: CGSize
+    let preObjectiveSprite: SpriteComponent
+    let postObjectiveSprite: SpriteComponent
 
     init(size: CGSize, position: CGPoint) {
-        pos = position
+        self.position = position
         self.size = size
         let texture = CustomTexture.initialise(imageNamed: "stairs_closed")
-        super.init(texture: texture, size: size, physicsType: nil, position: position)
-        let postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
+        self.preObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_closed"),
                                                   size: size, position: position)
-        let objectiveDetectionComponent = ObjectiveDetectionComponent(component: AdvanceLevelComponent(at: position),
-                                                                      parent: self,
-                                                                      sprite: postObjectiveSprite)
-        addComponent(objectiveDetectionComponent)
+        self.postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
+                                                   size: size, position: position)
+        super.init(texture: texture, size: size, physicsType: nil, position: position)
+        let advanceLevelComponent = AdvanceLevelComponent(at: position,
+                                                          sprite: self.postObjectiveSprite)
+        addComponent(advanceLevelComponent)
     }
 
     required init?(coder: NSCoder) {
@@ -30,22 +33,17 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserv
     }
 
     func objectiveUpdate() {
-        let objectiveDetectionComponent = self.component(ofType: ObjectiveDetectionComponent.self)
-        objectiveDetectionComponent?.open()
+        let advanceLevelComponent = self.component(ofType: AdvanceLevelComponent.self)
+        advanceLevelComponent?.open()
     }
 
     func reset() {
-        self.entityManager?.removeSpriteFromEntity(self)
-
-        self.removeComponent(ofType: ObjectiveDetectionComponent.self)
         self.removeComponent(ofType: AdvanceLevelComponent.self)
-        let texture = CustomTexture.initialise(imageNamed: "stairs_closed")
-        addComponent(SpriteComponent(texture: texture, size: size, position: self.pos))
-        let postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
-                                                  size: size, position: pos)
-        let objectiveDetectionComponent = ObjectiveDetectionComponent(component: AdvanceLevelComponent(at: pos),
-                                                                      parent: self,
-                                                                      sprite: postObjectiveSprite)
-        addComponent(objectiveDetectionComponent)
+
+        entityManager?.replaceSprite(self, component: preObjectiveSprite)
+
+        let advanceLevelComponent = AdvanceLevelComponent(at: position,
+                                                          sprite: self.postObjectiveSprite)
+        addComponent(advanceLevelComponent)
     }
 }

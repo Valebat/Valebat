@@ -20,7 +20,7 @@ extension LevelListTypeEnum {
             list.append(BiomeData()
                             .withObjectiveQuantity(1))
             list.append(BiomeData()
-                            .withGuaranteedSpawns(object: .spawner, count: 20))
+                            .withGuaranteedSpawns(object: .spawner, count: 10))
             list.append(BiomeTypeEnum.getBiomeDataFromType(.boss))
             return list
         case .medium:

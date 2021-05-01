@@ -13,7 +13,6 @@ class MusicManager {
     private static var currentTrackName: String?
 
     static func playBGM(trackData: TrackData) {
-        print(trackData.trackName)
         if trackData.trackName == currentTrackName {
             return
         }
@@ -21,7 +20,6 @@ class MusicManager {
         guard let pathToSound = Bundle.main.path(forResource: trackData.trackName, ofType: "mp3") else {
             return
         }
-        print("SDf")
         currentTrack = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: pathToSound))
         currentTrack?.numberOfLoops = -1
         currentTrack?.volume = trackData.volume

@@ -11,7 +11,6 @@ extension EntityManager {
 
     func initialiseLevel() {
         immediateAddMapEntities()
-        print("Called")
         mapManager?.playBGM()
         addPlayer()
         initialiseGraph()
@@ -66,6 +65,7 @@ extension EntityManager {
 
     func cleanupLevel() {
         cleanupEntities()
+        mapManager?.objectiveManager.clearObservers()
         PowerupUtil.resetPowerups()
         self.obstacles = []
         self.obstacleGraph = nil

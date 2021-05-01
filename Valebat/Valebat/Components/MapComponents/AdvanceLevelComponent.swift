@@ -9,9 +9,13 @@ import GameplayKit
 
 class AdvanceLevelComponent: BaseComponent {
     let location: CGPoint
+    let replacementSpriteComponent: SpriteComponent
 
-    init(at location: CGPoint) {
+    var isOpen: Bool = false
+
+    init(at location: CGPoint, sprite: SpriteComponent) {
         self.location = location
+        self.replacementSpriteComponent = sprite
         super.init()
     }
 
@@ -19,18 +23,25 @@ class AdvanceLevelComponent: BaseComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func update(deltaTime seconds: TimeInterval) {
+    func open() {
         guard let entityManager = baseEntity?.entityManager else {
             return
         }
-        guard let playerPosition = entityManager.lastKnownPlayerPosition else {
+        isOpen = true
+        
+        entityManager.replaceSprite(self.baseEntity!, component: self.replacementSpriteComponent)
+    }
+
+    override func update(deltaTime seconds: TimeInterval) {
+        if !isOpen { return }
+
+        guard let entityManager = baseEntity?.entityManager,
+              let playerPosition = entityManager.lastKnownPlayerPosition else {
             return
         }
+
         let distance = (playerPosition - self.location).length()
         if distance < ViewConstants.gridSize * GameConstants.stairsSensitivity {
-            if let entity = self.baseEntity {
-                entityManager.remove(entity)
-            }
             entityManager.advanceLevel()
         }
     }

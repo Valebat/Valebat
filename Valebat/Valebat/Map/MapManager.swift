@@ -49,10 +49,9 @@ class MapManager {
             maps.append(levelMap)
             allMapEntities.append(getMapEntities(levelMap))
         }
-        currentTrack = maps[0].BGM
         map = maps[0]
         mapEntities = allMapEntities[0]
-        setObjective()
+        setAuxiliaries()
     }
 
     func generateMapsFromPersistence(savedMaps: [Map], gameSession: GameSession) {
@@ -64,7 +63,7 @@ class MapManager {
         let level = gameSession.currentLevel
         self.map = maps[level]
         self.mapEntities = allMapEntities[level]
-        setObjective()
+        setAuxiliaries()
     }
 
     func goToMap(level: Int, gameSession: BaseGameSession) {
@@ -75,8 +74,7 @@ class MapManager {
             let resettableEntities = entities.filter({ $0.conforms(to: ResettableEntity.self) })
             resettableEntities.forEach({  ($0 as? ResettableEntity)?.reset() })
         }
-        currentTrack = map.BGM
-        setObjective()
+        setAuxiliaries()
     }
 
     func advanceToNextMap(gameSession: BaseGameSession) {
@@ -86,14 +84,22 @@ class MapManager {
         if level < maxLevel {
             map = maps[level]
             mapEntities = allMapEntities[level]
-            setObjective()
+            setAuxiliaries()
         } else {
             entityManager.playerWon()
         }
+    }
+
+    private func setAuxiliaries() {
+        setBGM()
+        setObjective()
+    }
+
+    private func setBGM() {
         currentTrack = map.BGM
     }
 
-    func setObjective() {
+    private func setObjective() {
         objectiveManager.setCurrentObjective(map.objective)
     }
 
