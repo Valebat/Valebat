@@ -19,15 +19,19 @@ extension LevelListTypeEnum {
             return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .normal, .normal,
                                                        .dungeon, .crazyhouse, .boss])
         case .medium:
-            return BiomeTypeEnum.getBiomeDataFromTypes([.boss, .dungeon, .crazyhouse,
-                                                        .boss, .normal, .boss])
+            var list: [BiomeData] = []
+            for difficultyModifier in 1...9 {
+                list.append(BiomeTypeEnum.getBiomeDataFromType(.normal)
+                                .withObjectiveQuantity(3 + 2 * difficultyModifier))
+            }
+            return list
         case .hard:
             var list: [BiomeData] = []
-            for spawners in 1...9 {
+            for difficultyModifier in 1...9 {
                 list.append(BiomeData()
-                                .withGuaranteedSpawns(object: .spawner, count: spawners)
+                                .withGuaranteedSpawns(object: .spawner, count: difficultyModifier)
                                 .withPossibleObjectiveTypes([.kills])
-                                .withObjectiveQuantity(1))
+                                .withObjectiveQuantity(5 + 2 * difficultyModifier))
             }
             return list
         case .coop:
