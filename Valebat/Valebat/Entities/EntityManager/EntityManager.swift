@@ -150,10 +150,14 @@ class EntityManager {
     }
 
     func replaceSprite(_ entity: BaseEntity, component: SpriteComponent) {
-        immediateRemove(entity)
-        entity.removeComponent(ofType: SpriteComponent.self)
-        entity.addComponent(component)
-        immediateAdd(entity)
+        if entities.contains(entity) {
+            immediateRemove(entity)
+            entity.removeComponent(ofType: SpriteComponent.self)
+            entity.addComponent(component)
+            immediateAdd(entity)
+        } else {
+            print("dangling entity")
+        }
     }
 
     func spawnEnemy(at location: CGPoint, enemyType: EnemyTypeEnum) {
