@@ -112,7 +112,7 @@
 		C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D912625B81C00DF2188 /* BossMoveState.swift */; };
 		C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */; };
 		C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */; };
-		C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
+		C69D3668262B2A1F00EDE2AC /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* IdleState.swift */; };
 		C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
 		C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
 		C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F825FCFD5B00087256 /* SpriteComponent.swift */; };
@@ -282,7 +282,7 @@
 		CB917FA7262AFFC4004A6F3C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB917FA6262AFFC4004A6F3C /* ClientManager.swift */; };
 		CB9E9DC026075F0F0016B046 /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		CB9E9DCB261072310016B046 /* EnemyMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */; };
-		CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* DefaultState.swift */; };
+		CB9E9DD5261095410016B046 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DD4261095410016B046 /* IdleState.swift */; };
 		CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DDA261095CC0016B046 /* MoveState.swift */; };
 		CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DEC2610A7CE0016B046 /* AttackState.swift */; };
 		CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */; };
@@ -514,7 +514,7 @@
 		CB917FA6262AFFC4004A6F3C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		CB9E9DCA261072310016B046 /* EnemyMoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMoveComponent.swift; sourceTree = "<group>"; };
-		CB9E9DD4261095410016B046 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
+		CB9E9DD4261095410016B046 /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		CB9E9DDA261095CC0016B046 /* MoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveState.swift; sourceTree = "<group>"; };
 		CB9E9DEC2610A7CE0016B046 /* AttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackState.swift; sourceTree = "<group>"; };
 		CB9E9DF62610A84A0016B046 /* EnemyBasicAttackEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyBasicAttackEntity.swift; sourceTree = "<group>"; };
@@ -979,6 +979,25 @@
 			path = Username;
 			sourceTree = "<group>";
 		};
+		CB2051A9263D7DFD00B57812 /* wav */ = {
+			isa = PBXGroup;
+			children = (
+				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
+				CB9E9E4E26175AA40016B046 /* Hit.wav */,
+			);
+			path = wav;
+			sourceTree = "<group>";
+		};
+		CB2051AA263D7E1600B57812 /* mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				CB20518E263D577900B57812 /* mainMenu.mp3 */,
+				CB205196263D594800B57812 /* boss.mp3 */,
+				CB20519B263D61FC00B57812 /* stage.mp3 */,
+			);
+			path = mp3;
+			sourceTree = "<group>";
+		};
 		CB744D692625A58800DF2188 /* BossStateMachine */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,7 +1015,7 @@
 		CB9E9DD9261095500016B046 /* EnemyStateMachine */ = {
 			isa = PBXGroup;
 			children = (
-				CB9E9DD4261095410016B046 /* DefaultState.swift */,
+				CB9E9DD4261095410016B046 /* IdleState.swift */,
 				CB9E9DDA261095CC0016B046 /* MoveState.swift */,
 				CB9E9DEC2610A7CE0016B046 /* AttackState.swift */,
 				EF515A2E2636D28400391FB2 /* EnemyState.swift */,
@@ -1044,12 +1063,9 @@
 		CB9E9E5326175AB10016B046 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				CB20518E263D577900B57812 /* mainMenu.mp3 */,
-				CB205196263D594800B57812 /* boss.mp3 */,
-				CB20519B263D61FC00B57812 /* stage.mp3 */,
+				CB2051AA263D7E1600B57812 /* mp3 */,
+				CB2051A9263D7DFD00B57812 /* wav */,
 				CB9E9E49261759250016B046 /* AudioManager.swift */,
-				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
-				CB9E9E4E26175AA40016B046 /* Hit.wav */,
 				CB744DD526261CB400DF2188 /* SoundEffects.swift */,
 				CB205181263D4B8A00B57812 /* MusicManager.swift */,
 				CB205189263D550D00B57812 /* TrackData.swift */,
@@ -1669,7 +1685,7 @@
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
-				CB9E9DD5261095410016B046 /* DefaultState.swift in Sources */,
+				CB9E9DD5261095410016B046 /* IdleState.swift in Sources */,
 				C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */,
 				CB744D832625A7B300DF2188 /* BossAttackRingOfBullets.swift in Sources */,
 				C6AA39FB2625A09A0058003C /* SpellEffectComponent.swift in Sources */,
@@ -1907,7 +1923,7 @@
 				C69D3665262B2A1F00EDE2AC /* BossMoveState.swift in Sources */,
 				C69D3666262B2A1F00EDE2AC /* BossAttackLaser.swift in Sources */,
 				C69D3667262B2A1F00EDE2AC /* BossBorderOfWaveAndParticle.swift in Sources */,
-				C69D3668262B2A1F00EDE2AC /* DefaultState.swift in Sources */,
+				C69D3668262B2A1F00EDE2AC /* IdleState.swift in Sources */,
 				C69D3669262B2A1F00EDE2AC /* MoveState.swift in Sources */,
 				C69D366B262B2A1F00EDE2AC /* AttackState.swift in Sources */,
 				C69D366D262B2A1F00EDE2AC /* SpriteComponent.swift in Sources */,
