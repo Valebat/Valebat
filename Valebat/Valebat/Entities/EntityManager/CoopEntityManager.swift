@@ -11,20 +11,13 @@ import GameplayKit
 
 class CoopEntityManager: EntityManager {
     var timer: Double = 0.0
-
     var clientPlayers = [String: ClientPlayerEntity]()
 
     weak var serverManager: ServerManager?
 
     override func update(_ deltaTime: CFTimeInterval) {
         super.update(deltaTime)
-
-        timer += Double(deltaTime)
-
-        if timer > CoopConstants.updateTimer {
-            saveData()
-            timer -= CoopConstants.updateTimer
-        }
+        saveData()
     }
 
     func addClientPlayer(playerID: String) {
