@@ -26,6 +26,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
     var ref: DatabaseReference = Database.database().reference()
     var room: Room?
     private(set) var realTimeData = RealTimeData()
+    var dbManager = DatabaseManager()
 
     func getSpritesData() -> [SpriteData] {
         return realTimeData.sprites
