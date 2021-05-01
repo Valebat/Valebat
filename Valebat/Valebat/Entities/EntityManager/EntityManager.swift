@@ -34,13 +34,11 @@ class EntityManager {
     func setup() {
         self.currentSession?.playerStats.levelUPObservers[ObjectIdentifier(self)] = self
         initialiseMaps()
-        initialiseGraph()
-        initialiseObservers()
+        initialiseLevel()
     }
 
     func initialiseMaps() {
         mapManager?.generateMaps(withLevelType: currentSession?.userConfig.diffLevel ?? .medium)
-        immediateAddMapEntities()
     }
 
     /// This function is to bypass toAdd on initialisation (as we don't have to accommodate the update loop).
