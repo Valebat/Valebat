@@ -13,8 +13,9 @@ class MapManager {
     var map: Map = Map()
     var maps: [Map] = []
     var mapEntities: [BaseMapEntity] = []
-    var allMapEntities: [[BaseMapEntity]] = []
-    var currentBiomeData: BiomeData = BiomeData()
+    private var allMapEntities: [[BaseMapEntity]] = []
+    private var currentBiomeData: BiomeData = BiomeData()
+    var currentTrack: MusicTrack?
     let entityManager: EntityManager
     let spawnManager: SpawnManager
     let objectiveManager: ObjectiveManager
@@ -25,6 +26,12 @@ class MapManager {
         self.objectiveManager = objectiveManager
     }
 
+    func playBGM() {
+        guard let track = currentTrack else {
+            return
+        }
+        MusicManager.playBGM(track: track)
+    }
     func generateMaps(withLevelType levelType: LevelListTypeEnum) {
         self.map = Map()
         self.maps = []
@@ -37,10 +44,11 @@ class MapManager {
         for biomeData in biomeDatas {
             let levelMap = addSpawnsToMap(borderedMap, withBiomeData: biomeData)
             levelMap.setObjective(objectiveManager.createObjectiveFromBiomeData(biomeData))
+            levelMap.BGM = biomeData.musicTrack
             maps.append(levelMap)
             allMapEntities.append(getMapEntities(levelMap))
         }
-
+        currentTrack = maps[0].BGM
         map = maps[0]
         mapEntities = allMapEntities[0]
         setObjective()
@@ -66,6 +74,7 @@ class MapManager {
             let resettableEntities = entities.filter({ $0.conforms(to: ResettableEntity.self) })
             resettableEntities.forEach({  ($0 as? ResettableEntity)?.reset() })
         }
+        currentTrack = map.BGM
         setObjective()
     }
 
@@ -80,6 +89,7 @@ class MapManager {
         } else {
             entityManager.playerWon()
         }
+        currentTrack = map.BGM
     }
 
     func setObjective() {

@@ -11,6 +11,8 @@ extension EntityManager {
 
     func initialiseLevel() {
         immediateAddMapEntities()
+        print("Called")
+        mapManager?.playBGM()
         addPlayer()
         initialiseGraph()
         initialiseObservers()

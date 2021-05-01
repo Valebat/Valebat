@@ -25,12 +25,17 @@ class BiomeData {
                                                         .bossSpawner: 0]
 
     var defaultSpawnTime: Double = 6.0
-
+    var musicTrack: MusicTrack = .stage
     var objectiveTypes: [ObjectiveEnum] = [.kills]
     var objectiveQuantity: Int = 25
 
     init() {
 
+    }
+
+    func withMusic(musicTrack: MusicTrack) -> BiomeData {
+        self.musicTrack = musicTrack
+        return self
     }
 
     func withGlobalObjectSpawnChance(_ globalSpawnChance: Int) -> BiomeData {

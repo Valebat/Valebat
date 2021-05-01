@@ -47,6 +47,7 @@ extension BiomeTypeEnum {
                 .withIntangibleObjectSpawns(object: .bossSpawner, count: 1)
                 .withPossibleObjectiveTypes([.kills])
                 .withObjectiveQuantity(1)
+                .withMusic(musicTrack: .boss)
         }
     }
 

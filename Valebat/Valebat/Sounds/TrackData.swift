@@ -13,12 +13,16 @@ struct TrackData {
 }
 
 enum MusicTrack {
-    case mainMenu
+    case mainMenu, stage, boss
 
     func getTrackData() -> TrackData {
         switch self {
         case .mainMenu:
-            return TrackData(trackName: "mainMenu", volume: 1.0)
+            return TrackData(trackName: "mainMenu", volume: 0.4)
+        case .stage:
+            return TrackData(trackName: "stage", volume: 0.4)
+        case .boss:
+            return TrackData(trackName: "boss", volume: 0.4)
         }
     }
 }

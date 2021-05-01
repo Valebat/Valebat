@@ -270,6 +270,8 @@
 		CB205182263D4B8A00B57812 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205181263D4B8A00B57812 /* MusicManager.swift */; };
 		CB20518A263D550D00B57812 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205189263D550D00B57812 /* TrackData.swift */; };
 		CB20518F263D577900B57812 /* mainMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB20518E263D577900B57812 /* mainMenu.mp3 */; };
+		CB205197263D594800B57812 /* boss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB205196263D594800B57812 /* boss.mp3 */; };
+		CB20519C263D61FC00B57812 /* stage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB20519B263D61FC00B57812 /* stage.mp3 */; };
 		CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB669992262B2098000FD16D /* ClientPlayerEntity.swift */; };
 		CB744D6B2625A5AF00DF2188 /* BossAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */; };
 		CB744D7B2625A78600DF2188 /* BossAttackSubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */; };
@@ -501,6 +503,8 @@
 		CB205181263D4B8A00B57812 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		CB205189263D550D00B57812 /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		CB20518E263D577900B57812 /* mainMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainMenu.mp3; sourceTree = "<group>"; };
+		CB205196263D594800B57812 /* boss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boss.mp3; sourceTree = "<group>"; };
+		CB20519B263D61FC00B57812 /* stage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stage.mp3; sourceTree = "<group>"; };
 		CB669992262B2098000FD16D /* ClientPlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPlayerEntity.swift; sourceTree = "<group>"; };
 		CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackState.swift; sourceTree = "<group>"; };
 		CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackSubComponent.swift; sourceTree = "<group>"; };
@@ -1045,6 +1049,8 @@
 			isa = PBXGroup;
 			children = (
 				CB20518E263D577900B57812 /* mainMenu.mp3 */,
+				CB205196263D594800B57812 /* boss.mp3 */,
+				CB20519B263D61FC00B57812 /* stage.mp3 */,
 				CB9E9E49261759250016B046 /* AudioManager.swift */,
 				CB744DD026261C3400DF2188 /* LaserDamage.wav */,
 				CB9E9E4E26175AA40016B046 /* Hit.wav */,
@@ -1454,12 +1460,14 @@
 			files = (
 				CB9E9E4F26175AA40016B046 /* Hit.wav in Resources */,
 				CB9E9ED3261E4BC90016B046 /* EXPBar.sks in Resources */,
+				CB205197263D594800B57812 /* boss.mp3 in Resources */,
 				C634C5E1261F64FC0021D2FA /* PlayerObjective.sks in Resources */,
 				CB9E9E17261727190016B046 /* PlayerHUD.sks in Resources */,
 				CB9E9E21261738A60016B046 /* HPBar.sks in Resources */,
 				DD7035692619C5D700D3602B /* PlayerLevel.sks in Resources */,
 				CBC7780525FCE1C000581E20 /* Main.storyboard in Resources */,
 				C6AA3A32262988250058003C /* GoogleService-Info.plist in Resources */,
+				CB20519C263D61FC00B57812 /* stage.mp3 in Resources */,
 				CB20518F263D577900B57812 /* mainMenu.mp3 in Resources */,
 				CBC7780725FCE1C100581E20 /* Assets.xcassets in Resources */,
 				CB744DD126261C3400DF2188 /* LaserDamage.wav in Resources */,

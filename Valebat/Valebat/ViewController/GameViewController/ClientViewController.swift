@@ -37,5 +37,6 @@ class ClientViewController: BaseViewController {
         skView.showsFPS = true
 
         skView.presentScene(gameScene)
+        MusicManager.playBGM(track: .stage)
     }
 }
