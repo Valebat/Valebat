@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseDatabase
 
 protocol ServerGameNetworkManager: class {
-    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?, resetAll: Bool)
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?)
     func loadUserInputCycle()
     func getUserInputInfo() -> [String: UserInputInfo]
 }
@@ -40,59 +40,16 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         return realTimeData.userInputInfo
     }
 
-    func updateSpriteDataSmall(sprites: Set<SpriteData>) {
+    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?) {
         guard let guaranteedRoom = self.room,
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-
-       /* var updates = [String: Any]()
-        var nondeletedIDs = Set<UUID>()
-        sprites.forEach({ nondeletedIDs.insert($0.idx) })
-        currentIDs.forEach({
-            if !nondeletedIDs.contains($0) {
-                updates["deletedSprites/\(roomIdx)/\($0)"] = ""
-            }
-        })
-        */
-
-    }
-    var counter = 0
-    func updateGameData(sprites: Set<SpriteData>, playerHUDData: CoopHUDData?, resetAll: Bool) {
-        print(sprites.count)
-        guard let guaranteedRoom = self.room,
-              let roomIdx = guaranteedRoom.idx else {
-            return
-        }
-       /* counter += 1
-        if counter == 10 {
-            self.ref.child("sprites/\(roomIdx)").removeValue()
-            counter = 0
-        }*/
-        if resetAll {
-            print("reseted")
-            self.ref.child("sprites/\(roomIdx)").removeValue()
-        }
-        currentIDs = Set<UUID>()
-        sprites.forEach({ currentIDs.insert($0.idx) })
+        let dataString = SpriteData.convertToString(spriteData: sprites)
         realTimeData.sprites = Array(sprites)
         realTimeData.playerHUDData = playerHUDData
         var allUpdates = [String: Any]()
-
         var updates = [String: Any]()
-        for sprite in realTimeData.sprites {
-            let update = [
-                "sprites/\(roomIdx)/\(sprite.idx)/name": sprite.name,
-                "sprites/\(roomIdx)/\(sprite.idx)/width": sprite.width,
-                "sprites/\(roomIdx)/\(sprite.idx)/height": sprite.height,
-                "sprites/\(roomIdx)/\(sprite.idx)/xPos": sprite.xPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/yPos": sprite.yPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/zPos": sprite.zPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/orientation": sprite.orientation
-              ] as [String: Any]
-            update.forEach { updates[$0] = $1 }
-        }
-
         if let playerHUD = playerHUDData {
             let update = [
                 "playerHUD/\(roomIdx)/playerLevel": playerHUD.playerLevel,
@@ -108,9 +65,8 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
                 updates[key] = Float(hpLevel)
             }
         }
-
+        updates["sprites/\(roomIdx)/data"] = dataString
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
-
         self.ref.updateChildValues(allUpdates)
     }
 
@@ -134,13 +90,13 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("sprites/\(roomIdx)").getData { (error, snapshot) in
+        self.ref.child("sprites/\(roomIdx)/data").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
-                let spritesData = snapshot.value as? [String: Any] ?? [:]
-                let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
-                self.realTimeData.sprites = Array(spriteDataSet)
+                if let string = snapshot.value as? String {
+                    self.realTimeData.sprites = SpriteData.convertToSpriteData(dataString: string)
+                }
             }
             completed()
         }
@@ -156,6 +112,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
+                print(snapshot)
                 let hudData = snapshot.value as? [String: Any] ?? [:]
                 guard let playerHUD = CoopHUDData(data: hudData) else {
                     return
@@ -203,7 +160,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
     }
 
-    private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
+    /*private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
         var spriteDataSet = Set<SpriteData>()
         for (idx, data) in spritesData {
             var rawSpriteData = data as? [String: Any] ?? [:]
@@ -213,5 +170,55 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             }
         }
         return spriteDataSet
+    }*/
+
+    var numberOfFields = 8
+    private func convertSpriteDataToString(sprites: Set<SpriteData>) -> String {
+        var string = ""
+        for data in sprites {
+            string.append(data.idx.uuidString)
+            string.append(",")
+            string.append(data.name)
+            string.append(",")
+            if data.name.contains(",") || data.name.contains(" ") {
+                print("yikes")
+            }
+            string.append(String(data.width))
+            string.append(",")
+            string.append(String(data.height))
+            string.append(",")
+            string.append(String(data.xPos))
+            string.append(",")
+            string.append(String(data.yPos))
+            string.append(",")
+            string.append(String(data.zPos))
+            string.append(",")
+            string.append(String(data.orientation))
+            string.append(" ")
+        }
+        return string
+    }
+    private func convertStringToStringData(string: String) -> [SpriteData] {
+        var spriteData = [SpriteData]()
+        let array = string.split(separator: " ").map({ String($0) })
+        array.forEach({ value in
+            let fields = value.split(separator: ",").map({ String($0) })
+            if fields.count != numberOfFields {
+                return
+            }
+            guard let uid = UUID(uuidString: fields[0]),
+                  let width = Float(fields[2]),
+                  let height = Float(fields[3]),
+                  let xPos = Float(fields[4]),
+                  let yPos = Float(fields[5]),
+                  let zPos = Float(fields[6]),
+                  let orientation = Float(fields[7]) else {
+                return
+            }
+            let name = fields[1]
+            spriteData.append(SpriteData(idx: uid, name: name, width: width,
+                                         height: height, xPos: xPos, yPos: yPos, zPos: zPos, orientation: orientation))
+        })
+        return spriteData
     }
 }
