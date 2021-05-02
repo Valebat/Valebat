@@ -92,7 +92,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
 
         dbManager.getValue(from: "sprites/\(roomIdx)") { (spritesData) in
-            if let string = spritesData[data] as? String {
+            if let string = spritesData["data"] as? String {
                 self.realTimeData.sprites = SpriteData.convertToSpriteData(dataString: string)
             }
             completed()
