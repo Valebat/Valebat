@@ -27,6 +27,14 @@ class HealthComponent: BaseComponent {
         super.init()
     }
 
+    func resetToFull() {
+        currentHealth = fullHealth
+        damageTakenObservers.values
+            .forEach({ $0.onDamageTaken(damageAmount: 0,
+                                        currentHealth: currentHealth,
+                                        maximumHealth: fullHealth )})
+    }
+
     func takeDamage(damage: CGFloat) {
         currentHealth = max(currentHealth - damage, 0)
         damageTakenObservers.values

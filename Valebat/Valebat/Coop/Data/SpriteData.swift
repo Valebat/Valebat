@@ -39,26 +39,22 @@ struct SpriteData: Codable, Hashable {
 
     // Cannot allow empty space or commas in name field
     func convertToString() -> String? {
-        var string = ""
-        string.append(idx.uuidString)
-        string.append(",")
-        string.append(name)
-        string.append(",")
         if name.contains(",") || name.contains(" ") {
             return nil
         }
-        string.append(String(width))
-        string.append(",")
-        string.append(String(height))
-        string.append(",")
-        string.append(String(xPos))
-        string.append(",")
-        string.append(String(yPos))
-        string.append(",")
-        string.append(String(zPos))
-        string.append(",")
-        string.append(String(orientation))
-        return string
+
+        var stringArr: [String] = []
+
+        stringArr.append(idx.uuidString)
+        stringArr.append(name)
+        stringArr.append(String(width))
+        stringArr.append(String(height))
+        stringArr.append(String(xPos))
+        stringArr.append(String(yPos))
+        stringArr.append(String(zPos))
+        stringArr.append(String(orientation))
+
+        return stringArr.joined(separator: ",")
     }
 
     static func convertToSpriteData(dataString: String) -> [SpriteData] {
@@ -89,7 +85,7 @@ struct SpriteData: Codable, Hashable {
         self.orientation = orientation
     }
         init(idx: UUID, name: String, width: Float, height: Float,
-         xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
+             xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
         self.idx = idx
         self.name = name
         self.width = width
@@ -99,28 +95,4 @@ struct SpriteData: Codable, Hashable {
         self.zPos = zPos
         self.orientation = orientation
     }
-
-   /* init?(data: [String: Any]) {
-        guard let idx = data["idx"] as? String,
-              let name = data["name"] as? String,
-              let width = data["width"] as? Float,
-              let height = data["height"] as? Float,
-              let xPos = data["xPos"] as? Float,
-              let yPos = data["yPos"] as? Float,
-              let zPos = data["zPos"] as? Float,
-              let orientation = data["orientation"] as? Float else {
-            return nil
-        }
-        guard let uid = UUID(uuidString: idx) else {
-            return nil
-        }
-        self.idx = uid
-        self.name = name
-        self.width = width
-        self.height = height
-        self.xPos = xPos
-        self.yPos = yPos
-        self.zPos = zPos
-        self.orientation = orientation
-    }*/
 }

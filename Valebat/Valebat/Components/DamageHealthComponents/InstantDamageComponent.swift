@@ -9,9 +9,13 @@ import GameplayKit
 
 class InstantDamageComponent: DamageComponent {
 
+    var haveDamagedEntity = Set<ObjectIdentifier>()
     override func contact(with entity: GKEntity, seconds: TimeInterval) {
         if let damageTaker = entity.component(ofType: DamageTakerComponent.self) {
-            damageTaker.takeDamage(damages: damageValues, soundEffect: .hit)
+            if !haveDamagedEntity.contains(ObjectIdentifier(entity)) {
+                damageTaker.takeDamage(damages: damageValues, soundEffect: .hit)
+                haveDamagedEntity.insert(ObjectIdentifier(entity))
+            }
         }
 
         if let entity = self.entity {

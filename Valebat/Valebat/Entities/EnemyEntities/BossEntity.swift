@@ -15,7 +15,7 @@ class BossEntity: BaseInteractableEntity, EnemyProtocol {
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
                                         y: ViewConstants.sceneHeight * ViewConstants.bossSpawnOffset)
-        let startingHP: CGFloat = 200
+        let startingHP: CGFloat = 500
         let image = "boss"
         let length = ViewConstants.enemyToGridRatio * ViewConstants.gridSize * 3
         let size = CGSize(width: length, height: length)
