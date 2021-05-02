@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoopViewController: UIViewController {
+class CoopHostJoinViewController: UIViewController {
     var roomManager = RoomManager()
     var usernameManager = UsernameManager()
 

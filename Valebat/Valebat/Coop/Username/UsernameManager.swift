@@ -9,27 +9,23 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class UsernameManager {
-    private var fdb = Firestore.firestore()
     private var usernames: [String] = []
     var username: Username?
+    var dbManager = DatabaseManager()
 
     func fetchUsernames(completed: @escaping () -> Void) {
-        fdb.collection("usernames").getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("Database error: \(err).")
-            } else {
-                self.usernames = querySnapshot!.documents.compactMap { (queryDocumentSnapshot) -> String? in
-                    let data = queryDocumentSnapshot.data()
-                    return data["username"] as? String ?? ""
-                }
-                completed()
+        dbManager.fetchDocuments(from: "usernames", completed: { (querySnapshot) in
+            self.usernames = querySnapshot.compactMap { (queryDocumentSnapshot) -> String? in
+                let data = queryDocumentSnapshot.data()
+                return data["username"] as? String ?? ""
             }
-        }
+            completed()
+        })
     }
 
     func addUsernameToDatabase(_ username: Username) {
         do {
-            _ = try fdb.collection("usernames").addDocument(from: username)
+            _ = try dbManager.add(document: username, to: "usernames")
         } catch {
             print(error)
         }

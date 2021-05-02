@@ -9,6 +9,7 @@ class Map {
     private(set) var objects: [MapObject]
     private(set) var objective: Objective
     var BGM: MusicTrack?
+
     init(withObjects objects: [MapObject], withObjective objective: Objective) {
         self.objects = objects
         self.objective = objective

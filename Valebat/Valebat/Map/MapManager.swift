@@ -16,7 +16,8 @@ class MapManager {
     private var allMapEntities: [[BaseMapEntity]] = []
     private var currentBiomeData: BiomeData = BiomeData()
     var currentTrack: MusicTrack?
-    let entityManager: EntityManager
+
+    unowned var entityManager: EntityManager!
     let spawnManager: SpawnManager
     let objectiveManager: ObjectiveManager
 

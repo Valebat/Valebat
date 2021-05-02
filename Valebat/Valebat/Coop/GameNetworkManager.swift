@@ -23,9 +23,9 @@ protocol ClientGameNetworkManager: class {
 }
 
 class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
-    var ref: DatabaseReference = Database.database().reference()
     var room: Room?
     private(set) var realTimeData = RealTimeData()
+    var dbManager = DatabaseManager()
 
     var currentIDs = Set<UUID>()
     func getSpritesData() -> [SpriteData] {
@@ -67,7 +67,8 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
         updates["sprites/\(roomIdx)/data"] = dataString
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
-        self.ref.updateChildValues(allUpdates)
+
+        dbManager.updateValues(with: allUpdates)
     }
 
     func loadSpritesCycle() {
@@ -90,13 +91,9 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("sprites/\(roomIdx)/data").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                if let string = snapshot.value as? String {
-                    self.realTimeData.sprites = SpriteData.convertToSpriteData(dataString: string)
-                }
+        dbManager.getValue(from: "sprites/\(roomIdx)") { (spritesData) in
+            if let string = spritesData["data"] as? String {
+                self.realTimeData.sprites = SpriteData.convertToSpriteData(dataString: string)
             }
             completed()
         }
@@ -107,18 +104,11 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-
-        self.ref.child("playerHUD/\(roomIdx)").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                print(snapshot)
-                let hudData = snapshot.value as? [String: Any] ?? [:]
-                guard let playerHUD = CoopHUDData(data: hudData) else {
-                    return
-                }
-                self.realTimeData.playerHUDData = playerHUD
+        dbManager.getValue(from: "playerHUD/\(roomIdx)") { (hudData) in
+            guard let playerHUD = CoopHUDData(data: hudData) else {
+                return
             }
+            self.realTimeData.playerHUDData = playerHUD
             completed()
         }
     }
@@ -131,7 +121,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
 
         let request = userInputInfo.convertToDBRequest(playerId: playerId, roomId: idx)
-        self.ref.updateChildValues(request)
+        dbManager.updateValues(with: request)
     }
 
     private func loadUserInfo(completed: @escaping () -> Void) {
@@ -140,13 +130,8 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             return
         }
 
-        self.ref.child("playerInput/\(roomIdx)").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            } else if snapshot.exists() {
-                let groupUserInfo = snapshot.value as? [String: Any] ?? [:]
-                self.processUserInputInfos(info: groupUserInfo)
-            }
+        dbManager.getValue(from: "playerInput/\(roomIdx)") { (groupUserInfo) in
+            self.processUserInputInfos(info: groupUserInfo)
             completed()
         }
     }
@@ -159,17 +144,5 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             }
         }
     }
-
-    /*private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
-        var spriteDataSet = Set<SpriteData>()
-        for (idx, data) in spritesData {
-            var rawSpriteData = data as? [String: Any] ?? [:]
-            rawSpriteData["idx"] = idx
-            if let spData = SpriteData(data: rawSpriteData) {
-                spriteDataSet.insert(spData)
-            }
-        }
-        return spriteDataSet
-    }*/
 
 }

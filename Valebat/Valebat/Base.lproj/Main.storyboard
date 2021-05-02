@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="GameVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -29,7 +29,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MWE-ey-fS4" customClass="MenuViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UF8-iW-dPT">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="oIs-ys-4cy">
@@ -104,7 +104,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Mmk-fh-Wvl" customClass="DifficultyViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qTt-sf-rHg">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEP-eM-l40">
@@ -166,12 +166,12 @@
             </objects>
             <point key="canvasLocation" x="-1005" y="871"/>
         </scene>
-        <!--Coop View Controller-->
+        <!--Coop Host Join View Controller-->
         <scene sceneID="Mit-ck-Wwm">
             <objects>
-                <viewController storyboardIdentifier="CoopVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g9a-LH-yqa" customClass="CoopViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoopVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g9a-LH-yqa" customClass="CoopHostJoinViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tpo-Bp-7fH">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Ip-qX-CD6">
@@ -222,7 +222,7 @@
             <objects>
                 <viewController storyboardIdentifier="CoopRoomVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s2m-hN-fEM" customClass="CoopRoomViewController" customModule="Valebat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uzp-ku-xef">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valebat-bg" translatesAutoresizingMaskIntoConstraints="NO" id="giM-ba-n3O">
