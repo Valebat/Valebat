@@ -29,10 +29,13 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
         }
         let dmg = (baseEntity as? PlayerSpellEntity)?
             .component(conformingTo: DamageComponent.self)?.damageValues.values.max() ?? 1.0
+        let offsetRadius: CGFloat = 15.0
+
         for angle in stride(from: 0, to: 2 * Double.pi, by: Double.pi / 4) {
             do {
-                try entityManager.shootSpell(from: pos,
-                                             with: CGVector(dx: -sin(angle), dy: cos(angle)),
+                let unitVector = CGVector(dx: -sin(angle), dy: cos(angle))
+                try entityManager.shootSpell(from: pos + (unitVector * offsetRadius).convertToPoint(),
+                                             with: unitVector,
                                              using: [Element(with: spawnType, at: spawnLevel)],
                                              damageMultiplier: (dmg / DamageConstants.damageValue))
             } catch SpellErrors.invalidLevelError {
