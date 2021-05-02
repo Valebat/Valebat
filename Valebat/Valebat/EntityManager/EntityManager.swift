@@ -217,3 +217,9 @@ extension EntityManager: LevelUPObserver {
         player?.levelUp()
     }
 }
+
+extension EntityManager: UserInputDelegate {
+    func restartClicked() {
+        self.restart()
+    }
+}

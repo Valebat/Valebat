@@ -141,7 +141,6 @@
 		C69D3689262B2A1F00EDE2AC /* SpawnEnemyUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94523261DC29A00087256 /* SpawnEnemyUtil.swift */; };
 		C69D368A262B2A1F00EDE2AC /* BasicEnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EB7261E2E7A0016B046 /* BasicEnemyData.swift */; };
 		C69D368B262B2A1F00EDE2AC /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942F325FCFC4A00087256 /* EntityManager.swift */; };
-		C69D368C262B2A1F00EDE2AC /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
 		C69D368D262B2A1F00EDE2AC /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
 		C69D368E262B2A1F00EDE2AC /* CoopEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */; };
 		C69D368F262B2A1F00EDE2AC /* CollisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494DE26036789003A05F7 /* CollisionType.swift */; };
@@ -326,7 +325,6 @@
 		DD4E015625FF52CB002C5556 /* ElementQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E015525FF52CB002C5556 /* ElementQueue.swift */; };
 		DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01A92601B93F002C5556 /* ElementSelection.swift */; };
 		DD4E01AF2601B94F002C5556 /* ElementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E01AE2601B94F002C5556 /* ElementButton.swift */; };
-		DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */; };
 		DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */; };
 		DD62844D262BE97C00F3C5D1 /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
 		DD628469262BFD9100F3C5D1 /* UserInputInfo+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */; };
@@ -565,7 +563,6 @@
 		DD4E015525FF52CB002C5556 /* ElementQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQueue.swift; sourceTree = "<group>"; };
 		DD4E01A92601B93F002C5556 /* ElementSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSelection.swift; sourceTree = "<group>"; };
 		DD4E01AE2601B94F002C5556 /* ElementButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementButton.swift; sourceTree = "<group>"; };
-		DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+UserInputDelegate.swift"; sourceTree = "<group>"; };
 		DD5783EA2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystickHiddenArea.swift; sourceTree = "<group>"; };
 		DD5784172605F35100E15493 /* ElementPaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPaneTests.swift; sourceTree = "<group>"; };
 		DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeData.swift; sourceTree = "<group>"; };
@@ -946,7 +943,6 @@
 			isa = PBXGroup;
 			children = (
 				C6A942F325FCFC4A00087256 /* EntityManager.swift */,
-				DD5783BB26032D0900E15493 /* EntityManager+UserInputDelegate.swift */,
 				C6A944532615B69200087256 /* EntityManager+Level.swift */,
 				C6ACE6DE262992B60000A2E6 /* CoopEntityManager.swift */,
 			);
@@ -1693,7 +1689,6 @@
 				DD4E013625FF3E8E002C5556 /* CGPoint+extension.swift in Sources */,
 				CBA494F126038AB1003A05F7 /* CollectingComponent.swift in Sources */,
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
-				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
 				DDEB1F01263DAD3700247526 /* DatabaseManager.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
@@ -1963,7 +1958,6 @@
 				C69D3689262B2A1F00EDE2AC /* SpawnEnemyUtil.swift in Sources */,
 				C69D368A262B2A1F00EDE2AC /* BasicEnemyData.swift in Sources */,
 				C69D368B262B2A1F00EDE2AC /* EntityManager.swift in Sources */,
-				C69D368C262B2A1F00EDE2AC /* EntityManager+UserInputDelegate.swift in Sources */,
 				C69D368D262B2A1F00EDE2AC /* EntityManager+Level.swift in Sources */,
 				C69D368E262B2A1F00EDE2AC /* CoopEntityManager.swift in Sources */,
 				C69D368F262B2A1F00EDE2AC /* CollisionType.swift in Sources */,
