@@ -27,10 +27,12 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
               let spawnLevel = self.params[3] as? Double else {
             return super.createEffect()
         }
+        let offsetRadius: CGFloat = 15.0
         for angle in stride(from: 0, to: 2 * Double.pi, by: Double.pi / 4) {
             do {
-                try entityManager.shootSpell(from: pos,
-                                                           with: CGVector(dx: -sin(angle), dy: cos(angle)),
+                let unitVector = CGVector(dx: -sin(angle), dy: cos(angle))
+                try entityManager.shootSpell(from: pos + (unitVector * offsetRadius).convertToPoint(),
+                                             with: unitVector,
                                                            using: [Element(with: spawnType, at: spawnLevel)])
             } catch SpellErrors.invalidLevelError {
                 print("Wrong level was given.")
