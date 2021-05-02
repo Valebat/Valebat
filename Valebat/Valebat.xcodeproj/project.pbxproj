@@ -169,7 +169,7 @@
 		C69D36A6262B2A1F00EDE2AC /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5C47A9262AD5C000A46C4E /* ClientViewController.swift */; };
 		C69D36A7262B2A1F00EDE2AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68570BE262AF6B4009FEB78 /* BaseViewController.swift */; };
 		C69D36A8262B2A1F00EDE2AC /* CoopRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */; };
-		C69D36A9262B2A1F00EDE2AC /* CoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82952629D16A0074CE07 /* CoopViewController.swift */; };
+		C69D36A9262B2A1F00EDE2AC /* CoopHostJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82952629D16A0074CE07 /* CoopHostJoinViewController.swift */; };
 		C69D36AA262B2A1F00EDE2AC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D6E15261F381400D20723 /* MenuViewController.swift */; };
 		C69D36AB262B2A1F00EDE2AC /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAADB742629878E00263AFA /* DifficultyViewController.swift */; };
 		C69D36AC262B2A1F00EDE2AC /* BaseGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE6E8262993490000A2E6 /* BaseGameSession.swift */; };
@@ -255,7 +255,7 @@
 		C6ACE7512629B6600000A2E6 /* RoomCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */; };
 		C6ACE7582629BCB70000A2E6 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7572629BCB70000A2E6 /* Username.swift */; };
 		C6ACE7602629BCF40000A2E6 /* UsernameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE75F2629BCF40000A2E6 /* UsernameManager.swift */; };
-		C6ED82972629D16A0074CE07 /* CoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82952629D16A0074CE07 /* CoopViewController.swift */; };
+		C6ED82972629D16A0074CE07 /* CoopHostJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82952629D16A0074CE07 /* CoopHostJoinViewController.swift */; };
 		C6ED82982629D16A0074CE07 /* CoopRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */; };
 		C6ED82BA262A8CA10074CE07 /* RoomManager+JoinRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */; };
 		C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */; };
@@ -491,7 +491,7 @@
 		C6ACE7502629B6600000A2E6 /* RoomCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCodeGenerator.swift; sourceTree = "<group>"; };
 		C6ACE7572629BCB70000A2E6 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		C6ACE75F2629BCF40000A2E6 /* UsernameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameManager.swift; sourceTree = "<group>"; };
-		C6ED82952629D16A0074CE07 /* CoopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopViewController.swift; sourceTree = "<group>"; };
+		C6ED82952629D16A0074CE07 /* CoopHostJoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopHostJoinViewController.swift; sourceTree = "<group>"; };
 		C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopRoomViewController.swift; sourceTree = "<group>"; };
 		C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+JoinRoom.swift"; sourceTree = "<group>"; };
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
@@ -1292,7 +1292,7 @@
 			children = (
 				C68570C3262AF6BD009FEB78 /* GameViewController */,
 				C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */,
-				C6ED82952629D16A0074CE07 /* CoopViewController.swift */,
+				C6ED82952629D16A0074CE07 /* CoopHostJoinViewController.swift */,
 				DD9D6E15261F381400D20723 /* MenuViewController.swift */,
 				DDAADB742629878E00263AFA /* DifficultyViewController.swift */,
 			);
@@ -1786,7 +1786,7 @@
 				EF61C5072619DB300076BB3A /* SpellSpawnOnHitComponent.swift in Sources */,
 				DD9849872624AB4A006B741E /* CustomTexture.swift in Sources */,
 				C6ACE7512629B6600000A2E6 /* RoomCodeGenerator.swift in Sources */,
-				C6ED82972629D16A0074CE07 /* CoopViewController.swift in Sources */,
+				C6ED82972629D16A0074CE07 /* CoopHostJoinViewController.swift in Sources */,
 				DD4E014225FF412A002C5556 /* HUDConstants.swift in Sources */,
 				C6A942E025FCE7EA00087256 /* HealthComponent.swift in Sources */,
 				DD4E01AA2601B93F002C5556 /* ElementSelection.swift in Sources */,
@@ -1992,7 +1992,7 @@
 				C69D36A6262B2A1F00EDE2AC /* ClientViewController.swift in Sources */,
 				C69D36A7262B2A1F00EDE2AC /* BaseViewController.swift in Sources */,
 				C69D36A8262B2A1F00EDE2AC /* CoopRoomViewController.swift in Sources */,
-				C69D36A9262B2A1F00EDE2AC /* CoopViewController.swift in Sources */,
+				C69D36A9262B2A1F00EDE2AC /* CoopHostJoinViewController.swift in Sources */,
 				C69D36AA262B2A1F00EDE2AC /* MenuViewController.swift in Sources */,
 				C69D36AB262B2A1F00EDE2AC /* DifficultyViewController.swift in Sources */,
 				C69D36AC262B2A1F00EDE2AC /* BaseGameSession.swift in Sources */,
