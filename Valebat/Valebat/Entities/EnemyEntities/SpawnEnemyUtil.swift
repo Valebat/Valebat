@@ -8,7 +8,7 @@
 import SpriteKit
 
 class SpawnEnemyUtil {
-    static func spawnEnemyWithType(_ type: EnemyTypeEnum, position: CGPoint) -> EnemyProtocol {
+    static func spawnEnemyWithType(_ type: EnemyTypeEnum, position: CGPoint) -> BaseInteractableEntity {
         switch type {
         case .enemy:
             let basicType = BasicEnemyType.init(rawValue: Int.random(in: 0 ... 3))!

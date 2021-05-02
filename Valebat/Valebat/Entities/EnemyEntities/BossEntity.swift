@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class BossEntity: BaseInteractableEntity, EnemyProtocol {
+class BossEntity: BaseInteractableEntity {
 
     var stateMachine: GKStateMachine?
     let attackRange: CGFloat = 500.0
