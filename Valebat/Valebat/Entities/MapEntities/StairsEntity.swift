@@ -7,8 +7,7 @@
 
 import GameplayKit
 
-class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserver, ResettableEntity {
-    let objectType: MapObjectEnum = .stairs
+class StairsEntity: BaseInteractableMapObjectEntity, ObjectiveObserver, ResettableEntity {
     let position: CGPoint
     let size: CGSize
     let preObjectiveSprite: SpriteComponent
@@ -22,7 +21,7 @@ class StairsEntity: BaseInteractableEntity, BaseMapObjectEntity, ObjectiveObserv
                                                   size: size, position: position)
         self.postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
                                                    size: size, position: position)
-        super.init(texture: texture, size: size, physicsType: nil, position: position)
+        super.init(size: size, position: position, type: .stairs, texture: texture)
         let advanceLevelComponent = AdvanceLevelComponent(at: position,
                                                           sprite: self.postObjectiveSprite)
         addComponent(advanceLevelComponent)

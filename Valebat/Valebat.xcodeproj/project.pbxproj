@@ -192,9 +192,7 @@
 		C69D36C1262B2A1F00EDE2AC /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
 		C69D36C6262B2A1F00EDE2AC /* Valebat.app in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F625FCE1C000581E20 /* Valebat.app */; };
 		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
-		C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
 		C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
-		C69D377D262C142000EDE2AC /* GenericMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */; };
 		C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
 		C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */; };
 		C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
@@ -261,6 +259,7 @@
 		C6F797A2262C9D060013EDFE /* LobIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA3A112625A1BE0058003C /* LobIndicatorComponent.swift */; };
 		C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
+		C6F79933263EBB7D0013EDFE /* BaseInteractableMapObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F79932263EBB7D0013EDFE /* BaseInteractableMapObjectEntity.swift */; };
 		CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
 		CB205182263D4B8A00B57812 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205181263D4B8A00B57812 /* MusicManager.swift */; };
 		CB20518A263D550D00B57812 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205189263D550D00B57812 /* TrackData.swift */; };
@@ -429,7 +428,6 @@
 		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
-		C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMapEntity.swift; sourceTree = "<group>"; };
 		C69D3775262C0D8900EDE2AC /* CoopConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopConstants.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* DamageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
@@ -494,6 +492,7 @@
 		C6ED82962629D16A0074CE07 /* CoopRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopRoomViewController.swift; sourceTree = "<group>"; };
 		C6ED82B9262A8CA10074CE07 /* RoomManager+JoinRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomManager+JoinRoom.swift"; sourceTree = "<group>"; };
 		C6ED82BE262A8D410074CE07 /* UsernameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameGenerator.swift; sourceTree = "<group>"; };
+		C6F79932263EBB7D0013EDFE /* BaseInteractableMapObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractableMapObjectEntity.swift; sourceTree = "<group>"; };
 		CB0183AB262C69C700375D30 /* CoopHUDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopHUDData.swift; sourceTree = "<group>"; };
 		CB205181263D4B8A00B57812 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		CB205189263D550D00B57812 /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
@@ -823,7 +822,7 @@
 			children = (
 				C6A9450E261CD6D800087256 /* BaseMapEntity.swift */,
 				C6A943A02605D02B00087256 /* BaseMapObjectEntity.swift */,
-				C69D3767262BE8B100EDE2AC /* GenericMapEntity.swift */,
+				C6F79932263EBB7D0013EDFE /* BaseInteractableMapObjectEntity.swift */,
 				C6A943982605CF7E00087256 /* SpawnerEntity.swift */,
 				C6A9440B261373F700087256 /* StairsEntity.swift */,
 			);
@@ -1639,12 +1638,12 @@
 			files = (
 				C6A9440C261373F700087256 /* StairsEntity.swift in Sources */,
 				CB9E9E1C2617377C0016B046 /* HUDHPBar.swift in Sources */,
+				C6F79933263EBB7D0013EDFE /* BaseInteractableMapObjectEntity.swift in Sources */,
 				CB9E9DDB261095CC0016B046 /* MoveState.swift in Sources */,
 				DD85F3632625F84500838B0F /* ObjectiveData.swift in Sources */,
 				CB9E9DF72610A84A0016B046 /* EnemyBasicAttackEntity.swift in Sources */,
 				CBFC49F825FFF94900C5DDD2 /* PhysicsComponent.swift in Sources */,
 				CB9E9E95261DEB140016B046 /* GameSession.swift in Sources */,
-				C69D3768262BE8B100EDE2AC /* GenericMapEntity.swift in Sources */,
 				C6ACE7602629BCF40000A2E6 /* UsernameManager.swift in Sources */,
 				CB9E9EB8261E2E7A0016B046 /* BasicEnemyData.swift in Sources */,
 				EF61C5162619DE350076BB3A /* PowerupSpawnerComponent.swift in Sources */,
@@ -1824,7 +1823,6 @@
 				C6F797A2262C9D060013EDFE /* LobIndicatorComponent.swift in Sources */,
 				C6F797A3262C9D060013EDFE /* AimIndicatorComponent.swift in Sources */,
 				C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */,
-				C69D377D262C142000EDE2AC /* GenericMapEntity.swift in Sources */,
 				C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */,
 				C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */,
 				C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */,
