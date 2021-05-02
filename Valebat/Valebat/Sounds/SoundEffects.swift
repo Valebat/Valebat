@@ -7,6 +7,7 @@
 
 import Foundation
 import GameplayKit
+
 struct SoundEffectData {
     var soundName: String
     var coolDown: TimeInterval

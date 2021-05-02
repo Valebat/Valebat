@@ -12,7 +12,6 @@ import SpriteKit
 import GameplayKit
 
 class SpriteComponent: GKSKNodeComponent, MovementCachable {
-
     private(set) var idx: UUID
 
     var cachedMoveComponent: MoveComponent?

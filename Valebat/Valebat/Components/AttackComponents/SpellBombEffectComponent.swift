@@ -19,18 +19,20 @@ class SpellBombEffectComponent: SpellEffectComponent {
     override func createEffect() {
         baseEntity?.component(ofType: RegularMovementComponent.self)?.stop() // Removing component doesn't work ?
         baseEntity?.removeComponent(ofType: PhysicsComponent.self)
+
         guard let explosionPosition = self.entity?.component(conformingTo: MoveComponent.self)?
-                .currentPosition else {
+                .currentPosition,
+              let entityManager = baseEntity?.entityManager else {
             return super.createEffect()
         }
-        guard let entityManager = baseEntity?.entityManager else {
-            return super.createEffect()
-        }
+
         let scale: Int = (self.params[0] as? Int) ?? 1
         let dmg = (baseEntity as? PlayerSpellEntity)?
             .component(conformingTo: DamageComponent.self)?.damageValues.values.max() ?? 1.0
-        let explosion = ExplosionEntity(position: explosionPosition, scale: scale, damageMultiplier: (dmg / DamageConstants.damageValue))
+
+        let explosion = ExplosionEntity(position: explosionPosition, scale: scale, damageMultiplier: (dmg / GameConstants.damageValue))
         entityManager.add(explosion)
+
         if let entity = self.baseEntity {
             entityManager.remove(entity)
         }

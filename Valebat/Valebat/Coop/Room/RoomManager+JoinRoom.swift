@@ -6,6 +6,7 @@
 //
 
 extension RoomManager {
+
     func joinRoom(username: String, isHost: Bool, roomCode: String, completed: @escaping () -> Void) {
         fetchRoom(roomCode: roomCode) { [self] in
             guard let room = self.room else {

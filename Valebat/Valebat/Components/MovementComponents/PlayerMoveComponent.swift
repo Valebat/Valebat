@@ -9,7 +9,6 @@ import GameplayKit
 import CoreGraphics
 
 class PlayerMoveComponent: MoveComponent, PlayerComponent {
-
     var player: PlayerEntity?
 
     init(initialPosition: CGPoint) {

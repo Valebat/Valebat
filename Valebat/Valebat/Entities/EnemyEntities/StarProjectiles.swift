@@ -16,7 +16,7 @@ class StarProjectile: EnemyBasicAttackEntity {
         case .earth:
             return "greenstar"
         case .fire:
-            return  "redstar"
+            return "redstar"
         default:
             return "purestar"
         }

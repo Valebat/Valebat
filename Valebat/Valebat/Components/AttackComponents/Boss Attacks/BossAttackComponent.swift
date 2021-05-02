@@ -9,6 +9,7 @@ import Foundation
 
 class BossAttackComponent: BaseComponent, OnDeathObservers, MovementCachable {
     var isAttacking = false
+
     func onDeath() {
         attachedSubComponent.forEach({ $0.deathCleanUp() })
     }

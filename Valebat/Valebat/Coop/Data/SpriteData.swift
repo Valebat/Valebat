@@ -84,8 +84,9 @@ struct SpriteData: Codable, Hashable {
         self.zPos = zPos
         self.orientation = orientation
     }
-        init(idx: UUID, name: String, width: Float, height: Float,
-             xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
+
+    init(idx: UUID, name: String, width: Float, height: Float,
+         xPos: Float, yPos: Float, zPos: Float, orientation: Float) {
         self.idx = idx
         self.name = name
         self.width = width

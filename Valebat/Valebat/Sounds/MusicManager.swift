@@ -7,9 +7,10 @@
 
 import Foundation
 import AVFoundation
+
 class MusicManager {
     private static var instance: MusicManager?
-    static private var currentTrack: AVAudioPlayer?
+    private static var currentTrack: AVAudioPlayer?
     private static var currentTrackName: String?
 
     static func playBGM(trackData: TrackData) {

@@ -37,7 +37,7 @@ class SpellSpawnOnHitComponent: SpellExplodeOnHitComponent {
                 try entityManager.shootSpell(from: pos + (unitVector * offsetRadius).convertToPoint(),
                                              with: unitVector,
                                              using: [Element(with: spawnType, at: spawnLevel)],
-                                             damageMultiplier: (dmg / DamageConstants.damageValue))
+                                             damageMultiplier: (dmg / GameConstants.damageValue))
             } catch SpellErrors.invalidLevelError {
                 print("Wrong level was given.")
             } catch SpellErrors.wrongBasicTypeError {

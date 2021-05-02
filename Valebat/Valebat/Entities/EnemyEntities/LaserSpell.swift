@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class LaserSpellEntity: BaseInteractableEntity {
-
     var laserTexture = CustomTexture.initialise(imageNamed: "laser")
     let baseLength = ViewConstants.gridSize * 1.2
     let baseWidth = ViewConstants.gridSize * 30

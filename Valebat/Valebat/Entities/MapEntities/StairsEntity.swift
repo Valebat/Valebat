@@ -21,7 +21,7 @@ class StairsEntity: BaseInteractableMapObjectEntity, ObjectiveObserver, Resettab
                                                   size: size, position: position)
         self.postObjectiveSprite = SpriteComponent(texture: CustomTexture.initialise(imageNamed: "stairs_open"),
                                                    size: size, position: position)
-        super.init(size: size, position: position, type: .stairs, texture: texture)
+        super.init(size: size, position: position, type: .stairs, texture: texture, isWall: false)
         let advanceLevelComponent = AdvanceLevelComponent(at: position,
                                                           sprite: self.postObjectiveSprite)
         addComponent(advanceLevelComponent)

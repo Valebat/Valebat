@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class TextureUtilities {
-
     static var cachedTextures = [String: [SKTexture]]()
 
     static func generateTextures(assetName: String) -> [SKTexture] {

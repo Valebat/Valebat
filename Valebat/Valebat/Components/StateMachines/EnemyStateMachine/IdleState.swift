@@ -36,12 +36,12 @@ class IdleState: EnemyState {
         }
     }
 
-    // reset your movement when you exit
+    // Reset movement on exit.
     override func willExit(to nextState: GKState) {
         getMoveComponent()?.reset()
     }
+
     private func setPathToRandomPosition(deltaTime: TimeInterval) {
         getMoveComponent()?.moveToRandomLocationInRadius(deltaTime: deltaTime, with: speed)
     }
-
 }

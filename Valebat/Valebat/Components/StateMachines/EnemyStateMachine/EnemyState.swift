@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class EnemyState: GKState {
-
     var cachedMoveComponent: EnemyMoveComponent?
 
     weak var enemyEntity: BaseInteractableEntity?

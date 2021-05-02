@@ -9,13 +9,13 @@ import Foundation
 import GameplayKit
 
 class BossAttackState: EnemyState {
-
     var attackRange: CGFloat
 
     init(for entity: BossEntity, attackRange: CGFloat) {
         self.attackRange = attackRange
         super.init(entity: entity)
     }
+
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if stateClass == BossAttackState.self {
             return false

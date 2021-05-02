@@ -24,6 +24,7 @@ class EnemyMoveComponent: MoveComponent {
         currentRandomPathCoolDown = 0.0
         nextPositions = [CGPoint]()
     }
+
     func hasNextPosition() -> Bool {
         !nextPositions.isEmpty
     }

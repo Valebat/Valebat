@@ -19,11 +19,13 @@ class PlayerAimAndShootComponent: BaseComponent, PlayerComponent {
         guard let userInput = player?.userInputInfo else {
             return
         }
+
         if userInput.spellJoystickMoved {
             spellJoystickMoved(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
                                player: player)
         }
+
         if userInput.spellJoystickEnd {
             spellJoystickEnded(angular: userInput.spellJoystickAngular,
                                elementQueue: userInput.elementQueueArray,
@@ -33,27 +35,23 @@ class PlayerAimAndShootComponent: BaseComponent, PlayerComponent {
     }
 
     func spellJoystickEnded(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
-        guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self) else {
+        guard let aimIndicatorComp = player?.component(ofType: AimIndicatorComponent.self),
+              let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self),
+              let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
             return
         }
-        let aiming = aimIndicatorComp.onJoystickEnded()
 
-        guard let lobIndicatorComp = player?.component(ofType: LobIndicatorComponent.self) else {
-            return
-        }
+        let aiming = aimIndicatorComp.onJoystickEnded()
         let lobbing = lobIndicatorComp.onJoystickEnded()
 
         if !lobbing && !aiming {
             return
         }
 
-        guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
-            return
-        }
-
         let direction = CGVector(dx: -sin(angular), dy: cos(angular))
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
+
         do {
             try player?.entityManager?.shootSpell(from: playerPos, with: direction, using: elementQueue,
                                                   damageMultiplier: player?.playerModifiers
@@ -68,9 +66,9 @@ class PlayerAimAndShootComponent: BaseComponent, PlayerComponent {
     }
 
     func spellJoystickMoved(angular: CGFloat, elementQueue: [BasicType]?, player: PlayerEntity?) {
-
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
+
         do {
             guard let spellManager = player?.entityManager?.currentSession?.spellManager else {
                 return
@@ -78,15 +76,16 @@ class PlayerAimAndShootComponent: BaseComponent, PlayerComponent {
             let currentSpell = try spellManager.combine(elements: elementQueue)
             let indicatorType = movementToIndicator[currentSpell.movement.identifier]
                 ?? AimIndicatorComponent.self
-            guard let indicatorComp = player?.component(ofType: indicatorType) else {
+
+            guard let indicatorComp = player?.component(ofType: indicatorType),
+                  let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
                 return
             }
-            guard let playerPos = player?.component(ofType: SpriteComponent.self)?.node.position else {
-                return
-            }
+
             indicatorComp.onJoystickMoved(shootAngle: angular,
                                           playerAngle: player?.component(ofType: SpriteComponent.self)?.node.zRotation,
                                           playerPosition: playerPos)
+
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given.")
         } catch SpellErrors.wrongBasicTypeError {

@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class BossMoveState: EnemyState {
-
     let attackRange: CGFloat
     let speed: CGFloat
 
@@ -30,6 +29,7 @@ class BossMoveState: EnemyState {
         getMoveComponent()?.reset()
 
     }
+
     override func update(deltaTime: TimeInterval) {
         guard let distance = getDistanceFromPlayer() else {
             return

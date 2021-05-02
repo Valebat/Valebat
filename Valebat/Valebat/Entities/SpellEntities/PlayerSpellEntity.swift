@@ -15,7 +15,9 @@ class PlayerSpellEntity: BaseProjectileEntity {
                    size: PlayerSpellEntity.getSpriteSize(spriteTexture: spriteTextures[0]),
                    physicsType: .playerAttack, position: position, velocity: velocity,
                    movementType: spell.movement)
-        let damage = CGFloat(spell.level) * damageMultiplier * DamageConstants.damageValue
+
+        let damage = CGFloat(spell.level) * damageMultiplier * GameConstants.damageValue
+
         if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
                                                 type: basicSpell.damageType))
@@ -29,6 +31,7 @@ class PlayerSpellEntity: BaseProjectileEntity {
         for (effect, effectParams) in zip(spell.effects, spell.effectParams) {
             addComponent(effect.init(effectParams: effectParams))
         }
+
         self.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
         self.component(ofType: SpriteComponent.self)?.animate(with: spriteTextures, runForever: true)
     }

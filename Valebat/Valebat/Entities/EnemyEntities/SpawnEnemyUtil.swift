@@ -8,6 +8,7 @@
 import SpriteKit
 
 class SpawnEnemyUtil {
+
     static func spawnEnemyWithType(_ type: EnemyTypeEnum, position: CGPoint) -> BaseInteractableEntity {
         switch type {
         case .enemy:
@@ -16,6 +17,5 @@ class SpawnEnemyUtil {
         case .boss:
             return BossEntity()
         }
-
     }
 }

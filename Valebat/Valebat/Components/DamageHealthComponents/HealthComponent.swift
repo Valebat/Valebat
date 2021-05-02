@@ -16,7 +16,6 @@ protocol DamageTakenObserver {
 }
 
 class HealthComponent: BaseComponent {
-
     var damageTakenObservers = [ObjectIdentifier: DamageTakenObserver]()
     var fullHealth: CGFloat
     var currentHealth: CGFloat

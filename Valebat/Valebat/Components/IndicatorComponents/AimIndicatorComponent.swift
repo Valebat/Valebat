@@ -8,7 +8,6 @@
 import SpriteKit
 
 class AimIndicatorComponent: SpriteComponent {
-
     static let textureImage: String = "aim_indicator" // Default value
 
     init(size: CGSize) {

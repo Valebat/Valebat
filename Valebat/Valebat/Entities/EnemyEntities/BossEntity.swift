@@ -8,10 +8,10 @@
 import GameplayKit
 
 class BossEntity: BaseInteractableEntity {
-
     var stateMachine: GKStateMachine?
     let attackRange: CGFloat = 500.0
     let moveSpeed: CGFloat = 100.0
+
     init() {
         let position: CGPoint = CGPoint(x: ViewConstants.sceneWidth * ViewConstants.bossSpawnOffset,
                                         y: ViewConstants.sceneHeight * ViewConstants.bossSpawnOffset)
@@ -41,6 +41,7 @@ class BossEntity: BaseInteractableEntity {
         super.update(deltaTime: seconds)
         self.stateMachine?.update(deltaTime: seconds)
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

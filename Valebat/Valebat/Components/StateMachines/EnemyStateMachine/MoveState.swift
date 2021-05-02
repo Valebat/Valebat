@@ -9,7 +9,6 @@ import Foundation
 import GameplayKit
 
 class MoveState: EnemyState {
-
     let aggroRange: CGFloat
     let attackRange: CGFloat
     let speed: CGFloat
@@ -21,7 +20,7 @@ class MoveState: EnemyState {
         super.init(entity: entity)
     }
 
-    // reset the movement when you exit
+    // Reset movement on exit.
     override func willExit(to nextState: GKState) {
         getMoveComponent()?.reset()
     }
@@ -41,5 +40,4 @@ class MoveState: EnemyState {
     private func setPathTowardsPlayer(deltaTime: TimeInterval) {
         getMoveComponent()?.moveTowardsPlayer(deltaTime: deltaTime, with: speed)
     }
-
 }

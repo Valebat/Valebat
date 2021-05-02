@@ -8,6 +8,7 @@
 import CoreGraphics
 
 extension UserInputInfo {
+
     func convertToDBRequest(playerId: String, roomId: String) -> [String: Any] {
         let elements = elementQueueArray.map { $0.rawValue }
         let updates = [
