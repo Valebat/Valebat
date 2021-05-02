@@ -49,8 +49,8 @@ class DatabaseManager {
                     result = nil
                 } else {
                     result = querySnapshot?.documents.first
-                    completed(result)
                 }
+                completed(result)
             }
     }
 
@@ -67,9 +67,8 @@ class DatabaseManager {
         self.ref.child(childPath).removeValue(completionBlock: { (err, _) in
             if let error = err {
                 print(error)
-            } else {
-                completed()
             }
+            completed()
         })
     }
 
@@ -79,13 +78,13 @@ class DatabaseManager {
 
     func getValue(from childPath: String, completed: @escaping ([String: Any]) -> Void) {
         self.ref.child(childPath).getData { (error, snapshot) in
-            let result: [String: Any]
+            var result: [String: Any] = [:]
             if let error = error {
                 print("Error getting data \(error)")
             } else if snapshot.exists() {
                 result = snapshot.value as? [String: Any] ?? [:]
-                completed(result)
             }
+            completed(result)
         }
     }
 }
