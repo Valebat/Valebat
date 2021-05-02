@@ -15,7 +15,7 @@ class PowerupEntity: BaseInteractableEntity, CollectibleEntity {
             return
         }
         entityManager?.currentSession?.objectiveManager.incrementCounter(.powerupscollected)
-        PowerupUtil.collectedPowerup(type, player: player)
+        player.powerupManager.collectedPowerup(type, player: player)
     }
 
     init(position: CGPoint) {

@@ -55,7 +55,9 @@ class PlayerAimAndShootComponent: BaseComponent, PlayerComponent {
         let elementTypeQueue = elementQueue ?? []
         let elementQueue = mapBasicType(elementQueue: elementTypeQueue)
         do {
-            try player?.entityManager?.shootSpell(from: playerPos, with: direction, using: elementQueue)
+            try player?.entityManager?.shootSpell(from: playerPos, with: direction, using: elementQueue,
+                                                  damageMultiplier: player?.playerModifiers
+                                                    .playerDamageMultiplier ?? 1.0)
         } catch SpellErrors.invalidLevelError {
             print("Wrong level was given.")
         } catch SpellErrors.wrongBasicTypeError {

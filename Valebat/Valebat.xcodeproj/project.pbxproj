@@ -120,8 +120,8 @@
 		C69D366F262B2A1F00EDE2AC /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494EB26038A3A003A05F7 /* PlayerComponent.swift */; };
 		C69D3670262B2A1F00EDE2AC /* PlayerDeathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF61C4F42619BF590076BB3A /* PlayerDeathComponent.swift */; };
 		C69D3671262B2A1F00EDE2AC /* BaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E7A261C5C840016B046 /* BaseComponent.swift */; };
-		C69D3672262B2A1F00EDE2AC /* PlayerModifierUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */; };
-		C69D3673262B2A1F00EDE2AC /* PowerupUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9447A2616001F00087256 /* PowerupUtil.swift */; };
+		C69D3672262B2A1F00EDE2AC /* PlayerModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9446D2615FEA400087256 /* PlayerModifiers.swift */; };
+		C69D3673262B2A1F00EDE2AC /* PowerupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9447A2616001F00087256 /* PowerupManager.swift */; };
 		C69D3674262B2A1F00EDE2AC /* PowerupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944722615FF1600087256 /* PowerupEnum.swift */; };
 		C69D3675262B2A1F00EDE2AC /* EnemyTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94516261D80A200087256 /* EnemyTypeEnum.swift */; };
 		C69D3676262B2A1F00EDE2AC /* CollectibleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA494FD26038BDA003A05F7 /* CollectibleEntity.swift */; };
@@ -222,9 +222,9 @@
 		C6A9443D2615B46800087256 /* LevelListTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */; };
 		C6A944542615B69200087256 /* EntityManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944532615B69200087256 /* EntityManager+Level.swift */; };
 		C6A9445C2615FC8200087256 /* PowerupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9445B2615FC8200087256 /* PowerupEntity.swift */; };
-		C6A9446E2615FEA400087256 /* PlayerModifierUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */; };
+		C6A9446E2615FEA400087256 /* PlayerModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9446D2615FEA400087256 /* PlayerModifiers.swift */; };
 		C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944722615FF1600087256 /* PowerupEnum.swift */; };
-		C6A9447B2616001F00087256 /* PowerupUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9447A2616001F00087256 /* PowerupUtil.swift */; };
+		C6A9447B2616001F00087256 /* PowerupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9447A2616001F00087256 /* PowerupManager.swift */; };
 		C6A9448D2616D3E500087256 /* PowerupSpawnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */; };
 		C6A944962616D5FA00087256 /* IntangibleMapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944952616D5FA00087256 /* IntangibleMapObject.swift */; };
 		C6A944F3261B61E500087256 /* MapObjectUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944F2261B61E500087256 /* MapObjectUtil.swift */; };
@@ -396,6 +396,7 @@
 		EF6E5AEE262B670200CBCEAE /* PlayerDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AED262B670200CBCEAE /* PlayerDataTests.swift */; };
 		EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E5AF6262C2CAF00CBCEAE /* AimIndicatorComponent.swift */; };
 		EF8BFF972625A74300647771 /* OutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BFF962625A74300647771 /* OutcomeButton.swift */; };
+		EFA425C6263DDC860055370C /* SpellBombEffectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -457,9 +458,9 @@
 		C6A9443C2615B46800087256 /* LevelListTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListTypeEnum.swift; sourceTree = "<group>"; };
 		C6A944532615B69200087256 /* EntityManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityManager+Level.swift"; sourceTree = "<group>"; };
 		C6A9445B2615FC8200087256 /* PowerupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupEntity.swift; sourceTree = "<group>"; };
-		C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModifierUtil.swift; sourceTree = "<group>"; };
+		C6A9446D2615FEA400087256 /* PlayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModifiers.swift; sourceTree = "<group>"; };
 		C6A944722615FF1600087256 /* PowerupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupEnum.swift; sourceTree = "<group>"; };
-		C6A9447A2616001F00087256 /* PowerupUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupUtil.swift; sourceTree = "<group>"; };
+		C6A9447A2616001F00087256 /* PowerupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupManager.swift; sourceTree = "<group>"; };
 		C6A9448C2616D3E500087256 /* PowerupSpawnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupSpawnerEntity.swift; sourceTree = "<group>"; };
 		C6A944952616D5FA00087256 /* IntangibleMapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntangibleMapObject.swift; sourceTree = "<group>"; };
 		C6A944A026198C1A00087256 /* BiomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomeTests.swift; sourceTree = "<group>"; };
@@ -641,6 +642,7 @@
 		EF8087AC260684BE00923494 /* SteamSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamSpellTests.swift; sourceTree = "<group>"; };
 		EF8087B4260688C700923494 /* SpellManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellManagerTests.swift; sourceTree = "<group>"; };
 		EF8BFF962625A74300647771 /* OutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeButton.swift; sourceTree = "<group>"; };
+		EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBombEffectComponent.swift; sourceTree = "<group>"; };
 		EFCC5B252605D3C6006F2771 /* ElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTests.swift; sourceTree = "<group>"; };
 		F0A1542F08AF9EE022D87D87 /* Pods-ValebatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValebatTests.release.xcconfig"; path = "Target Support Files/Pods-ValebatTests/Pods-ValebatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -885,8 +887,8 @@
 		C6A9446C2615FE9600087256 /* EntityUtil */ = {
 			isa = PBXGroup;
 			children = (
-				C6A9446D2615FEA400087256 /* PlayerModifierUtil.swift */,
-				C6A9447A2616001F00087256 /* PowerupUtil.swift */,
+				C6A9446D2615FEA400087256 /* PlayerModifiers.swift */,
+				C6A9447A2616001F00087256 /* PowerupManager.swift */,
 				C6A944722615FF1600087256 /* PowerupEnum.swift */,
 				C6A94516261D80A200087256 /* EnemyTypeEnum.swift */,
 			);
@@ -903,6 +905,7 @@
 				C6AA3A0C2625A1930058003C /* SpellSpawnOnShootComponent.swift */,
 				DD949935263C659A0080A99B /* PlayerAimAndShootComponent.swift */,
 				DD94997C263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift */,
+				EFA425C5263DDC860055370C /* SpellBombEffectComponent.swift */,
 			);
 			path = AttackComponents;
 			sourceTree = "<group>";
@@ -1660,7 +1663,7 @@
 				CBFC4A0A2600A3E800C5DDD2 /* DPSDamageComponent.swift in Sources */,
 				DD94996E263C75080080A99B /* UserInputDelegate.swift in Sources */,
 				C6ACE7582629BCB70000A2E6 /* Username.swift in Sources */,
-				C6A9446E2615FEA400087256 /* PlayerModifierUtil.swift in Sources */,
+				C6A9446E2615FEA400087256 /* PlayerModifiers.swift in Sources */,
 				EF19415D25FFC71900341BF5 /* MagmaSpell.swift in Sources */,
 				DD4E011625FDCDCB002C5556 /* UserInputNode.swift in Sources */,
 				DDAADBFD2629B17F00263AFA /* UserInputInfo.swift in Sources */,
@@ -1778,6 +1781,7 @@
 				CB669993262B2098000FD16D /* ClientPlayerEntity.swift in Sources */,
 				C6ED82BF262A8D410074CE07 /* UsernameGenerator.swift in Sources */,
 				C6A943992605CF7E00087256 /* SpawnerEntity.swift in Sources */,
+				EFA425C6263DDC860055370C /* SpellBombEffectComponent.swift in Sources */,
 				CBA494FE26038BDA003A05F7 /* CollectibleEntity.swift in Sources */,
 				C6A943642603437A00087256 /* SpawnManager.swift in Sources */,
 				EF16228F2628C598003C2DE3 /* ResettableEntity.swift in Sources */,
@@ -1804,7 +1808,7 @@
 				CBA494E72603847A003A05F7 /* DeathComponent.swift in Sources */,
 				C6AA3A122625A1BE0058003C /* LobIndicatorComponent.swift in Sources */,
 				C6AA3A272625A26E0058003C /* ExplosionEntity.swift in Sources */,
-				C6A9447B2616001F00087256 /* PowerupUtil.swift in Sources */,
+				C6A9447B2616001F00087256 /* PowerupManager.swift in Sources */,
 				DD94997D263C76E70080A99B /* ClientPlayerAimAndShootComponent.swift in Sources */,
 				DD5783EB2605D12700E15493 /* TLAnalogJoystickHiddenArea.swift in Sources */,
 				C6AA3A0D2625A1930058003C /* SpellSpawnOnShootComponent.swift in Sources */,
@@ -1943,8 +1947,8 @@
 				EF6E5AD5262B491000CBCEAE /* MapObjectDataTests.swift in Sources */,
 				C69D3670262B2A1F00EDE2AC /* PlayerDeathComponent.swift in Sources */,
 				C69D3671262B2A1F00EDE2AC /* BaseComponent.swift in Sources */,
-				C69D3672262B2A1F00EDE2AC /* PlayerModifierUtil.swift in Sources */,
-				C69D3673262B2A1F00EDE2AC /* PowerupUtil.swift in Sources */,
+				C69D3672262B2A1F00EDE2AC /* PlayerModifiers.swift in Sources */,
+				C69D3673262B2A1F00EDE2AC /* PowerupManager.swift in Sources */,
 				C69D3674262B2A1F00EDE2AC /* PowerupEnum.swift in Sources */,
 				C69D3675262B2A1F00EDE2AC /* EnemyTypeEnum.swift in Sources */,
 				C69D3676262B2A1F00EDE2AC /* CollectibleEntity.swift in Sources */,

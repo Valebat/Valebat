@@ -38,6 +38,13 @@ class CoopEntityManager: EntityManager {
 
     }
 
+    override func cleanupLevel() {
+        clientPlayers.forEach { _, player in
+            player.powerupManager.resetPowerups()
+        }
+        super.cleanupLevel()
+    }
+
     override func advanceLevel() {
         super.advanceLevel()
         clientPlayers.values.forEach({ $0.component(ofType: HealthComponent.self)?.resetToFull() })

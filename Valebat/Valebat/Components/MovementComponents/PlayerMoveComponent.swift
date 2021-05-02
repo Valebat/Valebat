@@ -48,7 +48,7 @@ class PlayerMoveComponent: MoveComponent, PlayerComponent {
     override func update(deltaTime seconds: TimeInterval) {
         let userInput = player?.userInputInfo
         let adjustedVelocity =  (userInput?.movementJoystickVelocity ?? .zero) * CGFloat(seconds)
-            * GameConstants.playerMoveSpeed * PlayerModifierUtil.playerSpeedMultiplier
+            * GameConstants.playerMoveSpeed * player!.playerModifiers.playerSpeedMultiplier
         let newPosition = CGPoint(x: currentPosition.x + adjustedVelocity.x,
                                   y: currentPosition.y + adjustedVelocity.y)
         if isValid(point: newPosition) {

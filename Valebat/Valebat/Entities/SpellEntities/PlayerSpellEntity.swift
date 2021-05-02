@@ -9,15 +9,13 @@ import GameplayKit
 
 class PlayerSpellEntity: BaseProjectileEntity {
 
-    init(velocity: CGVector, spell: Spell, position: CGPoint) {
+    init(velocity: CGVector, spell: Spell, position: CGPoint, damageMultiplier: CGFloat = 1.0) {
         let spriteTextures = PlayerSpellEntity.getAnimatedSpell(for: spell)
         super.init(texture: spriteTextures[0],
                    size: PlayerSpellEntity.getSpriteSize(spriteTexture: spriteTextures[0]),
                    physicsType: .playerAttack, position: position, velocity: velocity,
                    movementType: spell.movement)
-
-        let damage = CGFloat(spell.level) * PlayerModifierUtil.playerDamageMultiplier
-            * DamageConstants.damageValue // Some constant
+        let damage = CGFloat(spell.level) * damageMultiplier * DamageConstants.damageValue
         if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
                                                 type: basicSpell.damageType))
@@ -55,7 +53,7 @@ class PlayerSpellEntity: BaseProjectileEntity {
             case .earth:
                 return "EB00"
             case .fire:
-                return  "FB00"
+                return "FB00"
             default:
                 return "GB00"
             }

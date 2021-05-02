@@ -11,8 +11,8 @@ class MagmaSpell: CompositeSpell {
         try super.init(at: level)
         self.damageTypes.append(.earth)
         self.damageTypes.append(.fire)
-        self.effects.append(SpellEffectComponent.self)
-        self.effectParams.append([])
+        self.effects.append(SpellBombEffectComponent.self)
+        self.effectParams.append([4])
         self.movement = ProjectileMotionComponent.self
     }
 

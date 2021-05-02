@@ -54,15 +54,7 @@ class ProjectileMotionComponent: SpellMovementComponent {
             currentPosition = getPoint(at: time / duration, initialPosition: initialPosition,
                                        targetPosition: targetPosition)
         } else {
-            guard let entityManager = baseEntity?.entityManager else {
-                return
-            }
-            let explosionPosition = currentPosition
-            let explosion = ExplosionEntity(position: explosionPosition, scale: 4)
-            entityManager.add(explosion)
-            if let entity = self.baseEntity {
-                entityManager.remove(entity)
-            }
+            baseEntity?.component(conformingTo: SpellEffectComponent.self)?.createEffect()
         }
     }
 

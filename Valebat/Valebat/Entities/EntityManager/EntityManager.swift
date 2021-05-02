@@ -180,13 +180,14 @@ class EntityManager {
     }
 
     func shootSpell(from shootPoint: CGPoint, with velocity: CGVector,
-                    using elementsSelected: [Element]) throws {
+                    using elementsSelected: [Element], damageMultiplier: CGFloat) throws {
         guard let underlyingSpell = try self.currentSession?
                 .spellManager.combine(elements: elementsSelected) else {
             return
         }
         let spell = PlayerSpellEntity(velocity: velocity * ViewConstants.spellVelocityMultiplier,
-                                spell: underlyingSpell, position: shootPoint)
+                                      spell: underlyingSpell, position: shootPoint,
+                                      damageMultiplier: damageMultiplier)
         add(spell)
         spell.component(conformingTo: SpellSpawnOnShootComponent.self)?.createEffect()
     }

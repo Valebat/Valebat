@@ -8,5 +8,5 @@
 import SpriteKit
 
 class DamageConstants {
-    static let damageValue: CGFloat = 5.0
+    static let damageValue: CGFloat = 3.0
 }
