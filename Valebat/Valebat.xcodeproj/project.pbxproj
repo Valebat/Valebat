@@ -890,6 +890,7 @@
 		C6A944AD2619B49E00087256 /* AttackComponents */ = {
 			isa = PBXGroup;
 			children = (
+				CB2051EB263EDF9700B57812 /* Boss Attacks */,
 				EF61C5062619DB300076BB3A /* EnemyAttackComponent.swift */,
 				EF61C5042619DB2F0076BB3A /* SpellSpawnOnHitComponent.swift */,
 				C6AA39F52625A0630058003C /* SpellExplodeOnHitComponent.swift */,
@@ -993,16 +994,23 @@
 			path = mp3;
 			sourceTree = "<group>";
 		};
+		CB2051EB263EDF9700B57812 /* Boss Attacks */ = {
+			isa = PBXGroup;
+			children = (
+				CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */,
+				CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */,
+				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
+				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
+				CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */,
+			);
+			path = "Boss Attacks";
+			sourceTree = "<group>";
+		};
 		CB744D692625A58800DF2188 /* BossStateMachine */ = {
 			isa = PBXGroup;
 			children = (
-				CB9E9EEE262590330016B046 /* BossAttackComponent.swift */,
 				CB744D6A2625A5AF00DF2188 /* BossAttackState.swift */,
-				CB744D7A2625A78600DF2188 /* BossAttackSubComponent.swift */,
-				CB744D822625A7B300DF2188 /* BossAttackRingOfBullets.swift */,
 				CB744D912625B81C00DF2188 /* BossMoveState.swift */,
-				CB744DA32625D56C00DF2188 /* BossAttackLaser.swift */,
-				CB744DC82625F76900DF2188 /* BossBorderOfWaveAndParticle.swift */,
 			);
 			path = BossStateMachine;
 			sourceTree = "<group>";
