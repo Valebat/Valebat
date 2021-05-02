@@ -192,10 +192,8 @@
 		C69D36C1262B2A1F00EDE2AC /* BiomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A944A026198C1A00087256 /* BiomeTests.swift */; };
 		C69D36C6262B2A1F00EDE2AC /* Valebat.app in Sources */ = {isa = PBXBuildFile; fileRef = CBC777F625FCE1C000581E20 /* Valebat.app */; };
 		C69D36F1262B2B0E00EDE2AC /* ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */; };
-		C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
 		C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62844C262BE97C00F3C5D1 /* RealTimeData.swift */; };
 		C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD628468262BFD9100F3C5D1 /* UserInputInfo+Util.swift */; };
-		C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69D3775262C0D8900EDE2AC /* CoopConstants.swift */; };
 		C6A942D725FCE7EA00087256 /* DamageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* DamageConstants.swift */; };
 		C6A942D825FCE7EA00087256 /* MapObjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */; };
 		C6A942D925FCE7EA00087256 /* MapObjectEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */; };
@@ -428,7 +426,6 @@
 		C68570B2262AF2CE009FEB78 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		C68570BE262AF6B4009FEB78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C69D36F0262B2B0E00EDE2AC /* ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveTests.swift; sourceTree = "<group>"; };
-		C69D3775262C0D8900EDE2AC /* CoopConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoopConstants.swift; sourceTree = "<group>"; };
 		C6A942C525FCE7EA00087256 /* DamageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageConstants.swift; sourceTree = "<group>"; };
 		C6A942C825FCE7EA00087256 /* MapObjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectConstants.swift; sourceTree = "<group>"; };
 		C6A942C925FCE7EA00087256 /* MapObjectEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectEnum.swift; sourceTree = "<group>"; };
@@ -1163,7 +1160,6 @@
 				C6ACE74A2629B5540000A2E6 /* Room */,
 				CB917FA6262AFFC4004A6F3C /* ClientManager.swift */,
 				DD85F34C2625DD4200838B0F /* ServerManager.swift */,
-				C69D3775262C0D8900EDE2AC /* CoopConstants.swift */,
 				DD9499B7263D75640080A99B /* GameNetworkManager.swift */,
 				DDEB1F00263DAD3700247526 /* DatabaseManager.swift */,
 			);
@@ -1691,7 +1687,6 @@
 				C6A942DB25FCE7EA00087256 /* StaticMapObject.swift in Sources */,
 				DD5783BC26032D0900E15493 /* EntityManager+UserInputDelegate.swift in Sources */,
 				EF19416325FFC71900341BF5 /* Spell.swift in Sources */,
-				C69D3776262C0D8900EDE2AC /* CoopConstants.swift in Sources */,
 				DDEB1F01263DAD3700247526 /* DatabaseManager.swift in Sources */,
 				EF6E5AF7262C2CAF00CBCEAE /* AimIndicatorComponent.swift in Sources */,
 				CB9E9DD5261095410016B046 /* IdleState.swift in Sources */,
@@ -1825,7 +1820,6 @@
 				C6F797A4262C9D060013EDFE /* CoopHUDData.swift in Sources */,
 				C69D377E262C142000EDE2AC /* RealTimeData.swift in Sources */,
 				C69D377F262C142000EDE2AC /* UserInputInfo+Util.swift in Sources */,
-				C69D3780262C142000EDE2AC /* CoopConstants.swift in Sources */,
 				C69D35FD262B2A1E00EDE2AC /* LaserDamage.wav in Sources */,
 				C69D35FE262B2A1E00EDE2AC /* Hit.wav in Sources */,
 				C69D35FF262B2A1E00EDE2AC /* SoundEffects.swift in Sources */,
