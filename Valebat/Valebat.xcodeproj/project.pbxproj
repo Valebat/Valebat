@@ -148,7 +148,6 @@
 		C69D3690262B2A1F00EDE2AC /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */; };
 		C69D3691262B2A1F00EDE2AC /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */; };
 		C69D3692262B2A1F00EDE2AC /* BaseInteractableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9E9C261E1B720016B046 /* BaseInteractableEntity.swift */; };
-		C69D3693262B2A1F00EDE2AC /* EnemyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */; };
 		C69D3694262B2A1F00EDE2AC /* ResettableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16228E2628C598003C2DE3 /* ResettableEntity.swift */; };
 		C69D3695262B2A1F00EDE2AC /* DamageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A942C525FCE7EA00087256 /* DamageConstants.swift */; };
 		C69D3696262B2A1F00EDE2AC /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACE7572629BCB70000A2E6 /* Username.swift */; };
@@ -299,7 +298,6 @@
 		CB9E9EA8261E246E0016B046 /* BaseProjectileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */; };
 		CB9E9EB0261E28380016B046 /* TextureUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EAF261E28380016B046 /* TextureUtilities.swift */; };
 		CB9E9EB8261E2E7A0016B046 /* BasicEnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EB7261E2E7A0016B046 /* BasicEnemyData.swift */; };
-		CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */; };
 		CB9E9ED3261E4BC90016B046 /* EXPBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB9E9ED2261E4BC80016B046 /* EXPBar.sks */; };
 		CB9E9ED8261E4CF70016B046 /* HUDEXPBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */; };
 		CB9E9EEF262590330016B046 /* BossAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E9EEE262590330016B046 /* BossAttackComponent.swift */; };
@@ -533,7 +531,6 @@
 		CB9E9EA7261E246E0016B046 /* BaseProjectileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProjectileEntity.swift; sourceTree = "<group>"; };
 		CB9E9EAF261E28380016B046 /* TextureUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureUtilities.swift; sourceTree = "<group>"; };
 		CB9E9EB7261E2E7A0016B046 /* BasicEnemyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEnemyData.swift; sourceTree = "<group>"; };
-		CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyProtocol.swift; sourceTree = "<group>"; };
 		CB9E9ED2261E4BC80016B046 /* EXPBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EXPBar.sks; sourceTree = "<group>"; };
 		CB9E9ED7261E4CF70016B046 /* HUDEXPBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDEXPBar.swift; sourceTree = "<group>"; };
 		CB9E9EEE262590330016B046 /* BossAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossAttackComponent.swift; sourceTree = "<group>"; };
@@ -741,7 +738,6 @@
 				CB9E9DBF26075F0F0016B046 /* GKEntityExtensions.swift */,
 				CB9E9E75261C5C1E0016B046 /* BaseEntity.swift */,
 				CB9E9E9C261E1B720016B046 /* BaseInteractableEntity.swift */,
-				CB9E9EC7261E38480016B046 /* EnemyProtocol.swift */,
 				EF16228E2628C598003C2DE3 /* ResettableEntity.swift */,
 			);
 			path = Entities;
@@ -1770,7 +1766,6 @@
 				C6A944732615FF1600087256 /* PowerupEnum.swift in Sources */,
 				C68570B3262AF2CE009FEB78 /* BaseGameScene.swift in Sources */,
 				EF61C4FD2619C7F40076BB3A /* RestartButton.swift in Sources */,
-				CB9E9EC8261E38480016B046 /* EnemyProtocol.swift in Sources */,
 				EF515A2726368A1800391FB2 /* LaserSpell.swift in Sources */,
 				C6ACE74C2629B55D0000A2E6 /* Room.swift in Sources */,
 				CB9E9DED2610A7CE0016B046 /* AttackState.swift in Sources */,
@@ -1975,7 +1970,6 @@
 				C69D3690262B2A1F00EDE2AC /* GKEntityExtensions.swift in Sources */,
 				C69D3691262B2A1F00EDE2AC /* BaseEntity.swift in Sources */,
 				C69D3692262B2A1F00EDE2AC /* BaseInteractableEntity.swift in Sources */,
-				C69D3693262B2A1F00EDE2AC /* EnemyProtocol.swift in Sources */,
 				C69D3694262B2A1F00EDE2AC /* ResettableEntity.swift in Sources */,
 				C69D3695262B2A1F00EDE2AC /* DamageConstants.swift in Sources */,
 				C69D3696262B2A1F00EDE2AC /* Username.swift in Sources */,

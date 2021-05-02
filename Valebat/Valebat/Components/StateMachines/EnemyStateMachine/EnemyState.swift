@@ -12,9 +12,9 @@ class EnemyState: GKState {
 
     var cachedMoveComponent: EnemyMoveComponent?
 
-    weak var enemyEntity: EnemyProtocol?
+    weak var enemyEntity: BaseInteractableEntity?
 
-    init(entity: EnemyProtocol) {
+    init(entity: BaseInteractableEntity) {
         enemyEntity = entity
     }
 

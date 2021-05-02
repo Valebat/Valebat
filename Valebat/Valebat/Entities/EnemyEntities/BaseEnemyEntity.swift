@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-class BaseEnemyEntity: BaseInteractableEntity, EnemyProtocol {
+class BaseEnemyEntity: BaseInteractableEntity {
     let image: String
     var stateMachine: GKStateMachine?
 
