@@ -145,16 +145,4 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
     }
 
-    /*private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
-        var spriteDataSet = Set<SpriteData>()
-        for (idx, data) in spritesData {
-            var rawSpriteData = data as? [String: Any] ?? [:]
-            rawSpriteData["idx"] = idx
-            if let spData = SpriteData(data: rawSpriteData) {
-                spriteDataSet.insert(spData)
-            }
-        }
-        return spriteDataSet
-    }*/
-
 }

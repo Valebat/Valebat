@@ -8,7 +8,6 @@
 class RoomManager {
     var roomCodes: [String] = []
     var room: Room?
-    var realTimeData = RealTimeData()
     var dbManager = DatabaseManager()
 
     func fetchRooms(completed: @escaping () -> Void) {
