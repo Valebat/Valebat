@@ -40,7 +40,7 @@ extension LevelListTypeEnum {
             }
             return list
         case .coop:
-            return BiomeTypeEnum.getBiomeDataFromTypes([.easy, .normal, .boss])
+            return BiomeTypeEnum.getBiomeDataFromTypes([.normal, .boss])
         }
     }
 }

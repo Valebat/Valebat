@@ -35,15 +35,18 @@ class CoopEntityManager: EntityManager {
     private func saveData() {
         let spriteComponents = spriteSystem.components
         serverManager?.saveData(spriteComponents: spriteComponents)
+
     }
 
     override func advanceLevel() {
         super.advanceLevel()
+        clientPlayers.values.forEach({ $0.component(ofType: HealthComponent.self)?.resetToFull() })
         clientPlayers.values.forEach({ self.add($0) })
     }
 
     override func restart() {
         super.restart()
+        clientPlayers.values.forEach({ $0.component(ofType: HealthComponent.self)?.resetToFull() })
         clientPlayers.values.forEach({ self.add($0) })
     }
 }
