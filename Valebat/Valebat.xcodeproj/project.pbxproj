@@ -269,6 +269,8 @@
 		C6F79A62263EE6B00013EDFE /* StarProjectiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF515A2426368A1800391FB2 /* StarProjectiles.swift */; };
 		C6F79A63263EE6B00013EDFE /* GameNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9499B7263D75640080A99B /* GameNetworkManager.swift */; };
 		C6F79A64263EE6B00013EDFE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEB1F00263DAD3700247526 /* DatabaseManager.swift */; };
+		C6F79A68263EE7070013EDFE /* ValebatUITests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781825FCE1C200581E20 /* ValebatUITests.xctest */; };
+		C6F79A6C263EE70C0013EDFE /* ValebatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7781C25FCE1C200581E20 /* ValebatUITests.swift */; };
 		CB0183AC262C69C700375D30 /* CoopHUDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0183AB262C69C700375D30 /* CoopHUDData.swift */; };
 		CB205182263D4B8A00B57812 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205181263D4B8A00B57812 /* MusicManager.swift */; };
 		CB20518A263D550D00B57812 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB205189263D550D00B57812 /* TrackData.swift */; };
@@ -2037,6 +2039,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F79A6C263EE70C0013EDFE /* ValebatUITests.swift in Sources */,
+				C6F79A68263EE7070013EDFE /* ValebatUITests.xctest in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
