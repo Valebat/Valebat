@@ -27,6 +27,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
     private(set) var realTimeData = RealTimeData()
     var dbManager = DatabaseManager()
 
+    var currentIDs = Set<UUID>()
     func getSpritesData() -> [SpriteData] {
         return realTimeData.sprites
     }
@@ -44,26 +45,11 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-        dbManager.removeValue(from: "sprites/\(roomIdx)")
-
+        let dataString = SpriteData.convertToString(spriteData: sprites)
         realTimeData.sprites = Array(sprites)
         realTimeData.playerHUDData = playerHUDData
         var allUpdates = [String: Any]()
-
         var updates = [String: Any]()
-        for sprite in realTimeData.sprites {
-            let update = [
-                "sprites/\(roomIdx)/\(sprite.idx)/name": sprite.name,
-                "sprites/\(roomIdx)/\(sprite.idx)/width": sprite.width,
-                "sprites/\(roomIdx)/\(sprite.idx)/height": sprite.height,
-                "sprites/\(roomIdx)/\(sprite.idx)/xPos": sprite.xPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/yPos": sprite.yPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/zPos": sprite.zPos,
-                "sprites/\(roomIdx)/\(sprite.idx)/orientation": sprite.orientation
-              ] as [String: Any]
-            update.forEach { updates[$0] = $1 }
-        }
-
         if let playerHUD = playerHUDData {
             let update = [
                 "playerHUD/\(roomIdx)/playerLevel": playerHUD.playerLevel,
@@ -79,7 +65,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
                 updates[key] = Float(hpLevel)
             }
         }
-
+        updates["sprites/\(roomIdx)/data"] = dataString
         allUpdates.merge(updates, uniquingKeysWith: {(current, _) in current})
 
         dbManager.updateValues(with: allUpdates)
@@ -106,8 +92,9 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
 
         dbManager.getValue(from: "sprites/\(roomIdx)") { (spritesData) in
-            let spriteDataSet = self.processRoomSprites(spritesData: spritesData)
-            self.realTimeData.sprites = Array(spriteDataSet)
+            if let string = spritesData[data] as? String {
+                self.realTimeData.sprites = SpriteData.convertToSpriteData(dataString: string)
+            }
             completed()
         }
     }
@@ -117,7 +104,6 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
               let roomIdx = guaranteedRoom.idx else {
             return
         }
-
         dbManager.getValue(from: "playerHUD/\(roomIdx)") { (hudData) in
             guard let playerHUD = CoopHUDData(data: hudData) else {
                 return
@@ -159,7 +145,7 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
         }
     }
 
-    private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
+    /*private func processRoomSprites(spritesData: [String: Any]) -> Set<SpriteData> {
         var spriteDataSet = Set<SpriteData>()
         for (idx, data) in spritesData {
             var rawSpriteData = data as? [String: Any] ?? [:]
@@ -169,5 +155,6 @@ class GameNetworkManager: ServerGameNetworkManager, ClientGameNetworkManager {
             }
         }
         return spriteDataSet
-    }
+    }*/
+
 }
