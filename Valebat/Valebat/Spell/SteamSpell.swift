@@ -12,7 +12,7 @@ class SteamSpell: CompositeSpell {
         self.damageTypes.append(.water)
         self.damageTypes.append(.fire)
         self.effects.append(SpellSpawnOnHitComponent.self)
-        let spawnTypeParam: [Any] = [Spell.buildEndAnimation(), 0.05, BasicType.water, self.level / 2]
+        let spawnTypeParam: [Any] = [Spell.buildEndAnimation(), 0.05, BasicType.water, 1/2]
         self.effectParams.append(spawnTypeParam)
     }
 
