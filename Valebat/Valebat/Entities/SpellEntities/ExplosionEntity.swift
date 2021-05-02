@@ -9,7 +9,7 @@ import GameplayKit
 
 class ExplosionEntity: BaseInteractableEntity {
 
-    init(position: CGPoint, scale: Int, damageMultiplier: Double) {
+    init(position: CGPoint, scale: Int, damageMultiplier: CGFloat) {
         let spriteTextures = TextureUtilities.generateTextures(assetName: "explosion")
         let spriteTexture = spriteTextures[0]
         let widthHeightRatio = spriteTexture.size().width / spriteTexture.size().height
@@ -18,7 +18,7 @@ class ExplosionEntity: BaseInteractableEntity {
             .applying(CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale)))
         super.init(texture: spriteTexture, size: spriteSize, physicsType: .playerAttack,
                    position: position)
-        let damage = GameConstants.damageValue * CGFloat(damageMultiplier)
+        let damage = DamageConstants.damageValue * damageMultiplier
         addComponent(InstantDamageComponent(damage: damage, type: .pure))
         addComponent(AutoDestructComponent(timer: Double(spriteTextures.count) * 0.1))
         self.component(ofType: SpriteComponent.self)?.animate(with: spriteTextures, runForever: false)

@@ -27,9 +27,8 @@ class SpellBombEffectComponent: SpellEffectComponent {
             return super.createEffect()
         }
         let scale: Int = (self.params[0] as? Int) ?? 1
-        let dmgMul: Double = Double((self.entity as? PlayerSpellEntity)?
-                                        .component(ofType: DamageComponent.self)?
-                                        .damageValues[.pure] ?? 1.0)
+        let dmgMul = (baseEntity as? PlayerSpellEntity)?
+            .component(conformingTo: DamageComponent.self)?.damageValues.values.max() ?? 1.0
         let explosion = ExplosionEntity(position: explosionPosition, scale: scale, damageMultiplier: dmgMul)
         entityManager.add(explosion)
         if let entity = self.baseEntity {

@@ -15,7 +15,6 @@ class PlayerSpellEntity: BaseProjectileEntity {
                    size: PlayerSpellEntity.getSpriteSize(spriteTexture: spriteTextures[0]),
                    physicsType: .playerAttack, position: position, velocity: velocity,
                    movementType: spell.movement)
-
         let damage = CGFloat(spell.level) * damageMultiplier * DamageConstants.damageValue
         if let basicSpell = spell as? SingleElementSpell {
             addComponent(InstantDamageComponent(damage: damage,
