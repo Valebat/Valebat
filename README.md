@@ -1,18 +1,48 @@
-# Valebat
+<!-- markdownlint-disable MD033 MD041 -->
+
+<p align="center"><img src="docs/img/valebat-poster-l.jpg" width="80%"/></p>
+
+<h1 align="center">Valebat</h1>
+
+## Overview
+
 Your princess got kidnapped by an evil mage! You, a wizard apprentice, have to scale a magical tower, discover spells, and level up in order to save your princess! Each playthrough is guaranteed to allow you to have a different experience!
 
 Welcome to the world of Valebat!
 
-Valebar is a top-down 2D fantasy RPG. Valebat is a player vs. enemy (PvE) dungeon-style game, and supports both single-player and cooperative 2-player multiplayer.
+Valebat is a top-down 2D fantasy RPG. Valebat is a player vs. enemy (PvE) dungeon-style game, and supports both single-player and cooperative 2-player multiplayer.
 
 The core of Valebat is its elemental magic system, featuring type advantages, elemental combinations and other gameplay elements. Valebat also comprises features such as level-specific objectives and random map generation to make each playthrough a uniquely fun experience!
 
-In order to attract new gamers to play our game, we will have a general cute theme like that of Postknight and MapleStory.
+## Demo Video
 
-For more details on the project (such as User Manual and Developer Guide), refer to the link below:
+<p align="center"><a href="https://youtu.be/7_ywd0Ft9_w"><img width="70%" alt="Valebat Demo" src="docs/img/valebat-start.png"></img></a></p>
 
-[Sprint 1 Report](https://docs.google.com/document/d/1LLQdVi_wBOLhBQ3wf7fYQWbOCiH3bqT03xRqWQhDvFs/edit?usp=sharing)
+## Getting Started
 
-[Sprint 2 Report](https://docs.google.com/document/d/1mvv-wX_vBnfLjolfX2s0Bn4EAO0h3VMZNcOvfyikAZk/edit?usp=sharing)
+To run this application locally, first clone this repository.
 
-[Sprint 3 Report](https://docs.google.com/document/d/17rlpbXiQMqF25GiVV9uIu03-cyRXOizGqc-THhGEkoU/edit?usp=sharing)
+```bash
+git clone https://github.com/Valebat/Valebat.git
+```
+
+Then, navigate into our XCode project directory:
+```bash
+cd Valebat
+```
+
+Next, run the following command in the root directory of the cloned repository:
+
+```bash
+pod install
+```
+
+Finally, open the `Valebat.xcworkspace` file to view the project. You will need to change the development team and bundle identifier accordingly to be able to build it locally.
+
+## User Guide
+
+Please refer to our user guide [here](https://tinyurl.com/ValebatUG). 
+
+## Developer Guide
+
+Please refer to our developer guide [here](https://tinyurl.com/ValebatDG).
